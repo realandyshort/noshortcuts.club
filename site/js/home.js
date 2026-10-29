@@ -121,7 +121,7 @@
     var photo = document.getElementById("latest-photo");
     photo.textContent = "";
     if (shot) {
-      photo.appendChild(el("a", { href: shot.link || c.links.instagram, target: "_blank", rel: "noopener" }, [el("img", { src: shot.url, alt: scrub(shot.caption).slice(0, 120) || "Photo from day " + tagDay })]));
+      photo.appendChild(el("a", { href: shot.link || c.links.instagram, target: "_blank", rel: "noopener" }, [ctx.fittedPhoto(photo, shot.url, scrub(shot.caption).slice(0, 120) || "Photo from day " + tagDay)]));
       photo.appendChild(el("span", { class: "tag", text: Trip.dayTag(td) }));
     } else photo.appendChild(ctx.photoPlaceholder(Trip.dayTag(td)));
     document.getElementById("latest-kicker").textContent = (live ? (c.copy.latest.kicker || "LATEST") : "DAY") + " · DAY " + tagDay;
@@ -317,7 +317,7 @@
       view.textContent = "";
       var d = Trip.day(ctx.plan, foundDay || country.first_day);
       var photo = el("div", { class: "photo" });
-      if (found) { photo.appendChild(el("a", { href: found.link || c.links.instagram, target: "_blank", rel: "noopener" }, [el("img", { src: found.url, alt: scrub(found.caption).slice(0, 100) || country.country })])); photo.appendChild(el("span", { class: "tag", text: Trip.dayTag(d) })); }
+      if (found) { photo.appendChild(el("a", { href: found.link || c.links.instagram, target: "_blank", rel: "noopener" }, [ctx.fittedPhoto(photo, found.url, scrub(found.caption).slice(0, 100) || country.country)])); photo.appendChild(el("span", { class: "tag", text: Trip.dayTag(d) })); }
       else photo.appendChild(ctx.photoPlaceholder(Trip.dayTag(d)));
       var h3 = el("h3"); h3.appendChild(titleNode(Trip.dayTitle(d)));
       var body = el("div", { class: "body" }, [el("p", { class: "kicker", text: country.country.toUpperCase() + " · " + (copy.entered || "ENTERED DAY") + " " + country.first_day }), h3,

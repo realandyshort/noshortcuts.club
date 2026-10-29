@@ -117,7 +117,8 @@
       "instagram": "Instagram",
       "emailPrompt": "Prefer email?",
       "substack": "Subscribe on Substack",
-      "sayHi": "Say hi:"
+      "sayHi": "Say hi:",
+      "emailButton": "Email me"
     },
     "about": {
       "kicker": "ABOUT",

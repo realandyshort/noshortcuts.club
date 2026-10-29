@@ -74,6 +74,20 @@
     if (!ig || !ig.items || !ctx.ok("instagram")) return [];
     return ig.items.filter(function (p) { return window.Trip.dayOfTimestamp(ctx.plan, p.timestamp, ctx.offset) === n; });
   };
+  // An <img> inside a .photo box. Wide photos fill the frame (cropped a little); tall or square
+  // ones are shown whole, centred on a blurred copy of themselves, so nothing is blown up or cut.
+  ctx.fittedPhoto = function (box, src, alt) {
+    var img = el("img", { src: src, alt: alt || "" });
+    function fit() {
+      if (!img.naturalWidth) return;
+      var tall = img.naturalWidth / img.naturalHeight < 1.35;
+      box.classList.toggle("contain", tall);
+      if (tall) box.style.setProperty("--backdrop", "url(\"" + src.replace(/"/g, "%22") + "\")"); else box.style.removeProperty("--backdrop");
+    }
+    img.addEventListener("load", fit);
+    if (img.complete) fit();
+    return img;
+  };
   ctx.photoPlaceholder = function (tagText, small) {
     var ph = ctx.config.copy.placeholders || {};
     var box = el("div", { class: "placeholder" }, [
