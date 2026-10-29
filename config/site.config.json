@@ -1,5 +1,5 @@
 {
-  "_readme": "This is the one file to edit for wording, links and sizes. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. labels: the words on the three buttons (listen = podcast, see = Instagram, consider = Substack).",
+  "_readme": "This is the one file to edit for wording, links, sizes and switches. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. podLink: once the show is on Apple Podcasts, paste the link here and every Listen button switches to it. home.sectionOrder: drag-free reordering, just move the names. sections.videos.enabled: true turns the video section on. comingSoon.note is the small line on the landing page; comingSoon.aboutText is what the About button shows when hovered (blank hides the button).",
   "showDates": false,
   "podLink": "",
   "site": {
@@ -20,13 +20,203 @@
   "labels": {
     "listen": "Listen",
     "see": "See",
-    "consider": "Consider"
+    "consider": "Consider",
+    "about": "About"
+  },
+  "menu": {
+    "wordmark": "Andy",
+    "wordmarkEm": "Short.",
+    "map": "Map",
+    "dispatches": "Dispatches",
+    "pictures": "Pictures",
+    "routePlan": "Route plan",
+    "about": "About",
+    "listen": "Listen"
+  },
+  "trip": {
+    "totalDays": 543,
+    "totalCountries": 18,
+    "everestFt": 29032,
+    "positionDelayHours": 24,
+    "fallbackUtcOffsetHours": -7
+  },
+  "home": {
+    "sectionOrder": [
+      "banner",
+      "latest",
+      "mapDispatch",
+      "days",
+      "videos"
+    ],
+    "dayCards": 5,
+    "bannerHeight": "min(44vw, 420px)",
+    "titleSize": "clamp(2.2rem, 5vw, 4.5rem)",
+    "photoHeight": "clamp(260px, 42vw, 620px)",
+    "mapHeight": "clamp(320px, 36vw, 560px)",
+    "routeStrokePx": 2.5,
+    "positionNote": "POSITION SHOWN 24 HRS LATE",
+    "counters": {
+      "days": "DAYS ON THE ROAD",
+      "countries": "COUNTRIES",
+      "miles": "MILES RIDDEN",
+      "milesPlan": "MILES · PLAN",
+      "climb": "FT CLIMBED",
+      "climbPlan": "FT CLIMBED · PLAN",
+      "everests": "EVERESTS",
+      "vsPlan": "DAYS VS. THE PLAN"
+    }
+  },
+  "sections": {
+    "videos": {
+      "enabled": false,
+      "label": "THIS WEEK ON YOUTUBE"
+    }
+  },
+  "copy": {
+    "latest": {
+      "kicker": "LATEST",
+      "plan": "PLAN",
+      "rode": "RODE",
+      "climb": "CLIMB",
+      "now": "NOW",
+      "localTime": "LOCAL TIME",
+      "weather": "WEATHER",
+      "captionFallbackNote": "From the route plan."
+    },
+    "dispatch": {
+      "kicker": "LATEST DISPATCH",
+      "recorded": "RECORDED ON THE ROAD",
+      "earlier": "EARLIER ENTRIES",
+      "appLink": "Listen in your podcast app",
+      "blurb": "A few minutes from the road, recorded on the phone and posted automatically."
+    },
+    "days": {
+      "title": "The days",
+      "all": "All 543 days",
+      "allTitle": "All the days",
+      "allIntro": "Every day of the plan, section by section. Numbers are from the route plan until the day is ridden."
+    },
+    "map": {
+      "legendRidden": "RIDDEN",
+      "legendPlanned": "PLANNED",
+      "start": "DEADHORSE",
+      "end": "USHUAIA"
+    },
+    "placeholders": {
+      "photoLink": "See the pictures on Instagram",
+      "photoLine": "Photos arrive as the ride happens."
+    },
+    "footer": {
+      "title": "Follow along",
+      "blurb": "Dispatches every few days, a video every week, photos as they happen.",
+      "listen": "Listen in your podcast app",
+      "youtube": "Watch on YouTube",
+      "instagram": "Instagram",
+      "emailPrompt": "Prefer email?",
+      "substack": "Subscribe on Substack",
+      "sayHi": "Say hi:"
+    },
+    "about": {
+      "kicker": "ABOUT",
+      "title": "Hi, I’m Andy",
+      "titleEm": "Short.",
+      "intro": "I’m riding a bike from Deadhorse, Alaska, at the top of the road, to Ushuaia, Argentina, at the bottom of it. 543 days, 18 countries.",
+      "bio": "[A short bio: where you’re from, what you do, what you’re into. Plus whether people can ride a stretch with you, and how they can help.]",
+      "portraitSrc": "",
+      "portraitAlt": "Portrait of Andy with the bike",
+      "whyKicker": "WHY I’M DOING THIS",
+      "quote": "[One line that says why, in your own words.]",
+      "why": "[A short paragraph on the why: what made you want to do it, what you hope to find, what you’re leaving and coming back to.]"
+    },
+    "comingSoonTitleEm": "Short"
   },
   "comingSoon": {
     "showLinks": true,
     "showEmail": false,
     "titleSize": "clamp(2.4rem, min(9.5vw, 16vh), 14rem)",
     "routeStrokePx": 2.5,
-    "drawOnLoad": true
+    "drawOnLoad": true,
+    "note": "Site coming soon",
+    "aboutText": "If a tree falls in the forest but no one is around to hear it, does it make a sound? If a man bicycles across continents and doesn’t microblog about it, did it even happen?\n\nMore coming soon…"
+  },
+  "plan": {
+    "sheetId": "1qAlzQWOvfifr_0LJ1YUm8b1mv0ewg51yYJVj1JHcOyo",
+    "tabPrefix": "Segment ",
+    "tabs": 6
+  },
+  "sources": {
+    "dispatchesRss": "https://anchor.fm/s/11951c6c8/podcast/rss",
+    "youtubePlaylistId": "PLdutpqTR1PWY",
+    "garminShareId": "G26HK76N9Z",
+    "instagramApiHost": "graph.instagram.com",
+    "instagramPostLimit": 60
+  },
+  "alerts": {
+    "brokenAfterFailures": 2,
+    "nothingNewDays": {
+      "dispatches": 7,
+      "instagram": 3,
+      "rides": 4,
+      "position": 2
+    },
+    "instagramTokenWarnDays": 45
+  },
+  "stories": {
+    "enabled": true,
+    "dryRun": true,
+    "label": "NEW DISPATCH"
+  },
+  "secretStats": {
+    "litersPerDay": 5,
+    "hotSpringKeywords": [
+      "hot spring",
+      "springs",
+      "thermal",
+      "termas",
+      "termales",
+      "tolantongo",
+      "fuentes georginas",
+      "puertecitos",
+      "coconuco",
+      "baños del inca",
+      "monterrey",
+      "puyuhuapi",
+      "daymán",
+      "dayman"
+    ],
+    "hotSpringIncludeDays": [],
+    "hotSpringExcludeDays": [],
+    "borderExtraDays": [
+      9,
+      44,
+      82,
+      222
+    ],
+    "capitals": [
+      "Ottawa",
+      "Washington",
+      "Mexico City",
+      "Belmopan",
+      "Guatemala City",
+      "San Salvador",
+      "Tegucigalpa",
+      "Managua",
+      "San José",
+      "Panama City",
+      "Bogotá",
+      "Quito",
+      "Lima",
+      "La Paz",
+      "Santiago",
+      "Buenos Aires",
+      "Montevideo",
+      "Asunción"
+    ],
+    "calories": {
+      "milesFactor": 32,
+      "climbFactor": 0.41,
+      "restMultiplier": 1.4,
+      "gearLbDefault": 66
+    }
   }
 }

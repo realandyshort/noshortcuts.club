@@ -1,0 +1,17 @@
+{
+  "name": "noshortcuts-club",
+  "version": "2.0.0",
+  "private": true,
+  "description": "noshortcuts.club: the No Shortcuts site and its hourly data robot",
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "update": "node scripts/update.js",
+    "update:offline": "node scripts/update.js --skip-network",
+    "story:dry-run": "node scripts/story.js --dry-run",
+    "which-index": "node scripts/which-index.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2"
+  }
+}

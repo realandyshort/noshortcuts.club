@@ -167,3 +167,95 @@ body {
   border-color: transparent;
   padding-left: 0;
 }
+
+/* "About" is a button, not a link: hovering (or tapping) it shows a short piece of text */
+.links .about {
+  position: relative;
+  font: inherit;
+  letter-spacing: inherit;
+  color: var(--cream);
+  background: none;
+  border: 1px solid rgba(251, 233, 215, 0.4);
+  border-radius: 999px;
+  padding: 0.55em 1.2em;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.links .about:hover,
+.links .about:focus-visible,
+.links .about[aria-expanded="true"] {
+  color: var(--ink);
+  background: var(--persimmon);
+  border-color: var(--persimmon);
+  outline: none;
+}
+.links .about:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+.about-text {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 12px);
+  width: min(34em, calc(100vw - 2 * var(--gutter)));
+  padding: 1em 1.2em;
+  border-radius: 12px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-headline);
+  font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 1.4;
+  text-align: left;
+  text-transform: none;
+  white-space: pre-line;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  z-index: 5;
+}
+.about-text::after { /* little pointer under the bubble */
+  content: "";
+  position: absolute;
+  left: 1.6em;
+  top: 100%;
+  border: 8px solid transparent;
+  border-top-color: var(--cream);
+}
+.links .about:hover .about-text,
+.links .about:focus-visible .about-text,
+.links .about[aria-expanded="true"] .about-text {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.links .about.flip .about-text { left: auto; right: 0; }
+.links .about.flip .about-text::after { left: auto; right: 1.6em; }
+
+/* A quiet "coming soon" note at the end of the button row */
+.links .note {
+  margin-left: auto;
+  align-self: center;
+  color: var(--gray);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.85em;
+}
+.links .note::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.7em;
+  border-radius: 50%;
+  background: var(--persimmon);
+  vertical-align: 0.1em;
+  animation: note-pulse 2.4s ease-in-out infinite;
+}
+@keyframes note-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .links .note::before { animation: none; } }
+@media (max-width: 640px) {
+  .links .note { margin-left: 0; width: 100%; margin-top: 0.4em; }
+}

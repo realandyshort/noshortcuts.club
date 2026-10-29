@@ -53,6 +53,34 @@
       nav.appendChild(a);
     });
 
+    // "About": a button that shows a short piece of text on hover, focus or tap
+    var aboutText = (cs.aboutText || "").trim();
+    if (aboutText) {
+      var about = document.createElement("button");
+      about.type = "button";
+      about.className = "about";
+      about.setAttribute("aria-expanded", "false");
+      about.textContent = labels.about || "About";
+      var bubble = document.createElement("span");
+      bubble.className = "about-text";
+      bubble.setAttribute("role", "tooltip");
+      bubble.textContent = aboutText;
+      about.appendChild(bubble);
+      about.addEventListener("click", function () {           // phones: tap to open, tap again to close
+        about.setAttribute("aria-expanded", about.getAttribute("aria-expanded") === "true" ? "false" : "true");
+      });
+      document.addEventListener("click", function (e) { if (!about.contains(e.target)) { about.setAttribute("aria-expanded", "false"); } });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") { about.setAttribute("aria-expanded", "false"); } });
+      nav.appendChild(about);
+      // Keep the bubble on screen when the button sits near the right edge
+      var place = function () {
+        var r = about.getBoundingClientRect();
+        about.classList.toggle("flip", r.left + bubble.offsetWidth > window.innerWidth - 16 && r.right > bubble.offsetWidth);
+      };
+      about.addEventListener("mouseenter", place);
+      about.addEventListener("focus", place);
+    }
+
     // The email is off on the coming-soon page unless comingSoon.showEmail is true
     var email = pick(config, "site.email");
     if (email && cs.showEmail === true) {
@@ -61,6 +89,14 @@
       m.textContent = email;
       m.className = "email";
       nav.appendChild(m);
+    }
+
+    // Small "coming soon" note at the end of the row
+    if (cs.note && cs.note.trim()) {
+      var note = document.createElement("span");
+      note.className = "note";
+      note.textContent = cs.note.trim();
+      nav.appendChild(note);
     }
 
     if (nav.children.length) { nav.hidden = false; }

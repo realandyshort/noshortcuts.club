@@ -1,5 +1,7 @@
-# Publishes the site to GitHub Pages every time something is pushed to the main branch.
-# It gathers the site/ folder plus the config and seed data into one bundle, then deploys it.
+# Publishes the site to GitHub Pages every time something is pushed to the main branch
+# (the hourly robot also asks for this after it commits fresh data).
+# It gathers the site/ folder plus the config and seed data into one bundle, decides which page is
+# the front door (coming-soon before day 1 of the plan, the home page from day 1), then deploys it.
 name: Deploy to GitHub Pages
 
 on:
@@ -24,16 +26,22 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Gather the files to publish
         run: |
           rm -rf _pages
-          mkdir -p _pages/config _pages/data
+          mkdir -p _pages/config _pages/data _pages/archive
           cp -R site/. _pages/
           cp config/site.config.json _pages/config/
-          cp seed/route_line.json _pages/data/
-          cp seed/countries.json _pages/data/
+          cp seed/route_line.json seed/countries.json seed/americas.json _pages/data/
+          cp -R archive/. _pages/archive/ 2>/dev/null || true
           touch _pages/.nojekyll
+          FRONT=$(node scripts/which-index.js)
+          echo "Front door: $FRONT"
+          if [ "$FRONT" = "home" ] && [ -f site/home.html ]; then cp site/home.html _pages/index.html; else cp site/coming-soon.html _pages/index.html; fi
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

@@ -1,0 +1,22 @@
+{
+  "fetched_at": "2026-10-29T19:14:17.164Z",
+  "show": {
+    "title": "No Shortcuts",
+    "link": "https://podcasters.spotify.com/pod/show/andy-short",
+    "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47097570/47097570-1793225482031-23c204cdeda57.jpg"
+  },
+  "items": [
+    {
+      "id": "365ce3a9-d6c1-4ca1-a832-b8acc1e224f1",
+      "title": "No Shortcuts — Trailer",
+      "link": "https://podcasters.spotify.com/pod/show/andy-short/episodes/No-Shortcuts--Trailer-e3ra5jd",
+      "audio": "https://anchor.fm/s/11951c6c8/podcast/play/128308269/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-9-28%2F435275695-44100-2-8870b94dc2653.m4a",
+      "audio_type": "audio/x-m4a",
+      "published_at": "2026-10-28T21:35:02.000Z",
+      "duration_sec": 46,
+      "description": "Testing the waters before I drench you.",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47097570/47097570-1793224674562-13ca0b93c8806.jpg",
+      "episode": null
+    }
+  ]
+}
