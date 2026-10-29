@@ -25,7 +25,7 @@ Andy is not a coder. Explain what you are doing in plain language, ask before an
 - **Hosting:** GitHub Pages on the custom domain noshortcuts.club with HTTPS. The repo will be public (GitHub Pages on the free plan), so nothing private goes in it.
 - **DNS:** the domain is registered at GoDaddy, but email forwarding for hello@noshortcuts.club runs through Cloudflare, so DNS is probably managed at Cloudflare. Tell Andy exactly which records to add, and have him give that step to his browser agent (see AGENT_STEPS.md). Never touch the email (MX/routing) records.
 - **Automation:** a GitHub Actions workflow runs every hour. It fetches all sources, writes JSON into `site/data/`, saves the daily archive, makes and posts Instagram story images, updates source status and alerts, then commits. Pages redeploys on each commit.
-- **Secrets** (GitHub Actions secrets only): `IG_ACCESS_TOKEN`, `IG_USER_ID`, `STRAVA_CLIENT_ID`, `STRAVA_CLIENT_SECRET`, `STRAVA_REFRESH_TOKEN`, `CAL_WEIGHT_LB`, `CAL_HEIGHT_IN`, `CAL_BIRTHDATE`, `CAL_GEAR_LB`.
+- **Secrets** (GitHub Actions secrets only): `IG_ACCESS_TOKEN`, `IG_USER_ID`, `INTERVALS_API_KEY`, `INTERVALS_ATHLETE_ID`, `CAL_WEIGHT_LB`, `CAL_HEIGHT_IN`, `CAL_BIRTHDATE`, `CAL_GEAR_LB`. (Strava was dropped; see section 12.)
 
 Suggested layout:
 ```
@@ -73,7 +73,7 @@ After each phase: run it locally, show Andy, then deploy.
 | Dispatches | RSS `https://anchor.fm/s/11951c6c8/podcast/rss` | Dispatch player and list, story automation | Hide dispatch panel |
 | Instagram | Instagram Graph API, Business account @wicked.short (`IG_ACCESS_TOKEN`, `IG_USER_ID`). Refresh the long-lived token automatically well before it expires. | Latest photo, captions, day-card photos, story publishing | Hide photo sections and day-card photos |
 | Videos | YouTube playlist RSS `https://www.youtube.com/feeds/videos.xml?playlist_id=PLdutpqTR1PWY` | Video section (toggle) | Hide video section |
-| Rides | Strava API, athlete 10011807 (OAuth refresh-token flow). Garmin auto-syncs to Strava. | Ridden miles, climb, moving time, highest point, per-day matching by local date | Fall back to plan numbers; keep sections visible |
+| Rides | Intervals.icu API (`INTERVALS_API_KEY`, `INTERVALS_ATHLETE_ID`). HTTP Basic auth, username `API_KEY`, password the key. `GET https://intervals.icu/api/v1/athlete/<id>/activities?oldest=YYYY-MM-DD&newest=YYYY-MM-DD` returns rides as JSON (distance in meters, elevation gain in meters, moving time in seconds, max altitude, local start date). Garmin auto-syncs to Intervals.icu through its official Garmin link. Confirm field names against https://intervals.icu/api-docs.html when building. | Ridden miles, climb, moving time, highest point, per-day matching by local date | Fall back to plan numbers; keep sections visible |
 | Position | Garmin MapShare public KML feed for `G26HK76N9Z` (page: https://share.garmin.com/G26HK76N9Z) | Position marker, place, local time, weather lookup | Hide marker, NOW band and "days vs plan" |
 | Weather | Any free no-key weather API (for example Open-Meteo) at the delayed position | NOW band | Hide weather text only |
 
@@ -86,7 +86,7 @@ Links (all in config): Spotify show `https://open.spotify.com/show/4hV5UdSqhmQpz
 - Each source records in `site/data/status.json`: `last_success_at`, `last_new_item_at`, `consecutive_failures`, `last_error`.
 - A source counts as **broken** after 2 failed hourly runs in a row (so one blip doesn't flicker the page). When broken, its sections render nothing at all: no empty boxes, no error text, no layout gaps. They come back on their own after the next good run.
 - **Alerts by email, with no extra accounts:** when a source becomes broken, the workflow opens a GitHub Issue titled like "Instagram sync broken: no successful update for 1 day 4 hours". It updates the title and adds a comment once a day with the current duration, and closes the issue when the source recovers. GitHub emails issue activity to the account email (hello@noshortcuts.club, which forwards to Andy).
-- Also alert, as a separate issue, if a source works but has had nothing new for longer than a config threshold (defaults: dispatches 7 days, Instagram 3 days, Strava 4 days, position 2 days). Make it clear this is "nothing new" rather than "broken".
+- Also alert, as a separate issue, if a source works but has had nothing new for longer than a config threshold (defaults: dispatches 7 days, Instagram 3 days, rides 4 days, position 2 days). Make it clear this is "nothing new" rather than "broken".
 
 ## 6. Instagram story automation
 
@@ -167,3 +167,4 @@ Links (all in config): Spotify show `https://open.spotify.com/show/4hV5UdSqhmQpz
 - **Phase 1 layout:** `site/index.html` *is* the coming-soon page for now. In Phase 2, move it to `site/coming-soon.html` and let `index.html` become the home page (served as coming-soon before day 1, per section 7).
 - **Publishing:** GitHub Pages deploys from the `Deploy to GitHub Pages` workflow (source: GitHub Actions, not a branch folder). It bundles `site/` plus `config/site.config.json` and the seed JSON into one folder. The Phase 2 hourly workflow should write into `site/data/` and commit; this deploy workflow then runs on that commit.
 - **Node is not installed on Andy's Mac** (no Homebrew either). Phase 1 uses a Python preview server. Phase 2 needs Node for the scripts and the dev server; install it then.
+- **Ride data comes from Intervals.icu, not Strava (decided 2026-10-29).** Strava now requires a paid subscription for API access (since June 2026), and Andy's Strava account is free. Intervals.icu is free, has an official Garmin Connect link, and gives a personal API key with no approval step. Secrets are `INTERVALS_API_KEY` and `INTERVALS_ATHLETE_ID` (the athlete ID looks like `i123456`). Everywhere the brief says Strava, read Intervals.icu; the data needed and the fallback (plan numbers) are unchanged.
