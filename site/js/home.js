@@ -110,11 +110,14 @@
     document.getElementById("banner-note").textContent = showMarker && !travelling ? (c.home.positionNote || "") : "";
 
     /* ---- Latest photo (today: newest post; another day: that day's photo) ---- */
+    // Today, and a simulated day (?day=), show the newest post, as the brief asks; a time-travelled
+    // day shows that day's own photo from the archive.
     var newest = igOK ? ctx.data.instagram.items[0] : null;
     var newestDay = newest ? Trip.dayOfTimestamp(plan, newest.timestamp, ctx.offset) : NaN;
+    var useNewest = live || (ctx.testDay && !travelling);
     var tagDay = (live && newest && newestDay >= 1 && newestDay <= total) ? newestDay : day;
     var td = Trip.day(plan, tagDay);
-    var shot = live ? (newest && newest.media_url ? { url: newest.media_url, link: newest.permalink, caption: newest.caption || "" } : null) : photoFor(ctx, day, archive);
+    var shot = useNewest ? (newest && newest.media_url ? { url: newest.media_url, link: newest.permalink, caption: newest.caption || "" } : null) : photoFor(ctx, day, archive);
     var photo = document.getElementById("latest-photo");
     photo.textContent = "";
     if (shot) {
