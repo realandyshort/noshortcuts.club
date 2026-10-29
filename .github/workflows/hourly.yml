@@ -44,7 +44,8 @@ jobs:
         run: |
           git config user.name "site robot"
           git config user.email "hello@noshortcuts.club"
-          git add site/data site/stories archive
+          mkdir -p archive/days site/stories
+          git add -A site/data site/stories archive
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "Nothing changed."
