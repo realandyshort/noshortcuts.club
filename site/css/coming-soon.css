@@ -1,5 +1,7 @@
 /* No Shortcuts: coming-soon page
-   Brand colours and fonts live here as variables so they are easy to find. */
+   Brand colours and fonts live here as variables so they are easy to find.
+   Everything scales with the window: the route line always runs edge to edge,
+   the title and buttons grow and shrink with the screen. */
 
 :root {
   --ink: #161412;        /* black background */
@@ -12,8 +14,9 @@
   --font-body: "Bricolage Grotesque", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --gutter: clamp(20px, 5vw, 72px);  /* space from the screen edges */
-  --title-size: clamp(3rem, 11vw, 9rem); /* overridden from config if set */
+  --gutter: clamp(20px, 4.5vw, 80px);                     /* space from the screen edges */
+  --title-size: clamp(2.4rem, min(9.5vw, 16vh), 14rem);  /* overridden from config if set */
+  --ui-size: clamp(0.8rem, min(1.15vw, 2.2vh), 1.1rem);  /* tagline and buttons */
 }
 
 * { box-sizing: border-box; }
@@ -31,18 +34,19 @@ body {
   overflow-x: hidden; /* the route line's tails run off both edges on purpose */
 }
 
-/* The page is a column: title at the top, route line in the middle, links at the bottom. */
+/* The page is a column: title at the top, route line in the middle, buttons at the bottom.
+   It always fills exactly one screen. */
 .page {
-  min-height: 100vh;
-  min-height: 100svh; /* phones: the real visible height, below the browser bar */
+  height: 100vh;
+  height: 100svh; /* phones: the real visible height, below the browser bar */
   display: flex;
   flex-direction: column;
-  padding: calc(var(--gutter) * 0.9) 0 var(--gutter);
-  padding-top: max(calc(var(--gutter) * 0.9), env(safe-area-inset-top));
+  padding-top: max(calc(var(--gutter) * 0.8), env(safe-area-inset-top));
   padding-bottom: max(var(--gutter), env(safe-area-inset-bottom));
 }
 
 .top {
+  flex: 0 0 auto;
   padding: 0 var(--gutter);
 }
 
@@ -74,28 +78,28 @@ body {
 }
 
 .tagline {
-  margin: clamp(10px, 1.6vw, 20px) 0 0;
+  margin: clamp(8px, 1.4vh, 20px) 0 0;
   font-family: var(--font-mono);
-  font-size: clamp(0.8rem, 1.4vw, 1.05rem);
+  font-size: var(--ui-size);
   font-weight: 500;
   letter-spacing: 0.18em;
   color: var(--peach);
 }
 
-/* The route line fills the space between title and links */
+/* The route line takes all the space between title and buttons, and runs edge to edge.
+   Its height follows the window, but on narrow screens it is kept from getting too spiky. */
 .route {
   flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   align-items: center;
-  min-height: clamp(140px, 32vh, 420px);
-  margin: clamp(24px, 5vh, 56px) 0;
+  padding: clamp(12px, 3vh, 40px) 0;
 }
 
 .route-line {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 100%;
+  height: min(100%, 55vw);
   overflow: visible; /* lets the short tails run past both edges */
 }
 
@@ -105,7 +109,7 @@ body {
   stroke-width: 2.5px;
   stroke-linejoin: round;
   stroke-linecap: round;
-  vector-effect: non-scaling-stroke; /* same thickness on phones and desktops */
+  vector-effect: non-scaling-stroke; /* same thickness whatever the stretch */
 }
 
 /* Draws the line in from left to right when the page opens */
@@ -124,46 +128,42 @@ body {
   }
 }
 
-/* Small links along the bottom */
+/* Three small outlined buttons along the bottom: Listen, See, Consider */
 .links {
+  flex: 0 0 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6em clamp(20px, 3vw, 44px);
+  gap: 0.6em clamp(10px, 1.2vw, 18px);
   padding: 0 var(--gutter);
   font-family: var(--font-mono);
-  font-size: clamp(0.82rem, 1.25vw, 0.98rem);
-  letter-spacing: 0.06em;
+  font-size: var(--ui-size);
+  letter-spacing: 0.08em;
 }
 
 .links a {
   color: var(--cream);
   text-decoration: none;
-  border-bottom: 1px solid rgba(251, 233, 215, 0.35);
-  padding-bottom: 2px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  border: 1px solid rgba(251, 233, 215, 0.4);
+  border-radius: 999px;
+  padding: 0.55em 1.2em;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .links a:hover,
 .links a:focus-visible {
-  color: var(--persimmon);
-  border-bottom-color: var(--persimmon);
+  color: var(--ink);
+  background: var(--persimmon);
+  border-color: var(--persimmon);
   outline: none;
 }
 
 .links a:focus-visible {
-  outline: 2px solid var(--persimmon);
-  outline-offset: 4px;
+  outline: 2px solid var(--cream);
+  outline-offset: 3px;
 }
 
 .links .email {
   color: var(--peach);
-}
-
-/* Phones: let the title shrink to fit, stack the links */
-@media (max-width: 600px) {
-  .title { white-space: normal; }
-  .links {
-    flex-direction: column;
-    gap: 0.9em;
-  }
+  border-color: transparent;
+  padding-left: 0;
 }

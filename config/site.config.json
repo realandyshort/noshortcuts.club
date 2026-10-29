@@ -1,9 +1,7 @@
 {
-  "_readme": "This is the one file to edit for wording, links and sizes. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise.",
-
+  "_readme": "This is the one file to edit for wording, links and sizes. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. labels: the words on the three buttons (listen = podcast, see = Instagram, consider = Substack).",
   "showDates": false,
   "podLink": "",
-
   "site": {
     "name": "No Shortcuts",
     "domain": "noshortcuts.club",
@@ -11,7 +9,6 @@
     "description": "A bike trip from Deadhorse, Alaska to Ushuaia, Argentina. 543 days, 18 countries, no shortcuts.",
     "email": "hello@noshortcuts.club"
   },
-
   "links": {
     "spotify": "https://open.spotify.com/show/4hV5UdSqhmQpzcv4tShkrY",
     "pocketCasts": "https://pca.st/kdvoa4ii",
@@ -20,16 +17,15 @@
     "routePlan": "https://docs.google.com/spreadsheets/d/1qAlzQWOvfifr_0LJ1YUm8b1mv0ewg51yYJVj1JHcOyo/edit",
     "youtube": "https://www.youtube.com/playlist?list=PLdutpqTR1PWY"
   },
-
   "labels": {
     "listen": "Listen",
-    "instagram": "Instagram",
-    "substack": "Substack"
+    "see": "See",
+    "consider": "Consider"
   },
-
   "comingSoon": {
     "showLinks": true,
-    "titleSize": "clamp(3rem, 11vw, 9rem)",
+    "showEmail": false,
+    "titleSize": "clamp(2.4rem, min(9.5vw, 16vh), 14rem)",
     "routeStrokePx": 2.5,
     "drawOnLoad": true
   }

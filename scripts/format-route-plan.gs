@@ -8,7 +8,12 @@
  *      prompt (it only touches this spreadsheet).
  *   4. Close the script editor. Run it again any time a new tab (e.g. Segment 6) appears.
  *
- * It only changes how cells look. Data and IMPORTRANGE formulas are untouched.
+ * It also creates any Segment tab that exists in Andy's working sheet but not yet in this
+ * public copy (for example "Segment 6"), filled with the same IMPORTRANGE pull-through the
+ * other tabs use. It finds the working sheet from the formula already in Segment 1, so
+ * nothing private is written here.
+ *
+ * Otherwise it only changes how cells look. Data and IMPORTRANGE formulas are untouched.
  * Readability first: warm banded rows, light borders, dark header, numbers in mono.
  */
 
@@ -30,6 +35,7 @@ var MAX_ROWS = 400;        // format this many rows so new days show up styled
 
 function formatRoutePlan() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
+  syncSegmentTabs_(ss);
   ss.getSheets().forEach(function (sheet) {
     var name = sheet.getName();
     if (/^Segment\s*\d+/i.test(name)) {
@@ -132,4 +138,36 @@ function formatOverviewTab_(sheet) {
   }
   body.setBorder(true, true, true, true, true, true, BRAND.rule, SpreadsheetApp.BorderStyle.SOLID);
   sheet.getRange(2, 1, lastRow - 1, 1).setFontFamily(FONT_MONO).setFontColor(BRAND.persimmon).setFontWeight('bold');
+}
+
+
+// Creates missing "Segment N" tabs that pull from the working sheet.
+// The working sheet's ID is read from the IMPORTRANGE formula already in Segment 1, cell A1.
+function syncSegmentTabs_(ss) {
+  var first = ss.getSheets().filter(function (sh) { return /^Segment\s*\d+/i.test(sh.getName()); })[0];
+  if (!first) { return; }
+  var formula = first.getRange('A1').getFormula();
+  var m = formula.match(/IMPORTRANGE\(\s*"([^"]+)"/i);
+  if (!m) { return; } // the tabs are not pulled through; nothing to copy
+  var sourceRef = m[1];
+  var idMatch = sourceRef.match(/\/d\/([a-zA-Z0-9-_]+)/);
+  var sourceId = idMatch ? idMatch[1] : sourceRef;
+
+  var source;
+  try { source = SpreadsheetApp.openById(sourceId); } catch (e) { return; } // not ours to read
+
+  source.getSheets().forEach(function (src) {
+    var name = src.getName();
+    if (!/^Segment\s*\d+/i.test(name)) { return; }
+    if (ss.getSheetByName(name)) { return; }
+    var tab = ss.insertSheet(name);
+    tab.getRange('A1').setFormula('=IMPORTRANGE("' + sourceRef + '", "\'' + name + '\'!A:Z")');
+    Logger.log('Created tab ' + name);
+  });
+
+  // Keep tabs in segment order
+  var ordered = ss.getSheets().filter(function (sh) { return /^Segment\s*\d+/i.test(sh.getName()); })
+    .sort(function (a, b) { return parseInt(a.getName().replace(/\D/g, ''), 10) - parseInt(b.getName().replace(/\D/g, ''), 10); });
+  var offset = ss.getSheets().length - ordered.length; // non-segment tabs stay first
+  ordered.forEach(function (sh, i) { ss.setActiveSheet(sh); ss.moveActiveSheet(offset + i + 1); });
 }

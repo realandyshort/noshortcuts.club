@@ -17,6 +17,7 @@ This is a plain website: HTML, CSS and a little JavaScript. No frameworks. Every
 | `config/site.config.json` | **The one file to edit** for wording, links and sizes. |
 | `seed/` | The route plan: all 543 days, the 18 countries, and the route as a line of map points. |
 | `scripts/dev-server.py` | Runs a local preview on your Mac. |
+| `scripts/format-route-plan.gs` | One-time styling for the public route plan sheet, and creates missing Segment tabs. Instructions at the top of the file. |
 | `.github/workflows/deploy.yml` | The robot that publishes the site whenever a change is pushed. |
 | `BUILD_BRIEF.md`, `reference/` | The plan and the approved page designs. |
 
@@ -35,10 +36,10 @@ Then open http://localhost:4000 in your browser. Press Ctrl+C in Terminal to sto
 Open `config/site.config.json` in any text editor and change the text between the quotes. Keep the quotes and commas as they are.
 
 - `site.tagline`: the small line under the title ("ALASKA TO ARGENTINA").
-- `site.email`: the email shown on the page.
+- `site.email`: your public email (not shown on the coming-soon page unless `comingSoon.showEmail` is true).
 - `links.*`: Spotify, Instagram, Substack, the route plan, YouTube, Pocket Casts.
 - `podLink`: leave empty for now. Once Apple lists the show, paste the link here and every "Listen" link switches to it.
-- `labels.*`: the words on the small links.
+- `labels.*`: the words on the three buttons: `listen` (podcast), `see` (Instagram), `consider` (Substack).
 - `comingSoon.titleSize`: how big "No Shortcuts" is.
 - `comingSoon.routeStrokePx`: how thick the route line is.
 - `comingSoon.drawOnLoad`: `true` draws the line in when the page opens; `false` shows it instantly.

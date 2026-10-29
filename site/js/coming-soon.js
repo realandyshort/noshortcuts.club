@@ -29,7 +29,7 @@
       document.documentElement.style.setProperty("--title-size", cs.titleSize);
     }
 
-    // Links: Listen, Instagram, Substack, email
+    // Buttons: Listen (podcast), See (Instagram), Consider (Substack)
     var nav = document.getElementById("links");
     if (!nav || cs.showLinks === false) { return; }
 
@@ -38,8 +38,8 @@
     var listenHref = (config.podLink && config.podLink.trim()) || links.spotify;
     var items = [
       { label: labels.listen || "Listen", href: listenHref },
-      { label: labels.instagram || "Instagram", href: links.instagram },
-      { label: labels.substack || "Substack", href: links.substack }
+      { label: labels.see || "See", href: links.instagram },
+      { label: labels.consider || "Consider", href: links.substack }
     ];
 
     nav.innerHTML = "";
@@ -53,8 +53,9 @@
       nav.appendChild(a);
     });
 
+    // The email is off on the coming-soon page unless comingSoon.showEmail is true
     var email = pick(config, "site.email");
-    if (email) {
+    if (email && cs.showEmail === true) {
       var m = document.createElement("a");
       m.href = "mailto:" + email;
       m.textContent = email;
