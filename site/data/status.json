@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-10-29T19:14:18.080Z",
+  "generated_at": "2026-10-29T19:25:01.414Z",
   "sources": {
     "plan": {
       "state": "ok",
-      "last_success_at": "2026-10-29T19:14:16.985Z",
-      "last_new_item_at": "2026-10-29T19:14:16.973Z",
+      "last_success_at": "2026-10-29T19:25:01.411Z",
+      "last_new_item_at": "2026-10-29T19:25:01.401Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:14:16.985Z",
+      "last_attempt_at": "2026-10-29T19:25:01.411Z",
       "note": "some sections from the seed"
     },
     "dispatches": {

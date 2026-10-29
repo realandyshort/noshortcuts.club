@@ -88,15 +88,15 @@ em { font-style: italic; color: var(--persimmon); }
 .now p { margin: 0.4rem 0 0; }
 
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
-.map-card { position: relative; height: var(--map-height); min-height: 100%; }
-.map-card svg { width: 100%; height: 100%; display: block; }
+.map-card { position: relative; height: var(--map-height); min-height: 100%; display: flex; flex-direction: column; padding: 0.8rem 0.8rem 0; }
+.map-card svg { width: 100%; flex: 1 1 auto; min-height: 0; display: block; }
 .map-card .land { fill: var(--peach); stroke: none; }
 .map-card .route-rest { fill: none; stroke: var(--gray); stroke-width: 1.6px; stroke-dasharray: 3 4; vector-effect: non-scaling-stroke; }
 .map-card .route-done { fill: none; stroke: var(--persimmon); stroke-width: 2.2px; vector-effect: non-scaling-stroke; }
-.map-card .map-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 1px; fill: var(--ink); font-weight: 500; }
+.map-card .map-label { font-family: var(--font-mono); letter-spacing: 0.08em; fill: var(--ink); font-weight: 500; }
 .map-card .map-dot { fill: var(--ink); }
-.map-card .map-pos { fill: var(--cream); stroke: var(--persimmon); stroke-width: 3; }
-.map-legend { position: absolute; left: 1rem; right: 1rem; bottom: 0.8rem; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+.map-card .map-pos { fill: var(--cream); stroke: var(--persimmon); }
+.map-legend { flex: 0 0 auto; padding: 0.6rem 0.2rem 0.7rem; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
 .map-legend i { display: inline-block; width: 14px; border-top: 2px solid var(--persimmon); vertical-align: middle; margin-right: 0.3em; }
 .map-legend i.dotted { border-top-style: dotted; border-color: var(--gray); }
 

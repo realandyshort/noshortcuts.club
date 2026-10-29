@@ -1,0 +1,63 @@
+# The hourly robot. Fetches every source, writes site/data/, the daily archive and any story images,
+# raises or clears alert issues, commits what changed, then asks the deploy workflow to publish.
+# Secrets are optional: a source whose secrets are missing is marked "not connected", never broken.
+name: Hourly update
+
+on:
+  schedule:
+    - cron: "7 * * * *"      # seven minutes past every hour (UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: hourly
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+
+      - name: Fetch sources, write data, archive, stories, alerts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          INTERVALS_API_KEY: ${{ secrets.INTERVALS_API_KEY }}
+          INTERVALS_ATHLETE_ID: ${{ secrets.INTERVALS_ATHLETE_ID }}
+        run: node scripts/update.js
+
+      - name: Commit the new data
+        id: commit
+        run: |
+          git config user.name "site robot"
+          git config user.email "hello@noshortcuts.club"
+          git add site/data site/stories archive
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Nothing changed."
+          else
+            git commit -m "Hourly update: $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push origin HEAD:main
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A push made with the workflow token does not start other workflows on its own, so ask.
+      - name: Publish
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main

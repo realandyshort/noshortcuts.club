@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T19:14:16.973Z",
+  "generated_at": "2026-10-29T19:25:01.401Z",
   "day1_date": "2027-06-18",
   "total_days": 543,
   "source": {
@@ -669,7 +669,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: second Seattle rest day",
+      "notes": "",
       "route_url": "",
       "stay": "Seattle"
     },
@@ -683,7 +683,7 @@
       "plan_miles": 96.7,
       "plan_climb_ft": 4875,
       "terrain": "Rolling",
-      "notes": "No ferry: south to Tacoma, over the Tacoma Narrows Bridge path, Gig Harbor, Belfair, then SR-106 along the south shore of Hood Canal to Potlatch State Park. Changed Oct 2026: Segment 2 rework.",
+      "notes": "No ferry: south to Tacoma, over the Tacoma Narrows Bridge path, Gig Harbor, Belfair, then SR-106 along the south shore of Hood Canal to Potlatch State Park",
       "route_url": "https://www.komoot.com/tour/3369131975",
       "stay": "Potlatch State Park"
     },
@@ -697,7 +697,7 @@
       "plan_miles": 96.9,
       "plan_climb_ft": 4825,
       "terrain": "Hilly (Mount Walker)",
-      "notes": "US-101 up the west side of Hood Canal through Hoodsport, Brinnon and Quilcene, then Sequim and the Olympic Discovery Trail into Port Angeles. REST DAY TOMORROW. Changed Oct 2026: Segment 2 rework.",
+      "notes": "US-101 up the west side of Hood Canal through Hoodsport, Brinnon and Quilcene, then Sequim and the Olympic Discovery Trail into Port Angeles. REST DAY TOMORROW",
       "route_url": "https://www.komoot.com/tour/3369133200",
       "stay": "Port Angeles"
     },
@@ -711,7 +711,7 @@
       "plan_miles": 30.9,
       "plan_climb_ft": 9550,
       "terrain": "Rolling, out and back",
-      "notes": "Rest day, optional outing. OPTIONAL rest-day outing, ride unloaded. Out to the Elwha, park at Madison Falls, ride the closed Olympic Hot Springs Road (bypass trail around the washout) to Boulder Creek trailhead, then hike to the springs. Bikes are not allowed past the trailhead. Miles are round trip. Changed Oct 2026: Segment 2 rework.",
+      "notes": "Rest day, optional outing. OPTIONAL rest-day outing, ride unloaded. Out to the Elwha, park at Madison Falls, ride the closed Olympic Hot Springs Road (bypass trail around the washout) to Boulder Creek trailhead, then hike to the springs. Bikes are not allowed past the trailhead. Miles are round trip",
       "route_url": "https://www.komoot.com/tour/3369133555",
       "stay": "Port Angeles"
     },
@@ -725,7 +725,7 @@
       "plan_miles": 92.8,
       "plan_climb_ft": 4200,
       "terrain": "Rolling",
-      "notes": "US-101 along Lake Crescent (curvy, no shoulder in places), Forks, then the 18-mile Hoh River Road into the rain forest. Camp at Hoh campground. Changed Oct 2026: Segment 2 rework.",
+      "notes": "US-101 along Lake Crescent (curvy, no shoulder in places), Forks, then the 18-mile Hoh River Road into the rain forest. Camp at Hoh campground",
       "route_url": "https://www.komoot.com/tour/3369133984",
       "stay": "Hoh Rain Forest"
     },
@@ -739,7 +739,7 @@
       "plan_miles": 64,
       "plan_climb_ft": 1975,
       "terrain": "Rolling",
-      "notes": "Back to 101, Ruby Beach, Kalaloch beaches, then Lake Quinault. Changed Oct 2026: Segment 2 rework.",
+      "notes": "Back to 101, Ruby Beach, Kalaloch beaches, then Lake Quinault",
       "route_url": "https://www.komoot.com/tour/3369134821",
       "stay": "Lake Quinault"
     },
@@ -753,7 +753,7 @@
       "plan_miles": 125,
       "plan_climb_ft": 6025,
       "terrain": "Rolling",
-      "notes": "Aberdeen, Raymond, South Bend, then along Willapa Bay to Ilwaco. Changed Oct 2026: Segment 2 rework.",
+      "notes": "Aberdeen, Raymond, South Bend, then along Willapa Bay to Ilwaco",
       "route_url": "https://www.komoot.com/tour/3369135278",
       "stay": "Ilwaco"
     },
@@ -767,7 +767,7 @@
       "plan_miles": 104,
       "plan_climb_ft": 5875,
       "terrain": "Rolling, one climb over the Coast Range",
-      "notes": "Astoria-Megler Bridge, Astoria, Seaside and Cannon Beach, then US-26 inland to Stub Stewart State Park. Changed Oct 2026: Segment 2 rework.",
+      "notes": "Astoria-Megler Bridge, Astoria, Seaside and Cannon Beach, then US-26 inland to Stub Stewart State Park",
       "route_url": "https://www.komoot.com/tour/3369136812",
       "stay": "L.L. Stub Stewart State Park"
     },
@@ -781,7 +781,7 @@
       "plan_miles": 39.3,
       "plan_climb_ft": 1375,
       "terrain": "Mostly downhill",
-      "notes": "Short day so you have the afternoon in Portland. Banks-Vernonia Trail to Banks, then Hillsboro and Beaverton into the city. Changed Oct 2026: Segment 2 rework.",
+      "notes": "Short day so you have the afternoon in Portland. Banks-Vernonia Trail to Banks, then Hillsboro and Beaverton into the city",
       "route_url": "https://www.komoot.com/tour/3369137209",
       "stay": "Portland"
     },
@@ -795,7 +795,7 @@
       "plan_miles": 123,
       "plan_climb_ft": 3250,
       "terrain": "Flat",
-      "notes": "Willamette Valley via Champoeg, Salem, Independence and Corvallis (much of it on the Willamette Valley Scenic Bikeway). Changed Oct 2026: Segment 2 rework.",
+      "notes": "Willamette Valley via Champoeg, Salem, Independence and Corvallis (much of it on the Willamette Valley Scenic Bikeway)",
       "route_url": "https://www.komoot.com/tour/3369137564",
       "stay": "Eugene"
     },
@@ -809,7 +809,7 @@
       "plan_miles": 57.5,
       "plan_climb_ft": 2650,
       "terrain": "Rolling, climb at the end",
-      "notes": "McKenzie Highway (OR-126) upriver to Blue River, then Aufderheide Drive (FR 19) past Cougar Reservoir. Camp at Cougar Crossing campground, the closest to the springs. REST DAY TOMORROW. Changed Oct 2026: Segment 2 rework.",
+      "notes": "McKenzie Highway (OR-126) upriver to Blue River, then Aufderheide Drive (FR 19) past Cougar Reservoir. Camp at Cougar Crossing campground, the closest to the springs. REST DAY TOMORROW",
       "route_url": "https://www.komoot.com/tour/3369137959",
       "stay": "Terwilliger Hot Springs (Cougar Crossing)"
     },
@@ -837,7 +837,7 @@
       "plan_miles": 88,
       "plan_climb_ft": 7875,
       "terrain": "Big climbs (Aufderheide summit, Willamette Pass)",
-      "notes": "Aufderheide Drive south over the summit to Westfir and Oakridge, soak at McCredie (short walk from Hwy 58), then OR-58 over Willamette Pass. Changed Oct 2026: Segment 2 rework.",
+      "notes": "Aufderheide Drive south over the summit to Westfir and Oakridge, soak at McCredie (short walk from Hwy 58), then OR-58 over Willamette Pass",
       "route_url": "https://www.komoot.com/tour/3369139034",
       "stay": "Crescent Lake Junction"
     },
@@ -851,7 +851,7 @@
       "plan_miles": 57.3,
       "plan_climb_ft": 5575,
       "terrain": "Big climb, high altitude",
-      "notes": "US-97 south to Chemult, OR-138 to the North Entrance, then East Rim Drive clockwise past Cleetwood, Cloudcap and Kerr Notch to Mazama Village. Water only at Rim Village and Mazama Village. Changed Oct 2026: Segment 2 rework.",
+      "notes": "US-97 south to Chemult, OR-138 to the North Entrance, then East Rim Drive clockwise past Cleetwood, Cloudcap and Kerr Notch to Mazama Village. Water only at Rim Village and Mazama Village",
       "route_url": "https://www.komoot.com/tour/3369139726",
       "stay": "Crater Lake (Mazama Village)"
     },
@@ -865,7 +865,7 @@
       "plan_miles": 74.1,
       "plan_climb_ft": 1675,
       "terrain": "Mostly downhill",
-      "notes": "OR-62 down the Rogue through Union Creek, Prospect and Shady Cove, then Medford, Jacksonville and OR-238 to Grants Pass. Changed Oct 2026: Segment 2 rework.",
+      "notes": "OR-62 down the Rogue through Union Creek, Prospect and Shady Cove, then Medford, Jacksonville and OR-238 to Grants Pass",
       "route_url": "https://www.komoot.com/tour/3369141393",
       "stay": "Grants Pass"
     },
@@ -879,7 +879,7 @@
       "plan_miles": 86.2,
       "plan_climb_ft": 4175,
       "terrain": "Rolling, one pass",
-      "notes": "US-199 through Cave Junction, then down the Smith River canyon past Jedediah Smith Redwoods to Crescent City. Changed Oct 2026: Segment 2 rework.",
+      "notes": "US-199 through Cave Junction, then down the Smith River canyon past Jedediah Smith Redwoods to Crescent City",
       "route_url": "https://www.komoot.com/tour/3369149446",
       "stay": "Crescent City"
     },
@@ -893,7 +893,7 @@
       "plan_miles": 35.5,
       "plan_climb_ft": 2725,
       "terrain": "Hilly",
-      "notes": "US-101 through Del Norte Coast Redwoods and Klamath, then the Newton B. Drury Scenic Parkway to Elk Prairie. REST DAY TOMORROW. Changed Oct 2026: Segment 2 rework.",
+      "notes": "US-101 through Del Norte Coast Redwoods and Klamath, then the Newton B. Drury Scenic Parkway to Elk Prairie. REST DAY TOMORROW",
       "route_url": "https://www.komoot.com/tour/3369150175",
       "stay": "Prairie Creek Redwoods"
     },
@@ -1005,7 +1005,7 @@
       "plan_miles": 84.7,
       "plan_climb_ft": 5775,
       "terrain": "Rolling",
-      "notes": "Highway 1 down the coast via Pacifica, Devil's Slide trail, Half Moon Bay, Pescadero and Davenport. Changed Oct 2026: Segment 2 rework.",
+      "notes": "Highway 1 down the coast via Pacifica, Devil's Slide trail, Half Moon Bay, Pescadero and Davenport",
       "route_url": "https://www.komoot.com/tour/3369150981",
       "stay": "Santa Cruz"
     },
@@ -1019,7 +1019,7 @@
       "plan_miles": 78.4,
       "plan_climb_ft": 4050,
       "terrain": "Rolling, then hilly",
-      "notes": "Around Monterey Bay (Monterey Bay Coastal Recreation Trail where Hwy 1 is freeway), Monterey, Carmel, Point Lobos, Bixby Bridge, to Pfeiffer Big Sur. Changed Oct 2026: Segment 2 rework.",
+      "notes": "Around Monterey Bay (Monterey Bay Coastal Recreation Trail where Hwy 1 is freeway), Monterey, Carmel, Point Lobos, Bixby Bridge, to Pfeiffer Big Sur",
       "route_url": "https://www.komoot.com/tour/3369152616",
       "stay": "Big Sur"
     },
@@ -1033,7 +1033,7 @@
       "plan_miles": 44.9,
       "plan_climb_ft": 4700,
       "terrain": "Hilly",
-      "notes": "Highway 1 south past McWay Falls and Esalen. Replaces the old 'Can't create' day. Optional Esalen public night soak (1-3 a.m.) if you sleep nearby. Changed Oct 2026: Segment 2 rework.",
+      "notes": "Highway 1 south past McWay Falls and Esalen. Replaces the old 'Can't create' day. Optional Esalen public night soak (1-3 a.m.) if you sleep nearby",
       "route_url": "https://www.komoot.com/tour/3369153497",
       "stay": "Salmon Creek Falls"
     },
@@ -1159,7 +1159,7 @@
       "plan_miles": 119,
       "plan_climb_ft": 7875,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "https://www.komoot.com/tour/2708295381",
       "stay": "Campground"
     },
@@ -1173,7 +1173,7 @@
       "plan_miles": 125,
       "plan_climb_ft": 3425,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "https://www.komoot.com/tour/2708296822",
       "stay": "Campground"
     },
@@ -1187,7 +1187,7 @@
       "plan_miles": 53.9,
       "plan_climb_ft": 900,
       "terrain": "Rolling, paved coastal Hwy 5",
-      "notes": "Hwy 5 south along the Sea of Cortez to Puertecitos (90 km south of San Felipe). No gas in Puertecitos. Camp at the campo; the fee covers the tidal hot springs. Soak at mid-tide; low tide can be too hot. Check a tide table.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 5 south along the Sea of Cortez to Puertecitos (90 km south of San Felipe). No gas in Puertecitos. Camp at the campo; the fee covers the tidal hot springs. Soak at mid-tide; low tide can be too hot. Check a tide table.",
       "route_url": "https://www.komoot.com/tour/3369152580",
       "stay": "Puertecitos"
     },
@@ -1201,7 +1201,7 @@
       "plan_miles": 46,
       "plan_climb_ft": 2325,
       "terrain": "Rolling",
-      "notes": "Second half of your old San Felipe to Rancho Grande day. Short day after the morning soak. Alfonsina's at Gonzaga Bay.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Second half of your old San Felipe to Rancho Grande day. Short day after the morning soak. Alfonsina's at Gonzaga Bay.",
       "route_url": "https://www.komoot.com/tour/3369156586",
       "stay": "Bahia San Luis Gonzaga"
     },
@@ -1215,7 +1215,7 @@
       "plan_miles": 102,
       "plan_climb_ft": 4250,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "https://www.komoot.com/tour/2708300390",
       "stay": "Hotel"
     },
@@ -1229,7 +1229,7 @@
       "plan_miles": 93.9,
       "plan_climb_ft": 800,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "https://www.komoot.com/tour/2708301452",
       "stay": "Olivia Hotel"
     },
@@ -1243,7 +1243,7 @@
       "plan_miles": 129,
       "plan_climb_ft": 4125,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "https://www.komoot.com/tour/2708302536",
       "stay": "Huerta Don Chano"
     },
@@ -1257,7 +1257,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Mulege"
     },
@@ -1271,7 +1271,7 @@
       "plan_miles": 84.2,
       "plan_climb_ft": 4225,
       "terrain": "Rolling",
-      "notes": "Paved Hwy 1 along Bahia Concepcion (Santispac, El Requeson) then inland to Loreto. Replaces the dirt Comondu day.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Paved Hwy 1 along Bahia Concepcion (Santispac, El Requeson) then inland to Loreto. Replaces the dirt Comondu day.",
       "route_url": "https://www.komoot.com/tour/3369157981",
       "stay": "Loreto"
     },
@@ -1285,7 +1285,7 @@
       "plan_miles": 106,
       "plan_climb_ft": 3325,
       "terrain": "Big climb (Sierra de la Giganta), then flat",
-      "notes": "Hwy 1 south, then over the Sierra de la Giganta to Ciudad Insurgentes and Ciudad Constitucion.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 1 south, then over the Sierra de la Giganta to Ciudad Insurgentes and Ciudad Constitucion.",
       "route_url": "https://www.komoot.com/tour/3369158776",
       "stay": "Ciudad Constitucion"
     },
@@ -1299,7 +1299,7 @@
       "plan_miles": 111,
       "plan_climb_ft": 2200,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "https://www.komoot.com/tour/2708305062",
       "stay": "Wild camp"
     },
@@ -1313,7 +1313,7 @@
       "plan_miles": 14,
       "plan_climb_ft": 275,
       "terrain": "Flat, short",
-      "notes": "Replaces your old El Centenario to La Paz day. Through La Paz and up the coast road to Pichilingue. Saturday sailing: foot passenger check-in 17:30, departs 19:00, arrives Mazatlan 09:00. Balandra and Tecolote beaches are just past the terminal if you have time.. Ferry: Pichilingue to Mazatlan, Saturday, check-in 17:30, departs 19:00, arrives 09:00. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Replaces your old El Centenario to La Paz day. Through La Paz and up the coast road to Pichilingue. Saturday sailing: foot passenger check-in 17:30, departs 19:00, arrives Mazatlan 09:00. Balandra and Tecolote beaches are just past the terminal if you have time. Ferry: Pichilingue to Mazatlan, Saturday, check-in 17:30, departs 19:00, arrives 09:00",
       "route_url": "https://www.komoot.com/tour/3369160542",
       "stay": "Pichilingue ferry terminal"
     },
@@ -1327,7 +1327,7 @@
       "plan_miles": 48.7,
       "plan_climb_ft": 1200,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "https://www.komoot.com/tour/2708309383",
       "stay": "Hotel or camp"
     },
@@ -1341,7 +1341,7 @@
       "plan_miles": 99,
       "plan_climb_ft": 1250,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "https://www.komoot.com/tour/2708310364",
       "stay": "Campground"
     },
@@ -1355,7 +1355,7 @@
       "plan_miles": 94.2,
       "plan_climb_ft": 4000,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "https://www.komoot.com/tour/2708310888",
       "stay": "Airbnb"
     },
@@ -1369,7 +1369,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Puerto Vallarta"
     },
@@ -1383,7 +1383,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Puerto Vallarta"
     },
@@ -1397,7 +1397,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Puerto Vallarta"
     },
@@ -1411,7 +1411,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Puerto Vallarta"
     },
@@ -1425,7 +1425,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Puerto Vallarta"
     },
@@ -1439,7 +1439,7 @@
       "plan_miles": 70.2,
       "plan_climb_ft": 9450,
       "terrain": "Big climb",
-      "notes": "Hwy 544 into the Sierra (renovated road) via Las Palmas, La Estancia and San Sebastian del Oeste, a Pueblo Magico, to Mascota.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 544 into the Sierra (renovated road) via Las Palmas, La Estancia and San Sebastian del Oeste, a Pueblo Magico, to Mascota.",
       "route_url": "https://www.komoot.com/tour/3369161016",
       "stay": "Mascota"
     },
@@ -1453,7 +1453,7 @@
       "plan_miles": 73.8,
       "plan_climb_ft": 6650,
       "terrain": "Big climb",
-      "notes": "Hwy 70 through Atenguillo and Mixtlan. Touring cyclists report 124 km with 2,100 m of climbing.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 70 through Atenguillo and Mixtlan. Touring cyclists report 124 km with 2,100 m of climbing.",
       "route_url": "https://www.komoot.com/tour/3369171642",
       "stay": "Ameca"
     },
@@ -1467,7 +1467,7 @@
       "plan_miles": 57.3,
       "plan_climb_ft": 2050,
       "terrain": "Rolling",
-      "notes": "Via Tala into Guadalajara. REST DAY TOMORROW.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Via Tala into Guadalajara. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3369172380",
       "stay": "Guadalajara"
     },
@@ -1481,7 +1481,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Guadalajara"
     },
@@ -1495,7 +1495,7 @@
       "plan_miles": 125,
       "plan_climb_ft": 6650,
       "terrain": "Rolling high plateau",
-      "notes": "East through Zapotlanejo, Tepatitlan and San Juan de los Lagos.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "East through Zapotlanejo, Tepatitlan and San Juan de los Lagos.",
       "route_url": "https://www.komoot.com/tour/3369178924",
       "stay": "Lagos de Moreno"
     },
@@ -1509,7 +1509,7 @@
       "plan_miles": 70,
       "plan_climb_ft": 2850,
       "terrain": "Rolling, climb over Sierra de Lobos",
-      "notes": "Into north Leon, then the Leon-San Felipe road over the Sierra de Lobos. Stay north of Leon: do NOT ride Hwy 45 or 45D toward Silao (US advisory restricts travel on or south of 45D).. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Into north Leon, then the Leon-San Felipe road over the Sierra de Lobos. Stay north of Leon: do NOT ride Hwy 45 or 45D toward Silao (US advisory restricts travel on or south of 45D).",
       "route_url": "https://www.komoot.com/tour/3369190376",
       "stay": "San Felipe (Guanajuato)"
     },
@@ -1523,7 +1523,7 @@
       "plan_miles": 68.4,
       "plan_climb_ft": 4250,
       "terrain": "Hilly",
-      "notes": "Fed 51 to Dolores Hidalgo, then Hwy 110 over the Sierra de Santa Rosa into Guanajuato city (avoids Silao).. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Fed 51 to Dolores Hidalgo, then Hwy 110 over the Sierra de Santa Rosa into Guanajuato city (avoids Silao).",
       "route_url": "https://www.komoot.com/tour/3369191186",
       "stay": "Guanajuato"
     },
@@ -1537,7 +1537,7 @@
       "plan_miles": 47.3,
       "plan_climb_ft": 2725,
       "terrain": "Hilly",
-      "notes": "Back over the Sierra de Santa Rosa to Dolores Hidalgo, then south toward San Miguel. Thermal parks around km 10 (Escondido Place, La Gruta): day pass, arrive by early afternoon. Overnight in San Miguel (no rest day).. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Back over the Sierra de Santa Rosa to Dolores Hidalgo, then south toward San Miguel. Thermal parks around km 10 (Escondido Place, La Gruta): day pass, arrive by early afternoon. Overnight in San Miguel (no rest day).",
       "route_url": "https://www.komoot.com/tour/3369213263",
       "stay": "San Miguel de Allende"
     },
@@ -1551,7 +1551,7 @@
       "plan_miles": 72.8,
       "plan_climb_ft": 3375,
       "terrain": "Rolling",
-      "notes": "Hwy 111 to Queretaro's historic center, then east to the Pena de Bernal monolith.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 111 to Queretaro's historic center, then east to the Pena de Bernal monolith.",
       "route_url": "https://www.komoot.com/tour/3369215631",
       "stay": "Pena de Bernal"
     },
@@ -1565,7 +1565,7 @@
       "plan_miles": 88.5,
       "plan_climb_ft": 9250,
       "terrain": "Big climbs (Pinal de Amoles)",
-      "notes": "Hwy 120 into the Sierra Gorda: Ezequiel Montes, Cadereyta, Vizarron, over Pinal de Amoles and down to Jalpan (Franciscan mission).. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 120 into the Sierra Gorda: Ezequiel Montes, Cadereyta, Vizarron, over Pinal de Amoles and down to Jalpan (Franciscan mission).",
       "route_url": "https://www.komoot.com/tour/3369217470",
       "stay": "Jalpan de Serra"
     },
@@ -1579,7 +1579,7 @@
       "plan_miles": 51.2,
       "plan_climb_ft": 5075,
       "terrain": "Rolling, long descent",
-      "notes": "Short day: Landa de Matamoros, then the descent into Xilitla. Afternoon at Las Pozas surrealist gardens.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Short day: Landa de Matamoros, then the descent into Xilitla. Afternoon at Las Pozas surrealist gardens.",
       "route_url": "https://www.komoot.com/tour/3369218839",
       "stay": "Xilitla"
     },
@@ -1593,7 +1593,7 @@
       "plan_miles": 37,
       "plan_climb_ft": 2100,
       "terrain": "Hilly",
-      "notes": "Down to Hwy 85 at Axtla, north through Tancanhuitz to Aquismon. Sotano de las Golondrinas: swifts at dusk and dawn.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Down to Hwy 85 at Axtla, north through Tancanhuitz to Aquismon. Sotano de las Golondrinas: swifts at dusk and dawn.",
       "route_url": "https://www.komoot.com/tour/3369225223",
       "stay": "Aquismon"
     },
@@ -1607,7 +1607,7 @@
       "plan_miles": 34.9,
       "plan_climb_ft": 1050,
       "terrain": "Rolling",
-      "notes": "Short day into Ciudad Valles, base for Tamul and Micos. REST DAY TOMORROW (Tamul boat or Micos).. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Short day into Ciudad Valles, base for Tamul and Micos. REST DAY TOMORROW (Tamul boat or Micos).",
       "route_url": "https://www.komoot.com/tour/3369240535",
       "stay": "Ciudad Valles"
     },
@@ -1621,7 +1621,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Ciudad Valles (Tamul boat or Micos)"
     },
@@ -1635,7 +1635,7 @@
       "plan_miles": 74.9,
       "plan_climb_ft": 3675,
       "terrain": "Rolling",
-      "notes": "South on Hwy 85, the original Pan-American Highway.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "South on Hwy 85, the original Pan-American Highway.",
       "route_url": "https://www.komoot.com/tour/3369242094",
       "stay": "Tamazunchale"
     },
@@ -1649,7 +1649,7 @@
       "plan_miles": 60,
       "plan_climb_ft": 10775,
       "terrain": "Big climb",
-      "notes": "Hwy 85 climbs out of the jungle into the Sierra Madre Oriental via Chapulhuacan.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 85 climbs out of the jungle into the Sierra Madre Oriental via Chapulhuacan.",
       "route_url": "https://www.komoot.com/tour/3369308514",
       "stay": "Jacala"
     },
@@ -1663,7 +1663,7 @@
       "plan_miles": 108,
       "plan_climb_ft": 13475,
       "terrain": "Big climbs, steep descent at the end",
-      "notes": "Hwy 85 to Zimapan and Ixmiquilpan, then via Cardonal and the steep road down into the Tolantongo canyon. Cash only at Tolantongo (no ATMs). Overnight: soak in the evening and early morning, then ride on. Entry is charged per day, so a morning soak may need a second day ticket.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 85 to Zimapan and Ixmiquilpan, then via Cardonal and the steep road down into the Tolantongo canyon. Cash only at Tolantongo (no ATMs). Overnight: soak in the evening and early morning, then ride on. Entry is charged per day, so a morning soak may need a second day ticket.",
       "route_url": "https://www.komoot.com/tour/3369312634",
       "stay": "Grutas de Tolantongo"
     },
@@ -1677,7 +1677,7 @@
       "plan_miles": 57.1,
       "plan_climb_ft": 6825,
       "terrain": "Big climb out of the canyon, then rolling",
-      "notes": "Climb out via Cardonal, Ixmiquilpan, Actopan, Pachuca.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Climb out via Cardonal, Ixmiquilpan, Actopan, Pachuca.",
       "route_url": "https://www.komoot.com/tour/3369337079",
       "stay": "Pachuca"
     },
@@ -1691,7 +1691,7 @@
       "plan_miles": 60.3,
       "plan_climb_ft": 1700,
       "terrain": "Rolling, heavy traffic at the end",
-      "notes": "Via Teotihuacan (stop at the pyramids), then into Mexico City. Ride the city stretch early. REST DAYS (4) in Mexico City (Oct 16-19).. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Via Teotihuacan (stop at the pyramids), then into Mexico City. Ride the city stretch early. REST DAYS (4) in Mexico City (Oct 16-19).",
       "route_url": "https://www.komoot.com/tour/3369354612",
       "stay": "Mexico City"
     },
@@ -1705,7 +1705,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Mexico City"
     },
@@ -1719,7 +1719,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Mexico City"
     },
@@ -1733,7 +1733,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Mexico City"
     },
@@ -1747,7 +1747,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Mexico City"
     },
@@ -1761,7 +1761,7 @@
       "plan_miles": 31.6,
       "plan_climb_ft": 1275,
       "terrain": "Flat (city exit)",
-      "notes": "Short day out of the city through Chalco. Sunday morning traffic is lightest if you can shift it.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Short day out of the city through Chalco. Sunday morning traffic is lightest if you can shift it.",
       "route_url": "https://www.komoot.com/tour/3369358118",
       "stay": "Amecameca"
     },
@@ -1775,7 +1775,7 @@
       "plan_miles": 49.7,
       "plan_climb_ft": 4675,
       "terrain": "Big climb (Paso de Cortes, ~3,700 m)",
-      "notes": "Paved up to the pass between Popocatepetl and Iztaccihuatl, rough dirt on the way down. Check the volcano alert before you go.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Paved up to the pass between Popocatepetl and Iztaccihuatl, rough dirt on the way down. Check the volcano alert before you go.",
       "route_url": "https://www.komoot.com/tour/3369393042",
       "stay": "Puebla"
     },
@@ -1789,7 +1789,7 @@
       "plan_miles": 82.4,
       "plan_climb_ft": 2475,
       "terrain": "Rolling high plateau",
-      "notes": "Hwy 140 east via Amozoc, Acajete, Nopalucan and Oriental to Perote, under the Cofre de Perote.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 140 east via Amozoc, Acajete, Nopalucan and Oriental to Perote, under the Cofre de Perote.",
       "route_url": "https://www.komoot.com/tour/3369406247",
       "stay": "Perote"
     },
@@ -1803,7 +1803,7 @@
       "plan_miles": 30.3,
       "plan_climb_ft": 2200,
       "terrain": "Big descent",
-      "notes": "Down off the plateau through Las Vigas into Xalapa, then to Coatepec, a coffee-country Pueblo Magico. REST DAY TOMORROW (Coatepec and Xico).. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Down off the plateau through Las Vigas into Xalapa, then to Coatepec, a coffee-country Pueblo Magico. REST DAY TOMORROW (Coatepec and Xico).",
       "route_url": "https://www.komoot.com/tour/3369412081",
       "stay": "Coatepec"
     },
@@ -1817,7 +1817,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Coatepec and Xico (coffee towns)"
     },
@@ -1831,7 +1831,7 @@
       "plan_miles": 85.9,
       "plan_climb_ft": 11225,
       "terrain": "Hilly",
-      "notes": "Through Xico and Teocelo, south via Cosautlan and Huatusco to Cordoba, then up to Orizaba below Pico de Orizaba.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Through Xico and Teocelo, south via Cosautlan and Huatusco to Cordoba, then up to Orizaba below Pico de Orizaba.",
       "route_url": "https://www.komoot.com/tour/3369426032",
       "stay": "Orizaba"
     },
@@ -1845,7 +1845,7 @@
       "plan_miles": 108,
       "plan_climb_ft": 1325,
       "terrain": "Mostly downhill, then flat and hot",
-      "notes": "Down past Cordoba into the lowlands via La Tinaja and Tierra Blanca to Tuxtepec. Ride in daylight; start early for the heat.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Down past Cordoba into the lowlands via La Tinaja and Tierra Blanca to Tuxtepec. Ride in daylight; start early for the heat.",
       "route_url": "https://www.komoot.com/tour/3369934559",
       "stay": "Tuxtepec"
     },
@@ -1859,7 +1859,7 @@
       "plan_miles": 30.4,
       "plan_climb_ft": 975,
       "terrain": "Flat, short",
-      "notes": "Short day up the river valley on Hwy 175 (46 km). Swim in the river; tomorrow is the big climb.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Short day up the river valley on Hwy 175 (46 km). Swim in the river; tomorrow is the big climb.",
       "route_url": "https://www.komoot.com/tour/3369957629",
       "stay": "Valle Nacional"
     },
@@ -1873,7 +1873,7 @@
       "plan_miles": 66.7,
       "plan_climb_ft": 15425,
       "terrain": "Huge climb (to about 2,970 m)",
-      "notes": "Hwy 175, the Tuxtepec road, from jungle to pine forest over the Sierra Juarez to Ixtlan (108 km). Biggest single climb in Mexico for you. REST DAY TOMORROW (Ixtlan / Capulalpan).. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 175, the Tuxtepec road, from jungle to pine forest over the Sierra Juarez to Ixtlan (108 km). Biggest single climb in Mexico for you. REST DAY TOMORROW (Ixtlan / Capulalpan).",
       "route_url": "https://www.komoot.com/tour/3369961654",
       "stay": "Ixtlan de Juarez"
     },
@@ -1887,7 +1887,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Ixtlan / Capulalpan de Mendez (Sierra Norte)"
     },
@@ -1901,7 +1901,7 @@
       "plan_miles": 31.8,
       "plan_climb_ft": 4925,
       "terrain": "Climb over La Cumbre, then long descent",
-      "notes": "Past Guelatao, over La Cumbre Ixtepeji (about 2,740 m) and down into Oaxaca. Oaxaca days Oct 31 - Nov 2 (Dia de Muertos).. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Past Guelatao, over La Cumbre Ixtepeji (about 2,740 m) and down into Oaxaca. Oaxaca days Oct 31 - Nov 2 (Dia de Muertos).",
       "route_url": "https://www.komoot.com/tour/3369967664",
       "stay": "Oaxaca"
     },
@@ -1915,7 +1915,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Oaxaca (Dia de Muertos)"
     },
@@ -1929,7 +1929,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Oaxaca (Dia de Muertos)"
     },
@@ -1943,7 +1943,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Oaxaca (Dia de Muertos)"
     },
@@ -1957,7 +1957,7 @@
       "plan_miles": 70.7,
       "plan_climb_ft": 4350,
       "terrain": "Rolling",
-      "notes": "Hwy 175 south through Ocotlan and Ejutla.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 175 south through Ocotlan and Ejutla.",
       "route_url": "https://www.komoot.com/tour/3369970830",
       "stay": "Miahuatlan"
     },
@@ -1971,7 +1971,7 @@
       "plan_miles": 20.5,
       "plan_climb_ft": 4150,
       "terrain": "Big climb (to about 2,440 m)",
-      "notes": "Short on purpose: big climb into cloud forest. Sleep in San Jose del Pacifico.. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Short on purpose: big climb into cloud forest. Sleep in San Jose del Pacifico.",
       "route_url": "https://www.komoot.com/tour/3369975218",
       "stay": "San Jose del Pacifico"
     },
@@ -1985,7 +1985,7 @@
       "plan_miles": 63.1,
       "plan_climb_ft": 4825,
       "terrain": "Mostly downhill, some climbs",
-      "notes": "Hwy 175 down to Pochutla, then the coast to Zipolite. Beach days Nov 6-8 (S3D142-144).. Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "Hwy 175 down to Pochutla, then the coast to Zipolite. Beach days Nov 6-8 (S3D142-144).",
       "route_url": "https://www.komoot.com/tour/3369986980",
       "stay": "Zipolite"
     },
@@ -1999,7 +1999,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Zipolite"
     },
@@ -2013,7 +2013,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Zipolite"
     },
@@ -2027,7 +2027,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 3 rebuild v2",
+      "notes": "",
       "route_url": "",
       "stay": "Zipolite"
     },
@@ -2041,7 +2041,7 @@
       "plan_miles": 60,
       "plan_climb_ft": 4350,
       "terrain": "Rolling coast",
-      "notes": "Hwy 200 east along the Oaxaca coast via Pochutla and Huatulco to the surf village of Barra de la Cruz. Few shops on this stretch; carry food and water.. Added Oct 2026: Section 4 build",
+      "notes": "Hwy 200 east along the Oaxaca coast via Pochutla and Huatulco to the surf village of Barra de la Cruz. Few shops on this stretch; carry food and water.",
       "route_url": "https://www.komoot.com/tour/3369245864",
       "stay": "Barra de la Cruz"
     },
@@ -2055,7 +2055,7 @@
       "plan_miles": 84,
       "plan_climb_ft": 4550,
       "terrain": "Mostly flat, hot, wind possible near Salina Cruz",
-      "notes": "Hwy 200 to Salina Cruz, then Hwy 185 to Tehuantepec. Start early. Check the forecast tonight: a cold front in the Gulf of Mexico means a north wind through the Isthmus.. Added Oct 2026: Section 4 build",
+      "notes": "Hwy 200 to Salina Cruz, then Hwy 185 to Tehuantepec. Start early. Check the forecast tonight: a cold front in the Gulf of Mexico means a north wind through the Isthmus.",
       "route_url": "https://www.komoot.com/tour/3369308390",
       "stay": "Tehuantepec"
     },
@@ -2069,7 +2069,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Tehuantepec (wind buffer: wait here if the north wind is blowing; if calm, ride to Matias Romero today and keep the spare day)"
     },
@@ -2083,7 +2083,7 @@
       "plan_miles": 61.1,
       "plan_climb_ft": 1875,
       "terrain": "Rolling, exposed to the north wind",
-      "notes": "The windy stretch: Hwy 190 to Juchitan and La Ventosa, then Hwy 185 north through the Chivela pass to Matias Romero. Only ride it on a calm day; leave at first light.. Added Oct 2026: Section 4 build",
+      "notes": "The windy stretch: Hwy 190 to Juchitan and La Ventosa, then Hwy 185 north through the Chivela pass to Matias Romero. Only ride it on a calm day; leave at first light.",
       "route_url": "https://www.komoot.com/tour/3369312217",
       "stay": "Matias Romero"
     },
@@ -2097,7 +2097,7 @@
       "plan_miles": 128,
       "plan_climb_ft": 5050,
       "terrain": "Rolling, then flat",
-      "notes": "Hwy 185 north via Palomares and Jesus Carranza to Acayucan.. Added Oct 2026: Section 4 build",
+      "notes": "Hwy 185 north via Palomares and Jesus Carranza to Acayucan.",
       "route_url": "https://www.komoot.com/tour/3369330581",
       "stay": "Acayucan"
     },
@@ -2111,7 +2111,7 @@
       "plan_miles": 61.9,
       "plan_climb_ft": 1350,
       "terrain": "Flat",
-      "notes": "East past Cosoleacaque and Minatitlan (industrial; ride through, do not linger).. Added Oct 2026: Section 4 build",
+      "notes": "East past Cosoleacaque and Minatitlan (industrial; ride through, do not linger).",
       "route_url": "https://www.komoot.com/tour/3369336343",
       "stay": "Las Choapas"
     },
@@ -2125,7 +2125,7 @@
       "plan_miles": 117,
       "plan_climb_ft": 775,
       "terrain": "Flat",
-      "notes": "Hwy 180 via Cardenas into Villahermosa. REST DAY TOMORROW (Parque-Museo La Venta, Olmec heads).. Added Oct 2026: Section 4 build",
+      "notes": "Hwy 180 via Cardenas into Villahermosa. REST DAY TOMORROW (Parque-Museo La Venta, Olmec heads).",
       "route_url": "https://www.komoot.com/tour/3369360772",
       "stay": "Villahermosa"
     },
@@ -2139,7 +2139,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Villahermosa (Parque-Museo La Venta)"
     },
@@ -2153,7 +2153,7 @@
       "plan_miles": 52.9,
       "plan_climb_ft": 225,
       "terrain": "Flat",
-      "notes": "North to the Gulf coast at Frontera.. Added Oct 2026: Section 4 build",
+      "notes": "North to the Gulf coast at Frontera.",
       "route_url": "https://www.komoot.com/tour/3369387450",
       "stay": "Frontera"
     },
@@ -2167,7 +2167,7 @@
       "plan_miles": 65.4,
       "plan_climb_ft": 250,
       "terrain": "Flat, coastal",
-      "notes": "Hwy 180 along the Gulf via Atasta and the Zacatal bridge onto Isla del Carmen.. Added Oct 2026: Section 4 build",
+      "notes": "Hwy 180 along the Gulf via Atasta and the Zacatal bridge onto Isla del Carmen.",
       "route_url": "https://www.komoot.com/tour/3369423798",
       "stay": "Ciudad del Carmen"
     },
@@ -2181,7 +2181,7 @@
       "plan_miles": 113,
       "plan_climb_ft": 650,
       "terrain": "Flat, coastal",
-      "notes": "Hwy 180 along the Gulf via Isla Aguada and Sabancuy.. Added Oct 2026: Section 4 build",
+      "notes": "Hwy 180 along the Gulf via Isla Aguada and Sabancuy.",
       "route_url": "https://www.komoot.com/tour/3369956370",
       "stay": "Champoton"
     },
@@ -2195,7 +2195,7 @@
       "plan_miles": 44.2,
       "plan_climb_ft": 1150,
       "terrain": "Flat, coastal, short",
-      "notes": "Coast road into Campeche; afternoon in the walled old town.. Added Oct 2026: Section 4 build",
+      "notes": "Coast road into Campeche; afternoon in the walled old town.",
       "route_url": "https://www.komoot.com/tour/3369959970",
       "stay": "Campeche"
     },
@@ -2209,7 +2209,7 @@
       "plan_miles": 107,
       "plan_climb_ft": 2075,
       "terrain": "Rolling",
-      "notes": "Inland via Hopelchen and Bolonchen along the Ruta Puuc (Kabah) to Uxmal.. Added Oct 2026: Section 4 build",
+      "notes": "Inland via Hopelchen and Bolonchen along the Ruta Puuc (Kabah) to Uxmal.",
       "route_url": "https://www.komoot.com/tour/3369968302",
       "stay": "Uxmal"
     },
@@ -2223,7 +2223,7 @@
       "plan_miles": 49.5,
       "plan_climb_ft": 375,
       "terrain": "Flat",
-      "notes": "Via Muna. REST DAY TOMORROW.. Added Oct 2026: Section 4 build",
+      "notes": "Via Muna. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3369977626",
       "stay": "Merida"
     },
@@ -2237,7 +2237,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Merida"
     },
@@ -2251,7 +2251,7 @@
       "plan_miles": 104,
       "plan_climb_ft": 475,
       "terrain": "Flat",
-      "notes": "East via Chichen Itza (stop at the ruins), then Valladolid; cenotes everywhere.. Added Oct 2026: Section 4 build",
+      "notes": "East via Chichen Itza (stop at the ruins), then Valladolid; cenotes everywhere.",
       "route_url": "https://www.komoot.com/tour/3369984319",
       "stay": "Valladolid"
     },
@@ -2265,7 +2265,7 @@
       "plan_miles": 63.6,
       "plan_climb_ft": 200,
       "terrain": "Flat",
-      "notes": "Via Coba (ruins and lagoon) to Tulum. REST DAY TOMORROW.. Added Oct 2026: Section 4 build",
+      "notes": "Via Coba (ruins and lagoon) to Tulum. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3369988386",
       "stay": "Tulum"
     },
@@ -2279,7 +2279,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Tulum"
     },
@@ -2293,7 +2293,7 @@
       "plan_miles": 60.3,
       "plan_climb_ft": 200,
       "terrain": "Flat",
-      "notes": "Hwy 307 south past Muyil and the Sian Ka'an edge.. Added Oct 2026: Section 4 build",
+      "notes": "Hwy 307 south past Muyil and the Sian Ka'an edge.",
       "route_url": "https://www.komoot.com/tour/3370003513",
       "stay": "Felipe Carrillo Puerto"
     },
@@ -2307,7 +2307,7 @@
       "plan_miles": 76.3,
       "plan_climb_ft": 475,
       "terrain": "Flat",
-      "notes": "Hwy 307 to Bacalar; swim in the Laguna de los Siete Colores.. Added Oct 2026: Section 4 build",
+      "notes": "Hwy 307 to Bacalar; swim in the Laguna de los Siete Colores.",
       "route_url": "https://www.komoot.com/tour/3370011699",
       "stay": "Bacalar"
     },
@@ -2321,7 +2321,7 @@
       "plan_miles": 59.1,
       "plan_climb_ft": 675,
       "terrain": "Flat",
-      "notes": "BORDER DAY (Mexico to Belize). Past Chetumal to the Subteniente Lopez / Santa Elena crossing, then Corozal and Orange Walk. Keep your Mexico tourist-fee receipt; Belize charges no entry fee.. Added Oct 2026: Section 4 build",
+      "notes": "BORDER DAY (Mexico to Belize). Past Chetumal to the Subteniente Lopez / Santa Elena crossing, then Corozal and Orange Walk. Keep your Mexico tourist-fee receipt; Belize charges no entry fee.",
       "route_url": "https://www.komoot.com/tour/3370023221",
       "stay": "Orange Walk"
     },
@@ -2335,7 +2335,7 @@
       "plan_miles": 151,
       "plan_climb_ft": 2625,
       "terrain": "Flat, then rolling",
-      "notes": "Northern Hwy south, the Burrell Boom cut-off to skip Belize City, then the Western Hwy through Belmopan (the capital; lunch stop) to San Ignacio. Long day; do not ride between towns after dark.. Added Oct 2026: Section 4 build",
+      "notes": "Northern Hwy south, the Burrell Boom cut-off to skip Belize City, then the Western Hwy through Belmopan (the capital; lunch stop) to San Ignacio. Long day; do not ride between towns after dark.",
       "route_url": "https://www.komoot.com/tour/3370063923",
       "stay": "San Ignacio"
     },
@@ -2349,7 +2349,7 @@
       "plan_miles": 67.7,
       "plan_climb_ft": 2875,
       "terrain": "Rolling",
-      "notes": "BORDER DAY (Belize to Guatemala). Benque Viejo to Melchor de Mencos (Belize land departure fee about US$20), then west to Flores. REST DAY TOMORROW (Tikal).. Added Oct 2026: Section 4 build",
+      "notes": "BORDER DAY (Belize to Guatemala). Benque Viejo to Melchor de Mencos (Belize land departure fee about US$20), then west to Flores. REST DAY TOMORROW (Tikal).",
       "route_url": "https://www.komoot.com/tour/3370068609",
       "stay": "Flores"
     },
@@ -2363,7 +2363,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Flores (Tikal)"
     },
@@ -2377,7 +2377,7 @@
       "plan_miles": 64.6,
       "plan_climb_ft": 3050,
       "terrain": "Rolling",
-      "notes": "CA-13 south. Ride in daylight.. Added Oct 2026: Section 4 build",
+      "notes": "CA-13 south. Ride in daylight.",
       "route_url": "https://www.komoot.com/tour/3370073761",
       "stay": "Poptun"
     },
@@ -2391,7 +2391,7 @@
       "plan_miles": 65.7,
       "plan_climb_ft": 2625,
       "terrain": "Rolling",
-      "notes": "CA-13 to Rio Dulce and its big bridge.. Added Oct 2026: Section 4 build",
+      "notes": "CA-13 to Rio Dulce and its big bridge.",
       "route_url": "https://www.komoot.com/tour/3370084442",
       "stay": "Rio Dulce"
     },
@@ -2405,7 +2405,7 @@
       "plan_miles": 86.7,
       "plan_climb_ft": 5050,
       "terrain": "Rolling, hot",
-      "notes": "South to La Ruidosa, then CA-9 west along the Motagua valley. Busy truck road; ride in daylight.. Added Oct 2026: Section 4 build",
+      "notes": "South to La Ruidosa, then CA-9 west along the Motagua valley. Busy truck road; ride in daylight.",
       "route_url": "https://www.komoot.com/tour/3370094600",
       "stay": "Rio Hondo"
     },
@@ -2419,7 +2419,7 @@
       "plan_miles": 99.6,
       "plan_climb_ft": 9325,
       "terrain": "Big climb",
-      "notes": "CA-9 via El Rancho and Sanarate up to the capital. Stay in Zona 10 or 4; avoid Zona 18 and Villa Nueva.. Added Oct 2026: Section 4 build",
+      "notes": "CA-9 via El Rancho and Sanarate up to the capital. Stay in Zona 10 or 4; avoid Zona 18 and Villa Nueva.",
       "route_url": "https://www.komoot.com/tour/3370112895",
       "stay": "Guatemala City"
     },
@@ -2433,7 +2433,7 @@
       "plan_miles": 23.3,
       "plan_climb_ft": 2475,
       "terrain": "Climb, short",
-      "notes": "Over the hill to Antigua. REST DAY TOMORROW.. Added Oct 2026: Section 4 build",
+      "notes": "Over the hill to Antigua. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370119986",
       "stay": "Antigua"
     },
@@ -2447,7 +2447,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Antigua"
     },
@@ -2461,7 +2461,7 @@
       "plan_miles": 75.7,
       "plan_climb_ft": 9050,
       "terrain": "Hilly",
-      "notes": "Via Chimaltenango, Tecpan and Los Encuentros, then the steep drop to Lake Atitlan. REST DAY TOMORROW.. Added Oct 2026: Section 4 build",
+      "notes": "Via Chimaltenango, Tecpan and Los Encuentros, then the steep drop to Lake Atitlan. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370145695",
       "stay": "Panajachel"
     },
@@ -2475,7 +2475,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Lake Atitlan"
     },
@@ -2489,7 +2489,7 @@
       "plan_miles": 44.8,
       "plan_climb_ft": 7775,
       "terrain": "Big climbs (850 m out of Pana, high point about 2,850 m)",
-      "notes": "Back up to the Interamericana, via Nahuala and Cuatro Caminos into Xela (last stretch busy and rough).. Added Oct 2026: Section 4 build",
+      "notes": "Back up to the Interamericana, via Nahuala and Cuatro Caminos into Xela (last stretch busy and rough).",
       "route_url": "https://www.komoot.com/tour/3370157436",
       "stay": "Quetzaltenango (Xela)"
     },
@@ -2503,7 +2503,7 @@
       "plan_miles": 12.3,
       "plan_climb_ft": 2050,
       "terrain": "Steep climb, short",
-      "notes": "Via Almolonga and Zunil, then 8 km up the access road. Overnight in a bungalow (about Q190 per person, entry included) for after-hours soaking. Cash only.. Added Oct 2026: Section 4 build",
+      "notes": "Via Almolonga and Zunil, then 8 km up the access road. Overnight in a bungalow (about Q190 per person, entry included) for after-hours soaking. Cash only.",
       "route_url": "https://www.komoot.com/tour/3370160922",
       "stay": "Fuentes Georginas"
     },
@@ -2517,7 +2517,7 @@
       "plan_miles": 49.3,
       "plan_climb_ft": 1475,
       "terrain": "Long descent, then flat",
-      "notes": "Down to Zunil, then the road south through Santa Maria de Jesus and El Palmar to Retalhuleu and Mazatenango.. Added Oct 2026: Section 4 build",
+      "notes": "Down to Zunil, then the road south through Santa Maria de Jesus and El Palmar to Retalhuleu and Mazatenango.",
       "route_url": "https://www.komoot.com/tour/3370165128",
       "stay": "Mazatenango"
     },
@@ -2531,7 +2531,7 @@
       "plan_miles": 116,
       "plan_climb_ft": 3075,
       "terrain": "Flat, hot",
-      "notes": "CA-2 east along the Pacific plain via Escuintla. Ride straight through in daylight.. Added Oct 2026: Section 4 build",
+      "notes": "CA-2 east along the Pacific plain via Escuintla. Ride straight through in daylight.",
       "route_url": "https://www.komoot.com/tour/3370174041",
       "stay": "Taxisco"
     },
@@ -2545,7 +2545,7 @@
       "plan_miles": 70.6,
       "plan_climb_ft": 800,
       "terrain": "Flat",
-      "notes": "BORDER DAY (Guatemala to El Salvador). Via Chiquimulilla to Ciudad Pedro de Alvarado / La Hachadura, then the coast to Acajutla.. Added Oct 2026: Section 4 build",
+      "notes": "BORDER DAY (Guatemala to El Salvador). Via Chiquimulilla to Ciudad Pedro de Alvarado / La Hachadura, then the coast to Acajutla.",
       "route_url": "https://www.komoot.com/tour/3370179330",
       "stay": "Acajutla"
     },
@@ -2559,7 +2559,7 @@
       "plan_miles": 48.4,
       "plan_climb_ft": 3300,
       "terrain": "Rolling coast with short steep climbs",
-      "notes": "The Litoral (CA-2) along the cliffs via Los Cobanos, Mizata and El Zonte. Narrow tunnels with little shoulder: lights on, wait for a gap in traffic.. Added Oct 2026: Section 4 build",
+      "notes": "The Litoral (CA-2) along the cliffs via Los Cobanos, Mizata and El Zonte. Narrow tunnels with little shoulder: lights on, wait for a gap in traffic.",
       "route_url": "https://www.komoot.com/tour/3370189271",
       "stay": "El Tunco"
     },
@@ -2573,7 +2573,7 @@
       "plan_miles": 26.5,
       "plan_climb_ft": 3825,
       "terrain": "Big climb, short",
-      "notes": "Via La Libertad and Santa Tecla up to the capital. REST DAY TOMORROW.. Added Oct 2026: Section 4 build",
+      "notes": "Via La Libertad and Santa Tecla up to the capital. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370193823",
       "stay": "San Salvador"
     },
@@ -2587,7 +2587,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "San Salvador"
     },
@@ -2601,7 +2601,7 @@
       "plan_miles": 94,
       "plan_climb_ft": 3125,
       "terrain": "Rolling",
-      "notes": "CA-1 east via Cojutepeque and San Vicente junction.. Added Oct 2026: Section 4 build",
+      "notes": "CA-1 east via Cojutepeque and San Vicente junction.",
       "route_url": "https://www.komoot.com/tour/3370202914",
       "stay": "San Miguel"
     },
@@ -2615,7 +2615,7 @@
       "plan_miles": 65.3,
       "plan_climb_ft": 3300,
       "terrain": "Flat, hot",
-      "notes": "BORDER DAY (El Salvador to Honduras). Via Santa Rosa de Lima to El Amatillo (Honduras entry about US$3 cash; online customs form), then Nacaome and San Lorenzo on the Gulf of Fonseca.. Added Oct 2026: Section 4 build",
+      "notes": "BORDER DAY (El Salvador to Honduras). Via Santa Rosa de Lima to El Amatillo (Honduras entry about US$3 cash; online customs form), then Nacaome and San Lorenzo on the Gulf of Fonseca.",
       "route_url": "https://www.komoot.com/tour/3370207139",
       "stay": "San Lorenzo"
     },
@@ -2629,7 +2629,7 @@
       "plan_miles": 55.4,
       "plan_climb_ft": 2975,
       "terrain": "Flat, hot",
-      "notes": "BORDER DAY (Honduras to Nicaragua). Via Choluteca to Guasaule (Nicaragua online entry form filed in advance; US$10 cash), then Somotillo.. Added Oct 2026: Section 4 build",
+      "notes": "BORDER DAY (Honduras to Nicaragua). Via Choluteca to Guasaule (Nicaragua online entry form filed in advance; US$10 cash), then Somotillo.",
       "route_url": "https://www.komoot.com/tour/3370216706",
       "stay": "Somotillo"
     },
@@ -2643,7 +2643,7 @@
       "plan_miles": 69.3,
       "plan_climb_ft": 1350,
       "terrain": "Flat",
-      "notes": "Via Chinandega, under the volcano chain.. Added Oct 2026: Section 4 build",
+      "notes": "Via Chinandega, under the volcano chain.",
       "route_url": "https://www.komoot.com/tour/3370227896",
       "stay": "Leon"
     },
@@ -2657,7 +2657,7 @@
       "plan_miles": 86.7,
       "plan_climb_ft": 2425,
       "terrain": "Rolling",
-      "notes": "Via La Paz Centro and Nagarote, through the edge of Managua without stopping, then Masaya. REST DAYS (2) in Granada, over Christmas.. Added Oct 2026: Section 4 build",
+      "notes": "Via La Paz Centro and Nagarote, through the edge of Managua without stopping, then Masaya. REST DAYS (2) in Granada, over Christmas.",
       "route_url": "https://www.komoot.com/tour/3370237024",
       "stay": "Granada"
     },
@@ -2671,7 +2671,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Granada"
     },
@@ -2685,7 +2685,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Granada (Christmas)"
     },
@@ -2699,7 +2699,7 @@
       "plan_miles": 54.8,
       "plan_climb_ft": 1100,
       "terrain": "Flat, then ferry",
-      "notes": "South via Nandaime to Rivas and San Jorge, then the ferry to Moyogalpa (about 1 hour; departures roughly every 30-90 min from 7:00 to 17:45; C$50 plus about US$1 port tax).. Added Oct 2026: Section 4 build",
+      "notes": "South via Nandaime to Rivas and San Jorge, then the ferry to Moyogalpa (about 1 hour; departures roughly every 30-90 min from 7:00 to 17:45; C$50 plus about US$1 port tax).",
       "route_url": "https://www.komoot.com/tour/3370264565",
       "stay": "Moyogalpa (Ometepe)"
     },
@@ -2713,7 +2713,7 @@
       "plan_miles": 39.8,
       "plan_climb_ft": 2225,
       "terrain": "Rolling, some rough road on the Maderas side",
-      "notes": "Unloaded loop day: around Volcan Concepcion via Altagracia, out to Playa Santo Domingo and Balgue on the Maderas side, back via Charco Verde.. Added Oct 2026: Section 4 build",
+      "notes": "Unloaded loop day: around Volcan Concepcion via Altagracia, out to Playa Santo Domingo and Balgue on the Maderas side, back via Charco Verde.",
       "route_url": "https://www.komoot.com/tour/3370295528",
       "stay": "Moyogalpa (Ometepe loop)"
     },
@@ -2727,7 +2727,7 @@
       "plan_miles": 46.3,
       "plan_climb_ft": 1475,
       "terrain": "Ferry, then rolling",
-      "notes": "BORDER DAY (Nicaragua to Costa Rica). Early ferry to San Jorge (first boats 5:30-7:00), ride via Rivas to Penas Blancas, then La Cruz.. Added Oct 2026: Section 4 build",
+      "notes": "BORDER DAY (Nicaragua to Costa Rica). Early ferry to San Jorge (first boats 5:30-7:00), ride via Rivas to Penas Blancas, then La Cruz.",
       "route_url": "https://www.komoot.com/tour/3370307448",
       "stay": "La Cruz"
     },
@@ -2741,7 +2741,7 @@
       "plan_miles": 67.1,
       "plan_climb_ft": 1750,
       "terrain": "Rolling",
-      "notes": "Interamericana via Liberia and Bagaces.. Added Oct 2026: Section 4 build",
+      "notes": "Interamericana via Liberia and Bagaces.",
       "route_url": "https://www.komoot.com/tour/3370319723",
       "stay": "Canas"
     },
@@ -2755,7 +2755,7 @@
       "plan_miles": 34.9,
       "plan_climb_ft": 6525,
       "terrain": "Big climb",
-      "notes": "Interamericana south to Rio Lagarto, then up via Guacimal to Santa Elena / Monteverde cloud forest. REST DAY TOMORROW.. Added Oct 2026: Section 4 build",
+      "notes": "Interamericana south to Rio Lagarto, then up via Guacimal to Santa Elena / Monteverde cloud forest. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370334123",
       "stay": "Monteverde"
     },
@@ -2769,7 +2769,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Monteverde (cloud forest, New Year's Eve)"
     },
@@ -2783,7 +2783,7 @@
       "plan_miles": 55,
       "plan_climb_ft": 4525,
       "terrain": "Hilly; the Monteverde to Tilaran road may be partly unpaved",
-      "notes": "Down to Tilaran, around Lake Arenal via Nuevo Arenal and the dam to La Fortuna under Arenal volcano.. Added Oct 2026: Section 4 build",
+      "notes": "Down to Tilaran, around Lake Arenal via Nuevo Arenal and the dam to La Fortuna under Arenal volcano.",
       "route_url": "https://www.komoot.com/tour/3370354838",
       "stay": "La Fortuna"
     },
@@ -2797,7 +2797,7 @@
       "plan_miles": 44.7,
       "plan_climb_ft": 6325,
       "terrain": "Big climb",
-      "notes": "South via Chachagua and the climb to San Ramon.. Added Oct 2026: Section 4 build",
+      "notes": "South via Chachagua and the climb to San Ramon.",
       "route_url": "https://www.komoot.com/tour/3370369430",
       "stay": "San Ramon"
     },
@@ -2811,7 +2811,7 @@
       "plan_miles": 47.5,
       "plan_climb_ft": 4600,
       "terrain": "Rolling, busy at the end",
-      "notes": "Back roads via Palmares, Grecia, Alajuela and Heredia; avoid the Interamericana (Ruta 1) near San Jose. REST DAYS (2): sloths at Toucan Rescue Ranch near Heredia (book ahead).. Added Oct 2026: Section 4 build",
+      "notes": "Back roads via Palmares, Grecia, Alajuela and Heredia; avoid the Interamericana (Ruta 1) near San Jose. REST DAYS (2): sloths at Toucan Rescue Ranch near Heredia (book ahead).",
       "route_url": "https://www.komoot.com/tour/3370386599",
       "stay": "San Jose"
     },
@@ -2825,7 +2825,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "San Jose (sloth sanctuary)"
     },
@@ -2839,7 +2839,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "San Jose"
     },
@@ -2853,7 +2853,7 @@
       "plan_miles": 71.9,
       "plan_climb_ft": 4600,
       "terrain": "Climb, then big descent",
-      "notes": "Santa Ana and Ciudad Colon to Atenas, the old road (Ruta 3) to Orotina, then Tarcoles (crocodile bridge) to Jaco. Do not ride Ruta 27.. Added Oct 2026: Section 4 build",
+      "notes": "Santa Ana and Ciudad Colon to Atenas, the old road (Ruta 3) to Orotina, then Tarcoles (crocodile bridge) to Jaco. Do not ride Ruta 27.",
       "route_url": "https://www.komoot.com/tour/3370401346",
       "stay": "Jaco"
     },
@@ -2867,7 +2867,7 @@
       "plan_miles": 48.4,
       "plan_climb_ft": 925,
       "terrain": "Flat, coastal",
-      "notes": "Costanera Sur (Ruta 34) via Parrita to Quepos and Manuel Antonio (sloths in the park).. Added Oct 2026: Section 4 build",
+      "notes": "Costanera Sur (Ruta 34) via Parrita to Quepos and Manuel Antonio (sloths in the park).",
       "route_url": "https://www.komoot.com/tour/3370407737",
       "stay": "Quepos"
     },
@@ -2881,7 +2881,7 @@
       "plan_miles": 33.4,
       "plan_climb_ft": 1075,
       "terrain": "Rolling coast",
-      "notes": "Costanera Sur via Dominical to Uvita (Whale's Tail).. Added Oct 2026: Section 4 build",
+      "notes": "Costanera Sur via Dominical to Uvita (Whale's Tail).",
       "route_url": "https://www.komoot.com/tour/3370418326",
       "stay": "Uvita"
     },
@@ -2895,7 +2895,7 @@
       "plan_miles": 70.7,
       "plan_climb_ft": 2400,
       "terrain": "Rolling",
-      "notes": "Via Ojochal and Palmar Norte, then the Interamericana to Ciudad Neily.. Added Oct 2026: Section 4 build",
+      "notes": "Via Ojochal and Palmar Norte, then the Interamericana to Ciudad Neily.",
       "route_url": "https://www.komoot.com/tour/3370425969",
       "stay": "Ciudad Neily"
     },
@@ -2909,7 +2909,7 @@
       "plan_miles": 49.7,
       "plan_climb_ft": 1875,
       "terrain": "Flat",
-      "notes": "BORDER DAY (Costa Rica to Panama). Paso Canoas, then the Interamericana to David.. Added Oct 2026: Section 4 build",
+      "notes": "BORDER DAY (Costa Rica to Panama). Paso Canoas, then the Interamericana to David.",
       "route_url": "https://www.komoot.com/tour/3370430803",
       "stay": "David"
     },
@@ -2923,7 +2923,7 @@
       "plan_miles": 27.1,
       "plan_climb_ft": 4175,
       "terrain": "Climb, short",
-      "notes": "Up to the coffee highlands. REST DAY TOMORROW.. Added Oct 2026: Section 4 build",
+      "notes": "Up to the coffee highlands. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370483277",
       "stay": "Boquete"
     },
@@ -2937,7 +2937,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Boquete"
     },
@@ -2951,7 +2951,7 @@
       "plan_miles": 72.9,
       "plan_climb_ft": 3000,
       "terrain": "Descent, then rolling",
-      "notes": "Back to David, then the Interamericana east (busy for about 15 km, wide shoulder after about 30 km).. Added Oct 2026: Section 4 build",
+      "notes": "Back to David, then the Interamericana east (busy for about 15 km, wide shoulder after about 30 km).",
       "route_url": "https://www.komoot.com/tour/3370499040",
       "stay": "San Felix"
     },
@@ -2965,7 +2965,7 @@
       "plan_miles": 85.1,
       "plan_climb_ft": 5225,
       "terrain": "Hilly",
-      "notes": "Interamericana via Tole.. Added Oct 2026: Section 4 build",
+      "notes": "Interamericana via Tole.",
       "route_url": "https://www.komoot.com/tour/3370503021",
       "stay": "Santiago"
     },
@@ -2979,7 +2979,7 @@
       "plan_miles": 71.8,
       "plan_climb_ft": 1500,
       "terrain": "Rolling",
-      "notes": "Interamericana via Divisa and Aguadulce.. Added Oct 2026: Section 4 build",
+      "notes": "Interamericana via Divisa and Aguadulce.",
       "route_url": "https://www.komoot.com/tour/3370508758",
       "stay": "Penonome"
     },
@@ -2993,7 +2993,7 @@
       "plan_miles": 45,
       "plan_climb_ft": 1600,
       "terrain": "Flat, near the coast",
-      "notes": "Via Anton and Rio Hato to the Pacific beaches at Coronado.. Added Oct 2026: Section 4 build",
+      "notes": "Via Anton and Rio Hato to the Pacific beaches at Coronado.",
       "route_url": "https://www.komoot.com/tour/3370511178",
       "stay": "Coronado"
     },
@@ -3007,7 +3007,7 @@
       "plan_miles": 66.2,
       "plan_climb_ft": 5875,
       "terrain": "Rolling, heavy traffic at the end",
-      "notes": "Via Chame, Capira and La Chorrera. Bridge of the Americas is officially closed to bikes; arrive on a Sunday morning if you can. REST DAYS (2).. Added Oct 2026: Section 4 build",
+      "notes": "Via Chame, Capira and La Chorrera. Bridge of the Americas is officially closed to bikes; arrive on a Sunday morning if you can. REST DAYS (2).",
       "route_url": "https://www.komoot.com/tour/3370532517",
       "stay": "Panama City"
     },
@@ -3021,7 +3021,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Panama City"
     },
@@ -3035,7 +3035,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Added Oct 2026: Section 4 build",
+      "notes": "",
       "route_url": "",
       "stay": "Panama City"
     },
@@ -3049,7 +3049,7 @@
       "plan_miles": 46.7,
       "plan_climb_ft": 1675,
       "terrain": "Rolling",
-      "notes": "East on the Interamericana via Tocumen and Chepo to El Llano, the start of the Carti road. Stock up on cash: no ATMs ahead until Necocli.. Added Oct 2026: Section 4 build",
+      "notes": "East on the Interamericana via Tocumen and Chepo to El Llano, the start of the Carti road. Stock up on cash: no ATMs ahead until Necocli.",
       "route_url": "https://www.komoot.com/tour/3370538722",
       "stay": "El Llano"
     },
@@ -3063,7 +3063,7 @@
       "plan_miles": 16.7,
       "plan_climb_ft": 2125,
       "terrain": "Very steep climbs and descents",
-      "notes": "The El Llano to Carti road over the divide into Guna Yala (entry fee at the checkpoint). Sleep near Carti port for the morning boat.. Komoot shows 25 ft up, an elevation-model artifact over its off-grid segment; the GPX showed 2,125 ft of gain. Elevation in this row is the GPX figure. Added Oct 2026: Section 4 build",
+      "notes": "The El Llano to Carti road over the divide into Guna Yala (entry fee at the checkpoint). Sleep near Carti port for the morning boat. Komoot shows 25 ft up, an elevation-model artifact over its off-grid segment; the GPX showed 2,125 ft of gain. Elevation in this row is the GPX figure",
       "route_url": "https://www.komoot.com/tour/3370542855",
       "stay": "Carti"
     },
@@ -3077,7 +3077,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "San Blas Adventures day 1: Carti, boat into the islands. Added Oct 2026: Section 4 build",
+      "notes": "San Blas Adventures day 1: Carti, boat into the islands",
       "route_url": "",
       "stay": "San Blas Islands"
     },
@@ -3091,7 +3091,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "San Blas Adventures day 2: island hopping. Added Oct 2026: Section 4 build",
+      "notes": "San Blas Adventures day 2: island hopping",
       "route_url": "",
       "stay": "San Blas Islands"
     },
@@ -3105,7 +3105,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "San Blas Adventures day 3: island hopping. Added Oct 2026: Section 4 build",
+      "notes": "San Blas Adventures day 3: island hopping",
       "route_url": "",
       "stay": "San Blas Islands"
     },
@@ -3119,7 +3119,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "San Blas Adventures day 4: Puerto Obaldia (Panama exit stamp), Sapzurro, Capurgana (Colombia entry stamp at immigration office). Added Oct 2026: Section 4 build",
+      "notes": "San Blas Adventures day 4: Puerto Obaldia (Panama exit stamp), Sapzurro, Capurgana (Colombia entry stamp at immigration office)",
       "route_url": "",
       "stay": "Capurgana"
     },
@@ -3133,7 +3133,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "San Blas Adventures day 5 ends in Capurgana; boat to Necocli (end of Section 4). Added Oct 2026: Section 4 build",
+      "notes": "San Blas Adventures day 5 ends in Capurgana; boat to Necocli (end of Section 4)",
       "route_url": "",
       "stay": "Necocli"
     },
@@ -3147,7 +3147,7 @@
       "plan_miles": 106,
       "plan_climb_ft": 4275,
       "terrain": "Flat coast, hot",
-      "notes": "Coast road via Arboletes. UK advises against non-essential travel in the Uraba region (Necocli, Arboletes): ride straight through in daylight.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Coast road via Arboletes. UK advises against non-essential travel in the Uraba region (Necocli, Arboletes): ride straight through in daylight.",
       "route_url": "https://www.komoot.com/tour/3370618497",
       "stay": "Monitos"
     },
@@ -3161,7 +3161,7 @@
       "plan_miles": 49.3,
       "plan_climb_ft": 1275,
       "terrain": "Flat",
-      "notes": "Via San Bernardo del Viento and Lorica to the Gulf of Morrosquillo.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via San Bernardo del Viento and Lorica to the Gulf of Morrosquillo.",
       "route_url": "https://www.komoot.com/tour/3370618745",
       "stay": "Covenas"
     },
@@ -3175,7 +3175,7 @@
       "plan_miles": 102,
       "plan_climb_ft": 1675,
       "terrain": "Flat, hot (start early)",
-      "notes": "Via Tolu, San Onofre and Maria la Baja. REST DAYS (2) in Cartagena.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Tolu, San Onofre and Maria la Baja. REST DAYS (2) in Cartagena.",
       "route_url": "https://www.komoot.com/tour/3370618954",
       "stay": "Cartagena"
     },
@@ -3189,7 +3189,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Cartagena"
     },
@@ -3203,7 +3203,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Cartagena"
     },
@@ -3217,7 +3217,7 @@
       "plan_miles": 89.1,
       "plan_climb_ft": 2550,
       "terrain": "Flat coast",
-      "notes": "Via al Mar along the Caribbean. REST DAY TOMORROW: Museo de Arte Moderno de Barranquilla.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via al Mar along the Caribbean. REST DAY TOMORROW: Museo de Arte Moderno de Barranquilla.",
       "route_url": "https://www.komoot.com/tour/3370619305",
       "stay": "Barranquilla"
     },
@@ -3231,7 +3231,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Barranquilla"
     },
@@ -3245,7 +3245,7 @@
       "plan_miles": 62.8,
       "plan_climb_ft": 725,
       "terrain": "Flat",
-      "notes": "Across the Isla de Salamanca road (mangroves and sea) and Cienaga. REST DAY TOMORROW (Tayrona).. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Across the Isla de Salamanca road (mangroves and sea) and Cienaga. REST DAY TOMORROW (Tayrona).",
       "route_url": "https://www.komoot.com/tour/3370619599",
       "stay": "Santa Marta"
     },
@@ -3259,7 +3259,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Santa Marta (Tayrona National Park)"
     },
@@ -3273,7 +3273,7 @@
       "plan_miles": 13.1,
       "plan_climb_ft": 2175,
       "terrain": "Climb, short",
-      "notes": "Up into the Sierra Nevada foothills: birds, waterfalls, coffee farms.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Up into the Sierra Nevada foothills: birds, waterfalls, coffee farms.",
       "route_url": "https://www.komoot.com/tour/3370620138",
       "stay": "Minca"
     },
@@ -3287,7 +3287,7 @@
       "plan_miles": 67.1,
       "plan_climb_ft": 1175,
       "terrain": "Descent, then flat",
-      "notes": "Back down via Cienaga, south on Ruta 45.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Back down via Cienaga, south on Ruta 45.",
       "route_url": "https://www.komoot.com/tour/3370620410",
       "stay": "Fundacion"
     },
@@ -3301,7 +3301,7 @@
       "plan_miles": 110,
       "plan_climb_ft": 1275,
       "terrain": "Flat, hot",
-      "notes": "Ruta 45 via Bosconia.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Ruta 45 via Bosconia.",
       "route_url": "https://www.komoot.com/tour/3370620658",
       "stay": "Curumani"
     },
@@ -3315,7 +3315,7 @@
       "plan_miles": 85.6,
       "plan_climb_ft": 1300,
       "terrain": "Flat",
-      "notes": "Via Pelaya and Tamalameque to the Magdalena at El Banco.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Pelaya and Tamalameque to the Magdalena at El Banco.",
       "route_url": "https://www.komoot.com/tour/3370620820",
       "stay": "El Banco"
     },
@@ -3329,7 +3329,7 @@
       "plan_miles": 45.5,
       "plan_climb_ft": 250,
       "terrain": "Flat, rough road near Mompox",
-      "notes": "Over the bridge onto the island (no ferry from this side). REST DAY TOMORROW (UNESCO colonial river town).. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Over the bridge onto the island (no ferry from this side). REST DAY TOMORROW (UNESCO colonial river town).",
       "route_url": "https://www.komoot.com/tour/3370621146",
       "stay": "Mompox"
     },
@@ -3343,7 +3343,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Mompox"
     },
@@ -3357,7 +3357,7 @@
       "plan_miles": 118,
       "plan_climb_ft": 2100,
       "terrain": "Flat, hot",
-      "notes": "Back to El Banco, then south to Aguachica.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Back to El Banco, then south to Aguachica.",
       "route_url": "https://www.komoot.com/tour/3370621439",
       "stay": "Aguachica"
     },
@@ -3371,7 +3371,7 @@
       "plan_miles": 125,
       "plan_climb_ft": 6075,
       "terrain": "Flat, then a big climb at the end (long day)",
-      "notes": "South on Ruta 45 via San Alberto, then up via Lebrija to Bucaramanga.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "South on Ruta 45 via San Alberto, then up via Lebrija to Bucaramanga.",
       "route_url": "https://www.komoot.com/tour/3370621590",
       "stay": "Bucaramanga"
     },
@@ -3385,7 +3385,7 @@
       "plan_miles": 67,
       "plan_climb_ft": 8600,
       "terrain": "Huge climbs (Chicamocha canyon)",
-      "notes": "Down into and out of the Chicamocha canyon (national park, viewpoints), through San Gil to Barichara. REST DAY TOMORROW.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Down into and out of the Chicamocha canyon (national park, viewpoints), through San Gil to Barichara. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370621928",
       "stay": "Barichara"
     },
@@ -3399,7 +3399,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Barichara"
     },
@@ -3413,7 +3413,7 @@
       "plan_miles": 92.1,
       "plan_climb_ft": 12275,
       "terrain": "Hilly",
-      "notes": "Via Socorro and Oiba on Ruta 45A.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Socorro and Oiba on Ruta 45A.",
       "route_url": "https://www.komoot.com/tour/3370622217",
       "stay": "Barbosa"
     },
@@ -3427,7 +3427,7 @@
       "plan_miles": 30.6,
       "plan_climb_ft": 3775,
       "terrain": "Hilly",
-      "notes": "Via Moniquira. REST DAY TOMORROW.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Moniquira. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370622453",
       "stay": "Villa de Leyva"
     },
@@ -3441,7 +3441,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Villa de Leyva"
     },
@@ -3455,7 +3455,7 @@
       "plan_miles": 117,
       "plan_climb_ft": 7950,
       "terrain": "Rolling high plateau (long day)",
-      "notes": "Via Chiquinquira, Ubate and Zipaquira (Salt Cathedral) into the capital. REST DAYS (6): MAMBO (modern art), Museo Botero, Gold Museum, Monserrate.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Chiquinquira, Ubate and Zipaquira (Salt Cathedral) into the capital. REST DAYS (6): MAMBO (modern art), Museo Botero, Gold Museum, Monserrate.",
       "route_url": "https://www.komoot.com/tour/3370623190",
       "stay": "Bogota"
     },
@@ -3469,7 +3469,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Bogota"
     },
@@ -3483,7 +3483,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Bogota"
     },
@@ -3497,7 +3497,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Bogota"
     },
@@ -3511,7 +3511,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Bogota"
     },
@@ -3525,7 +3525,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Bogota"
     },
@@ -3539,7 +3539,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Bogota"
     },
@@ -3553,7 +3553,7 @@
       "plan_miles": 52.5,
       "plan_climb_ft": 1025,
       "terrain": "Big descent",
-      "notes": "Down the Ruta 50/60 from 2,600 m to the warm valley.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Down the Ruta 50/60 from 2,600 m to the warm valley.",
       "route_url": "https://www.komoot.com/tour/3370623782",
       "stay": "Villeta"
     },
@@ -3567,7 +3567,7 @@
       "plan_miles": 46.1,
       "plan_climb_ft": 6775,
       "terrain": "Rolling, hot",
-      "notes": "Into the Magdalena valley at Honda (colonial river port).. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Into the Magdalena valley at Honda (colonial river port).",
       "route_url": "https://www.komoot.com/tour/3370624387",
       "stay": "Honda"
     },
@@ -3581,7 +3581,7 @@
       "plan_miles": 59.3,
       "plan_climb_ft": 1275,
       "terrain": "Rolling, hot",
-      "notes": "Ruta 45 then Ruta 60 toward Medellin; Rio Claro nature reserve (marble canyon). REST DAY TOMORROW.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Ruta 45 then Ruta 60 toward Medellin; Rio Claro nature reserve (marble canyon). REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370624797",
       "stay": "Doradal"
     },
@@ -3595,7 +3595,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Doradal (Rio Claro reserve)"
     },
@@ -3609,7 +3609,7 @@
       "plan_miles": 21.6,
       "plan_climb_ft": 3775,
       "terrain": "Big climb",
-      "notes": "Ruta 60 up via San Luis and Cocorna into the Antioquia highlands.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Ruta 60 up via San Luis and Cocorna into the Antioquia highlands.",
       "route_url": "https://www.komoot.com/tour/3370625178",
       "stay": "Marinilla"
     },
@@ -3623,7 +3623,7 @@
       "plan_miles": 28.4,
       "plan_climb_ft": 2600,
       "terrain": "Rolling",
-      "notes": "El Penol rock and the colorful town of Guatape.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "El Penol rock and the colorful town of Guatape.",
       "route_url": "https://www.komoot.com/tour/3370627572",
       "stay": "Guatape"
     },
@@ -3637,7 +3637,7 @@
       "plan_miles": 47.5,
       "plan_climb_ft": 4675,
       "terrain": "Hilly, big descent",
-      "notes": "Via Rionegro. REST DAYS (6): MAMM (modern art), Comuna 13, Plaza Botero.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Rionegro. REST DAYS (6): MAMM (modern art), Comuna 13, Plaza Botero.",
       "route_url": "https://www.komoot.com/tour/3370628596",
       "stay": "Medellin"
     },
@@ -3651,7 +3651,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Medellin"
     },
@@ -3665,7 +3665,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Medellin"
     },
@@ -3679,7 +3679,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Medellin"
     },
@@ -3693,7 +3693,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Medellin"
     },
@@ -3707,7 +3707,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Medellin"
     },
@@ -3721,7 +3721,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Medellin"
     },
@@ -3735,7 +3735,7 @@
       "plan_miles": 60.4,
       "plan_climb_ft": 5450,
       "terrain": "Climb, then long descent",
-      "notes": "South via Caldas and the Alto de Minas.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "South via Caldas and the Alto de Minas.",
       "route_url": "https://www.komoot.com/tour/3370628858",
       "stay": "La Pintada"
     },
@@ -3749,7 +3749,7 @@
       "plan_miles": 70.1,
       "plan_climb_ft": 10925,
       "terrain": "Big climb",
-      "notes": "Ruta 25 via Irra and Neira up to Manizales.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Ruta 25 via Irra and Neira up to Manizales.",
       "route_url": "https://www.komoot.com/tour/3370630131",
       "stay": "Manizales"
     },
@@ -3763,7 +3763,7 @@
       "plan_miles": 23.4,
       "plan_climb_ft": 2625,
       "terrain": "Rolling",
-      "notes": "Short day to the hot springs above Santa Rosa de Cabal. Soak tonight and in the morning, then ride on.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Short day to the hot springs above Santa Rosa de Cabal. Soak tonight and in the morning, then ride on.",
       "route_url": "https://www.komoot.com/tour/3370631218",
       "stay": "Santa Rosa de Cabal"
     },
@@ -3777,7 +3777,7 @@
       "plan_miles": 30.7,
       "plan_climb_ft": 4025,
       "terrain": "Climb at the end",
-      "notes": "Via Pereira to Salento. REST DAY TOMORROW (Cocora valley wax palms).. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Pereira to Salento. REST DAY TOMORROW (Cocora valley wax palms).",
       "route_url": "https://www.komoot.com/tour/3370631686",
       "stay": "Salento"
     },
@@ -3791,7 +3791,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Salento (Cocora valley)"
     },
@@ -3805,7 +3805,7 @@
       "plan_miles": 82.2,
       "plan_climb_ft": 2775,
       "terrain": "Long descent, then flat and hot",
-      "notes": "Via Armenia and La Tebaida into the Cauca valley. Rural Valle del Cauca is a US Level 4 area: daylight only, ride straight through, stop only in towns.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Armenia and La Tebaida into the Cauca valley. Rural Valle del Cauca is a US Level 4 area: daylight only, ride straight through, stop only in towns.",
       "route_url": "https://www.komoot.com/tour/3370632112",
       "stay": "Tulua"
     },
@@ -3819,7 +3819,7 @@
       "plan_miles": 68.8,
       "plan_climb_ft": 1325,
       "terrain": "Flat, hot",
-      "notes": "Via Buga and Palmira. REST DAYS (2) in Cali.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Buga and Palmira. REST DAYS (2) in Cali.",
       "route_url": "https://www.komoot.com/tour/3370633054",
       "stay": "Cali"
     },
@@ -3833,7 +3833,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Cali"
     },
@@ -3847,7 +3847,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Cali"
     },
@@ -3861,7 +3861,7 @@
       "plan_miles": 98,
       "plan_climb_ft": 8175,
       "terrain": "Rolling, then a long climb",
-      "notes": "Panamericana south via Santander de Quilichao and Piendamo. Rural Cauca is a US Level 4 area: daylight only, no stops outside towns. REST DAY TOMORROW in Popayan.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Panamericana south via Santander de Quilichao and Piendamo. Rural Cauca is a US Level 4 area: daylight only, no stops outside towns. REST DAY TOMORROW in Popayan.",
       "route_url": "https://www.komoot.com/tour/3370633497",
       "stay": "Popayan"
     },
@@ -3875,7 +3875,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Popayan"
     },
@@ -3889,7 +3889,7 @@
       "plan_miles": 18,
       "plan_climb_ft": 3150,
       "terrain": "Climb, short",
-      "notes": "Up to the Coconuco hot springs (natural, community-run). Soak tonight and in the morning.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Up to the Coconuco hot springs (natural, community-run). Soak tonight and in the morning.",
       "route_url": "https://www.komoot.com/tour/3370633794",
       "stay": "Coconuco"
     },
@@ -3903,7 +3903,7 @@
       "plan_miles": 64.8,
       "plan_climb_ft": 5450,
       "terrain": "Huge climb over the paramo, long unpaved stretches",
-      "notes": "Ruta 20 via Paletara and the Purace paramo, down via Isnos to San Agustin. This avoids the Panamericana past El Bordo. REST DAY TOMORROW: San Agustin Archaeological Park.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Ruta 20 via Paletara and the Purace paramo, down via Isnos to San Agustin. This avoids the Panamericana past El Bordo. REST DAY TOMORROW: San Agustin Archaeological Park.",
       "route_url": "https://www.komoot.com/tour/3370634217",
       "stay": "San Agustin"
     },
@@ -3917,7 +3917,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "San Agustin"
     },
@@ -3931,7 +3931,7 @@
       "plan_miles": 106,
       "plan_climb_ft": 8725,
       "terrain": "Rolling, then descent to the Amazon foothills",
-      "notes": "Back via Pitalito, then Ruta 45 south to Mocoa. The Fin del Mundo waterfall hike is just outside town if you have the legs.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Back via Pitalito, then Ruta 45 south to Mocoa. The Fin del Mundo waterfall hike is just outside town if you have the legs.",
       "route_url": "https://www.komoot.com/tour/3370634743",
       "stay": "Mocoa"
     },
@@ -3945,7 +3945,7 @@
       "plan_miles": 50.5,
       "plan_climb_ft": 11350,
       "terrain": "Huge climb on dirt (Trampolin de la Muerte)",
-      "notes": "The Mocoa to San Francisco road: unpaved, narrow, cliff-edge, landslide-prone. Daylight only.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "The Mocoa to San Francisco road: unpaved, narrow, cliff-edge, landslide-prone. Daylight only.",
       "route_url": "https://www.komoot.com/tour/3370635189",
       "stay": "Sibundoy"
     },
@@ -3959,7 +3959,7 @@
       "plan_miles": 39.8,
       "plan_climb_ft": 5900,
       "terrain": "Climb, then descent",
-      "notes": "Past Laguna de la Cocha into Pasto.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Past Laguna de la Cocha into Pasto.",
       "route_url": "https://www.komoot.com/tour/3370635610",
       "stay": "Pasto"
     },
@@ -3973,7 +3973,7 @@
       "plan_miles": 50.3,
       "plan_climb_ft": 7950,
       "terrain": "Hilly",
-      "notes": "Panamericana south; Las Lajas sanctuary just outside Ipiales.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Panamericana south; Las Lajas sanctuary just outside Ipiales.",
       "route_url": "https://www.komoot.com/tour/3370636252",
       "stay": "Ipiales"
     },
@@ -3987,7 +3987,7 @@
       "plan_miles": 44.6,
       "plan_climb_ft": 4150,
       "terrain": "Hilly",
-      "notes": "BORDER DAY (Colombia to Ecuador) at Rumichaca, then Tulcan and San Gabriel.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "BORDER DAY (Colombia to Ecuador) at Rumichaca, then Tulcan and San Gabriel.",
       "route_url": "https://www.komoot.com/tour/3370636757",
       "stay": "Bolivar (Ecuador)"
     },
@@ -4001,7 +4001,7 @@
       "plan_miles": 67,
       "plan_climb_ft": 7600,
       "terrain": "Big descent into the Chota valley and climb out",
-      "notes": "Via Ibarra. REST DAY TOMORROW (market, Laguna Cuicocha).. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Ibarra. REST DAY TOMORROW (market, Laguna Cuicocha).",
       "route_url": "https://www.komoot.com/tour/3370637240",
       "stay": "Otavalo"
     },
@@ -4015,7 +4015,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Otavalo"
     },
@@ -4029,7 +4029,7 @@
       "plan_miles": 65.6,
       "plan_climb_ft": 7275,
       "terrain": "Hilly",
-      "notes": "Across the equator near Cayambe to the Casa de Ciclistas in Tumbaco (store the bike here for Galapagos).. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Across the equator near Cayambe to the Casa de Ciclistas in Tumbaco (store the bike here for Galapagos).",
       "route_url": "https://www.komoot.com/tour/3370639247",
       "stay": "Tumbaco"
     },
@@ -4043,7 +4043,7 @@
       "plan_miles": 10.2,
       "plan_climb_ft": 2000,
       "terrain": "Climb, short",
-      "notes": "Chaquinan trail and into the capital. REST DAYS (4): Capilla del Hombre and Guayasamin's house (modern art), old town.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Chaquinan trail and into the capital. REST DAYS (4): Capilla del Hombre and Guayasamin's house (modern art), old town.",
       "route_url": "https://www.komoot.com/tour/3370640763",
       "stay": "Quito"
     },
@@ -4057,7 +4057,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Quito"
     },
@@ -4071,7 +4071,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Quito"
     },
@@ -4085,7 +4085,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Quito"
     },
@@ -4099,7 +4099,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Quito"
     },
@@ -4113,7 +4113,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Galapagos (excursion day 1 of 9, Quito to Quito)"
     },
@@ -4127,7 +4127,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Galapagos (excursion day 2 of 9, Quito to Quito)"
     },
@@ -4141,7 +4141,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Galapagos (excursion day 3 of 9, Quito to Quito)"
     },
@@ -4155,7 +4155,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Galapagos (excursion day 4 of 9, Quito to Quito)"
     },
@@ -4169,7 +4169,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Galapagos (excursion day 5 of 9, Quito to Quito)"
     },
@@ -4183,7 +4183,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Galapagos (excursion day 6 of 9, Quito to Quito)"
     },
@@ -4197,7 +4197,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Galapagos (excursion day 7 of 9, Quito to Quito)"
     },
@@ -4211,7 +4211,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Galapagos (excursion day 8 of 9, Quito to Quito)"
     },
@@ -4225,7 +4225,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Galapagos (excursion day 9 of 9, Quito to Quito)"
     },
@@ -4239,7 +4239,7 @@
       "plan_miles": 24.5,
       "plan_climb_ft": 2175,
       "terrain": "Climb",
-      "notes": "South past the volcanoes.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "South past the volcanoes.",
       "route_url": "https://www.komoot.com/tour/3370643396",
       "stay": "Machachi"
     },
@@ -4253,7 +4253,7 @@
       "plan_miles": 35.2,
       "plan_climb_ft": 2125,
       "terrain": "Rolling, some dirt in the park",
-      "notes": "Through Cotopaxi National Park.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Through Cotopaxi National Park.",
       "route_url": "https://www.komoot.com/tour/3370645994",
       "stay": "Latacunga"
     },
@@ -4267,7 +4267,7 @@
       "plan_miles": 43.5,
       "plan_climb_ft": 6725,
       "terrain": "Huge climb (to about 3,900 m)",
-      "notes": "Via Pujili and Zumbahua to the Quilotoa crater lake.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Pujili and Zumbahua to the Quilotoa crater lake.",
       "route_url": "https://www.komoot.com/tour/3370647720",
       "stay": "Quilotoa"
     },
@@ -4281,7 +4281,7 @@
       "plan_miles": 69.2,
       "plan_climb_ft": 6175,
       "terrain": "Long descent, then rolling",
-      "notes": "Back via Zumbahua and Pujili, then south.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Back via Zumbahua and Pujili, then south.",
       "route_url": "https://www.komoot.com/tour/3370649004",
       "stay": "Ambato"
     },
@@ -4295,7 +4295,7 @@
       "plan_miles": 29.7,
       "plan_climb_ft": 2200,
       "terrain": "Descent",
-      "notes": "Banos and its cheap municipal hot springs. REST DAY TOMORROW.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Banos and its cheap municipal hot springs. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370651441",
       "stay": "Banos"
     },
@@ -4309,7 +4309,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Banos (hot springs)"
     },
@@ -4323,7 +4323,7 @@
       "plan_miles": 38.1,
       "plan_climb_ft": 2525,
       "terrain": "Mostly downhill",
-      "notes": "Ruta de las Cascadas (Pailon del Diablo) down to the Amazon. Then 3 days at a Puyo-area jungle lodge.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Ruta de las Cascadas (Pailon del Diablo) down to the Amazon. Then 3 days at a Puyo-area jungle lodge.",
       "route_url": "https://www.komoot.com/tour/3370652778",
       "stay": "Puyo"
     },
@@ -4337,7 +4337,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Amazon lodge near Puyo (day 1 of 3)"
     },
@@ -4351,7 +4351,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Amazon lodge near Puyo (day 2 of 3)"
     },
@@ -4365,7 +4365,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Amazon lodge near Puyo (day 3 of 3)"
     },
@@ -4379,7 +4379,7 @@
       "plan_miles": 38.3,
       "plan_climb_ft": 5300,
       "terrain": "Long climb",
-      "notes": "Back up the Ruta de las Cascadas.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Back up the Ruta de las Cascadas.",
       "route_url": "https://www.komoot.com/tour/3370655232",
       "stay": "Banos"
     },
@@ -4393,7 +4393,7 @@
       "plan_miles": 34.3,
       "plan_climb_ft": 5050,
       "terrain": "Hilly",
-      "notes": "Via Penipe, under Tungurahua and Chimborazo.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Penipe, under Tungurahua and Chimborazo.",
       "route_url": "https://www.komoot.com/tour/3370656174",
       "stay": "Riobamba"
     },
@@ -4407,7 +4407,7 @@
       "plan_miles": 60.6,
       "plan_climb_ft": 6050,
       "terrain": "Hilly",
-      "notes": "Panamericana south past Guamote.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Panamericana south past Guamote.",
       "route_url": "https://www.komoot.com/tour/3370656953",
       "stay": "Alausi"
     },
@@ -4421,7 +4421,7 @@
       "plan_miles": 67,
       "plan_climb_ft": 10875,
       "terrain": "Big climbs",
-      "notes": "Via Chunchi; Ingapirca ruins nearby.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Chunchi; Ingapirca ruins nearby.",
       "route_url": "https://www.komoot.com/tour/3370658543",
       "stay": "Canar"
     },
@@ -4435,7 +4435,7 @@
       "plan_miles": 39.8,
       "plan_climb_ft": 3025,
       "terrain": "Hilly",
-      "notes": "Via Azogues. REST DAY TOMORROW: UNESCO old town, or Cajas National Park.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Azogues. REST DAY TOMORROW: UNESCO old town, or Cajas National Park.",
       "route_url": "https://www.komoot.com/tour/3370660186",
       "stay": "Cuenca"
     },
@@ -4449,7 +4449,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Cuenca"
     },
@@ -4463,7 +4463,7 @@
       "plan_miles": 76,
       "plan_climb_ft": 9150,
       "terrain": "Big climbs",
-      "notes": "Panamericana south via Cumbe and the Tinajillas pass.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Panamericana south via Cumbe and the Tinajillas pass.",
       "route_url": "https://www.komoot.com/tour/3370661085",
       "stay": "Ona"
     },
@@ -4477,7 +4477,7 @@
       "plan_miles": 62.8,
       "plan_climb_ft": 7975,
       "terrain": "Big climbs",
-      "notes": "Via Saraguro.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Saraguro.",
       "route_url": "https://www.komoot.com/tour/3370662226",
       "stay": "Loja"
     },
@@ -4491,7 +4491,7 @@
       "plan_miles": 23.9,
       "plan_climb_ft": 2150,
       "terrain": "Descent",
-      "notes": "REST DAY TOMORROW.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370665190",
       "stay": "Vilcabamba"
     },
@@ -4505,7 +4505,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Vilcabamba"
     },
@@ -4519,7 +4519,7 @@
       "plan_miles": 51.9,
       "plan_climb_ft": 9525,
       "terrain": "Big climbs, possibly unpaved stretches",
-      "notes": "South via Valladolid toward the La Balsa border.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "South via Valladolid toward the La Balsa border.",
       "route_url": "https://www.komoot.com/tour/3370666487",
       "stay": "Palanda"
     },
@@ -4533,7 +4533,7 @@
       "plan_miles": 35.3,
       "plan_climb_ft": 6925,
       "terrain": "Hilly, possibly unpaved",
-      "notes": "To Zumba, the last town before Peru.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "To Zumba, the last town before Peru.",
       "route_url": "https://www.komoot.com/tour/3370670451",
       "stay": "Zumba"
     },
@@ -4547,7 +4547,7 @@
       "plan_miles": 47,
       "plan_climb_ft": 7950,
       "terrain": "Rough dirt to the border, then paved",
-      "notes": "BORDER DAY (Ecuador to Peru) at La Balsa. Short day on purpose.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "BORDER DAY (Ecuador to Peru) at La Balsa. Short day on purpose.",
       "route_url": "https://www.komoot.com/tour/3370674506",
       "stay": "San Ignacio (Peru)"
     },
@@ -4561,7 +4561,7 @@
       "plan_miles": 67.5,
       "plan_climb_ft": 4650,
       "terrain": "Hilly, hot",
-      "notes": "South to Jaen.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "South to Jaen.",
       "route_url": "https://www.komoot.com/tour/3370675942",
       "stay": "Jaen"
     },
@@ -4575,7 +4575,7 @@
       "plan_miles": 86.4,
       "plan_climb_ft": 7350,
       "terrain": "Rolling, then climbing up the Utcubamba valley",
-      "notes": "Via Bagua Grande.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Bagua Grande.",
       "route_url": "https://www.komoot.com/tour/3370677849",
       "stay": "Pedro Ruiz"
     },
@@ -4589,7 +4589,7 @@
       "plan_miles": 17.5,
       "plan_climb_ft": 3850,
       "terrain": "Climb, short",
-      "notes": "Short ride to the village below Gocta waterfall (771 m). REST DAY TOMORROW: hike to the falls.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Short ride to the village below Gocta waterfall (771 m). REST DAY TOMORROW: hike to the falls.",
       "route_url": "https://www.komoot.com/tour/3370682234",
       "stay": "Cocachimba (Gocta)"
     },
@@ -4603,7 +4603,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Gocta waterfall hike"
     },
@@ -4617,7 +4617,7 @@
       "plan_miles": 28.3,
       "plan_climb_ft": 4575,
       "terrain": "Hilly",
-      "notes": "Up the valley to Chachapoyas.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Up the valley to Chachapoyas.",
       "route_url": "https://www.komoot.com/tour/3370684786",
       "stay": "Chachapoyas"
     },
@@ -4631,7 +4631,7 @@
       "plan_miles": 21.9,
       "plan_climb_ft": 1550,
       "terrain": "Rolling",
-      "notes": "Down the Utcubamba to the Kuelap cable car. REST DAY TOMORROW: Kuelap fortress.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Down the Utcubamba to the Kuelap cable car. REST DAY TOMORROW: Kuelap fortress.",
       "route_url": "https://www.komoot.com/tour/3370689902",
       "stay": "Nuevo Tingo"
     },
@@ -4645,7 +4645,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Kuelap"
     },
@@ -4659,7 +4659,7 @@
       "plan_miles": 30,
       "plan_climb_ft": 2975,
       "terrain": "Climbing",
-      "notes": "Up the valley to Leymebamba (mummy museum).. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Up the valley to Leymebamba (mummy museum).",
       "route_url": "https://www.komoot.com/tour/3370692021",
       "stay": "Leymebamba"
     },
@@ -4673,7 +4673,7 @@
       "plan_miles": 54.6,
       "plan_climb_ft": 7000,
       "terrain": "Huge climb (Calla Calla, about 3,600 m), then huge descent",
-      "notes": "Over the pass and down into the Maranon canyon.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Over the pass and down into the Maranon canyon.",
       "route_url": "https://www.komoot.com/tour/3370694290",
       "stay": "Balsas"
     },
@@ -4687,7 +4687,7 @@
       "plan_miles": 36.2,
       "plan_climb_ft": 8125,
       "terrain": "Huge climb (about 2,000 m)",
-      "notes": "Out of the Maranon canyon.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Out of the Maranon canyon.",
       "route_url": "https://www.komoot.com/tour/3370697882",
       "stay": "Celendin"
     },
@@ -4701,7 +4701,7 @@
       "plan_miles": 62.7,
       "plan_climb_ft": 5600,
       "terrain": "Hilly",
-      "notes": "To Cajamarca. REST DAY TOMORROW: Banos del Inca hot springs.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "To Cajamarca. REST DAY TOMORROW: Banos del Inca hot springs.",
       "route_url": "https://www.komoot.com/tour/3370700306",
       "stay": "Cajamarca"
     },
@@ -4715,7 +4715,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Cajamarca (Banos del Inca hot springs)"
     },
@@ -4729,7 +4729,7 @@
       "plan_miles": 71.4,
       "plan_climb_ft": 7575,
       "terrain": "Big climbs",
-      "notes": "South via San Marcos.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "South via San Marcos.",
       "route_url": "https://www.komoot.com/tour/3370702736",
       "stay": "Cajabamba"
     },
@@ -4743,7 +4743,7 @@
       "plan_miles": 25.8,
       "plan_climb_ft": 4600,
       "terrain": "Hilly",
-      "notes": "Marcahuamachuco ruins nearby.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Marcahuamachuco ruins nearby.",
       "route_url": "https://www.komoot.com/tour/3370706519",
       "stay": "Huamachuco"
     },
@@ -4757,7 +4757,7 @@
       "plan_miles": 114,
       "plan_climb_ft": 7875,
       "terrain": "Climb, then a huge descent to the coast",
-      "notes": "Ruta 10 west via Shiran to Trujillo. REST DAY TOMORROW: Chan Chan (adobe city) and Huanchaco.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Ruta 10 west via Shiran to Trujillo. REST DAY TOMORROW: Chan Chan (adobe city) and Huanchaco.",
       "route_url": "https://www.komoot.com/tour/3370709385",
       "stay": "Trujillo"
     },
@@ -4771,7 +4771,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Trujillo"
     },
@@ -4785,7 +4785,7 @@
       "plan_miles": 226,
       "plan_climb_ft": 24675,
       "terrain": "Flat desert coast",
-      "notes": "Panamericana south.. Komoot would not route the coastal Panamericana (PE-1N); the saved tour is a 226 mi inland route via Simbal/Quiruvilca — needs review. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Panamericana south. Komoot would not route the coastal Panamericana (PE-1N); the saved tour is a 226 mi inland route via Simbal/Quiruvilca — needs review",
       "route_url": "https://www.komoot.com/tour/3370717015",
       "stay": "Chimbote"
     },
@@ -4799,7 +4799,7 @@
       "plan_miles": 37.5,
       "plan_climb_ft": 1275,
       "terrain": "Flat",
-      "notes": "Panamericana.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Panamericana.",
       "route_url": "https://www.komoot.com/tour/3370721621",
       "stay": "Casma"
     },
@@ -4813,7 +4813,7 @@
       "plan_miles": 37.4,
       "plan_climb_ft": 5025,
       "terrain": "Steady climb",
-      "notes": "Ruta 14 inland toward Huaraz.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Ruta 14 inland toward Huaraz.",
       "route_url": "https://www.komoot.com/tour/3370723820",
       "stay": "Pariacoto"
     },
@@ -4827,7 +4827,7 @@
       "plan_miles": 46.8,
       "plan_climb_ft": 10350,
       "terrain": "Huge climb (Punta Callan, about 4,200 m), then descent",
-      "notes": "Over the Cordillera Negra to Huaraz. REST DAYS (3): acclimatize, Laguna 69, Monterrey hot springs.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Over the Cordillera Negra to Huaraz. REST DAYS (3): acclimatize, Laguna 69, Monterrey hot springs.",
       "route_url": "https://www.komoot.com/tour/3370726317",
       "stay": "Huaraz"
     },
@@ -4841,7 +4841,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Huaraz (Laguna 69, Monterrey hot springs)"
     },
@@ -4855,7 +4855,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Huaraz (Laguna 69, Monterrey hot springs)"
     },
@@ -4869,7 +4869,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Huaraz (Laguna 69, Monterrey hot springs)"
     },
@@ -4883,7 +4883,7 @@
       "plan_miles": 51,
       "plan_climb_ft": 4625,
       "terrain": "Climb (to about 4,100 m)",
-      "notes": "South up the Callejon de Huaylas via Recuay.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "South up the Callejon de Huaylas via Recuay.",
       "route_url": "https://www.komoot.com/tour/3370732692",
       "stay": "Conococha"
     },
@@ -4897,7 +4897,7 @@
       "plan_miles": 84.9,
       "plan_climb_ft": 1700,
       "terrain": "Huge descent to the coast",
-      "notes": "Down to Pativilca and Barranca.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Down to Pativilca and Barranca.",
       "route_url": "https://www.komoot.com/tour/3370735851",
       "stay": "Barranca"
     },
@@ -4911,7 +4911,7 @@
       "plan_miles": 43.4,
       "plan_climb_ft": 1775,
       "terrain": "Flat desert coast",
-      "notes": "Panamericana south.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Panamericana south.",
       "route_url": "https://www.komoot.com/tour/3370740341",
       "stay": "Huacho"
     },
@@ -4925,7 +4925,7 @@
       "plan_miles": 114,
       "plan_climb_ft": 7000,
       "terrain": "Flat, some climbs",
-      "notes": "Panamericana via Chancay.. Komoot would not use the coastal line; the saved tour is a 114 mi inland route — needs review. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Panamericana via Chancay. Komoot would not use the coastal line; the saved tour is a 114 mi inland route — needs review",
       "route_url": "https://www.komoot.com/tour/3370752666",
       "stay": "Ancon"
     },
@@ -4939,7 +4939,7 @@
       "plan_miles": 29.2,
       "plan_climb_ft": 1050,
       "terrain": "Flat, heavy traffic",
-      "notes": "Into Lima (Miraflores/Barranco). Ride early. REST DAYS (6, including a weekend): MALI and MAC Lima (modern art), food.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Into Lima (Miraflores/Barranco). Ride early. REST DAYS (6, including a weekend): MALI and MAC Lima (modern art), food.",
       "route_url": "https://www.komoot.com/tour/3370756089",
       "stay": "Lima"
     },
@@ -4953,7 +4953,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Lima"
     },
@@ -4967,7 +4967,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Lima"
     },
@@ -4981,7 +4981,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Lima"
     },
@@ -4995,7 +4995,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Lima"
     },
@@ -5009,7 +5009,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Lima"
     },
@@ -5023,7 +5023,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Lima"
     },
@@ -5037,7 +5037,7 @@
       "plan_miles": 361,
       "plan_climb_ft": 37175,
       "terrain": "Flat desert coast",
-      "notes": "Panamericana Sur.. Komoot avoids the Panamericana Sur; the saved tour is a 361 mi inland route and the Asia endpoint was moved ~3 km to a mapped road (original point is not on a known road in Komoot) — needs review. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Panamericana Sur. Komoot avoids the Panamericana Sur; the saved tour is a 361 mi inland route and the Asia endpoint was moved ~3 km to a mapped road (original point is not on a known road in Komoot) — needs review",
       "route_url": "https://www.komoot.com/tour/3370782907",
       "stay": "Asia"
     },
@@ -5051,7 +5051,7 @@
       "plan_miles": 111,
       "plan_climb_ft": 3500,
       "terrain": "Flat",
-      "notes": "Via Chincha. REST DAY TOMORROW: Ballestas Islands (sea lions, penguins).. Start moved to a mapped road near Asia (original start point is not on a known road in Komoot). Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Chincha. REST DAY TOMORROW: Ballestas Islands (sea lions, penguins). Start moved to a mapped road near Asia (original start point is not on a known road in Komoot)",
       "route_url": "https://www.komoot.com/tour/3370791629",
       "stay": "Paracas"
     },
@@ -5065,7 +5065,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Paracas (Ballestas Islands)"
     },
@@ -5079,7 +5079,7 @@
       "plan_miles": 74,
       "plan_climb_ft": 4700,
       "terrain": "Flat desert",
-      "notes": "Via Ica to the desert oasis.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Ica to the desert oasis.",
       "route_url": "https://www.komoot.com/tour/3370801468",
       "stay": "Huacachina"
     },
@@ -5093,7 +5093,7 @@
       "plan_miles": 99.7,
       "plan_climb_ft": 3125,
       "terrain": "Flat desert, some climbs",
-      "notes": "Via Palpa; the Nazca Lines viewing tower is on the road. REST DAY TOMORROW.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Palpa; the Nazca Lines viewing tower is on the road. REST DAY TOMORROW.",
       "route_url": "https://www.komoot.com/tour/3370806379",
       "stay": "Nazca"
     },
@@ -5107,7 +5107,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Nazca"
     },
@@ -5121,7 +5121,7 @@
       "plan_miles": 67.9,
       "plan_climb_ft": 13275,
       "terrain": "Huge climb (to about 4,000 m)",
-      "notes": "The Andes climb toward Puquio; vicuna reserve at the top.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "The Andes climb toward Puquio; vicuna reserve at the top.",
       "route_url": "https://www.komoot.com/tour/3370812199",
       "stay": "Pampa Galeras"
     },
@@ -5135,7 +5135,7 @@
       "plan_miles": 39.6,
       "plan_climb_ft": 2950,
       "terrain": "High plateau, rolling",
-      "notes": "Across the puna.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Across the puna.",
       "route_url": "https://www.komoot.com/tour/3370815892",
       "stay": "Puquio"
     },
@@ -5149,7 +5149,7 @@
       "plan_miles": 79.9,
       "plan_climb_ft": 7100,
       "terrain": "High puna (about 4,500 m)",
-      "notes": "Remote: carry food and water.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Remote: carry food and water.",
       "route_url": "https://www.komoot.com/tour/3370819857",
       "stay": "Negromayo"
     },
@@ -5163,7 +5163,7 @@
       "plan_miles": 75.5,
       "plan_climb_ft": 6300,
       "terrain": "Long descent",
-      "notes": "Down to the Pachachaca valley.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Down to the Pachachaca valley.",
       "route_url": "https://www.komoot.com/tour/3370822516",
       "stay": "Chalhuanca"
     },
@@ -5177,7 +5177,7 @@
       "plan_miles": 76.1,
       "plan_climb_ft": 5875,
       "terrain": "Rolling, then climb",
-      "notes": "Down the valley and up to Abancay. REST DAY TOMORROW after a week of high riding.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Down the valley and up to Abancay. REST DAY TOMORROW after a week of high riding.",
       "route_url": "https://www.komoot.com/tour/3370826104",
       "stay": "Abancay"
     },
@@ -5191,7 +5191,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Abancay"
     },
@@ -5205,7 +5205,7 @@
       "plan_miles": 42.3,
       "plan_climb_ft": 7450,
       "terrain": "Huge climb, then descent",
-      "notes": "Over the pass to Curahuasi.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Over the pass to Curahuasi.",
       "route_url": "https://www.komoot.com/tour/3370828311",
       "stay": "Curahuasi"
     },
@@ -5219,7 +5219,7 @@
       "plan_miles": 89.1,
       "plan_climb_ft": 11450,
       "terrain": "Big climbs",
-      "notes": "Via Limatambo. REST DAYS (2): Cusco, Rainbow Mountain or the Sacred Valley.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Limatambo. REST DAYS (2): Cusco, Rainbow Mountain or the Sacred Valley.",
       "route_url": "https://www.komoot.com/tour/3370831603",
       "stay": "Cusco"
     },
@@ -5233,7 +5233,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Cusco"
     },
@@ -5247,7 +5247,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Cusco"
     },
@@ -5261,7 +5261,7 @@
       "plan_miles": 64.2,
       "plan_climb_ft": 4775,
       "terrain": "Rolling",
-      "notes": "South up the Vilcanota valley via Urcos.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "South up the Vilcanota valley via Urcos.",
       "route_url": "https://www.komoot.com/tour/3370839590",
       "stay": "Checacupe"
     },
@@ -5275,7 +5275,7 @@
       "plan_miles": 72.2,
       "plan_climb_ft": 4275,
       "terrain": "Climb over La Raya pass (about 4,330 m)",
-      "notes": "Via Sicuani.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Sicuani.",
       "route_url": "https://www.komoot.com/tour/3370845313",
       "stay": "Santa Rosa"
     },
@@ -5289,7 +5289,7 @@
       "plan_miles": 101,
       "plan_climb_ft": 3725,
       "terrain": "High plateau, flat",
-      "notes": "Via Ayaviri across the altiplano.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Ayaviri across the altiplano.",
       "route_url": "https://www.komoot.com/tour/3370848708",
       "stay": "Juliaca"
     },
@@ -5303,7 +5303,7 @@
       "plan_miles": 33.4,
       "plan_climb_ft": 1400,
       "terrain": "Flat",
-      "notes": "To Lake Titicaca. REST DAY TOMORROW (Uros floating islands).. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "To Lake Titicaca. REST DAY TOMORROW (Uros floating islands).",
       "route_url": "https://www.komoot.com/tour/3370851373",
       "stay": "Puno"
     },
@@ -5317,7 +5317,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Puno (Lake Titicaca)"
     },
@@ -5331,7 +5331,7 @@
       "plan_miles": 95.6,
       "plan_climb_ft": 3825,
       "terrain": "Rolling lakeshore",
-      "notes": "Via Juli and the Yunguyo / Kasani border. BORDER DAY (Peru to Bolivia): leave Puno early or split at Juli.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via Juli and the Yunguyo / Kasani border. BORDER DAY (Peru to Bolivia): leave Puno early or split at Juli.",
       "route_url": "https://www.komoot.com/tour/3370858278",
       "stay": "Copacabana"
     },
@@ -5345,7 +5345,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Copacabana (Isla del Sol)"
     },
@@ -5359,7 +5359,7 @@
       "plan_miles": 102,
       "plan_climb_ft": 3575,
       "terrain": "Rolling, then climb to El Alto and drop into La Paz",
-      "notes": "Via the Tiquina strait (short barge crossing) and the lakeshore. REST DAYS (5) in La Paz, then the Death Road.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Via the Tiquina strait (short barge crossing) and the lakeshore. REST DAYS (5) in La Paz, then the Death Road.",
       "route_url": "https://www.komoot.com/tour/3370861319",
       "stay": "La Paz"
     },
@@ -5373,7 +5373,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "La Paz"
     },
@@ -5387,7 +5387,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "La Paz"
     },
@@ -5401,7 +5401,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "La Paz"
     },
@@ -5415,7 +5415,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "La Paz"
     },
@@ -5429,7 +5429,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "La Paz"
     },
@@ -5443,7 +5443,7 @@
       "plan_miles": 61.6,
       "plan_climb_ft": 8375,
       "terrain": "Climb to La Cumbre (about 4,650 m), then the Death Road descent (dirt)",
-      "notes": "Up to La Cumbre, then the old Yungas road down to Yolosa and up to Coroico.. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Up to La Cumbre, then the old Yungas road down to Yolosa and up to Coroico.",
       "route_url": "https://www.komoot.com/tour/3370865084",
       "stay": "Coroico (Death Road)"
     },
@@ -5457,7 +5457,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "",
       "route_url": "",
       "stay": "Coroico"
     },
@@ -5471,7 +5471,7 @@
       "plan_miles": 90.6,
       "plan_climb_ft": 17750,
       "terrain": "Enormous climb (about 3,500 m)",
-      "notes": "Back up the new road over La Cumbre. No cyclist account found of riding this back up; it may take two days (split at Unduavi).. Komoot surface data classifies 68.5 mi of this new-road return as compacted gravel/unpaved. Changed Oct 2026: Section 5 v3 (rest days redistributed)",
+      "notes": "Back up the new road over La Cumbre. No cyclist account found of riding this back up; it may take two days (split at Unduavi). Komoot surface data classifies 68.5 mi of this new-road return as compacted gravel/unpaved",
       "route_url": "https://www.komoot.com/tour/3370872557",
       "stay": "La Paz"
     },

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#161412">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,500;0,600;1,500;1,600&family=Bricolage+Grotesque:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <title>No Shortcuts · Alaska to Argentina</title>
+  <meta name="description" content="A bike trip from Deadhorse, Alaska to Ushuaia, Argentina. 543 days, 18 countries, no shortcuts.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="No Shortcuts · Alaska to Argentina">
+  <meta property="og:description" content="A bike trip from Deadhorse, Alaska to Ushuaia, Argentina. 543 days, 18 countries, no shortcuts.">
+  <meta property="og:url" content="https://noshortcuts.club/">
+  <meta property="og:image" content="https://noshortcuts.club/assets/share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body data-page="home" data-needs-map>
+  <!-- Header: wordmark, menu, Listen button. Labels and links are filled from config by js/site.js. -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="index.html" data-href="home"><span data-config="menu.wordmark">Andy</span> <em data-config="menu.wordmarkEm">Short.</em></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html" data-href="home" data-config="menu.map">Map</a></li>
+        <li><a href="#" data-href="listen" data-config="menu.dispatches">Dispatches</a></li>
+        <li><a href="#" data-href="instagram" data-config="menu.pictures">Pictures</a></li>
+        <li><a href="#" data-href="routePlan" data-config="menu.routePlan">Route plan</a></li>
+        <li><a href="about.html" data-href="about" data-config="menu.about">About</a></li>
+      </ul>
+      <a class="btn btn-persimmon" href="#" data-href="listen" data-config="menu.listen">Listen</a>
+    </div>
+  </header>
+
+  <!-- Home sections. js/home.js fills them from the data files and puts them in the order set in
+       config (home.sectionOrder). A section whose source is broken is hidden entirely. -->
+  <main id="home">
+
+    <section class="banner" data-section="banner">
+      <div class="wrap">
+        <div class="banner-top">
+          <h1 class="title">No <em>Short</em>cuts<svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M20.5 4.2 C20.1 11 19.8 27 19.6 35.6"/><path d="M6.8 11.6 C13 15.4 26 23.5 33.4 28.1"/><path d="M33.9 11 C27.5 15.8 13.4 24.6 6.2 28.9"/></g></svg></h1>
+          <p class="banner-info" id="banner-info">ALASKA TO ARGENTINA</p>
+        </div>
+        <div class="banner-route" id="banner-route">
+          <svg id="banner-line" preserveAspectRatio="none" aria-label="The route from Deadhorse to Ushuaia; the part ridden so far is highlighted"></svg>
+          <div class="marker" id="banner-marker" hidden><div class="dot"></div><span class="place" id="banner-place"></span></div>
+        </div>
+        <div class="counters" id="counters"></div>
+        <p class="banner-note" id="banner-note"></p>
+      </div>
+    </section>
+
+    <section class="section" data-section="latest">
+      <div class="wrap">
+        <article class="card">
+          <div class="photo" id="latest-photo"></div>
+          <div class="latest-body">
+            <div>
+              <p class="kicker" id="latest-kicker"></p>
+              <h2 id="latest-title"></h2>
+              <p class="caption" id="latest-caption"></p>
+              <p class="caption-note" id="latest-caption-note" hidden></p>
+            </div>
+            <div>
+              <div class="chips" id="latest-chips"></div>
+              <div class="now" id="now-band" hidden></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" data-section="mapDispatch">
+      <div class="wrap two-col" id="map-dispatch">
+        <div class="card map-card" id="map-card">
+          <svg id="map" preserveAspectRatio="xMidYMid meet" aria-label="Map of the Americas with the route"></svg>
+          <div class="map-legend" id="map-legend"></div>
+        </div>
+        <div class="dispatch" id="dispatch"></div>
+      </div>
+    </section>
+
+    <section class="section" data-section="days">
+      <div class="wrap">
+        <div class="days-head">
+          <h2 data-config="copy.days.title">The days</h2>
+          <a href="days.html" data-href="days" data-config="copy.days.all">All 543 days</a>
+        </div>
+        <div class="day-cards" id="day-cards"></div>
+      </div>
+    </section>
+
+    <section class="section videos" data-section="videos" hidden>
+      <div class="wrap">
+        <div class="head"><h2 id="video-title"></h2><span class="mono" data-config="sections.videos.label">THIS WEEK ON YOUTUBE</span></div>
+        <div class="frame" id="video-frame"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer "Follow along". Everything here comes from config. -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M20.5 4.2 C20.1 11 19.8 27 19.6 35.6"/><path d="M6.8 11.6 C13 15.4 26 23.5 33.4 28.1"/><path d="M33.9 11 C27.5 15.8 13.4 24.6 6.2 28.9"/></g></svg>
+        <h2 data-config="copy.footer.title">Follow along</h2>
+        <p data-config="copy.footer.blurb">Dispatches every few days, a video every week, photos as they happen.</p>
+        <div class="follow-buttons">
+          <a class="btn btn-persimmon" href="#" data-href="listen" data-config="copy.footer.listen">Listen in your podcast app</a>
+          <a class="btn btn-ink" href="#" data-href="youtube" data-when-videos data-config="copy.footer.youtube" hidden>Watch on YouTube</a>
+          <a class="btn btn-ink" href="#" data-href="instagram" data-config="copy.footer.instagram">Instagram</a>
+        </div>
+      </div>
+      <div class="aside">
+        <p><span data-config="copy.footer.emailPrompt">Prefer email?</span> <a href="#" data-href="substack" data-config="copy.footer.substack">Subscribe on Substack</a></p>
+        <p><span data-config="copy.footer.sayHi">Say hi:</span> <a href="#" data-href="email" data-config="site.email">hello@noshortcuts.club</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/trip.js"></script>
+  <script src="js/route-line.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/tinker.js"></script>
+</body>
+</html>

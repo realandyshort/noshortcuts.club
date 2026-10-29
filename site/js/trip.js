@@ -171,6 +171,19 @@
     return s + ".";
   }
 
+  // Removes anything that looks like a calendar date or a year from text meant for the screen,
+  // including the sheet's "Changed Oct 2026: ..." edit notes. Used whenever showDates is false.
+  function scrubDates(text) {
+    if (!text) return "";
+    var t = String(text);
+    t = t.replace(/\.?\s*\b(changed|added|updated|revised|moved)\s+(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+\d{4}\b[^.]*\.?/gi, "");
+    t = t.replace(/\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/g, "");           // 6/18/27
+    t = t.replace(/\b\d{4}-\d{2}-\d{2}\b/g, "");                      // 2027-06-18
+    t = t.replace(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+\d{1,2}(st|nd|rd|th)?,?\s+(19|20)\d{2}\b/gi, "");
+    t = t.replace(/\b(19|20)\d{2}\b/g, "");                            // bare years
+    return t.replace(/\s{2,}/g, " ").replace(/\s+([.,;:])/g, "$1").replace(/\.{2,}/g, ".").trim();
+  }
+
   function fmtInt(n) { return Math.round(Number(n) || 0).toLocaleString("en-US"); }
   function fmtSigned(n) { n = Math.round(n); return (n > 0 ? "+" : n < 0 ? "−" : "±") + Math.abs(n); }
 
@@ -183,6 +196,6 @@
     splitAtFraction: splitAtFraction, fractionNearest: fractionNearest,
     countriesEntered: countriesEntered, ridesThrough: ridesThrough, rideForDay: rideForDay,
     dayOfTimestamp: dayOfTimestamp, dayTitle: dayTitle, dayTag: dayTag, nextUp: nextUp,
-    fmtInt: fmtInt, fmtSigned: fmtSigned
+    scrubDates: scrubDates, fmtInt: fmtInt, fmtSigned: fmtSigned
   };
 });

@@ -8,6 +8,7 @@
 const fs = require("fs");
 const path = require("path");
 const C = require("./lib/common");
+const Trip = require("../site/js/trip.js");
 
 const KEYWORDS = {
   boat: /\b(ferry|boat|sail|lancha|barco|catamaran)\b/i,
@@ -22,7 +23,7 @@ function seedDays() {
     return {
       section: Number(o.section), day: Number(o.day), date: o.date, kind: o.kind || "ride",
       from: o.from, to: o.to, plan_miles: num(o.est_miles), plan_climb_ft: 0,
-      terrain: o.terrain || "", notes: o.notes || "", route_url: "", stay: ""
+      terrain: o.terrain || "", notes: Trip.scrubDates(o.notes || ""), route_url: "", stay: ""
     };
   }).filter(d => d.day > 0);
 }
@@ -72,7 +73,7 @@ function parseTab(csvText, section, seedByDay) {
       section, day: dayNo, date: isoDate(get(r, ix.date)), kind: "ride",
       from: get(r, ix.from), to: get(r, ix.to),
       plan_miles: num(get(r, ix.miles)), plan_climb_ft: num(get(r, ix.climb)),
-      terrain: "", notes: get(r, ix.notes), route_url: /^https?:/.test(get(r, ix.route)) ? get(r, ix.route) : "",
+      terrain: "", notes: Trip.scrubDates(get(r, ix.notes)), route_url: /^https?:/.test(get(r, ix.route)) ? get(r, ix.route) : "",
       stay: get(r, ix.stay)
     };
     const seedDay = seedByDay.get(dayNo);
