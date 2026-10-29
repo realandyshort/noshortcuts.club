@@ -331,3 +331,8 @@ body.tinker-open { padding-right: min(380px, 100vw); }
 .tinker input[type=file] { font-size: 0.8rem; }
 .tinker .row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
 .tinker .btn { font-size: 0.85rem; padding: 0.45em 1em; }
+/* On phones the edit panel is a bottom sheet, so the page stays visible above it */
+@media (max-width: 640px) {
+  .tinker { top: auto; left: 0; right: 0; bottom: 0; width: 100vw; height: 46vh; border-left: 0; border-top: 2px solid var(--persimmon); box-shadow: 0 -8px 30px rgba(0,0,0,0.12); }
+  body.tinker-open { padding-right: 0; padding-bottom: 46vh; }
+}
