@@ -49,7 +49,7 @@ async function main() {
   await safe("calories", () => require("./calories").run({ config, plan }));
   await safe("archive", () => require("./archive").run({ config, status, plan, today, offset }));
   if (!C.hasFlag("--no-stories")) await safe("stories", () => require("./story").run({ config, status, plan, offset }));
-  if (!C.hasFlag("--no-alerts")) await safe("alerts", () => require("./alerts").run({ config, status }));
+  if (!C.hasFlag("--no-alerts")) await safe("alerts", () => require("./alerts").run({ config, status, today }));
   C.saveStatus(status);
 }
 

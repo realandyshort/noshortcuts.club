@@ -84,15 +84,17 @@ async function run(ctx) {
     } else if (s.state === "ok") {
       await resolve(`broken ${source}`, `${name} is working again. Closing.`);
     }
-    // Working but nothing new for a while (not an outage)
+    // Working but nothing new for a while (not an outage). Only once the ride has started:
+    // before day 1 a quiet feed is normal, not news.
     const limit = quietDays[source];
-    if (limit && s.state === "ok" && s.last_new_item_at) {
+    const onTheRoad = typeof ctx.today === "number" && ctx.today >= 1;
+    if (limit && s.state === "ok" && s.last_new_item_at && onTheRoad) {
       const age = now - Date.parse(s.last_new_item_at);
       if (age > limit * 86400000) {
         await upsert(`quiet ${source}`, `${name}: nothing new for ${duration(age)} (not broken)`,
           `**${name} is working, but nothing new has arrived for ${duration(age)}.** The threshold is ${limit} days (alerts.nothingNewDays in config).\n\nThis is a nudge, not an outage. It closes itself when something new shows up.`, source);
       } else await resolve(`quiet ${source}`, `Something new arrived. Closing.`);
-    }
+    } else if (limit && !onTheRoad) await resolve(`quiet ${source}`, `Quiet-feed nudges start on day 1 of the ride. Closing until then.`);
   }
 
   // Instagram token age (tokens last 60 days; regenerating resets the clock)
