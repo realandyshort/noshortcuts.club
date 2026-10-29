@@ -55,6 +55,22 @@
     return d;
   }
 
+  // Length of the drawn line in screen pixels, tails included
+  function screenLength(svg, pts) {
+    var ctm = svg.getScreenCTM();
+    if (!ctm) { return 100000; } // not laid out yet: use a length no screen can exceed
+    var endY = pts[pts.length - 1][1];
+    var all = [[-TAIL, pts[0][1]]].concat(pts, [[VIEW_WIDTH + TAIL, endY]]);
+    var total = 0, prev = null;
+    for (var i = 0; i < all.length; i++) {
+      var x = ctm.a * all[i][0] + ctm.c * all[i][1];
+      var y = ctm.b * all[i][0] + ctm.d * all[i][1];
+      if (prev) { total += Math.hypot(x - prev[0], y - prev[1]); }
+      prev = [x, y];
+    }
+    return total;
+  }
+
   // Draws into the given <svg>. Returns true if it drew something.
   function draw(svg, points, options) {
     options = options || {};
@@ -80,11 +96,19 @@
     svg.appendChild(path);
 
     // Optional draw-on animation. CSS turns it off for people who prefer reduced motion.
+    // The reveal length must be measured in screen pixels (the stroke is non-scaling),
+    // not drawing units, or wide screens would stop the line short.
     if (options.animate) {
-      var length = path.getTotalLength();
+      var length = screenLength(svg, pts) * 1.02;
       path.style.strokeDasharray = length;
       path.style.strokeDashoffset = length;
       path.classList.add("draw");
+      path.addEventListener("animationend", function () {
+        // Leave a plain line behind, so resizing the window afterwards can never cut it
+        path.classList.remove("draw");
+        path.style.strokeDasharray = "";
+        path.style.strokeDashoffset = "";
+      });
     }
     return true;
   }
