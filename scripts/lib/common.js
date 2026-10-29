@@ -115,7 +115,7 @@ function recordSuccess(status, name, info = {}) {
   s.state = "ok"; s.consecutive_failures = 0; s.last_error = null;
   s.last_attempt_at = now; s.last_success_at = now;
   if (info.newestItemAt && info.newestItemAt !== s.last_new_item_at) s.last_new_item_at = info.newestItemAt;
-  if (info.note !== undefined) s.note = info.note;
+  s.note = info.note !== undefined ? info.note : null;    // a success clears any old "not set" note
   return s;
 }
 function recordFailure(status, name, err, brokenAfter) {
