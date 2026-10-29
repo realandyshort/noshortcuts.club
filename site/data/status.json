@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-10-29T19:25:01.414Z",
+  "generated_at": "2026-10-29T19:31:44.969Z",
   "sources": {
     "plan": {
       "state": "ok",
-      "last_success_at": "2026-10-29T19:25:01.411Z",
-      "last_new_item_at": "2026-10-29T19:25:01.401Z",
+      "last_success_at": "2026-10-29T19:31:43.500Z",
+      "last_new_item_at": "2026-10-29T19:31:43.498Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:25:01.411Z",
+      "last_attempt_at": "2026-10-29T19:31:43.500Z",
       "note": "some sections from the seed"
     },
     "dispatches": {
       "state": "ok",
-      "last_success_at": "2026-10-29T19:14:17.165Z",
+      "last_success_at": "2026-10-29T19:31:43.538Z",
       "last_new_item_at": "2026-10-28T21:35:02.000Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:14:17.165Z"
+      "last_attempt_at": "2026-10-29T19:31:43.538Z"
     },
     "instagram": {
       "state": "not_connected",
@@ -24,7 +24,7 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:14:17.166Z",
+      "last_attempt_at": "2026-10-29T19:31:43.538Z",
       "note": "IG_ACCESS_TOKEN / IG_USER_ID not set"
     },
     "videos": {
@@ -33,25 +33,25 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:14:17.167Z",
+      "last_attempt_at": "2026-10-29T19:31:43.539Z",
       "note": "videos are turned off in config"
     },
     "rides": {
-      "state": "not_connected",
-      "last_success_at": null,
+      "state": "ok",
+      "last_success_at": "2026-10-29T19:31:43.871Z",
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:14:17.168Z",
+      "last_attempt_at": "2026-10-29T19:31:43.871Z",
       "note": "INTERVALS_API_KEY / INTERVALS_ATHLETE_ID not set"
     },
     "position": {
       "state": "ok",
-      "last_success_at": "2026-10-29T19:14:18.006Z",
+      "last_success_at": "2026-10-29T19:31:44.488Z",
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:14:18.006Z",
+      "last_attempt_at": "2026-10-29T19:31:44.488Z",
       "note": "no points in the feed yet"
     },
     "weather": {
@@ -60,8 +60,9 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:14:18.007Z",
+      "last_attempt_at": "2026-10-29T19:31:44.489Z",
       "note": "no position"
     }
-  }
+  },
+  "alerts": {}
 }
