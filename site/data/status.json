@@ -1,22 +1,23 @@
 {
-  "generated_at": "2026-10-29T19:31:44.969Z",
+  "generated_at": "2026-10-29T21:21:06.456Z",
   "sources": {
     "plan": {
       "state": "ok",
-      "last_success_at": "2026-10-29T19:31:43.500Z",
-      "last_new_item_at": "2026-10-29T19:31:43.498Z",
+      "last_success_at": "2026-10-29T21:21:04.487Z",
+      "last_new_item_at": "2026-10-29T21:21:04.483Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:31:43.500Z",
+      "last_attempt_at": "2026-10-29T21:21:04.487Z",
       "note": "some sections from the seed"
     },
     "dispatches": {
       "state": "ok",
-      "last_success_at": "2026-10-29T19:31:43.538Z",
+      "last_success_at": "2026-10-29T21:21:04.612Z",
       "last_new_item_at": "2026-10-28T21:35:02.000Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:31:43.538Z"
+      "last_attempt_at": "2026-10-29T21:21:04.612Z",
+      "note": null
     },
     "instagram": {
       "state": "not_connected",
@@ -24,7 +25,7 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:31:43.538Z",
+      "last_attempt_at": "2026-10-29T21:21:04.613Z",
       "note": "IG_ACCESS_TOKEN / IG_USER_ID not set"
     },
     "videos": {
@@ -33,25 +34,25 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:31:43.539Z",
+      "last_attempt_at": "2026-10-29T21:21:04.614Z",
       "note": "videos are turned off in config"
     },
     "rides": {
       "state": "ok",
-      "last_success_at": "2026-10-29T19:31:43.871Z",
+      "last_success_at": "2026-10-29T21:21:05.229Z",
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:31:43.871Z",
-      "note": "INTERVALS_API_KEY / INTERVALS_ATHLETE_ID not set"
+      "last_attempt_at": "2026-10-29T21:21:05.229Z",
+      "note": null
     },
     "position": {
       "state": "ok",
-      "last_success_at": "2026-10-29T19:31:44.488Z",
+      "last_success_at": "2026-10-29T21:21:05.651Z",
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:31:44.488Z",
+      "last_attempt_at": "2026-10-29T21:21:05.651Z",
       "note": "no points in the feed yet"
     },
     "weather": {
@@ -60,7 +61,7 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T19:31:44.489Z",
+      "last_attempt_at": "2026-10-29T21:21:05.651Z",
       "note": "no position"
     }
   },
