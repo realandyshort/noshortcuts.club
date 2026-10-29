@@ -1,32 +1,35 @@
 {
-  "generated_at": "2026-10-29T21:28:31.399Z",
+  "generated_at": "2026-10-29T21:29:52.012Z",
   "sources": {
     "plan": {
       "state": "ok",
-      "last_success_at": "2026-10-29T21:28:29.365Z",
-      "last_new_item_at": "2026-10-29T21:28:29.362Z",
+      "last_success_at": "2026-10-29T21:29:47.783Z",
+      "last_new_item_at": "2026-10-29T21:29:47.780Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T21:28:29.365Z",
+      "last_attempt_at": "2026-10-29T21:29:47.783Z",
       "note": "some sections from the seed"
     },
     "dispatches": {
       "state": "ok",
-      "last_success_at": "2026-10-29T21:28:29.496Z",
+      "last_success_at": "2026-10-29T21:29:48.180Z",
       "last_new_item_at": "2026-10-28T21:35:02.000Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T21:28:29.496Z",
+      "last_attempt_at": "2026-10-29T21:29:48.180Z",
       "note": null
     },
     "instagram": {
-      "state": "failing",
-      "last_success_at": null,
-      "last_new_item_at": null,
-      "consecutive_failures": 1,
-      "last_error": "HTTP 400 from https://graph.instagram.com/v21.0/17841418928995327/media: {\"error\":{\"message\":\"Invalid OAuth access token - Cannot parse access token\",\"type\":\"OAuthException\",\"code\":190,\"fbtrace_id\":\"AgYhZlIErVMfpCv7Ma4XbmS\"}}",
-      "last_attempt_at": "2026-10-29T21:28:29.645Z",
-      "note": "IG_ACCESS_TOKEN / IG_USER_ID not set"
+      "state": "ok",
+      "last_success_at": "2026-10-29T21:29:49.695Z",
+      "last_new_item_at": "2026-10-08T05:40:49+0000",
+      "consecutive_failures": 0,
+      "last_error": null,
+      "last_attempt_at": "2026-10-29T21:29:49.695Z",
+      "note": null,
+      "token_fingerprint": "4970b811",
+      "token_first_seen_at": "2026-10-29T21:29:49.695Z",
+      "api_host": "graph.facebook.com"
     },
     "videos": {
       "state": "skipped",
@@ -34,25 +37,25 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T21:28:29.646Z",
+      "last_attempt_at": "2026-10-29T21:29:49.696Z",
       "note": "videos are turned off in config"
     },
     "rides": {
       "state": "ok",
-      "last_success_at": "2026-10-29T21:28:30.086Z",
+      "last_success_at": "2026-10-29T21:29:50.334Z",
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T21:28:30.086Z",
+      "last_attempt_at": "2026-10-29T21:29:50.334Z",
       "note": null
     },
     "position": {
       "state": "ok",
-      "last_success_at": "2026-10-29T21:28:30.757Z",
+      "last_success_at": "2026-10-29T21:29:51.120Z",
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T21:28:30.757Z",
+      "last_attempt_at": "2026-10-29T21:29:51.120Z",
       "note": "no points in the feed yet"
     },
     "weather": {
@@ -61,9 +64,14 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-10-29T21:28:30.758Z",
+      "last_attempt_at": "2026-10-29T21:29:51.120Z",
       "note": "no position"
     }
   },
-  "alerts": {}
+  "alerts": {
+    "quiet instagram": {
+      "issue": 1,
+      "last_update_at": "2026-10-29T21:29:51.603Z"
+    }
+  }
 }
