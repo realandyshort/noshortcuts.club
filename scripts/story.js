@@ -63,9 +63,10 @@ function renderPNG(svg) {
   return r.render().asPng();
 }
 
-async function publish(imageUrl, config) {
+async function publish(imageUrl, config, status) {
   const token = C.env("IG_ACCESS_TOKEN"), userId = C.env("IG_USER_ID");
-  const host = (config.sources.instagramApiHost || "graph.instagram.com").replace(/^https?:\/\//, "");
+  const igState = ((status || {}).sources || {}).instagram || {};
+  const host = igState.api_host || (config.sources.instagramApiHost || "graph.instagram.com").replace(/^https?:\/\//, "");   // the host the fetch worked with
   const base = `https://${host}/v21.0/${encodeURIComponent(userId)}`;
   const made = await C.fetchJSON(`${base}/media?media_type=STORIES&image_url=${encodeURIComponent(imageUrl)}&access_token=${encodeURIComponent(token)}`, { method: "POST" });
   const done = await C.fetchJSON(`${base}/media_publish?creation_id=${encodeURIComponent(made.id)}&access_token=${encodeURIComponent(token)}`, { method: "POST" });
@@ -116,7 +117,7 @@ async function run(ctx) {
     try { await C.fetchText(url, { method: "HEAD", timeoutMs: 15000 }); }
     catch (err) { C.log(`stories: ${url} not live yet, will post next run`); continue; }
     try {
-      const id = await publish(url, config);
+      const id = await publish(url, config, ctx.status);
       e.posted_at = new Date().toISOString(); e.mode = "posted"; e.ig_media_id = id; changed = true;
       C.log(`stories: posted ${e.image}`);
     } catch (err) { e.last_error = err.message.slice(0, 300); changed = true; C.log(`stories: post failed: ${err.message}`); }
