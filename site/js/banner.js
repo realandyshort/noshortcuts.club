@@ -215,52 +215,109 @@
     for (var i = 0; i < xs.length; i++) { var d = Math.abs(xs[i] - x); if (d < bd) { bd = d; best = i + 1; } }
     return best;
   }
+  // Hover: a connector line runs from the cursor to that day's point on the route, the counters
+  // preview that day, and a click lands there. On touch, dragging previews and lifting lands.
+  function hoverLayer() {
+    var s = stage(), layer = document.getElementById("hover-layer");
+    if (!layer) {
+      layer = document.createElementNS(NS, "svg"); layer.id = "hover-layer"; layer.setAttribute("class", "hover-layer"); layer.setAttribute("aria-hidden", "true");
+      layer.innerHTML = '<line class="hl-line"/><circle class="hl-dot" r="7"/>';
+      s.appendChild(layer);
+      var label = document.createElement("div"); label.id = "hover-label"; label.className = "hover-label"; s.appendChild(label);
+    }
+    return layer;
+  }
+  function dayPixel(day) {
+    var ctx = state.ctx, svg = document.getElementById("banner-line"), r = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal;
+    var m = RouteLine.projector(ctx.route.points)(Trip.pointAtFraction(ctx.route.points, Trip.fractionAtDay(ctx.plan, day)));
+    return [(m[0] - vb.x) / vb.width * r.width, (m[1] - vb.y) / vb.height * r.height];
+  }
+  function showHover(clientX, clientY) {
+    var ctx = state.ctx, s = stage(), r = s.getBoundingClientRect();
+    var day = dayAtClientX(clientX), p = dayPixel(day), layer = hoverLayer(), label = document.getElementById("hover-label");
+    var cx = clientX - r.left, cy = clientY - r.top;
+    layer.setAttribute("viewBox", "0 0 " + r.width + " " + r.height);
+    layer.setAttribute("width", r.width); layer.setAttribute("height", r.height);
+    var line = layer.querySelector(".hl-line"), dot = layer.querySelector(".hl-dot");
+    line.setAttribute("x1", cx); line.setAttribute("y1", cy); line.setAttribute("x2", p[0]); line.setAttribute("y2", p[1]);
+    dot.setAttribute("cx", p[0]); dot.setAttribute("cy", p[1]);
+    layer.classList.add("on");
+    var d = ctx.plan.days[day - 1];
+    label.textContent = "DAY " + day + " · " + (d.to || "").toUpperCase();
+    label.style.left = Math.min(cx + 14, r.width - label.offsetWidth - 8) + "px";
+    label.style.top = Math.max(0, cy - 30) + "px";
+    label.classList.add("on");
+    if (state.hooks && state.hooks.onPreview) state.hooks.onPreview(day);
+    return day;
+  }
+  function hideHover() {
+    var layer = document.getElementById("hover-layer"), label = document.getElementById("hover-label");
+    if (layer) layer.classList.remove("on");
+    if (label) label.classList.remove("on");
+    if (state.hooks && state.hooks.onPreviewEnd) state.hooks.onPreviewEnd();
+  }
   function wireScrub() {
     var s = stage();
     if (s._scrub) return;
     s._scrub = true;
-    var dragging = false, moved = false, lastSent = 0, pending = null;
-    s.addEventListener("pointerdown", function (e) {
-      if (state.flip || state.ctx.config.home.timeTravel === false || e.button > 0) return;
-      dragging = true; moved = false; s.setPointerCapture(e.pointerId);
-      preview(e.clientX);
-    });
+    var down = null, hoverDay = null;
+    var enabled = function () { return !state.flip && state.ctx.config.home.timeTravel !== false; };
     s.addEventListener("pointermove", function (e) {
-      if (!dragging) return;
-      moved = true;
-      var d = preview(e.clientX), now = performance.now();
-      if (now - lastSent > 350) { lastSent = now; travelTo(d); } else pending = d;
+      if (!enabled()) return;
+      if (e.pointerType === "touch" && !down) return;          // fingers: only while dragging
+      hoverDay = showHover(e.clientX, e.clientY);
     });
-    function end(e) {
-      if (!dragging) return;
-      dragging = false;
-      var d = dayAtClientX(e.clientX);
-      pending = null; travelTo(d);
-    }
-    s.addEventListener("pointerup", end);
-    s.addEventListener("pointercancel", function () { dragging = false; });
-    function preview(clientX) {
-      var d = dayAtClientX(clientX);
-      if (state.hooks && state.hooks.onPreview) state.hooks.onPreview(d);
-      return d;
-    }
+    s.addEventListener("pointerleave", function () { if (!down) { hoverDay = null; hideHover(); } });
+    s.addEventListener("pointerdown", function (e) {
+      if (!enabled() || e.button > 0) return;
+      down = { x: e.clientX, y: e.clientY, id: e.pointerId };
+      try { s.setPointerCapture(e.pointerId); } catch (err) { /* fine */ }
+      if (e.pointerType === "touch") hoverDay = showHover(e.clientX, e.clientY);
+    });
+    s.addEventListener("pointerup", function (e) {
+      if (!down) return;
+      var moved = Math.hypot(e.clientX - down.x, e.clientY - down.y) > 8;
+      down = null;
+      if (!enabled()) return;
+      var day = dayAtClientX(e.clientX);
+      if (e.pointerType === "touch" || !moved || true) { hideHover(); travelTo(day); }
+    });
+    s.addEventListener("pointercancel", function () { down = null; hideHover(); });
   }
   function wireMapScrub(svg) {
     if (!svg || svg._scrub) return;
     svg._scrub = true;
-    var dragging = false;
+    var down = null;
     function dayAt(e) {
       var ctx = state.ctx, pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
       var ctm = svg.getScreenCTM(); if (!ctm) return null;
       var p = pt.matrixTransform(ctm.inverse()), pts = ctx.route.points, best = 0, bd = Infinity;
       for (var i = 0; i < pts.length; i++) { var q = window.SiteMap.proj(pts[i][0], pts[i][1]), d = (q[0] - p.x) * (q[0] - p.x) + (q[1] - p.y) * (q[1] - p.y); if (d < bd) { bd = d; best = i; } }
       var cum = Trip.lineCumulative(pts);
-      return Trip.dayAtFraction(ctx.plan, cum[best] / cum[cum.length - 1]);
+      return { day: Trip.dayAtFraction(state.ctx.plan, cum[best] / cum[cum.length - 1]), point: window.SiteMap.proj(pts[best][0], pts[best][1]), cursor: p };
     }
-    svg.addEventListener("pointerdown", function (e) { if (state.ctx.config.home.timeTravel === false) return; dragging = true; svg.setPointerCapture(e.pointerId); });
-    svg.addEventListener("pointermove", function (e) { if (dragging) { var d = dayAt(e); if (d && state.hooks.onPreview) state.hooks.onPreview(d); } });
-    svg.addEventListener("pointerup", function (e) { if (!dragging) return; dragging = false; var d = dayAt(e); if (d) travelTo(d); });
-    svg.addEventListener("pointercancel", function () { dragging = false; });
+    function hover(h) {
+      var g = svg.querySelector(".map-hover");
+      if (!g) { g = document.createElementNS(NS, "g"); g.setAttribute("class", "map-hover"); g.innerHTML = '<line/><circle/><text/>'; svg.appendChild(g); }
+      var vb = svg.viewBox.baseVal, unit = vb.width / 100;
+      var line = g.querySelector("line"), c = g.querySelector("circle"), t = g.querySelector("text");
+      line.setAttribute("x1", h.cursor.x); line.setAttribute("y1", h.cursor.y); line.setAttribute("x2", h.point[0]); line.setAttribute("y2", h.point[1]);
+      c.setAttribute("cx", h.point[0]); c.setAttribute("cy", h.point[1]); c.setAttribute("r", unit * 1.3); c.setAttribute("stroke-width", unit * 0.5);
+      var d = state.ctx.plan.days[h.day - 1];
+      t.textContent = "DAY " + h.day + " · " + (d.to || "").toUpperCase();
+      t.setAttribute("x", h.cursor.x + unit * 1.5); t.setAttribute("y", h.cursor.y - unit * 1.5); t.setAttribute("font-size", unit * 2.4);
+      t.setAttribute("text-anchor", h.cursor.x > vb.x + vb.width * 0.6 ? "end" : "start");
+      if (t.getAttribute("text-anchor") === "end") t.setAttribute("x", h.cursor.x - unit * 1.5);
+      g.classList.add("on");
+      if (state.hooks && state.hooks.onPreview) state.hooks.onPreview(h.day);
+    }
+    function clear() { var g = svg.querySelector(".map-hover"); if (g) g.classList.remove("on"); if (state.hooks && state.hooks.onPreviewEnd) state.hooks.onPreviewEnd(); }
+    var enabled = function () { return state.ctx.config.home.timeTravel !== false; };
+    svg.addEventListener("pointermove", function (e) { if (!enabled()) return; if (e.pointerType === "touch" && !down) return; var h = dayAt(e); if (h) hover(h); });
+    svg.addEventListener("pointerleave", function () { if (!down) clear(); });
+    svg.addEventListener("pointerdown", function (e) { if (!enabled() || e.button > 0) return; down = true; try { svg.setPointerCapture(e.pointerId); } catch (err) { /* fine */ } if (e.pointerType === "touch") { var h = dayAt(e); if (h) hover(h); } });
+    svg.addEventListener("pointerup", function (e) { if (!down) return; down = false; var h = dayAt(e); clear(); if (h) travelTo(h.day); });
+    svg.addEventListener("pointercancel", function () { down = false; clear(); });
   }
 
   // ---- Wiring, called by home.js after every render ----

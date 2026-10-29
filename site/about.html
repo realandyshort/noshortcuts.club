@@ -14,19 +14,18 @@
   <meta name="description" content="Who is riding from Alaska to Argentina, and why.">
 </head>
 <body data-page="about" data-light>
-  <!-- Header: wordmark, menu, Listen button. Labels and links are filled from config by js/site.js. -->
+  <!-- Header: wordmark and a row of pill buttons. Labels and links are filled from config by js/site.js. -->
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="index.html" data-href="home"><span data-config="menu.wordmark">Andy</span> <em data-config="menu.wordmarkEm">Short.</em></a>
+      <a class="wordmark" href="home.html" data-href="home"><span data-config="menu.wordmark">Andy</span> <em data-config="menu.wordmarkEm">Short.</em></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
       <ul class="menu" id="menu">
-        <li><a href="index.html" data-href="home" data-config="menu.map">Map</a></li>
+        <li><a href="home.html" data-href="home" data-config="menu.map">Map</a></li>
         <li><a href="#" data-href="listen" data-config="menu.dispatches">Dispatches</a></li>
         <li><a href="#" data-href="instagram" data-config="menu.pictures">Pictures</a></li>
         <li><a href="#" data-href="routePlan" data-config="menu.routePlan">Route plan</a></li>
         <li><a href="about.html" data-href="about" data-config="menu.about">About</a></li>
       </ul>
-      <a class="btn btn-persimmon" href="#" data-href="listen" data-config="menu.listen">Listen</a>
     </div>
   </header>
 
@@ -78,6 +77,6 @@
       if (src) { var box = document.getElementById("portrait"); box.textContent = ""; box.appendChild(ctx.el("img", { src: src, alt: ctx.config.copy.about.portraitAlt || "" })); }
     });
   </script>
-  <script src="js/tinker.js"></script>
+  <script src="js/edit.js"></script>
 </body>
 </html>

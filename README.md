@@ -33,7 +33,7 @@ Useful addresses while previewing:
 | `http://localhost:4000/` | What visitors see right now (coming-soon before day 1) |
 | `http://localhost:4000/?day=306` | The home page as if it were day 306 |
 | `http://localhost:4000/test/` | A page with a day slider and the state of every source |
-| `http://localhost:4000/?day=306&tinker=1` | The tinker panel (see below) |
+| `http://localhost:4000/?day=306&edit=1` | Edit mode (see below) |
 
 The same `?day=306` trick works on the live site (`https://noshortcuts.club/home.html?day=306`), and
 `https://noshortcuts.club/test/` is the live test page. Nobody sees these unless they type the address.
@@ -64,12 +64,26 @@ Open `config/site.config.json` in any text editor. Keep the quotes and commas as
 - `alerts.*` when the robot should email you (see below). `stories.*` story posting (see below).
 - `secretStats.*` keyword lists and calorie constants for the phase 3 "secret stats".
 
-### The tinker panel
+### Edit mode: change the site in the browser
 
-With the preview running, open `http://localhost:4000/?day=306&tinker=1`. A panel slides in on the
-right: drag the sections into a new order, move the size sliders, edit any sentence or link. The page
-updates as you go. **Save to config** writes your changes into `config/site.config.json`. It only
-works in the local preview; the published site ignores it.
+Open any page with `?edit=1` on the end, for example `https://noshortcuts.club/about.html?edit=1`
+(or `http://localhost:4000/about.html?edit=1` in the local preview).
+
+- **Click any wording on the page and type.** Titles, bio, quote, button labels, menu words: anything
+  that comes from the config gets a dashed outline and is editable in place.
+- **The panel on the right** has the rest: drag the home-page sections into a new order, switches
+  (videos on or off, counters rolling, time travel), size sliders, every link, and the About portrait
+  upload (the photo is shrunk to 1600px and saved as `site/assets/portrait.jpg`).
+- **Save** publishes. **Done** leaves edit mode.
+
+**Saving from the live site needs a key, once.** GitHub only lets the site write to itself with your
+permission. The panel's Saving section walks you through making one (two minutes): a fine-grained
+personal access token named "No Shortcuts edit", limited to the noshortcuts.club repository, with
+Contents: Read and write. Paste it into the panel and it stays in that browser only, never in any file.
+Afterwards a small Edit button appears in the corner of every page in that browser. "Forget the key"
+removes it. If you ever suspect the key leaked, delete it at github.com/settings/tokens and make a new one.
+
+In the local preview no key is needed: Save writes straight into `config/site.config.json`.
 
 ## Publishing a change
 

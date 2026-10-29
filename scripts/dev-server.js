@@ -65,6 +65,17 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
+  if (url.pathname === "/__tinker/upload" && req.method === "POST") {
+    var rel = (url.searchParams.get("path") || "").replace(/^\/+/, "");
+    if (!/^assets\/[a-z0-9_.-]+\.(jpg|jpeg|png|webp)$/i.test(rel)) return send(res, 400, JSON.stringify({ ok: false, error: "images go in assets/" }), MIME[".json"]);
+    let body = "";
+    req.on("data", c => { body += c; if (body.length > 30e6) req.destroy(); });
+    req.on("end", () => {
+      try { fs.writeFileSync(path.join(C.P.site, rel), Buffer.from(body, "base64")); send(res, 200, JSON.stringify({ ok: true }), MIME[".json"]); }
+      catch (e) { send(res, 500, JSON.stringify({ ok: false, error: e.message }), MIME[".json"]); }
+    });
+    return;
+  }
   // The home page before day 1: "/" is coming-soon, but "/?day=306" should preview the home page
   if ((url.pathname === "/" || url.pathname === "/index.html") && url.searchParams.has("day")) {
     return serve(path.join(C.P.site, "home.html"), res);

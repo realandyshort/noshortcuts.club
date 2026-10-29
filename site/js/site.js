@@ -109,7 +109,7 @@
       var key = a.getAttribute("data-href"), href;
       if (key === "listen") href = ctx.listenHref();
       else if (key === "email") href = "mailto:" + c.site.email;
-      else if (key === "home") href = ctx.withDay("index.html");
+      else if (key === "home") href = ctx.withDay("home.html");      // always the home page, never the coming-soon front door
       else if (key === "days") href = ctx.withDay("days.html");
       else if (key === "about") href = ctx.withDay("about.html");
       else href = pick(c, key) || links[key];

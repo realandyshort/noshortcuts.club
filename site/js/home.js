@@ -158,14 +158,14 @@
       now.hidden = false;
     } else now.hidden = true;
 
-    /* ---- Map + dispatch ---- */
+    /* ---- Map (beside the photo) and the dispatch panel ---- */
     var mapOK = !!(ctx.americas && ctx.route);
     var dispOK = ctx.ok("dispatches") && ctx.data.dispatches && ctx.data.dispatches.items && ctx.data.dispatches.items.length;
     var archDisp = archive && archive.dispatches && archive.dispatches.length ? archive.dispatches : null;
     var mapCard = document.getElementById("map-card"), dispatch = document.getElementById("dispatch");
-    sections.mapDispatch.hidden = !(mapOK || dispOK || archDisp);
-    mapCard.hidden = !mapOK; dispatch.hidden = !(dispOK || archDisp);
-    document.getElementById("map-dispatch").classList.toggle("two-col", mapOK && !!(dispOK || archDisp));
+    mapCard.hidden = !mapOK;
+    document.getElementById("latest-grid").classList.toggle("single", !mapOK);
+    if (sections.dispatch) sections.dispatch.hidden = !(dispOK || archDisp);
     if (mapOK) window.SiteMap.draw(document.getElementById("map"), {
       americas: ctx.americas, route: ctx.route.points, fraction: fraction,
       position: posOK ? [pos.lat, pos.lon] : (!live ? ((archive && archive.position) ? [archive.position.lat, archive.position.lon] : Trip.pointAtFraction(ctx.route.points, fraction)) : null),
@@ -208,13 +208,24 @@
     }
 
     /* ---- Interactions ---- */
+    var infoText = document.getElementById("banner-info").textContent;
+    function previewNumbers(n) {                      // the counters as they would read on day n
+      var rd = rides ? Trip.ridesThrough(plan, rides, n) : null; if (rd && rd.days === 0) rd = null;
+      var mi = rd ? rd.miles : Trip.plannedMilesThrough(plan, n), cl = rd ? rd.climb_ft : Trip.plannedClimbThrough(plan, n);
+      return { days: String(n), countries: String(Trip.countriesEntered(ctx.countries, n)), miles: Trip.fmtInt(mi), climb: Trip.fmtInt(cl) };
+    }
     if (window.Banner) window.Banner.wire(ctx, { fraction: fraction, counters: counterEls, numbers: numbers }, {
       onDay: function (n) { ctx.setDay(n); },
-      onPreview: function (n) {                      // while dragging: move the marker and the day label only
-        var f = Trip.fractionAtDay(plan, n), m = RouteLine.projector(ctx.route.points)(Trip.pointAtFraction(ctx.route.points, f));
-        showMarker = true; placeMarker(m);
-        placeEl.textContent = (plan.days[n - 1].to || "").toUpperCase();
+      onPreview: function (n) {                      // while hovering or dragging: numbers and the day line only
+        var p = previewNumbers(n);
+        Object.keys(p).forEach(function (k) { if (counterEls[k]) counterEls[k].querySelector(".num").firstChild.nodeValue = p[k]; });
+        counters.classList.add("previewing");
         document.getElementById("banner-info").textContent = ((c.copy.travel.label || "TIME TRAVEL · DAY") + " " + n + " OF " + total).toUpperCase();
+      },
+      onPreviewEnd: function () {
+        Object.keys(numbers).forEach(function (k) { if (counterEls[k]) counterEls[k].querySelector(".num").firstChild.nodeValue = numbers[k]; });
+        counters.classList.remove("previewing");
+        document.getElementById("banner-info").textContent = infoText;
       }
     });
   }
@@ -230,7 +241,9 @@
       return m ? { pre: m[1] + ": ", em: m[2] } : { pre: item.title || "Dispatch", em: "" };
     }
     if (!audio) { audio = document.createElement("audio"); audio.preload = "none"; document.body.appendChild(audio); }
-    box.textContent = "";
+    var outer = box; outer.textContent = "";
+    box = el("div", { class: "dispatch-main" }); outer.appendChild(box);
+    var side = el("div", { class: "dispatch-side" }); outer.appendChild(side);
     var t = titleFor(latest);
     box.appendChild(el("p", { class: "kicker", text: archDisp ? "DISPATCH FROM DAY " + day : (copy.kicker || "LATEST DISPATCH") }));
     var h2 = el("h2"); h2.appendChild(titleNode(t)); box.appendChild(h2);
@@ -269,9 +282,9 @@
       var r = bars.getBoundingClientRect(); audio.currentTime = (e.clientX - r.left) / r.width * audio.duration;
     });
 
-    var earlier = items.slice(1, 4);
+    var earlier = items.slice(1, 6);
     if (earlier.length) {
-      box.appendChild(el("p", { class: "kicker", text: copy.earlier || "EARLIER ENTRIES" }));
+      side.appendChild(el("p", { class: "kicker", text: copy.earlier || "EARLIER ENTRIES" }));
       var ul = el("ul", { class: "earlier" });
       earlier.forEach(function (item) {
         var btn = el("button", { class: "play small", type: "button", "aria-label": "Play", html: '<svg viewBox="0 0 20 20"><path d="M5 3l12 7-12 7z"/></svg>' });
@@ -281,8 +294,8 @@
         var tn = el("span", { class: "t" }); tn.textContent = (tt.pre + tt.em).replace(/:\s*$/, ""); label.appendChild(tn);
         ul.appendChild(el("li", {}, [btn, label]));
       });
-      box.appendChild(ul);
-    }
+      side.appendChild(ul);
+    } else side.hidden = true;
   }
 
   // 18 stamps; tapping one shows the first photo from that country (archive first, then live posts)

@@ -34,9 +34,10 @@ em { font-style: italic; color: var(--persimmon); }
 .site-header { background: var(--ink); color: var(--cream); }
 .site-header .wrap { display: flex; align-items: center; gap: 1.5rem; min-height: 72px; }
 .wordmark { font-family: var(--font-headline); font-weight: 600; font-size: 1.45rem; text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
-.menu { display: flex; gap: clamp(0.8rem, 2vw, 1.6rem); margin: 0 auto; padding: 0; list-style: none; }
-.menu a { text-decoration: none; font-weight: 500; font-size: 0.95rem; opacity: 0.92; }
-.menu a:hover, .menu a[aria-current="page"] { color: var(--persimmon); opacity: 1; }
+.menu { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 0 auto; padding: 0; list-style: none; }
+.menu a { display: inline-block; text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 0.45em 1.05em; border-radius: 999px; border: 1px solid var(--line-on-ink); color: var(--cream); transition: background 0.15s, color 0.15s, border-color 0.15s; }
+.menu a:hover { border-color: var(--persimmon); color: var(--persimmon); }
+.menu a[aria-current="page"] { background: var(--persimmon); border-color: var(--persimmon); color: var(--ink); }
 .btn { display: inline-block; font: 500 0.95rem var(--font-body); padding: 0.6em 1.3em; border-radius: 999px; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background 0.15s, color 0.15s; }
 .btn-persimmon { background: var(--persimmon); color: var(--ink); }
 .btn-persimmon:hover { background: var(--cream); }
@@ -93,7 +94,11 @@ em { font-style: italic; color: var(--persimmon); }
 .now p { margin: 0.4rem 0 0; }
 
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
-.map-card { position: relative; height: var(--map-height); min-height: 100%; display: flex; flex-direction: column; padding: 0.8rem 0.8rem 0; }
+.latest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+.latest-grid.single { grid-template-columns: 1fr; }
+.latest-grid > .card { height: var(--map-height); }
+.photo-card .photo { height: 100%; }
+.map-card { position: relative; height: var(--map-height); display: flex; flex-direction: column; padding: 0.8rem 0.8rem 0; }
 .map-card svg { width: 100%; flex: 1 1 auto; min-height: 0; display: block; }
 .map-card .land { fill: var(--peach); stroke: none; }
 .map-card .route-rest { fill: none; stroke: var(--gray); stroke-width: 1.6px; stroke-dasharray: 3 4; vector-effect: non-scaling-stroke; }
@@ -106,6 +111,9 @@ em { font-style: italic; color: var(--persimmon); }
 .map-legend i.dotted { border-top-style: dotted; border-color: var(--gray); }
 
 .dispatch { background: var(--ink); color: var(--cream); border-radius: var(--radius); padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; }
+.dispatch-wide { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1.5rem 3rem; align-items: start; }
+.dispatch-wide .earlier { margin-top: 0; }
+.dispatch-wide .dispatch-side .kicker { margin-top: 0.2rem; }
 .dispatch .kicker { color: var(--peach); }
 .dispatch h2 { color: var(--cream); }
 .player { display: flex; align-items: center; gap: 0.9rem; margin: 0.4rem 0 0.6rem; }
@@ -215,17 +223,17 @@ body.tinker-open { padding-right: min(380px, 100vw); }
 
 /* Phones and small tablets */
 @media (max-width: 900px) {
-  .two-col, .latest-body, .about-hero .wrap { grid-template-columns: 1fr; }
+  .two-col, .latest-body, .about-hero .wrap, .latest-grid, .dispatch-wide { grid-template-columns: 1fr; }
   .counters { grid-template-columns: repeat(3, 1fr); }
-  .map-card { min-height: var(--map-height); }
+  .latest-grid > .card { height: auto; min-height: min(var(--map-height), 70vw); }
+  .photo-card .photo { height: min(var(--photo-height), 110vw); }
   .day-cards { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
   .site-header .wrap { flex-wrap: wrap; min-height: 60px; padding-block: 0.6rem; }
-  .menu { order: 3; width: 100%; display: none; flex-direction: column; gap: 0.6rem; padding-bottom: 0.6rem; }
+  .menu { order: 3; width: 100%; display: none; flex-direction: row; gap: 0.5rem; padding-bottom: 0.6rem; }
   .menu.open { display: flex; }
   .menu-toggle { display: inline-block; margin-left: auto; }
-  .site-header .btn { margin-left: 0.5rem; }
   .counters { grid-template-columns: repeat(2, 1fr); gap: 0.8rem 1rem; }
   .counter .num { font-size: 1.25rem; }
   .banner-route { height: max(var(--banner-height), 150px); }
@@ -238,7 +246,7 @@ body.tinker-open { padding-right: min(380px, 100vw); }
 /* ---------- Phase 3: interactions ---------- */
 .banner-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
 .travel-back { font-size: 0.85rem; padding: 0.45em 1em; }
-.banner-route { touch-action: none; cursor: ew-resize; user-select: none; -webkit-user-select: none; }
+.banner-route { touch-action: none; cursor: crosshair; user-select: none; -webkit-user-select: none; }
 .banner-route.flipped { cursor: default; }
 .banner-route #banner-line { transition: opacity 0.45s ease; }
 .banner-route.flipped #banner-line { opacity: 0.12; }
@@ -293,3 +301,33 @@ body.tinker-open { padding-right: min(380px, 100vw); }
 .stamp-view .body h3 { font-family: var(--font-headline); font-size: 1.5rem; margin: 0 0 0.4rem; }
 @media (max-width: 900px) { .flip-stats { grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem; } .stamp-view { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .flip-stats { padding: 0.2rem 0.4rem; } .stat svg { width: 22px; height: 22px; } .stat .num { font-size: 1rem; } .banner-right { align-items: flex-start; } .stamp-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); } }
+
+
+/* Hover scrubbing: a connector from the cursor to the day on the line, and a label */
+.hover-layer { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; opacity: 0; transition: opacity 0.15s; }
+.hover-layer.on { opacity: 1; }
+.hover-layer .hl-line { stroke: var(--cream); stroke-opacity: 0.7; stroke-width: 1px; stroke-dasharray: 3 3; }
+.hover-layer .hl-dot { fill: var(--ink); stroke: var(--persimmon); stroke-width: 2.5px; }
+.hover-label { position: absolute; pointer-events: none; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em; background: var(--cream); color: var(--ink); padding: 0.3em 0.6em; border-radius: 4px; white-space: nowrap; opacity: 0; transition: opacity 0.15s; z-index: 3; }
+.hover-label.on { opacity: 1; }
+.counters.previewing .num { color: var(--peach); }
+.map-hover { opacity: 0; transition: opacity 0.15s; pointer-events: none; }
+.map-hover.on { opacity: 1; }
+.map-hover line { stroke: var(--ink); stroke-opacity: 0.5; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+.map-hover circle { fill: var(--cream); stroke: var(--persimmon); }
+.map-hover text { font-family: var(--font-mono); letter-spacing: 0.08em; fill: var(--ink); font-weight: 500; paint-order: stroke; stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round; }
+
+/* Edit mode */
+.editing [data-config] { outline: 1px dashed rgba(232, 89, 61, 0.55); outline-offset: 3px; cursor: text; border-radius: 2px; min-width: 1ch; }
+.editing [data-config]:hover { outline-color: var(--persimmon); }
+.editing [data-config]:focus { outline: 2px solid var(--persimmon); background: rgba(232, 89, 61, 0.08); }
+.editing .menu a[data-config], .editing a [data-config] { cursor: text; }
+.edit-link { position: fixed; left: 1rem; bottom: 1rem; z-index: 40; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--ink); color: var(--cream); padding: 0.5em 0.9em; border-radius: 999px; text-decoration: none; opacity: 0.85; }
+.edit-link:hover { opacity: 1; background: var(--persimmon); color: var(--ink); }
+.tinker .status { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.05em; color: var(--gray); min-height: 1.2em; }
+.tinker .status.err { color: var(--persimmon); }
+.tinker .help { font-size: 0.8rem; color: #5C5650; margin: 0.3rem 0 0.6rem; }
+.tinker .help ol { padding-left: 1.2em; margin: 0.3rem 0; }
+.tinker input[type=file] { font-size: 0.8rem; }
+.tinker .row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+.tinker .btn { font-size: 0.85rem; padding: 0.45em 1em; }

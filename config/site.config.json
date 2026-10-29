@@ -7,7 +7,8 @@
     "domain": "noshortcuts.club",
     "tagline": "ALASKA TO ARGENTINA",
     "description": "A bike trip from Deadhorse, Alaska to Ushuaia, Argentina. 543 days, 18 countries, no shortcuts.",
-    "email": "hello@noshortcuts.club"
+    "email": "hello@noshortcuts.club",
+    "repo": "realandyshort/noshortcuts.club"
   },
   "links": {
     "spotify": "https://open.spotify.com/show/4hV5UdSqhmQpzcv4tShkrY",
@@ -30,8 +31,7 @@
     "dispatches": "Dispatches",
     "pictures": "Pictures",
     "routePlan": "Route plan",
-    "about": "About",
-    "listen": "Listen"
+    "about": "About"
   },
   "trip": {
     "totalDays": 543,
@@ -44,7 +44,7 @@
     "sectionOrder": [
       "banner",
       "latest",
-      "mapDispatch",
+      "dispatch",
       "days",
       "stamps",
       "videos"

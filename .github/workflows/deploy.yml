@@ -42,6 +42,10 @@ jobs:
           FRONT=$(node scripts/which-index.js)
           echo "Front door: $FRONT"
           if [ "$FRONT" = "home" ] && [ -f site/home.html ]; then cp site/home.html _pages/index.html; else cp site/coming-soon.html _pages/index.html; fi
+          # Stamp every stylesheet and script address with this commit, so browsers never keep an old copy
+          V="${GITHUB_SHA::8}"
+          find _pages -name "*.html" -exec sed -i -E "s#(css/[a-z-]+\.css|js/[a-z-]+\.js)\"#\1?v=$V\"#g" {} +
+          grep -o 'site.css?v=[a-f0-9]*' _pages/home.html | head -1
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
