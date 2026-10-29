@@ -1,0 +1,169 @@
+/* No Shortcuts: coming-soon page
+   Brand colours and fonts live here as variables so they are easy to find. */
+
+:root {
+  --ink: #161412;        /* black background */
+  --cream: #FBE9D7;      /* main text */
+  --persimmon: #E8593D;  /* accent: "Short", the mark, the route */
+  --peach: #F4C8AB;      /* soft labels */
+  --gray: #8C8681;       /* quiet text */
+
+  --font-headline: "Petrona", Georgia, "Times New Roman", serif;
+  --font-body: "Bricolage Grotesque", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --gutter: clamp(20px, 5vw, 72px);  /* space from the screen edges */
+  --title-size: clamp(3rem, 11vw, 9rem); /* overridden from config if set */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* the route line's tails run off both edges on purpose */
+}
+
+/* The page is a column: title at the top, route line in the middle, links at the bottom. */
+.page {
+  min-height: 100vh;
+  min-height: 100svh; /* phones: the real visible height, below the browser bar */
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--gutter) * 0.9) 0 var(--gutter);
+  padding-top: max(calc(var(--gutter) * 0.9), env(safe-area-inset-top));
+  padding-bottom: max(var(--gutter), env(safe-area-inset-bottom));
+}
+
+.top {
+  padding: 0 var(--gutter);
+}
+
+/* "No Shortcuts" with the mark raised like an asterisk */
+.title {
+  margin: 0;
+  font-family: var(--font-headline);
+  font-weight: 600;
+  font-size: var(--title-size);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+  white-space: nowrap;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--persimmon);
+}
+
+.title .mark {
+  display: inline-block;
+  width: 0.42em;
+  height: 0.42em;
+  margin-left: 0.06em;
+  vertical-align: 0.62em; /* raised, like an asterisk */
+  color: var(--persimmon);
+  overflow: visible;
+}
+
+.tagline {
+  margin: clamp(10px, 1.6vw, 20px) 0 0;
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 1.4vw, 1.05rem);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--peach);
+}
+
+/* The route line fills the space between title and links */
+.route {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-height: clamp(140px, 32vh, 420px);
+  margin: clamp(24px, 5vh, 56px) 0;
+}
+
+.route-line {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow: visible; /* lets the short tails run past both edges */
+}
+
+.route-line path {
+  fill: none;
+  stroke: var(--persimmon);
+  stroke-width: 2.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke; /* same thickness on phones and desktops */
+}
+
+/* Draws the line in from left to right when the page opens */
+.route-line path.draw {
+  animation: route-draw 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes route-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-line path.draw {
+    animation: none;
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+/* Small links along the bottom */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em clamp(20px, 3vw, 44px);
+  padding: 0 var(--gutter);
+  font-family: var(--font-mono);
+  font-size: clamp(0.82rem, 1.25vw, 0.98rem);
+  letter-spacing: 0.06em;
+}
+
+.links a {
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(251, 233, 215, 0.35);
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.links a:hover,
+.links a:focus-visible {
+  color: var(--persimmon);
+  border-bottom-color: var(--persimmon);
+  outline: none;
+}
+
+.links a:focus-visible {
+  outline: 2px solid var(--persimmon);
+  outline-offset: 4px;
+}
+
+.links .email {
+  color: var(--peach);
+}
+
+/* Phones: let the title shrink to fit, stack the links */
+@media (max-width: 600px) {
+  .title { white-space: normal; }
+  .links {
+    flex-direction: column;
+    gap: 0.9em;
+  }
+}

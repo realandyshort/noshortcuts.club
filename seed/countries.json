@@ -1,0 +1,74 @@
+[
+ {
+  "country": "United States",
+  "first_day": 1
+ },
+ {
+  "country": "Canada",
+  "first_day": 9
+ },
+ {
+  "country": "Mexico",
+  "first_day": 82
+ },
+ {
+  "country": "Belize",
+  "first_day": 165
+ },
+ {
+  "country": "Guatemala",
+  "first_day": 167
+ },
+ {
+  "country": "El Salvador",
+  "first_day": 181
+ },
+ {
+  "country": "Honduras",
+  "first_day": 186
+ },
+ {
+  "country": "Nicaragua",
+  "first_day": 187
+ },
+ {
+  "country": "Costa Rica",
+  "first_day": 194
+ },
+ {
+  "country": "Panama",
+  "first_day": 207
+ },
+ {
+  "country": "Colombia",
+  "first_day": 222
+ },
+ {
+  "country": "Ecuador",
+  "first_day": 284
+ },
+ {
+  "country": "Peru",
+  "first_day": 324
+ },
+ {
+  "country": "Bolivia",
+  "first_day": 380
+ },
+ {
+  "country": "Brazil",
+  "first_day": 412
+ },
+ {
+  "country": "Uruguay",
+  "first_day": 452
+ },
+ {
+  "country": "Argentina",
+  "first_day": 463
+ },
+ {
+  "country": "Chile",
+  "first_day": 483
+ }
+]

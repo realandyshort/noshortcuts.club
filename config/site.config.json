@@ -1,0 +1,36 @@
+{
+  "_readme": "This is the one file to edit for wording, links and sizes. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise.",
+
+  "showDates": false,
+  "podLink": "",
+
+  "site": {
+    "name": "No Shortcuts",
+    "domain": "noshortcuts.club",
+    "tagline": "ALASKA TO ARGENTINA",
+    "description": "A bike trip from Deadhorse, Alaska to Ushuaia, Argentina. 543 days, 18 countries, no shortcuts.",
+    "email": "hello@noshortcuts.club"
+  },
+
+  "links": {
+    "spotify": "https://open.spotify.com/show/4hV5UdSqhmQpzcv4tShkrY",
+    "pocketCasts": "https://pca.st/kdvoa4ii",
+    "instagram": "https://www.instagram.com/wicked.short/",
+    "substack": "https://noshortcutsclub.substack.com",
+    "routePlan": "https://docs.google.com/spreadsheets/d/1qAlzQWOvfifr_0LJ1YUm8b1mv0ewg51yYJVj1JHcOyo/edit",
+    "youtube": "https://www.youtube.com/playlist?list=PLdutpqTR1PWY"
+  },
+
+  "labels": {
+    "listen": "Listen",
+    "instagram": "Instagram",
+    "substack": "Substack"
+  },
+
+  "comingSoon": {
+    "showLinks": true,
+    "titleSize": "clamp(3rem, 11vw, 9rem)",
+    "routeStrokePx": 2.5,
+    "drawOnLoad": true
+  }
+}

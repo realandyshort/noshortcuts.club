@@ -1,0 +1,9 @@
+# Private or local-only files. Never commit these.
+AGENT_STEPS.md
+*.zip
+.DS_Store
+node_modules/
+_pages/
+.env
+.env.*
+.claude/

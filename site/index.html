@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>No Shortcuts · Alaska to Argentina</title>
+  <meta name="description" content="A bike trip from Deadhorse, Alaska to Ushuaia, Argentina. 543 days, 18 countries, no shortcuts.">
+  <meta name="theme-color" content="#161412">
+
+  <!-- What shows when the link is shared (iMessage, WhatsApp, Instagram, etc.). No dates in the image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="No Shortcuts · Alaska to Argentina">
+  <meta property="og:description" content="A bike trip from Deadhorse, Alaska to Ushuaia, Argentina. 543 days, 18 countries, no shortcuts.">
+  <meta property="og:url" content="https://noshortcuts.club/">
+  <meta property="og:image" content="https://noshortcuts.club/assets/share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+
+  <!-- Brand fonts from Google Fonts: Petrona (headlines), Bricolage Grotesque (body), JetBrains Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,500;0,600;1,500;1,600&family=Bricolage+Grotesque:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/coming-soon.css">
+</head>
+<body class="coming-soon">
+
+  <main class="page">
+
+    <header class="top">
+      <h1 class="title">
+        No <em>Short</em>cuts<!--
+        The mark is drawn inline so it can be coloured and sized like text. It is decorative, so screen readers skip it.
+        --><svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round">
+            <path d="M20.5 4.2 C20.1 11 19.8 27 19.6 35.6"/>
+            <path d="M6.8 11.6 C13 15.4 26 23.5 33.4 28.1"/>
+            <path d="M33.9 11 C27.5 15.8 13.4 24.6 6.2 28.9"/>
+          </g>
+        </svg>
+      </h1>
+      <p class="tagline" data-config="site.tagline">ALASKA TO ARGENTINA</p>
+    </header>
+
+    <!-- The route line is drawn here by js/route-line.js from data/route_line.json -->
+    <section class="route" aria-label="The route from Deadhorse, Alaska to Ushuaia, Argentina, drawn as a single line">
+      <svg id="route-line" class="route-line" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"></svg>
+    </section>
+
+    <!-- The links are filled in from config/site.config.json by js/coming-soon.js. Hidden until the config loads. -->
+    <nav class="links" id="links" hidden aria-label="Follow along"></nav>
+
+  </main>
+
+  <script src="js/route-line.js"></script>
+  <script src="js/coming-soon.js"></script>
+</body>
+</html>

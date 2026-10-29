@@ -1,0 +1,544 @@
+section,day,date,kind,from,to,est_miles,terrain,notes
+1,1,2027-06-18,ride,Deadhorse,Galbraith Lake,,,No change
+1,2,2027-06-19,ride,Galbraith Lake,Coldfoot Camp,,,No change
+1,3,2027-06-20,ride,Coldfoot Camp,Yukon River Camp,,,No change
+1,4,2027-06-21,ride,Yukon River Camp,Free camp,,,No change
+1,5,2027-06-22,ride,Free camp,Fairbanks,,,No change
+1,6,2027-06-23,rest,Fairbanks,,,,
+1,7,2027-06-24,ride,Fairbanks,Sawmill Creek Lodge,,,Rename only
+1,8,2027-06-25,ride,Sawmill Creek Lodge,Naabia Niign Campground,,,Rename only
+1,9,2027-06-26,ride,Naabia Niign Campground,Lake Creek Campground,,,Rename only
+1,10,2027-06-27,ride,Lake Creek Campground,Haines Junction,,,Rename only
+1,11,2027-06-28,ride,Haines Junction,Eclipse Nordic Hot Springs,104,Rolling,"Replaces your old S1D10 (Haines Junction camp to Whitehorse). Alaska Hwy to the Klondike Hwy junction NW of Whitehorse, then north and 10 km up Takhini Hot Springs Rd. Campground beside the springs. REST DAY TOMORROW."
+1,12,2027-06-29,rest,Eclipse Nordic Hot Springs (springs),,,,
+1,13,2027-06-30,ride,Eclipse Nordic,Johnson's Crossing,102,Rolling,"Replaces your old S1D11 (Whitehorse to Johnson's Crossing). Back out to the Alaska Hwy, resupply in Whitehorse, then your existing line to Johnson's Crossing. The next two days are your existing tours, renamed S1D14 and S1D15."
+1,14,2027-07-01,ride,Johnson's Crossing,Rancheria Lodge,127,Rolling,"Merges old S1D14 and S1D15. Alaska Hwy through Teslin, a short dip into BC, Swift River, then Rancheria Lodge (open year-round, camping, cafe). Long day but no big passes."
+1,15,2027-07-02,ride,Rancheria Lodge,Boya Lake Provincial Park,115,Rolling,"Merges old S1D15 and S1D16. Rancheria Falls trail early, then Junction 37 (Nugget City: gas, restaurant, camping). Watson Lake is 13 mi east if you need a full grocery store. South on the Cassiar to Boya Lake."
+1,16,2027-07-03,ride,Boya Lake,Dease Lake,94,Rolling,
+1,17,2027-07-04,rest,Dease Lake,,,,
+1,18,2027-07-05,ride,Dease Lake,Kinaskan Lake Provincial Park,77,Hilly,
+1,19,2027-07-06,ride,Kinaskan Lake,Bell II,72,Hilly,
+1,20,2027-07-07,ride,Bell II,Stewart,98,"Rolling, long descent to sea level",
+1,21,2027-07-08,ride,Stewart,Cranberry Junction,91,Hilly (back over Bear Pass),
+1,22,2027-07-09,ride,Cranberry Junction,Smithers,116,Rolling,
+1,23,2027-07-10,rest,Smithers,,,,
+1,24,2027-07-11,ride,Smithers,Burns Lake,89,Rolling,
+1,25,2027-07-12,ride,Burns Lake,Vanderhoof,80,Rolling,
+1,26,2027-07-13,ride,Vanderhoof,Purden Lake Provincial Park,100,Rolling,
+1,27,2027-07-14,ride,Purden Lake,McBride,92,"Rolling, gradual climb up the Fraser valley",
+1,28,2027-07-15,ride,McBride,Jasper,104,"Rolling, gentle pass",
+1,29,2027-07-16,rest,Jasper,,,,
+1,30,2027-07-17,ride,Jasper,Columbia Icefield,64,Big climb (Sunwapta Pass),
+1,31,2027-07-18,ride,Columbia Icefield,Banff,116,"One big climb (Bow Summit), otherwise downhill","Merges old S1D32 and S1D33. Down to Saskatchewan Crossing, up Bow Summit, Lake Louise, then the Bow Valley Parkway to Banff. Evening soak at Banff Upper Hot Springs."
+1,32,2027-07-19,ride,Banff,Radium Hot Springs,83,Hilly (Vermilion and Sinclair passes),
+1,33,2027-07-20,rest,Radium Hot Springs (springs),,,,
+1,34,2027-07-21,ride,Radium,Rogers Pass (Glacier NP),115,"Rolling, then climb to Rogers Pass",
+1,35,2027-07-22,ride,Rogers Pass,Halcyon Hot Springs,87,"Downhill, then rolling",
+1,36,2027-07-23,rest,Halcyon Hot Springs (springs),,,,
+1,37,2027-07-24,ride,Halcyon Hot Springs,Cherryville,113,Hilly (Monashee Pass),"Merges old S1D39 and most of S1D40. Hwy 23 to Nakusp, Hwy 6 along the Arrow Lakes to Fauquier, free Needles ferry, then over Monashee Pass to Cherryville."
+1,38,2027-07-25,ride,Cherryville,Penticton,97,Rolling,"Merges the end of old S1D40 with S1D41. Lumby and Vernon, then down the Okanagan through Kelowna, Peachland and Summerland."
+1,39,2027-07-26,ride,Penticton,Princeton,73,Rolling,
+1,40,2027-07-27,ride,Princeton,Hope,84,"Big climb (Sunday Summit, Allison Pass)",
+1,41,2027-07-28,ride,Hope,Vancouver,96,Flat,
+1,42,2027-07-29,rest,Vancouver,,,,
+1,43,2027-07-30,rest,Vancouver,,,,
+1,44,2027-07-31,ride,Vancouver,Lake McMurray,,,
+1,45,2027-08-01,ride,Lake McMurray,Seattle,,,
+1,46,2027-08-02,rest,Seattle,,,,
+1,47,2027-08-03,rest,Seattle,,,,Second Seattle rest day (added Oct 2026)
+2,48,2027-08-04,ride,Seattle,Potlatch State Park,100,Rolling,"No ferry: south to Tacoma, over the Tacoma Narrows Bridge path, Gig Harbor, Belfair, then SR-106 along the south shore of Hood Canal to Potlatch State Park."
+2,49,2027-08-05,ride,Potlatch State Park,Port Angeles,86,Hilly (Mount Walker),"US-101 up the west side of Hood Canal through Hoodsport, Brinnon and Quilcene, then Sequim and the Olympic Discovery Trail into Port Angeles. REST DAY TOMORROW."
+2,50,2027-08-06,ride,Port Angeles REST + optional outing,"Olympic Hot Springs trailhead (optional, unloaded)",38,"Rolling, out and back","OPTIONAL rest-day outing, ride unloaded. Out to the Elwha, park at Madison Falls, ride the closed Olympic Hot Springs Road (bypass trail around the washout) to Boulder Creek trailhead, then hike to the springs. Bikes are not allowed past the trailhead. Miles are round trip."
+2,51,2027-08-07,ride,Port Angeles,Hoh Rain Forest,89,Rolling,"US-101 along Lake Crescent (curvy, no shoulder in places), Forks, then the 18-mile Hoh River Road into the rain forest. Camp at Hoh campground."
+2,52,2027-08-08,ride,Hoh Rain Forest,Lake Quinault,70,Rolling,"Back to 101, Ruby Beach, Kalaloch beaches, then Lake Quinault."
+2,53,2027-08-09,ride,Lake Quinault,Ilwaco,105,Rolling,"Aberdeen, Raymond, South Bend, then along Willapa Bay to Ilwaco."
+2,54,2027-08-10,ride,Ilwaco,L.L. Stub Stewart State Park,95,"Rolling, one climb over the Coast Range","Astoria-Megler Bridge, Astoria, Seaside and Cannon Beach, then US-26 inland to Stub Stewart State Park."
+2,55,2027-08-11,ride,L.L. Stub Stewart State Park,Portland,38,Mostly downhill,"Short day so you have the afternoon in Portland. Banks-Vernonia Trail to Banks, then Hillsboro and Beaverton into the city."
+2,56,2027-08-12,ride,Portland,Eugene,120,Flat,"Willamette Valley via Champoeg, Salem, Independence and Corvallis (much of it on the Willamette Valley Scenic Bikeway)."
+2,57,2027-08-13,ride,Eugene,Terwilliger Hot Springs (Cougar Crossing),55,"Rolling, climb at the end","McKenzie Highway (OR-126) upriver to Blue River, then Aufderheide Drive (FR 19) past Cougar Reservoir. Camp at Cougar Crossing campground, the closest to the springs. REST DAY TOMORROW."
+2,58,2027-08-14,rest,"Terwilliger Hot Springs, camp Cougar Crossing",,,,
+2,59,2027-08-15,ride,Cougar Crossing,Crescent Lake Junction,88,"Big climbs (Aufderheide summit, Willamette Pass)","Aufderheide Drive south over the summit to Westfir and Oakridge, soak at McCredie (short walk from Hwy 58), then OR-58 over Willamette Pass."
+2,60,2027-08-16,ride,Crescent Lake Junction,Crater Lake (Mazama Village),80,"Big climb, high altitude","US-97 south to Chemult, OR-138 to the North Entrance, then East Rim Drive clockwise past Cleetwood, Cloudcap and Kerr Notch to Mazama Village. Water only at Rim Village and Mazama Village."
+2,61,2027-08-17,ride,Crater Lake,Grants Pass,105,Mostly downhill,"OR-62 down the Rogue through Union Creek, Prospect and Shady Cove, then Medford, Jacksonville and OR-238 to Grants Pass."
+2,62,2027-08-18,ride,Grants Pass,Crescent City,85,"Rolling, one pass","US-199 through Cave Junction, then down the Smith River canyon past Jedediah Smith Redwoods to Crescent City."
+2,63,2027-08-19,ride,Crescent City,Prairie Creek Redwoods,40,Hilly,"US-101 through Del Norte Coast Redwoods and Klamath, then the Newton B. Drury Scenic Parkway to Elk Prairie. REST DAY TOMORROW."
+2,64,2027-08-20,rest,Prairie Creek Redwoods (Elk Prairie),,,,
+2,65,2027-08-21,ride,Prairie Creek (Murrelet State Wilderness),Humboldt Redwoods State Park,100,,
+2,66,2027-08-22,ride,Humboldt Redwoods State Park,Westport,78.4,,
+2,67,2027-08-23,ride,Westport,Walsh Landing,98.4,,
+2,68,2027-08-24,ride,Walsh Landing,San Francisco,98.7,,
+2,69,2027-08-25,rest,San Francisco,,,,
+2,70,2027-08-26,rest,San Francisco,,,,
+2,71,2027-08-27,ride,San Francisco,Santa Cruz,75,Rolling,"Highway 1 down the coast via Pacifica, Devil's Slide trail, Half Moon Bay, Pescadero and Davenport."
+2,72,2027-08-28,ride,Santa Cruz,Big Sur,75,"Rolling, then hilly","Around Monterey Bay (Monterey Bay Coastal Recreation Trail where Hwy 1 is freeway), Monterey, Carmel, Point Lobos, Bixby Bridge, to Pfeiffer Big Sur."
+2,73,2027-08-29,ride,Big Sur,Salmon Creek Falls,45,Hilly,Highway 1 south past McWay Falls and Esalen. Replaces the old 'Can't create' day. Optional Esalen public night soak (1-3 a.m.) if you sleep nearby.
+2,74,2027-08-30,ride,Salmon Creek Falls,Orcutt,99.7,,
+2,75,2027-08-31,ride,Orcutt,Ventura,98,,
+2,76,2027-09-01,ride,Ventura,Los Angeles,62.8,,
+2,77,2027-09-02,rest,Los Angeles,,,,
+2,78,2027-09-03,rest,Los Angeles,,,,
+2,79,2027-09-04,ride,Los Angeles,San Clemente,82.7,,
+2,80,2027-09-05,ride,San Clemente,San Diego,60.1,,
+2,81,2027-09-06,rest,San Diego,,,,
+3,82,2027-09-07,ride,San Diego,Cerro Dona Eulalia,119,,
+3,83,2027-09-08,ride,Cerro Dona Eulalia,San Felipe,125,,
+3,84,2027-09-09,ride,San Felipe,Puertecitos,56,"Rolling, paved coastal Hwy 5",Hwy 5 south along the Sea of Cortez to Puertecitos (90 km south of San Felipe). No gas in Puertecitos. Camp at the campo; the fee covers the tidal hot springs. Soak at mid-tide; low tide can be too hot. Check a tide table.
+3,85,2027-09-10,ride,Puertecitos,Bahia San Luis Gonzaga,53,Rolling,Second half of your old San Felipe to Rancho Grande day. Short day after the morning soak. Alfonsina's at Gonzaga Bay.
+3,86,2027-09-11,ride,Rancho Grande (Bahia San Luis Gonzaga),Ejido Nuevo Rosarito,102,,
+3,87,2027-09-12,ride,Ejido Nuevo Rosarito,Vizcaino,93.9,,
+3,88,2027-09-13,ride,Vizcaino,Heroica Mulege,129,,
+3,89,2027-09-14,rest,Mulege,,,,
+3,90,2027-09-15,ride,Mulege,Loreto,84,Rolling,"Paved Hwy 1 along Bahia Concepcion (Santispac, El Requeson) then inland to Loreto. Replaces the dirt Comondu day."
+3,91,2027-09-16,ride,Loreto,Ciudad Constitucion,90,"Big climb (Sierra de la Giganta), then flat","Hwy 1 south, then over the Sierra de la Giganta to Ciudad Insurgentes and Ciudad Constitucion."
+3,92,2027-09-17,ride,Ciudad Constitucion,El Centenario,111,,
+3,93,2027-09-18,ride,El Centenario,Pichilingue ferry terminal,25,"Flat, short","Replaces your old El Centenario to La Paz day. Through La Paz and up the coast road to Pichilingue. Saturday sailing: foot passenger check-in 17:30, departs 19:00, arrives Mazatlan 09:00. Balandra and Tecolote beaches are just past the terminal if you have time."
+3,94,2027-09-19,ride,Mazatlan,Acaponeta,,,
+3,95,2027-09-20,ride,Acaponeta,San Blas,99,,
+3,96,2027-09-21,ride,San Blas,Puerto Vallarta,94.2,,
+3,97,2027-09-22,rest,Puerto Vallarta,,,,
+3,98,2027-09-23,rest,Puerto Vallarta,,,,
+3,99,2027-09-24,rest,Puerto Vallarta,,,,
+3,100,2027-09-25,rest,Puerto Vallarta,,,,
+3,101,2027-09-26,rest,Puerto Vallarta,,,,
+3,102,2027-09-27,ride,Puerto Vallarta,Mascota,65,Big climb,"Hwy 544 into the Sierra (renovated road) via Las Palmas, La Estancia and San Sebastian del Oeste, a Pueblo Magico, to Mascota."
+3,103,2027-09-28,ride,Mascota,Ameca,77,Big climb,"Hwy 70 through Atenguillo and Mixtlan. Touring cyclists report 124 km with 2,100 m of climbing."
+3,104,2027-09-29,ride,Ameca,Guadalajara,50,Rolling,Via Tala into Guadalajara. REST DAY TOMORROW.
+3,105,2027-09-30,rest,Guadalajara,,,,
+3,106,2027-10-01,ride,Guadalajara,Lagos de Moreno,118,Rolling high plateau,"East through Zapotlanejo, Tepatitlan and San Juan de los Lagos."
+3,107,2027-10-02,ride,Lagos de Moreno,San Felipe (Guanajuato),75,"Rolling, climb over Sierra de Lobos","Into north Leon, then the Leon-San Felipe road over the Sierra de Lobos. Stay north of Leon: do NOT ride Hwy 45 or 45D toward Silao (US advisory restricts travel on or south of 45D)."
+3,108,2027-10-03,ride,San Felipe (Guanajuato),Guanajuato,65,Hilly,"Fed 51 to Dolores Hidalgo, then Hwy 110 over the Sierra de Santa Rosa into Guanajuato city (avoids Silao)."
+3,109,2027-10-04,ride,Guanajuato,San Miguel de Allende,59,Hilly,"Back over the Sierra de Santa Rosa to Dolores Hidalgo, then south toward San Miguel. Thermal parks around km 10 (Escondido Place, La Gruta): day pass, arrive by early afternoon. Overnight in San Miguel (no rest day)."
+3,110,2027-10-05,ride,San Miguel de Allende,Pena de Bernal,78,Rolling,"Hwy 111 to Queretaro's historic center, then east to the Pena de Bernal monolith."
+3,111,2027-10-06,ride,Pena de Bernal,Jalpan de Serra,87,Big climbs (Pinal de Amoles),"Hwy 120 into the Sierra Gorda: Ezequiel Montes, Cadereyta, Vizarron, over Pinal de Amoles and down to Jalpan (Franciscan mission)."
+3,112,2027-10-07,ride,Jalpan de Serra,Xilitla,34,"Rolling, long descent","Short day: Landa de Matamoros, then the descent into Xilitla. Afternoon at Las Pozas surrealist gardens."
+3,113,2027-10-08,ride,Xilitla,Aquismon,47,Hilly,"Down to Hwy 85 at Axtla, north through Tancanhuitz to Aquismon. Sotano de las Golondrinas: swifts at dusk and dawn."
+3,114,2027-10-09,ride,Aquismon,Ciudad Valles,31,Rolling,"Short day into Ciudad Valles, base for Tamul and Micos. REST DAY TOMORROW (Tamul boat or Micos)."
+3,115,2027-10-10,rest,Ciudad Valles (Tamul boat or Micos),,,,
+3,116,2027-10-11,ride,Ciudad Valles,Tamazunchale,68,Rolling,"South on Hwy 85, the original Pan-American Highway."
+3,117,2027-10-12,ride,Tamazunchale,Jacala,55,Big climb,Hwy 85 climbs out of the jungle into the Sierra Madre Oriental via Chapulhuacan.
+3,118,2027-10-13,ride,Jacala,Grutas de Tolantongo,95,"Big climbs, steep descent at the end","Hwy 85 to Zimapan and Ixmiquilpan, then via Cardonal and the steep road down into the Tolantongo canyon. Cash only at Tolantongo (no ATMs). Overnight: soak in the evening and early morning, then ride on. Entry is charged per day, so a morning soak may need a second day ticket."
+3,119,2027-10-14,ride,Grutas de Tolantongo,Pachuca,70,"Big climb out of the canyon, then rolling","Climb out via Cardonal, Ixmiquilpan, Actopan, Pachuca."
+3,120,2027-10-15,ride,Pachuca,Mexico City,65,"Rolling, heavy traffic at the end","Via Teotihuacan (stop at the pyramids), then into Mexico City. Ride the city stretch early. REST DAYS (4) in Mexico City (Oct 16-19)."
+3,121,2027-10-16,rest,Mexico City,,,,
+3,122,2027-10-17,rest,Mexico City,,,,
+3,123,2027-10-18,rest,Mexico City,,,,
+3,124,2027-10-19,rest,Mexico City,,,,
+3,125,2027-10-20,ride,Mexico City,Amecameca,38,Flat (city exit),Short day out of the city through Chalco. Sunday morning traffic is lightest if you can shift it.
+3,126,2027-10-21,ride,Amecameca,Puebla,50,"Big climb (Paso de Cortes, ~3,700 m)","Paved up to the pass between Popocatepetl and Iztaccihuatl, rough dirt on the way down. Check the volcano alert before you go."
+3,127,2027-10-22,ride,Puebla,Perote,81,Rolling high plateau,"Hwy 140 east via Amozoc, Acajete, Nopalucan and Oriental to Perote, under the Cofre de Perote."
+3,128,2027-10-23,ride,Perote,Coatepec,47,Big descent,"Down off the plateau through Las Vigas into Xalapa, then to Coatepec, a coffee-country Pueblo Magico. REST DAY TOMORROW (Coatepec and Xico)."
+3,129,2027-10-24,rest,Coatepec and Xico (coffee towns),,,,
+3,130,2027-10-25,ride,Coatepec,Orizaba,68,Hilly,"Through Xico and Teocelo, south via Cosautlan and Huatusco to Cordoba, then up to Orizaba below Pico de Orizaba."
+3,131,2027-10-26,ride,Orizaba,Tuxtepec,118,"Mostly downhill, then flat and hot",Down past Cordoba into the lowlands via La Tinaja and Tierra Blanca to Tuxtepec. Ride in daylight; start early for the heat.
+3,132,2027-10-27,ride,Tuxtepec,Valle Nacional,29,"Flat, short",Short day up the river valley on Hwy 175 (46 km). Swim in the river; tomorrow is the big climb.
+3,133,2027-10-28,ride,Valle Nacional,Ixtlan de Juarez,67,"Huge climb (to about 2,970 m)","Hwy 175, the Tuxtepec road, from jungle to pine forest over the Sierra Juarez to Ixtlan (108 km). Biggest single climb in Mexico for you. REST DAY TOMORROW (Ixtlan / Capulalpan)."
+3,134,2027-10-29,rest,Ixtlan / Capulalpan de Mendez (Sierra Norte),,,,
+3,135,2027-10-30,ride,Ixtlan de Juarez,Oaxaca,39,"Climb over La Cumbre, then long descent","Past Guelatao, over La Cumbre Ixtepeji (about 2,740 m) and down into Oaxaca. Oaxaca days Oct 31 - Nov 2 (Dia de Muertos)."
+3,136,2027-10-31,rest,Oaxaca (Dia de Muertos),,,,
+3,137,2027-11-01,rest,Oaxaca (Dia de Muertos),,,,
+3,138,2027-11-02,rest,Oaxaca (Dia de Muertos),,,,
+3,139,2027-11-03,ride,Oaxaca,Miahuatlan,62,Rolling,Hwy 175 south through Ocotlan and Ejutla.
+3,140,2027-11-04,ride,Miahuatlan,San Jose del Pacifico,28,"Big climb (to about 2,440 m)",Short on purpose: big climb into cloud forest. Sleep in San Jose del Pacifico.
+3,141,2027-11-05,ride,San Jose del Pacifico,Zipolite,72,"Mostly downhill, some climbs","Hwy 175 down to Pochutla, then the coast to Zipolite. Beach days Nov 6-8 (S3D142-144)."
+3,142,2027-11-06,rest,Zipolite,,,,
+3,143,2027-11-07,rest,Zipolite,,,,
+3,144,2027-11-08,rest,Zipolite,,,,
+4,145,2027-11-09,ride,Zipolite,Barra de la Cruz,53,Rolling coast,Hwy 200 east along the Oaxaca coast via Pochutla and Huatulco to the surf village of Barra de la Cruz. Few shops on this stretch; carry food and water.
+4,146,2027-11-10,ride,Barra de la Cruz,Tehuantepec,92,"Mostly flat, hot, wind possible near Salina Cruz","Hwy 200 to Salina Cruz, then Hwy 185 to Tehuantepec. Start early. Check the forecast tonight: a cold front in the Gulf of Mexico means a north wind through the Isthmus."
+4,147,2027-11-11,rest,"Tehuantepec (wind buffer: wait here if the north wind is blowing; if calm, ride to Matias Romero today and keep the spare day)",,,,
+4,148,2027-11-12,ride,Tehuantepec,Matias Romero,70,"Rolling, exposed to the north wind","The windy stretch: Hwy 190 to Juchitan and La Ventosa, then Hwy 185 north through the Chivela pass to Matias Romero. Only ride it on a calm day; leave at first light."
+4,149,2027-11-13,ride,Matias Romero,Acayucan,103,"Rolling, then flat",Hwy 185 north via Palomares and Jesus Carranza to Acayucan.
+4,150,2027-11-14,ride,Acayucan,Las Choapas,84,Flat,"East past Cosoleacaque and Minatitlan (industrial; ride through, do not linger)."
+4,151,2027-11-15,ride,Las Choapas,Villahermosa,90,Flat,"Hwy 180 via Cardenas into Villahermosa. REST DAY TOMORROW (Parque-Museo La Venta, Olmec heads)."
+4,152,2027-11-16,rest,Villahermosa (Parque-Museo La Venta),,,,
+4,153,2027-11-17,ride,Villahermosa,Frontera,50,Flat,North to the Gulf coast at Frontera.
+4,154,2027-11-18,ride,Frontera,Ciudad del Carmen,96,"Flat, coastal",Hwy 180 along the Gulf via Atasta and the Zacatal bridge onto Isla del Carmen.
+4,155,2027-11-19,ride,Ciudad del Carmen,Champoton,92,"Flat, coastal",Hwy 180 along the Gulf via Isla Aguada and Sabancuy.
+4,156,2027-11-20,ride,Champoton,Campeche,40,"Flat, coastal, short",Coast road into Campeche; afternoon in the walled old town.
+4,157,2027-11-21,ride,Campeche,Uxmal,100,Rolling,Inland via Hopelchen and Bolonchen along the Ruta Puuc (Kabah) to Uxmal.
+4,158,2027-11-22,ride,Uxmal,Merida,50,Flat,Via Muna. REST DAY TOMORROW.
+4,159,2027-11-23,rest,Merida,,,,
+4,160,2027-11-24,ride,Merida,Valladolid,100,Flat,"East via Chichen Itza (stop at the ruins), then Valladolid; cenotes everywhere."
+4,161,2027-11-25,ride,Valladolid,Tulum,65,Flat,Via Coba (ruins and lagoon) to Tulum. REST DAY TOMORROW.
+4,162,2027-11-26,rest,Tulum,,,,
+4,163,2027-11-27,ride,Tulum,Felipe Carrillo Puerto,61,Flat,Hwy 307 south past Muyil and the Sian Ka'an edge.
+4,164,2027-11-28,ride,Felipe Carrillo Puerto,Bacalar,70,Flat,Hwy 307 to Bacalar; swim in the Laguna de los Siete Colores.
+4,165,2027-11-29,border,Bacalar,Orange Walk,71,Flat,"BORDER DAY (Mexico to Belize). Past Chetumal to the Subteniente Lopez / Santa Elena crossing, then Corozal and Orange Walk. Keep your Mexico tourist-fee receipt; Belize charges no entry fee."
+4,166,2027-11-30,ride,Orange Walk,San Ignacio,117,"Flat, then rolling","Northern Hwy south, the Burrell Boom cut-off to skip Belize City, then the Western Hwy through Belmopan (the capital; lunch stop) to San Ignacio. Long day; do not ride between towns after dark."
+4,167,2027-12-01,border,San Ignacio,Flores,75,Rolling,"BORDER DAY (Belize to Guatemala). Benque Viejo to Melchor de Mencos (Belize land departure fee about US$20), then west to Flores. REST DAY TOMORROW (Tikal)."
+4,168,2027-12-02,rest,Flores (Tikal),,,,
+4,169,2027-12-03,ride,Flores,Poptun,68,Rolling,CA-13 south. Ride in daylight.
+4,170,2027-12-04,ride,Poptun,Rio Dulce,65,Rolling,CA-13 to Rio Dulce and its big bridge.
+4,171,2027-12-05,ride,Rio Dulce,Rio Hondo,87,"Rolling, hot","South to La Ruidosa, then CA-9 west along the Motagua valley. Busy truck road; ride in daylight."
+4,172,2027-12-06,ride,Rio Hondo,Guatemala City,75,Big climb,CA-9 via El Rancho and Sanarate up to the capital. Stay in Zona 10 or 4; avoid Zona 18 and Villa Nueva.
+4,173,2027-12-07,ride,Guatemala City,Antigua,28,"Climb, short",Over the hill to Antigua. REST DAY TOMORROW.
+4,174,2027-12-08,rest,Antigua,,,,
+4,175,2027-12-09,ride,Antigua,Panajachel,55,Hilly,"Via Chimaltenango, Tecpan and Los Encuentros, then the steep drop to Lake Atitlan. REST DAY TOMORROW."
+4,176,2027-12-10,rest,Lake Atitlan,,,,
+4,177,2027-12-11,ride,Panajachel,Quetzaltenango (Xela),57,"Big climbs (850 m out of Pana, high point about 2,850 m)","Back up to the Interamericana, via Nahuala and Cuatro Caminos into Xela (last stretch busy and rough)."
+4,178,2027-12-12,ride,Quetzaltenango,Fuentes Georginas,11,"Steep climb, short","Via Almolonga and Zunil, then 8 km up the access road. Overnight in a bungalow (about Q190 per person, entry included) for after-hours soaking. Cash only."
+4,179,2027-12-13,ride,Fuentes Georginas,Mazatenango,55,"Long descent, then flat","Down to Zunil, then the road south through Santa Maria de Jesus and El Palmar to Retalhuleu and Mazatenango."
+4,180,2027-12-14,ride,Mazatenango,Taxisco,99,"Flat, hot",CA-2 east along the Pacific plain via Escuintla. Ride straight through in daylight.
+4,181,2027-12-15,border,Taxisco,Acajutla,68,Flat,"BORDER DAY (Guatemala to El Salvador). Via Chiquimulilla to Ciudad Pedro de Alvarado / La Hachadura, then the coast to Acajutla."
+4,182,2027-12-16,ride,Acajutla,El Tunco,50,Rolling coast with short steep climbs,"The Litoral (CA-2) along the cliffs via Los Cobanos, Mizata and El Zonte. Narrow tunnels with little shoulder: lights on, wait for a gap in traffic."
+4,183,2027-12-17,ride,El Tunco,San Salvador,25,"Big climb, short",Via La Libertad and Santa Tecla up to the capital. REST DAY TOMORROW.
+4,184,2027-12-18,rest,San Salvador,,,,
+4,185,2027-12-19,ride,San Salvador,San Miguel,87,Rolling,CA-1 east via Cojutepeque and San Vicente junction.
+4,186,2027-12-20,border,San Miguel,San Lorenzo,62,"Flat, hot","BORDER DAY (El Salvador to Honduras). Via Santa Rosa de Lima to El Amatillo (Honduras entry about US$3 cash; online customs form), then Nacaome and San Lorenzo on the Gulf of Fonseca."
+4,187,2027-12-21,border,San Lorenzo,Somotillo,62,"Flat, hot","BORDER DAY (Honduras to Nicaragua). Via Choluteca to Guasaule (Nicaragua online entry form filed in advance; US$10 cash), then Somotillo."
+4,188,2027-12-22,ride,Somotillo,Leon,62,Flat,"Via Chinandega, under the volcano chain."
+4,189,2027-12-23,ride,Leon,Granada,84,Rolling,"Via La Paz Centro and Nagarote, through the edge of Managua without stopping, then Masaya. REST DAYS (2) in Granada, over Christmas."
+4,190,2027-12-24,rest,Granada,,,,
+4,191,2027-12-25,rest,Granada (Christmas),,,,
+4,192,2027-12-26,ride,Granada,Moyogalpa (Ometepe),56,"Flat, then ferry","South via Nandaime to Rivas and San Jorge, then the ferry to Moyogalpa (about 1 hour; departures roughly every 30-90 min from 7:00 to 17:45; C$50 plus about US$1 port tax)."
+4,193,2027-12-27,ride,Moyogalpa,Moyogalpa (Ometepe loop),50,"Rolling, some rough road on the Maderas side","Unloaded loop day: around Volcan Concepcion via Altagracia, out to Playa Santo Domingo and Balgue on the Maderas side, back via Charco Verde."
+4,194,2027-12-28,border,Moyogalpa,La Cruz,36,"Ferry, then rolling","BORDER DAY (Nicaragua to Costa Rica). Early ferry to San Jorge (first boats 5:30-7:00), ride via Rivas to Penas Blancas, then La Cruz."
+4,195,2027-12-29,ride,La Cruz,Canas,78,Rolling,Interamericana via Liberia and Bagaces.
+4,196,2027-12-30,ride,Canas,Monteverde,45,Big climb,"Interamericana south to Rio Lagarto, then up via Guacimal to Santa Elena / Monteverde cloud forest. REST DAY TOMORROW."
+4,197,2027-12-31,rest,"Monteverde (cloud forest, New Year's Eve)",,,,
+4,198,2028-01-01,ride,Monteverde,La Fortuna,70,Hilly; the Monteverde to Tilaran road may be partly unpaved,"Down to Tilaran, around Lake Arenal via Nuevo Arenal and the dam to La Fortuna under Arenal volcano."
+4,199,2028-01-02,ride,La Fortuna,San Ramon,45,Big climb,South via Chachagua and the climb to San Ramon.
+4,200,2028-01-03,ride,San Ramon,San Jose,45,"Rolling, busy at the end","Back roads via Palmares, Grecia, Alajuela and Heredia; avoid the Interamericana (Ruta 1) near San Jose. REST DAYS (2): sloths at Toucan Rescue Ranch near Heredia (book ahead)."
+4,201,2028-01-04,rest,San Jose (sloth sanctuary),,,,
+4,202,2028-01-05,rest,San Jose,,,,
+4,203,2028-01-06,ride,San Jose,Jaco,65,"Climb, then big descent","Santa Ana and Ciudad Colon to Atenas, the old road (Ruta 3) to Orotina, then Tarcoles (crocodile bridge) to Jaco. Do not ride Ruta 27."
+4,204,2028-01-07,ride,Jaco,Quepos,45,"Flat, coastal",Costanera Sur (Ruta 34) via Parrita to Quepos and Manuel Antonio (sloths in the park).
+4,205,2028-01-08,ride,Quepos,Uvita,45,Rolling coast,Costanera Sur via Dominical to Uvita (Whale's Tail).
+4,206,2028-01-09,ride,Uvita,Ciudad Neily,75,Rolling,"Via Ojochal and Palmar Norte, then the Interamericana to Ciudad Neily."
+4,207,2028-01-10,border,Ciudad Neily,David,45,Flat,"BORDER DAY (Costa Rica to Panama). Paso Canoas, then the Interamericana to David."
+4,208,2028-01-11,ride,David,Boquete,26,"Climb, short",Up to the coffee highlands. REST DAY TOMORROW.
+4,209,2028-01-12,rest,Boquete,,,,
+4,210,2028-01-13,ride,Boquete,San Felix,80,"Descent, then rolling","Back to David, then the Interamericana east (busy for about 15 km, wide shoulder after about 30 km)."
+4,211,2028-01-14,ride,San Felix,Santiago,75,Hilly,Interamericana via Tole.
+4,212,2028-01-15,ride,Santiago,Penonome,85,Rolling,Interamericana via Divisa and Aguadulce.
+4,213,2028-01-16,ride,Penonome,Coronado,55,"Flat, near the coast",Via Anton and Rio Hato to the Pacific beaches at Coronado.
+4,214,2028-01-17,ride,Coronado,Panama City,50,"Rolling, heavy traffic at the end","Via Chame, Capira and La Chorrera. Bridge of the Americas is officially closed to bikes; arrive on a Sunday morning if you can. REST DAYS (2)."
+4,215,2028-01-18,rest,Panama City,,,,
+4,216,2028-01-19,rest,Panama City,,,,
+4,217,2028-01-20,ride,Panama City,El Llano,45,Rolling,"East on the Interamericana via Tocumen and Chepo to El Llano, the start of the Carti road. Stock up on cash: no ATMs ahead until Necocli."
+4,218,2028-01-21,ride,El Llano,Carti,25,Very steep climbs and descents,The El Llano to Carti road over the divide into Guna Yala (entry fee at the checkpoint). Sleep near Carti port for the morning boat.
+4,219,2028-01-22,boat,"San Blas Adventures day 1: Carti, boat into the islands",,,,
+4,220,2028-01-23,boat,San Blas Adventures day 2: island hopping,,,,
+4,221,2028-01-24,boat,San Blas Adventures day 3: island hopping,,,,
+4,222,2028-01-25,boat,"San Blas Adventures day 4: Puerto Obaldia (Panama exit stamp), Sapzurro, Capurgana (Colombia entry stamp at immigration office)",,,,
+4,223,2028-01-26,boat,San Blas Adventures day 5 ends in Capurgana; boat to Necocli (end of Section 4),,,,
+5,224,2028-01-27,ride,Necocli,Monitos,80,"Flat coast, hot","Coast road via Arboletes. UK advises against non-essential travel in the Uraba region (Necocli, Arboletes): ride straight through in daylight."
+5,225,2028-01-28,ride,Monitos,Covenas,60,Flat,Via San Bernardo del Viento and Lorica to the Gulf of Morrosquillo.
+5,226,2028-01-29,ride,Covenas,Cartagena,100,"Flat, hot (start early)","Via Tolu, San Onofre and Maria la Baja. REST DAYS (2) in Cartagena."
+5,227,2028-01-30,rest,Cartagena,,,,
+5,228,2028-01-31,rest,Cartagena,,,,
+5,229,2028-02-01,ride,Cartagena,Barranquilla,75,Flat coast,Via al Mar along the Caribbean. REST DAY TOMORROW: Museo de Arte Moderno de Barranquilla.
+5,230,2028-02-02,rest,Barranquilla,,,,
+5,231,2028-02-03,ride,Barranquilla,Santa Marta,60,Flat,Across the Isla de Salamanca road (mangroves and sea) and Cienaga. REST DAY TOMORROW (Tayrona).
+5,232,2028-02-04,rest,Santa Marta (Tayrona National Park),,,,
+5,233,2028-02-05,ride,Santa Marta,Minca,15,"Climb, short","Up into the Sierra Nevada foothills: birds, waterfalls, coffee farms."
+5,234,2028-02-06,ride,Minca,Fundacion,70,"Descent, then flat","Back down via Cienaga, south on Ruta 45."
+5,235,2028-02-07,ride,Fundacion,Curumani,112,"Flat, hot",Ruta 45 via Bosconia.
+5,236,2028-02-08,ride,Curumani,El Banco,72,Flat,Via Pelaya and Tamalameque to the Magdalena at El Banco.
+5,237,2028-02-09,ride,El Banco,Mompox,40,"Flat, rough road near Mompox",Over the bridge onto the island (no ferry from this side). REST DAY TOMORROW (UNESCO colonial river town).
+5,238,2028-02-10,rest,Mompox,,,,
+5,239,2028-02-11,ride,Mompox,Aguachica,100,"Flat, hot","Back to El Banco, then south to Aguachica."
+5,240,2028-02-12,ride,Aguachica,Bucaramanga,120,"Flat, then a big climb at the end (long day)","South on Ruta 45 via San Alberto, then up via Lebrija to Bucaramanga."
+5,241,2028-02-13,ride,Bucaramanga,Barichara,73,Huge climbs (Chicamocha canyon),"Down into and out of the Chicamocha canyon (national park, viewpoints), through San Gil to Barichara. REST DAY TOMORROW."
+5,242,2028-02-14,rest,Barichara,,,,
+5,243,2028-02-15,ride,Barichara,Barbosa,72,Hilly,Via Socorro and Oiba on Ruta 45A.
+5,244,2028-02-16,ride,Barbosa,Villa de Leyva,35,Hilly,Via Moniquira. REST DAY TOMORROW.
+5,245,2028-02-17,rest,Villa de Leyva,,,,
+5,246,2028-02-18,ride,Villa de Leyva,Bogota,105,Rolling high plateau (long day),"Via Chiquinquira, Ubate and Zipaquira (Salt Cathedral) into the capital. REST DAYS (6): MAMBO (modern art), Museo Botero, Gold Museum, Monserrate."
+5,247,2028-02-19,rest,Bogota,,,,
+5,248,2028-02-20,rest,Bogota,,,,
+5,249,2028-02-21,rest,Bogota,,,,
+5,250,2028-02-22,rest,Bogota,,,,
+5,251,2028-02-23,rest,Bogota,,,,
+5,252,2028-02-24,rest,Bogota,,,,
+5,253,2028-02-25,ride,Bogota,Villeta,60,Big descent,"Down the Ruta 50/60 from 2,600 m to the warm valley."
+5,254,2028-02-26,ride,Villeta,Honda,45,"Rolling, hot",Into the Magdalena valley at Honda (colonial river port).
+5,255,2028-02-27,ride,Honda,Doradal,75,"Rolling, hot",Ruta 45 then Ruta 60 toward Medellin; Rio Claro nature reserve (marble canyon). REST DAY TOMORROW.
+5,256,2028-02-28,rest,Doradal (Rio Claro reserve),,,,
+5,257,2028-02-29,ride,Doradal,Marinilla,70,Big climb,Ruta 60 up via San Luis and Cocorna into the Antioquia highlands.
+5,258,2028-03-01,ride,Marinilla,Guatape,25,Rolling,El Penol rock and the colorful town of Guatape.
+5,259,2028-03-02,ride,Guatape,Medellin,50,"Hilly, big descent","Via Rionegro. REST DAYS (6): MAMM (modern art), Comuna 13, Plaza Botero."
+5,260,2028-03-03,rest,Medellin,,,,
+5,261,2028-03-04,rest,Medellin,,,,
+5,262,2028-03-05,rest,Medellin,,,,
+5,263,2028-03-06,rest,Medellin,,,,
+5,264,2028-03-07,rest,Medellin,,,,
+5,265,2028-03-08,rest,Medellin,,,,
+5,266,2028-03-09,ride,Medellin,La Pintada,55,"Climb, then long descent",South via Caldas and the Alto de Minas.
+5,267,2028-03-10,ride,La Pintada,Manizales,68,Big climb,Ruta 25 via Irra and Neira up to Manizales.
+5,268,2028-03-11,ride,Manizales,Santa Rosa de Cabal,30,Rolling,"Short day to the hot springs above Santa Rosa de Cabal. Soak tonight and in the morning, then ride on."
+5,269,2028-03-12,ride,Santa Rosa de Cabal,Salento,35,Climb at the end,Via Pereira to Salento. REST DAY TOMORROW (Cocora valley wax palms).
+5,270,2028-03-13,rest,Salento (Cocora valley),,,,
+5,271,2028-03-14,ride,Salento,Tulua,81,"Long descent, then flat and hot","Via Armenia and La Tebaida into the Cauca valley. Rural Valle del Cauca is a US Level 4 area: daylight only, ride straight through, stop only in towns."
+5,272,2028-03-15,ride,Tulua,Cali,62,"Flat, hot",Via Buga and Palmira. REST DAYS (2) in Cali.
+5,273,2028-03-16,rest,Cali,,,,
+5,274,2028-03-17,rest,Cali,,,,
+5,275,2028-03-18,ride,Cali,Popayan,87,"Rolling, then a long climb","Panamericana south via Santander de Quilichao and Piendamo. Rural Cauca is a US Level 4 area: daylight only, no stops outside towns. REST DAY TOMORROW in Popayan."
+5,276,2028-03-19,rest,Popayan,,,,
+5,277,2028-03-20,ride,Popayan,Coconuco,18,"Climb, short","Up to the Coconuco hot springs (natural, community-run). Soak tonight and in the morning."
+5,278,2028-03-21,ride,Coconuco,San Agustin,70,"Huge climb over the paramo, long unpaved stretches","Ruta 20 via Paletara and the Purace paramo, down via Isnos to San Agustin. This avoids the Panamericana past El Bordo. REST DAY TOMORROW: San Agustin Archaeological Park."
+5,279,2028-03-22,rest,San Agustin,,,,
+5,280,2028-03-23,ride,San Agustin,Mocoa,90,"Rolling, then descent to the Amazon foothills","Back via Pitalito, then Ruta 45 south to Mocoa. The Fin del Mundo waterfall hike is just outside town if you have the legs."
+5,281,2028-03-24,ride,Mocoa,Sibundoy,50,Huge climb on dirt (Trampolin de la Muerte),"The Mocoa to San Francisco road: unpaved, narrow, cliff-edge, landslide-prone. Daylight only."
+5,282,2028-03-25,ride,Sibundoy,Pasto,40,"Climb, then descent",Past Laguna de la Cocha into Pasto.
+5,283,2028-03-26,ride,Pasto,Ipiales,55,Hilly,Panamericana south; Las Lajas sanctuary just outside Ipiales.
+5,284,2028-03-27,border,Ipiales,Bolivar (Ecuador),45,Hilly,"BORDER DAY (Colombia to Ecuador) at Rumichaca, then Tulcan and San Gabriel."
+5,285,2028-03-28,ride,Bolivar (Ecuador),Otavalo,60,Big descent into the Chota valley and climb out,"Via Ibarra. REST DAY TOMORROW (market, Laguna Cuicocha)."
+5,286,2028-03-29,rest,Otavalo,,,,
+5,287,2028-03-30,ride,Otavalo,Tumbaco,65,Hilly,Across the equator near Cayambe to the Casa de Ciclistas in Tumbaco (store the bike here for Galapagos).
+5,288,2028-03-31,ride,Tumbaco,Quito,15,"Climb, short","Chaquinan trail and into the capital. REST DAYS (4): Capilla del Hombre and Guayasamin's house (modern art), old town."
+5,289,2028-04-01,rest,Quito,,,,
+5,290,2028-04-02,rest,Quito,,,,
+5,291,2028-04-03,rest,Quito,,,,
+5,292,2028-04-04,rest,Quito,,,,
+5,293,2028-04-05,excursion,"Galapagos (excursion day 1 of 9, Quito to Quito)",,,,
+5,294,2028-04-06,excursion,"Galapagos (excursion day 2 of 9, Quito to Quito)",,,,
+5,295,2028-04-07,excursion,"Galapagos (excursion day 3 of 9, Quito to Quito)",,,,
+5,296,2028-04-08,excursion,"Galapagos (excursion day 4 of 9, Quito to Quito)",,,,
+5,297,2028-04-09,excursion,"Galapagos (excursion day 5 of 9, Quito to Quito)",,,,
+5,298,2028-04-10,excursion,"Galapagos (excursion day 6 of 9, Quito to Quito)",,,,
+5,299,2028-04-11,excursion,"Galapagos (excursion day 7 of 9, Quito to Quito)",,,,
+5,300,2028-04-12,excursion,"Galapagos (excursion day 8 of 9, Quito to Quito)",,,,
+5,301,2028-04-13,excursion,"Galapagos (excursion day 9 of 9, Quito to Quito)",,,,
+5,302,2028-04-14,ride,Quito,Machachi,35,Climb,South past the volcanoes.
+5,303,2028-04-15,ride,Machachi,Latacunga,45,"Rolling, some dirt in the park",Through Cotopaxi National Park.
+5,304,2028-04-16,ride,Latacunga,Quilotoa,50,"Huge climb (to about 3,900 m)",Via Pujili and Zumbahua to the Quilotoa crater lake.
+5,305,2028-04-17,ride,Quilotoa,Ambato,70,"Long descent, then rolling","Back via Zumbahua and Pujili, then south."
+5,306,2028-04-18,ride,Ambato,Banos,25,Descent,Banos and its cheap municipal hot springs. REST DAY TOMORROW.
+5,307,2028-04-19,rest,Banos (hot springs),,,,
+5,308,2028-04-20,ride,Banos,Puyo,40,Mostly downhill,Ruta de las Cascadas (Pailon del Diablo) down to the Amazon. Then 3 days at a Puyo-area jungle lodge.
+5,309,2028-04-21,excursion,Amazon lodge near Puyo (day 1 of 3),,,,
+5,310,2028-04-22,excursion,Amazon lodge near Puyo (day 2 of 3),,,,
+5,311,2028-04-23,excursion,Amazon lodge near Puyo (day 3 of 3),,,,
+5,312,2028-04-24,ride,Puyo,Banos,40,Long climb,Back up the Ruta de las Cascadas.
+5,313,2028-04-25,ride,Banos,Riobamba,40,Hilly,"Via Penipe, under Tungurahua and Chimborazo."
+5,314,2028-04-26,ride,Riobamba,Alausi,60,Hilly,Panamericana south past Guamote.
+5,315,2028-04-27,ride,Alausi,Canar,50,Big climbs,Via Chunchi; Ingapirca ruins nearby.
+5,316,2028-04-28,ride,Canar,Cuenca,45,Hilly,"Via Azogues. REST DAY TOMORROW: UNESCO old town, or Cajas National Park."
+5,317,2028-04-29,rest,Cuenca,,,,
+5,318,2028-04-30,ride,Cuenca,Ona,65,Big climbs,Panamericana south via Cumbe and the Tinajillas pass.
+5,319,2028-05-01,ride,Ona,Loja,60,Big climbs,Via Saraguro.
+5,320,2028-05-02,ride,Loja,Vilcabamba,25,Descent,REST DAY TOMORROW.
+5,321,2028-05-03,rest,Vilcabamba,,,,
+5,322,2028-05-04,ride,Vilcabamba,Palanda,47,"Big climbs, possibly unpaved stretches",South via Valladolid toward the La Balsa border.
+5,323,2028-05-05,ride,Palanda,Zumba,31,"Hilly, possibly unpaved","To Zumba, the last town before Peru."
+5,324,2028-05-06,border,Zumba,San Ignacio (Peru),40,"Rough dirt to the border, then paved",BORDER DAY (Ecuador to Peru) at La Balsa. Short day on purpose.
+5,325,2028-05-07,ride,San Ignacio,Jaen,65,"Hilly, hot",South to Jaen.
+5,326,2028-05-08,ride,Jaen,Pedro Ruiz,85,"Rolling, then climbing up the Utcubamba valley",Via Bagua Grande.
+5,327,2028-05-09,ride,Pedro Ruiz,Cocachimba (Gocta),10,"Climb, short",Short ride to the village below Gocta waterfall (771 m). REST DAY TOMORROW: hike to the falls.
+5,328,2028-05-10,rest,Gocta waterfall hike,,,,
+5,329,2028-05-11,ride,Cocachimba,Chachapoyas,25,Hilly,Up the valley to Chachapoyas.
+5,330,2028-05-12,ride,Chachapoyas,Nuevo Tingo,23,Rolling,Down the Utcubamba to the Kuelap cable car. REST DAY TOMORROW: Kuelap fortress.
+5,331,2028-05-13,rest,Kuelap,,,,
+5,332,2028-05-14,ride,Nuevo Tingo,Leymebamba,40,Climbing,Up the valley to Leymebamba (mummy museum).
+5,333,2028-05-15,ride,Leymebamba,Balsas,50,"Huge climb (Calla Calla, about 3,600 m), then huge descent",Over the pass and down into the Maranon canyon.
+5,334,2028-05-16,ride,Balsas,Celendin,35,"Huge climb (about 2,000 m)",Out of the Maranon canyon.
+5,335,2028-05-17,ride,Celendin,Cajamarca,70,Hilly,To Cajamarca. REST DAY TOMORROW: Banos del Inca hot springs.
+5,336,2028-05-18,rest,Cajamarca (Banos del Inca hot springs),,,,
+5,337,2028-05-19,ride,Cajamarca,Cajabamba,75,Big climbs,South via San Marcos.
+5,338,2028-05-20,ride,Cajabamba,Huamachuco,31,Hilly,Marcahuamachuco ruins nearby.
+5,339,2028-05-21,ride,Huamachuco,Trujillo,100,"Climb, then a huge descent to the coast",Ruta 10 west via Shiran to Trujillo. REST DAY TOMORROW: Chan Chan (adobe city) and Huanchaco.
+5,340,2028-05-22,rest,Trujillo,,,,
+5,341,2028-05-23,ride,Trujillo,Chimbote,80,Flat desert coast,Panamericana south.
+5,342,2028-05-24,ride,Chimbote,Casma,40,Flat,Panamericana.
+5,343,2028-05-25,ride,Casma,Pariacoto,45,Steady climb,Ruta 14 inland toward Huaraz.
+5,344,2028-05-26,ride,Pariacoto,Huaraz,50,"Huge climb (Punta Callan, about 4,200 m), then descent","Over the Cordillera Negra to Huaraz. REST DAYS (3): acclimatize, Laguna 69, Monterrey hot springs."
+5,345,2028-05-27,rest,"Huaraz (Laguna 69, Monterrey hot springs)",,,,
+5,346,2028-05-28,rest,"Huaraz (Laguna 69, Monterrey hot springs)",,,,
+5,347,2028-05-29,rest,"Huaraz (Laguna 69, Monterrey hot springs)",,,,
+5,348,2028-05-30,ride,Huaraz,Conococha,55,"Climb (to about 4,100 m)",South up the Callejon de Huaylas via Recuay.
+5,349,2028-05-31,ride,Conococha,Barranca,75,Huge descent to the coast,Down to Pativilca and Barranca.
+5,350,2028-06-01,ride,Barranca,Huacho,40,Flat desert coast,Panamericana south.
+5,351,2028-06-02,ride,Huacho,Ancon,70,"Flat, some climbs",Panamericana via Chancay.
+5,352,2028-06-03,ride,Ancon,Lima,30,"Flat, heavy traffic","Into Lima (Miraflores/Barranco). Ride early. REST DAYS (6, including a weekend): MALI and MAC Lima (modern art), food."
+5,353,2028-06-04,rest,Lima,,,,
+5,354,2028-06-05,rest,Lima,,,,
+5,355,2028-06-06,rest,Lima,,,,
+5,356,2028-06-07,rest,Lima,,,,
+5,357,2028-06-08,rest,Lima,,,,
+5,358,2028-06-09,rest,Lima,,,,
+5,359,2028-06-10,ride,Lima,Asia,60,Flat desert coast,Panamericana Sur.
+5,360,2028-06-11,ride,Asia,Paracas,95,Flat,"Via Chincha. REST DAY TOMORROW: Ballestas Islands (sea lions, penguins)."
+5,361,2028-06-12,rest,Paracas (Ballestas Islands),,,,
+5,362,2028-06-13,ride,Paracas,Huacachina,50,Flat desert,Via Ica to the desert oasis.
+5,363,2028-06-14,ride,Huacachina,Nazca,90,"Flat desert, some climbs",Via Palpa; the Nazca Lines viewing tower is on the road. REST DAY TOMORROW.
+5,364,2028-06-15,rest,Nazca,,,,
+5,365,2028-06-16,ride,Nazca,Pampa Galeras,55,"Huge climb (to about 4,000 m)",The Andes climb toward Puquio; vicuna reserve at the top.
+5,366,2028-06-17,ride,Pampa Galeras,Puquio,31,"High plateau, rolling",Across the puna.
+5,367,2028-06-18,ride,Puquio,Negromayo,60,"High puna (about 4,500 m)",Remote: carry food and water.
+5,368,2028-06-19,ride,Negromayo,Chalhuanca,60,Long descent,Down to the Pachachaca valley.
+5,369,2028-06-20,ride,Chalhuanca,Abancay,75,"Rolling, then climb",Down the valley and up to Abancay. REST DAY TOMORROW after a week of high riding.
+5,370,2028-06-21,rest,Abancay,,,,
+5,371,2028-06-22,ride,Abancay,Curahuasi,45,"Huge climb, then descent",Over the pass to Curahuasi.
+5,372,2028-06-23,ride,Curahuasi,Cusco,75,Big climbs,"Via Limatambo. REST DAYS (2): Cusco, Rainbow Mountain or the Sacred Valley."
+5,373,2028-06-24,rest,Cusco,,,,
+5,374,2028-06-25,rest,Cusco,,,,
+5,375,2028-06-26,ride,Cusco,Checacupe,60,Rolling,South up the Vilcanota valley via Urcos.
+5,376,2028-06-27,ride,Checacupe,Santa Rosa,70,"Climb over La Raya pass (about 4,330 m)",Via Sicuani.
+5,377,2028-06-28,ride,Santa Rosa,Juliaca,80,"High plateau, flat",Via Ayaviri across the altiplano.
+5,378,2028-06-29,ride,Juliaca,Puno,30,Flat,To Lake Titicaca. REST DAY TOMORROW (Uros floating islands).
+5,379,2028-06-30,rest,Puno (Lake Titicaca),,,,
+5,380,2028-07-01,border,Puno,Copacabana,90,Rolling lakeshore,Via Juli and the Yunguyo / Kasani border. BORDER DAY (Peru to Bolivia): leave Puno early or split at Juli.
+5,381,2028-07-02,rest,Copacabana (Isla del Sol),,,,
+5,382,2028-07-03,ride,Copacabana,La Paz,95,"Rolling, then climb to El Alto and drop into La Paz","Via the Tiquina strait (short barge crossing) and the lakeshore. REST DAYS (5) in La Paz, then the Death Road."
+5,383,2028-07-04,rest,La Paz,,,,
+5,384,2028-07-05,rest,La Paz,,,,
+5,385,2028-07-06,rest,La Paz,,,,
+5,386,2028-07-07,rest,La Paz,,,,
+5,387,2028-07-08,rest,La Paz,,,,
+5,388,2028-07-09,ride,La Paz,Coroico (Death Road),45,"Climb to La Cumbre (about 4,650 m), then the Death Road descent (dirt)","Up to La Cumbre, then the old Yungas road down to Yolosa and up to Coroico."
+5,389,2028-07-10,rest,Coroico,,,,
+5,390,2028-07-11,ride,Coroico,La Paz,60,"Enormous climb (about 3,500 m)",Back up the new road over La Cumbre. No cyclist account found of riding this back up; it may take two days (split at Unduavi).
+6,391,2028-07-12,ride,La Paz,Patacamaya,65,"Flat altiplano (about 3,800 m)",Ruta 1 south from El Alto. Cold nights in July: Bolivian winter.
+6,392,2028-07-13,ride,Patacamaya,Oruro,85,Flat altiplano,Ruta 1 south.
+6,393,2028-07-14,ride,Oruro,Challapata,75,Flat altiplano,South past Lake Poopo.
+6,394,2028-07-15,ride,Challapata,Uyuni,115,Flat altiplano (long day),Ruta 30 via Huari and Rio Mulato area to Uyuni. REST DAY TOMORROW: salt flat.
+6,395,2028-07-16,rest,Uyuni (Salar de Uyuni: guided tour or ride out to Colchani),,,,
+6,396,2028-07-17,ride,Uyuni,Tica Tica,70,Climbing,East via Pulacayo toward Potosi.
+6,397,2028-07-18,ride,Tica Tica,Potosi,55,"Climb to about 4,000 m","To Potosi, the silver-mining city under Cerro Rico."
+6,398,2028-07-19,ride,Potosi,Sucre,100,Mostly descent,"To Sucre, Bolivia's constitutional capital. ONE REST DAY."
+6,399,2028-07-20,rest,Sucre,,,,
+6,400,2028-07-21,ride,Sucre,Puente Arce,45,Hilly,East on Ruta 6 toward Aiquile.
+6,401,2028-07-22,ride,Puente Arce,Aiquile,65,Hilly,Via Mizque valley road.
+6,402,2028-07-23,ride,Aiquile,Mataral,75,"Hilly, descending",To the old Santa Cruz road (Ruta 7).
+6,403,2028-07-24,ride,Mataral,Samaipata,47,Hilly,Old Ruta 7 east. REST DAY TOMORROW: El Fuerte (UNESCO) and Amboro cloud forest.
+6,404,2028-07-25,rest,Samaipata,,,,
+6,405,2028-07-26,ride,Samaipata,Santa Cruz,75,Descent to the lowlands,Old Ruta 7 down to Santa Cruz de la Sierra.
+6,406,2028-07-27,ride,Santa Cruz,Pozo del Tigre,90,"Flat, hot",Ruta 4 east via Pailon.
+6,407,2028-07-28,ride,Pozo del Tigre,San Jose de Chiquitos,88,Flat,Jesuit mission town (stone church).
+6,408,2028-07-29,rest,San Jose de Chiquitos (Jesuit missions),,,,
+6,409,2028-07-30,ride,San Jose de Chiquitos,Robore,87,Rolling,Ruta 4 east under the Chiquitano hills.
+6,410,2028-07-31,ride,Robore,El Carmen Rivero Torrez,92,Flat,Ruta 4 east.
+6,411,2028-08-01,ride,El Carmen Rivero Torrez,Puerto Suarez,85,Flat,To the Brazilian border area.
+6,412,2028-08-02,border,Puerto Suarez,Corumba,15,"Flat, short",BORDER DAY (Bolivia to Brazil) at Puerto Quijarro / Corumba. Brazil e-visa required in advance for US citizens. Then 3 days in the Pantanal.
+6,413,2028-08-03,excursion,Pantanal (day 1 of 3: lodge or guided Estrada Parque trip),,,,
+6,414,2028-08-04,excursion,Pantanal (day 2 of 3: lodge or guided Estrada Parque trip),,,,
+6,415,2028-08-05,excursion,Pantanal (day 3 of 3: lodge or guided Estrada Parque trip),,,,
+6,416,2028-08-06,ride,Corumba,Passo do Lontra,70,"Flat, hot",BR-262 east across the southern Pantanal.
+6,417,2028-08-07,ride,Passo do Lontra,Miranda,70,Flat,BR-262 to Miranda.
+6,418,2028-08-08,ride,Miranda,Bonito,84,Rolling,"Via Bodoquena. REST DAYS (2): snorkel the crystal-clear rivers, Gruta do Lago Azul."
+6,419,2028-08-09,rest,Bonito,,,,
+6,420,2028-08-10,rest,Bonito,,,,
+6,421,2028-08-11,ride,Bonito,Maracaju,112,"Rolling, long",East via Jardim and Guia Lopes da Laguna.
+6,422,2028-08-12,ride,Maracaju,Dourados,75,Rolling,South-east to Dourados.
+6,423,2028-08-13,ride,Dourados,Navirai,93,Rolling,Via Caarapo.
+6,424,2028-08-14,ride,Navirai,Guaira,87,Rolling,Via Eldorado and Mundo Novo to the Parana River.
+6,425,2028-08-15,ride,Guaira,Santa Helena,68,Rolling,South along the Itaipu reservoir via Marechal Candido Rondon.
+6,426,2028-08-16,ride,Santa Helena,Foz do Iguacu,68,Rolling,"Via Itaipulandia and Sao Miguel do Iguacu. REST DAYS (2): Iguazu Falls (Brazil side; Argentine side as a day trip with passport), Itaipu dam, Parque das Aves."
+6,427,2028-08-17,rest,Foz do Iguacu (Iguazu Falls),,,,
+6,428,2028-08-18,rest,"Foz do Iguacu (Iguazu Falls, Argentine side day trip)",,,,
+6,429,2028-08-19,ride,Foz do Iguacu,Cascavel,87,Rolling,BR-277 east (no backtracking: you arrived from the north).
+6,430,2028-08-20,ride,Cascavel,Laranjeiras do Sul,93,Rolling,BR-277 east.
+6,431,2028-08-21,ride,Laranjeiras do Sul,Guarapuava,68,Hilly,BR-277 east.
+6,432,2028-08-22,ride,Guarapuava,Ponta Grossa,100,Hilly,BR-277 east; Vila Velha sandstone park near Ponta Grossa.
+6,433,2028-08-23,ride,Ponta Grossa,Curitiba,72,Rolling,BR-277 to Curitiba. REST DAY TOMORROW: Museu Oscar Niemeyer (modern art).
+6,434,2028-08-24,rest,Curitiba,,,,
+6,435,2028-08-25,ride,Curitiba,Joinville,81,Big descent to the coast,"BR-376 down the Serra do Mar to Garuva, then Joinville."
+6,436,2028-08-26,ride,Joinville,Itapema,75,Rolling coast,Via Itajai and Balneario Camboriu.
+6,437,2028-08-27,ride,Itapema,Florianopolis,45,Rolling,Onto Santa Catarina island (Lagoa da Conceicao). REST DAYS (2).
+6,438,2028-08-28,rest,Florianopolis,,,,
+6,439,2028-08-29,rest,Florianopolis,,,,
+6,440,2028-08-30,ride,Florianopolis,Garopaba,56,Rolling coast,Via Guarda do Embau.
+6,441,2028-08-31,ride,Garopaba,Praia do Rosa,10,"Rolling, short","Short day. REST DAY TOMORROW: southern right whales from the cliffs, Siriu dunes."
+6,442,2028-09-01,rest,Praia do Rosa (whales),,,,
+6,443,2028-09-02,ride,Praia do Rosa,Laguna,31,"Rolling, short",To Laguna: watch the bottlenose dolphins herd mullet to the fishermen at the river mouth; Farol de Santa Marta.
+6,444,2028-09-03,ride,Laguna,Torres,100,Flat,BR-101 south.
+6,445,2028-09-04,ride,Torres,Osorio,62,Flat,Coastal plain.
+6,446,2028-09-05,ride,Osorio,Porto Alegre,62,Flat,Into Porto Alegre.
+6,447,2028-09-06,rest,Porto Alegre,,,,
+6,448,2028-09-07,ride,Porto Alegre,Camaqua,81,Flat,BR-116 south.
+6,449,2028-09-08,ride,Camaqua,Pelotas,81,Flat,BR-116 south.
+6,450,2028-09-09,ride,Pelotas,Taim,68,Flat,"BR-471 south between the lagoons; Taim wetland reserve (capybaras, birds)."
+6,451,2028-09-10,ride,Taim,Santa Vitoria do Palmar,90,Flat,BR-471 south.
+6,452,2028-09-11,border,Santa Vitoria do Palmar,Punta del Diablo,45,"Flat, short",BORDER DAY (Brazil to Uruguay) at Chui / Chuy: stamp out of Brazil and into Uruguay at separate posts. Then the Uruguayan coast.
+6,453,2028-09-12,ride,Punta del Diablo,Cabo Polonio,37,"Flat, short","Via Castillos to the Cabo Polonio dunes (no cars: walk or 4x4 truck in). REST DAY TOMORROW: sea lion colony, lighthouse."
+6,454,2028-09-13,rest,Cabo Polonio,,,,
+6,455,2028-09-14,ride,Cabo Polonio,Jose Ignacio,85,Flat,Via Rocha and La Paloma.
+6,456,2028-09-15,ride,Jose Ignacio,Punta del Este,31,"Flat, short",REST DAY TOMORROW: Casapueblo (Carlos Paez Vilaro).
+6,457,2028-09-16,rest,Punta del Este (Casapueblo),,,,
+6,458,2028-09-17,ride,Punta del Este,Montevideo,84,Flat coast,Ruta Interbalnearia. REST DAYS (3).
+6,459,2028-09-18,rest,Montevideo,,,,
+6,460,2028-09-19,rest,Montevideo,,,,
+6,461,2028-09-20,rest,Montevideo,,,,
+6,462,2028-09-21,ride,Montevideo,Colonia del Sacramento,110,Flat (long day),Ruta 1 west to UNESCO-listed Colonia.
+6,463,2028-09-22,border,Colonia del Sacramento,Buenos Aires,5,Ferry day,"BORDER DAY by ferry (Uruguay to Argentina): Buquebus or Colonia Express, about 1 hr 15 min; immigration at the port. Confirm the bike booking in advance. REST DAYS (4) in Buenos Aires."
+6,464,2028-09-23,rest,Buenos Aires,,,,
+6,465,2028-09-24,rest,Buenos Aires,,,,
+6,466,2028-09-25,rest,Buenos Aires,,,,
+6,467,2028-09-26,rest,Buenos Aires,,,,
+6,468,2028-09-27,ride,Buenos Aires,San Pedro,103,Flat,North-west along the Parana via Campana and Zarate.
+6,469,2028-09-28,ride,San Pedro,Rosario,90,Flat,Via San Nicolas.
+6,470,2028-09-29,ride,Rosario,Marcos Juarez,100,Flat pampas,West on Ruta 9.
+6,471,2028-09-30,ride,Marcos Juarez,Villa Maria,78,Flat pampas,Ruta 9.
+6,472,2028-10-01,ride,Villa Maria,Cordoba,93,Flat,Ruta 9 to Cordoba. REST DAY TOMORROW.
+6,473,2028-10-02,rest,Cordoba,,,,
+6,474,2028-10-03,ride,Cordoba,Mina Clavero,93,"Big climb (Altas Cumbres, about 2,200 m)",Via Carlos Paz and the Camino de las Altas Cumbres.
+6,475,2028-10-04,ride,Mina Clavero,Merlo,59,Rolling,Via Villa Dolores.
+6,476,2028-10-05,ride,Merlo,San Luis,115,Rolling,South-west to San Luis.
+6,477,2028-10-06,ride,San Luis,La Paz (Mendoza),80,Flat,Ruta 7 west.
+6,478,2028-10-07,ride,La Paz (Mendoza),Mendoza,95,Flat,Ruta 7 west to Mendoza. REST DAYS (2): wineries.
+6,479,2028-10-08,rest,Mendoza,,,,
+6,480,2028-10-09,rest,Mendoza,,,,
+6,481,2028-10-10,ride,Mendoza,Uspallata,73,"Big climb (about 1,760 m)",Ruta 7 west. A published bike route makes this 117 km.
+6,482,2028-10-11,ride,Uspallata,Las Cuevas,51,Big climb,Past Puente del Inca and Aconcagua park to the last village before the tunnel.
+6,483,2028-10-12,border,Las Cuevas,Los Andes,52,"Tunnel shuttle, then huge descent","BORDER DAY (Argentina to Chile). Bikes are not allowed in the Cristo Redentor tunnel: take the free tunnel transport, clear Chilean customs (strict food rules), then down the Caracoles switchbacks."
+6,484,2028-10-13,ride,Los Andes,Santiago,47,Rolling,Into the capital. REST DAYS (3).
+6,485,2028-10-14,rest,Santiago,,,,
+6,486,2028-10-15,rest,Santiago,,,,
+6,487,2028-10-16,rest,Santiago,,,,
+6,488,2028-10-17,ride,Santiago,San Fernando,87,Flat valley,South via Rancagua (back roads where possible).
+6,489,2028-10-18,ride,San Fernando,Talca,78,Flat valley,Via Curico.
+6,490,2028-10-19,ride,Talca,Chillan,100,Flat valley,Via Linares.
+6,491,2028-10-20,ride,Chillan,Los Angeles,72,Rolling,South.
+6,492,2028-10-21,ride,Los Angeles,Temuco,100,Rolling,Via Victoria into Araucania.
+6,493,2028-10-22,ride,Temuco,Pucon,65,Rolling,"Via Villarrica, under the Villarrica volcano. REST DAY TOMORROW: hot springs."
+6,494,2028-10-23,rest,Pucon (hot springs),,,,
+6,495,2028-10-24,ride,Pucon,Valdivia,106,Rolling,Via Villarrica and Lanco to Valdivia.
+6,496,2028-10-25,ride,Valdivia,Osorno,68,Rolling,South.
+6,497,2028-10-26,ride,Osorno,Puyehue,50,"Rolling, climbing",East via Entre Lagos to the Puyehue area below the Cardenal Samore pass.
+6,498,2028-10-27,border,Puyehue,Villa La Angostura,50,"Climb over Cardenal Samore pass (about 1,300 m)",BORDER DAY (Chile to Argentina). The Chilean and Argentine posts are far apart; keep cash and snacks.
+6,499,2028-10-28,ride,Villa La Angostura,Bariloche,53,Rolling lakeshore,Around Lake Nahuel Huapi. REST DAY TOMORROW.
+6,500,2028-10-29,rest,Bariloche,,,,
+6,501,2028-10-30,ride,Bariloche,El Bolson,75,Hilly,Ruta 40 south.
+6,502,2028-10-31,ride,El Bolson,Cholila,45,Rolling,Ruta 40 then Cholila.
+6,503,2028-11-01,ride,Cholila,Trevelin,75,"Rolling, gravel in the park",Through Los Alerces National Park.
+6,504,2028-11-02,border,Trevelin,Futaleufu,31,"Rolling, short",BORDER DAY (Argentina to Chile) at Futaleufu.
+6,505,2028-11-03,ride,Futaleufu,Villa Santa Lucia,47,"Hilly, mostly gravel",Down the Futaleufu valley to the Carretera Austral.
+6,506,2028-11-04,rest,Futaleufu,,,,
+6,507,2028-11-05,ride,Villa Santa Lucia,La Junta,50,Rolling,Carretera Austral south.
+6,508,2028-11-06,ride,La Junta,Puyuhuapi,28,"Rolling, short","To Puyuhuapi. REST DAY TOMORROW: hot springs, Queulat hanging glacier."
+6,509,2028-11-07,rest,"Puyuhuapi (hot springs, Queulat)",,,,
+6,510,2028-11-08,ride,Puyuhuapi,Villa Amengual,62,Big climb (Queulat pass),Past the Queulat hanging glacier.
+6,511,2028-11-09,ride,Villa Amengual,Villa Manihuales,55,Rolling,Carretera Austral south.
+6,512,2028-11-10,ride,Villa Manihuales,Coyhaique,47,Rolling,To Coyhaique.
+6,513,2028-11-11,ride,Coyhaique,Villa Cerro Castillo,59,Big climb,Over the Cerro Castillo pass (switchbacks).
+6,514,2028-11-12,ride,Villa Cerro Castillo,Puerto Rio Tranquilo,75,Rolling gravel,Carretera Austral south along Lago General Carrera. REST DAY TOMORROW: Marble Caves by boat.
+6,515,2028-11-13,rest,Puerto Rio Tranquilo (Marble Caves),,,,
+6,516,2028-11-14,ride,Puerto Rio Tranquilo,Puerto Bertrand,47,Rolling gravel,Along Lago General Carrera.
+6,517,2028-11-15,ride,Puerto Bertrand,Cochrane,31,"Rolling gravel, short",Along the Baker River.
+6,518,2028-11-16,ride,Cochrane,Tortel junction,65,Hilly gravel,Carretera Austral south.
+6,519,2028-11-17,ride,Tortel junction,Rio Bravo,30,"Gravel, then ferry","To Puerto Yungay, ferry across to Rio Bravo (runs several times a day)."
+6,520,2028-11-18,ride,Rio Bravo,Villa O'Higgins,62,Hilly gravel,The last stretch of the Carretera Austral. REST / BOAT DAY TOMORROW (Mon and Thu sailings in Nov-Dec).
+6,521,2028-11-19,rest,Villa O'Higgins (boat wait / buffer),,,,
+6,522,2028-11-20,border,Villa O'Higgins,Lago del Desierto (north),14,"Boat, then hike-a-bike","BORDER DAY (Chile to Argentina): boat to Candelario Mancilla (Chilean exit), 22 km track and trail to Argentine immigration at Lago del Desierto. Expect to push the bike."
+6,523,2028-11-21,ride,Lago del Desierto (north),El Chalten,25,"Lake boat or shore trail, then gravel","Across or around Lago del Desierto, then the road to El Chalten. REST DAY TOMORROW: Fitz Roy."
+6,524,2028-11-22,rest,El Chalten (Fitz Roy),,,,
+6,525,2028-11-23,ride,El Chalten,La Leona,65,"Flat, windy",Ruta 23 then Ruta 40.
+6,526,2028-11-24,ride,La Leona,El Calafate,68,"Flat, windy",Ruta 40 south. REST DAY TOMORROW: Perito Moreno glacier.
+6,527,2028-11-25,rest,El Calafate (Perito Moreno),,,,
+6,528,2028-11-26,ride,El Calafate,Tapi Aike,100,"Rolling steppe, windy (long day)",Ruta 40 south.
+6,529,2028-11-27,border,Tapi Aike,Villa Cerro Castillo (Chile),30,Rolling steppe,BORDER DAY (Argentina to Chile) at Cancha Carrera / Cerro Castillo.
+6,530,2028-11-28,ride,Villa Cerro Castillo (Chile),Torres del Paine (Laguna Amarga),40,Gravel,Into Torres del Paine National Park. Then 5 days on the W trek (store the bike).
+6,531,2028-11-29,excursion,Torres del Paine W trek (day 1 of 5),,,,
+6,532,2028-11-30,excursion,Torres del Paine W trek (day 2 of 5),,,,
+6,533,2028-12-01,excursion,Torres del Paine W trek (day 3 of 5),,,,
+6,534,2028-12-02,excursion,Torres del Paine W trek (day 4 of 5),,,,
+6,535,2028-12-03,excursion,Torres del Paine W trek (day 5 of 5),,,,
+6,536,2028-12-04,ride,Torres del Paine,Puerto Natales,70,"Gravel, then paved",From the end of the W (catamaran to Pudeto) back out to Puerto Natales.
+6,537,2028-12-05,ride,Puerto Natales,Villa Tehuelches,93,"Rolling steppe, windy",Ruta 9 south.
+6,538,2028-12-06,ride,Villa Tehuelches,Punta Delgada,100,"Flat steppe, windy (long day)",East via Kon Aiken junction to the Strait of Magellan.
+6,539,2028-12-07,ride,Punta Delgada,Cerro Sombrero,35,"Ferry, then flat",Primera Angostura ferry across the Strait of Magellan onto Tierra del Fuego (short crossing).
+6,540,2028-12-08,border,Cerro Sombrero,San Sebastian (Argentina),65,"Flat, windy, gravel stretches",BORDER DAY (Chile to Argentina) at San Sebastian; the two posts are some distance apart.
+6,541,2028-12-09,ride,San Sebastian (Argentina),Rio Grande,50,"Flat, windy",Ruta 3 south along the Atlantic.
+6,542,2028-12-10,ride,Rio Grande,Tolhuin,68,Rolling,Ruta 3 into the forest to Lago Fagnano.
+6,543,2028-12-11,ride,Tolhuin,Ushuaia,65,"Climb over Paso Garibaldi, then descent","The last day: over Garibaldi pass to Ushuaia, the end of the road."
