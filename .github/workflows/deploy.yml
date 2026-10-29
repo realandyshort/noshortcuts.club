@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false   # queue, never cancel: a cancelled Pages deploy blocks the next one
 
 jobs:
   deploy:
