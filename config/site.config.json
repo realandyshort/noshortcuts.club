@@ -1,5 +1,5 @@
 {
-  "_readme": "This is the one file to edit for wording, links, sizes and switches. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. podLink: once the show is on Apple Podcasts, paste the link here and every Listen button switches to it. home.sectionOrder: drag-free reordering, just move the names. sections.videos.enabled: true turns the video section on. comingSoon.note is the small line on the landing page; comingSoon.aboutText is what the About button shows when hovered (blank hides the button).",
+  "_readme": "This is the one file to edit for wording, links, sizes and switches. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. podLink: once the show is on Apple Podcasts, paste the link here and every Listen button switches to it. home.sectionOrder: drag-free reordering, just move the names. sections.videos.enabled: true turns the video section on. comingSoon.note is the small line on the landing page; comingSoon.aboutText is what the About button shows when hovered (blank hides the button). home.odometer / home.timeTravel switch the phase 3 interactions on and off.",
   "showDates": false,
   "podLink": "",
   "site": {
@@ -46,6 +46,7 @@
       "latest",
       "mapDispatch",
       "days",
+      "stamps",
       "videos"
     ],
     "dayCards": 5,
@@ -64,7 +65,9 @@
       "climbPlan": "FT CLIMBED · PLAN",
       "everests": "EVERESTS",
       "vsPlan": "DAYS VS. THE PLAN"
-    }
+    },
+    "odometer": true,
+    "timeTravel": true
   },
   "sections": {
     "videos": {
@@ -128,7 +131,36 @@
       "quote": "[One line that says why, in your own words.]",
       "why": "[A short paragraph on the why: what made you want to do it, what you hope to find, what you’re leaving and coming back to.]"
     },
-    "comingSoonTitleEm": "Short"
+    "comingSoonTitleEm": "Short",
+    "flips": {
+      "hint": "CLICK A COUNTER OR THE MARK · DRAG THE LINE TO TRAVEL IN TIME",
+      "days": "ONE SQUARE PER DAY",
+      "countries": "COUNTRIES SO FAR",
+      "climb": "THE ROAD, SIDE ON · HIGHEST POINT",
+      "close": "Back"
+    },
+    "stats": {
+      "kicker": "SECRET STATS",
+      "water": "LITERS OF WATER",
+      "hotSprings": "HOT SPRINGS",
+      "borders": "BORDER CROSSINGS",
+      "boats": "BOAT CROSSINGS",
+      "restDays": "REST DAYS",
+      "capitals": "CAPITALS VISITED",
+      "calories": "CALORIES BURNED"
+    },
+    "stamps": {
+      "title": "Passport",
+      "intro": "One stamp per country, inked the day the ride crosses in. Tap a stamp for the first photo from there.",
+      "entered": "ENTERED DAY",
+      "notYet": "NOT YET",
+      "noPhoto": "No photo from here yet."
+    },
+    "travel": {
+      "back": "Back to today",
+      "label": "TIME TRAVEL · DAY",
+      "plainDay": "Nothing archived for this day yet, so this is the plan."
+    }
   },
   "comingSoon": {
     "showLinks": true,

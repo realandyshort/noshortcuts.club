@@ -37,6 +37,10 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           INTERVALS_API_KEY: ${{ secrets.INTERVALS_API_KEY }}
           INTERVALS_ATHLETE_ID: ${{ secrets.INTERVALS_ATHLETE_ID }}
+          CAL_WEIGHT_LB: ${{ secrets.CAL_WEIGHT_LB }}
+          CAL_HEIGHT_IN: ${{ secrets.CAL_HEIGHT_IN }}
+          CAL_BIRTHDATE: ${{ secrets.CAL_BIRTHDATE }}
+          CAL_GEAR_LB: ${{ secrets.CAL_GEAR_LB }}
         run: node scripts/update.js
 
       - name: Commit the new data

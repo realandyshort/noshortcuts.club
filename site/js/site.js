@@ -43,6 +43,31 @@
   ctx.mark = function () { var t = document.createElement("template"); t.innerHTML = MARK_SVG; return t.content.firstChild; };
   ctx.el = el; ctx.pick = pick;
 
+  // Archived day files (archive/days/NNN.json), fetched once and remembered. null = none yet.
+  var archives = {};
+  ctx.archive = function (n) {
+    n = Number(n);
+    if (!(n >= 1)) return Promise.resolve(null);
+    if (archives[n] !== undefined) return Promise.resolve(archives[n]);
+    return quiet("archive/days/" + String(n).padStart(3, "0") + ".json").then(function (a) { archives[n] = a; return a; });
+  };
+  // Change the day being shown (time travel). Updates the address so the view can be shared.
+  ctx.setDay = function (n) {
+    if (!ctx.plan) return;
+    n = window.Trip.clampDay(ctx.plan, n);
+    ctx.day = n;
+    // "Home" is the real today, or the simulated day when the page was opened with ?day=
+    ctx.homeDay = ctx.testDay || ctx.todayClamped;
+    ctx.travelDay = (n === ctx.homeDay) ? null : n;
+    ctx.live = !ctx.travelDay && !ctx.testDay;
+    try {
+      var u = new URL(location.href);
+      if (ctx.travelDay || ctx.testDay) u.searchParams.set("day", n); else u.searchParams.delete("day");
+      history.replaceState(null, "", u.pathname + (u.search || "") + u.hash);
+    } catch (e) { /* older browsers: fine without */ }
+    ctx.listeners.forEach(function (fn) { try { fn(); } catch (e) { console.error(e); } });
+  };
+
   // Instagram post for a day number (by the post's timestamp), newest first
   ctx.postsForDay = function (n) {
     var ig = ctx.data.instagram;
@@ -114,9 +139,12 @@
       : typeof meta.utc_offset_seconds === "number" ? meta.utc_offset_seconds : (ctx.config.trip.fallbackUtcOffsetHours || 0) * 3600;
     var computed = plan ? Trip.dayNumberAt(plan, Date.now(), ctx.offset) : 1;
     ctx.today = computed;
+    ctx.todayClamped = plan ? Trip.clampDay(plan, computed) : 1;
     if (params.has("day")) { ctx.testDay = plan ? Trip.clampDay(plan, params.get("day")) : Number(params.get("day")); ctx.day = ctx.testDay; }
-    else ctx.day = plan ? Trip.clampDay(plan, computed) : 1;
-    ctx.live = !ctx.testDay;                       // live = real today, not a simulated day
+    else ctx.day = ctx.todayClamped;
+    ctx.travelDay = null;
+    ctx.homeDay = ctx.testDay || ctx.todayClamped;
+    ctx.live = !ctx.testDay;                       // live = real today, not a simulated or time-travelled day
   }
 
   var light = document.body.hasAttribute("data-light");   // about page: config only
@@ -124,7 +152,7 @@
   if (!light) {
     loads.push(quiet("data/plan.json"), quiet("data/meta.json"), quiet("data/status.json"), quiet("data/countries.json"), quiet("data/route_line.json"),
       quiet("data/dispatches.json"), quiet("data/instagram.json"), quiet("data/rides.json"), quiet("data/position.json"), quiet("data/weather.json"), quiet("data/videos.json"));
-    if (document.body.hasAttribute("data-needs-map")) loads.push(quiet("data/americas.json"));
+    if (document.body.hasAttribute("data-needs-map")) loads.push(quiet("data/americas.json"), quiet("data/calories.json"), quiet("data/countries_outlines.json"), quiet("data/route_elevation.json"));
   }
 
   window.Site = ctx;
@@ -135,6 +163,9 @@
       ctx.plan = r[1]; ctx.meta = r[2]; ctx.status = r[3]; ctx.countries = r[4] || []; ctx.route = r[5];
       ctx.data = { dispatches: r[6], instagram: r[7], rides: r[8], position: r[9], weather: r[10], videos: r[11] };
       ctx.americas = r[12] || null;
+      ctx.data.calories = r[13] || null;
+      ctx.outlines = r[14] || null;
+      ctx.elevation = (r[15] && r[15].elevation_m && ctx.route && r[15].elevation_m.length === ctx.route.points.length) ? r[15] : null;
       if (ctx.plan) decideDay();
     }
     applyChrome();

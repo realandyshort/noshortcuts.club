@@ -127,6 +127,23 @@ can look at them) and, when live, posts it as a story. Two safety switches:
 - Only a dispatch that was new while live gets posted (within `stories.postWithinHours`, 48 by
   default), so flipping the switch never posts a backlog of old dispatches.
 
+## The interactive layer (phase 3)
+
+- **Counters roll up** when the page opens (off for people who asked their device for less motion).
+- **Click a counter** and the banner flips: *Days* becomes one small square per day, *Countries*
+  draws the outlines of the countries entered so far over the line, *Ft climbed* turns the line into
+  the elevation profile of the whole route. Click again, or press Escape, to come back.
+- **Click the mark** after "No Shortcuts" for the secret stats: water, hot springs, border and boat
+  crossings, rest days, capitals, calories. All worked out from the plan. The keyword lists and the
+  calorie constants are in `secretStats` in the config. Calories only appear once the four `CAL_*`
+  secrets exist in GitHub; the body stats themselves never leave the robot.
+- **Time travel:** drag along the banner line (or the map) and the whole page shows that day, with
+  the archived photo, caption and dispatches when there is an archive for it, and the plan otherwise.
+  "Back to today" returns. The address updates (`?day=NNN`) so a day can be shared.
+- **Passport:** one stamp per country, inked from the day the ride crosses in. Tap a stamp for the
+  first photo from that country.
+- Switches: `home.odometer` and `home.timeTravel` in the config.
+
 ## Folders
 
 | Folder or file | What it is |
@@ -136,7 +153,7 @@ can look at them) and, when live, posts it as a story. Two safety switches:
 | `site/data/` | Written by the robot every hour. Do not edit by hand |
 | `site/stories/` | Story images made by the robot |
 | `config/site.config.json` | The one file to edit |
-| `seed/` | The starting copy of the plan, the countries, the route line, the map outlines |
+| `seed/` | The starting copy of the plan, the countries, the route line, the map outlines, country outlines, elevations |
 | `archive/days/` | One file per trip day, written by the robot |
 | `scripts/` | The robot (`update.js` runs everything), the dev server, `format-route-plan.gs` (sheet styling) |
 | `assets/fonts/` | Brand fonts (open licence) used for story images |

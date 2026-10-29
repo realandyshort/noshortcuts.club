@@ -229,3 +229,62 @@ body.tinker-open { padding-right: min(380px, 100vw); }
   .day-card { flex: 0 0 72vw; scroll-snap-align: start; }
   .days-table th:nth-child(5), .days-table td:nth-child(5) { display: none; }
 }
+
+/* ---------- Phase 3: interactions ---------- */
+.banner-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
+.travel-back { font-size: 0.85rem; padding: 0.45em 1em; }
+.banner-route { touch-action: none; cursor: ew-resize; user-select: none; -webkit-user-select: none; }
+.banner-route.flipped { cursor: default; }
+.banner-route #banner-line { transition: opacity 0.45s ease; }
+.banner-route.flipped #banner-line { opacity: 0.12; }
+.banner-route.flipped.flip-climb #banner-line { opacity: 1; }   /* the profile is the line itself */
+.banner-route.flipped.flip-countries #banner-line { opacity: 0; }
+.banner-route.flipped .marker { opacity: 0; transition: opacity 0.3s; }
+.banner-route .flip { position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
+.banner-route .flip.on { opacity: 1; pointer-events: auto; }
+.flip-countries { width: 100%; height: 100%; overflow: visible; }
+.flip-countries path { fill: rgba(244, 200, 171, 0.08); stroke: var(--peach); stroke-opacity: 0.9; stroke-width: 1px; vector-effect: non-scaling-stroke; opacity: 0; transition: opacity 0.6s ease; }
+.flip-countries path.in { opacity: 1; }
+.flip-countries path.mini-rest, .flip-countries path.mini-done { fill: none; opacity: 1; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; }
+.flip-countries path.mini-rest { stroke: var(--gray); }
+.flip-countries path.mini-done { stroke: var(--persimmon); }
+.flip-days { display: grid; gap: 3px; align-content: center; justify-content: center; padding: 0.4rem 0; }
+.flip-days span { display: block; width: var(--sq, 10px); height: var(--sq, 10px); background: rgba(251, 233, 215, 0.14); border-radius: 1.5px; cursor: pointer; }
+.flip-days span.done { background: var(--persimmon); }
+.flip-days span.now { box-shadow: 0 0 0 2px var(--cream); background: var(--persimmon); }
+.flip-days span:hover { background: var(--cream); }
+.flip-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem 1.2rem; align-content: center; padding: 0.4rem var(--gutter); }
+.stat { display: flex; gap: 0.8rem; align-items: center; min-width: 0; }
+.stat svg { width: 30px; height: 30px; flex: 0 0 auto; fill: none; stroke: var(--persimmon); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.stat .num { font-family: var(--font-mono); font-size: clamp(1.1rem, 2vw, 1.6rem); color: var(--cream); line-height: 1.1; }
+.stat .lbl { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--peach); }
+.flip-stats .kicker { grid-column: 1 / -1; color: var(--peach); margin: 0; }
+.counter { cursor: default; border-radius: 6px; padding-inline: 0.3rem; margin-inline: -0.3rem; transition: background 0.2s; }
+.counter.clickable { cursor: pointer; }
+.counter.clickable:hover { background: rgba(251, 233, 215, 0.06); }
+.counter.active { background: rgba(232, 89, 61, 0.16); }
+.counter.active .num { color: var(--persimmon); }
+.title .mark[role="button"] { cursor: pointer; transition: transform 0.3s ease; outline: none; }
+.title .mark[role="button"]:hover, .title .mark[role="button"]:focus-visible { transform: rotate(30deg) scale(1.12); }
+.title .mark.active { transform: rotate(90deg) scale(1.12); }
+.banner-hint { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.08em; color: var(--gray); margin: 0.5rem 0 0; }
+.travel-note { font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0 0; }
+.map-card svg { touch-action: none; cursor: crosshair; }
+.latest-link { font-size: 0.85rem; }
+
+/* Passport stamps */
+.stamps-intro { max-width: 46em; margin: 0 0 1.2rem; }
+.stamp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.9rem; }
+.stamp { position: relative; aspect-ratio: 1 / 0.78; border: 2px dashed var(--gray); border-radius: 12px; background: transparent; color: var(--gray); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.35rem; padding: 0.6rem; cursor: pointer; opacity: 0.45; transform: rotate(var(--tilt, -2deg)); transition: transform 0.2s, opacity 0.2s; }
+.stamp .name { font-size: 0.72rem; font-weight: 500; text-align: center; line-height: 1.2; }
+.stamp .when { font-size: 0.56rem; }
+.stamp .mark { width: 16px; height: 16px; position: absolute; top: 8px; right: 10px; }
+.stamp.inked { opacity: 1; border-style: solid; border-color: var(--persimmon); color: var(--persimmon); background: rgba(232, 89, 61, 0.06); }
+.stamp:hover, .stamp:focus-visible { transform: rotate(0deg) scale(1.03); opacity: 1; outline: none; }
+.stamp.active { box-shadow: 0 0 0 3px var(--ink); }
+.stamp-view { margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; }
+.stamp-view .photo { height: clamp(220px, 32vw, 420px); }
+.stamp-view .body { padding: 1.2rem 1.3rem; }
+.stamp-view .body h3 { font-family: var(--font-headline); font-size: 1.5rem; margin: 0 0 0.4rem; }
+@media (max-width: 900px) { .flip-stats { grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem; } .stamp-view { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .flip-stats { padding: 0.2rem 0.4rem; } .stat svg { width: 22px; height: 22px; } .stat .num { font-size: 1rem; } .banner-right { align-items: flex-start; } .stamp-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); } }

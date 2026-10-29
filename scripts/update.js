@@ -46,6 +46,7 @@ async function main() {
   C.writeData("meta.json", { generated_at: new Date().toISOString(), today_day: today, utc_offset_seconds: offset, timezone: weather.timezone || null });
   C.log(`today is day ${today}`);
 
+  await safe("calories", () => require("./calories").run({ config, plan }));
   await safe("archive", () => require("./archive").run({ config, status, plan, today, offset }));
   if (!C.hasFlag("--no-stories")) await safe("stories", () => require("./story").run({ config, status, plan, offset }));
   if (!C.hasFlag("--no-alerts")) await safe("alerts", () => require("./alerts").run({ config, status }));

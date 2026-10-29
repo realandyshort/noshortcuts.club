@@ -45,11 +45,19 @@
     <section class="banner" data-section="banner">
       <div class="wrap">
         <div class="banner-top">
-          <h1 class="title">No <em>Short</em>cuts<svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M20.5 4.2 C20.1 11 19.8 27 19.6 35.6"/><path d="M6.8 11.6 C13 15.4 26 23.5 33.4 28.1"/><path d="M33.9 11 C27.5 15.8 13.4 24.6 6.2 28.9"/></g></svg></h1>
-          <p class="banner-info" id="banner-info">ALASKA TO ARGENTINA</p>
+          <h1 class="title">No <em>Short</em>cuts<svg class="mark" id="mark-button" viewBox="0 0 40 40" role="button" tabindex="0" aria-label="Secret stats" focusable="true"><g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M20.5 4.2 C20.1 11 19.8 27 19.6 35.6"/><path d="M6.8 11.6 C13 15.4 26 23.5 33.4 28.1"/><path d="M33.9 11 C27.5 15.8 13.4 24.6 6.2 28.9"/></g></svg></h1>
+          <div class="banner-right">
+            <p class="banner-info" id="banner-info">ALASKA TO ARGENTINA</p>
+            <button class="btn btn-persimmon travel-back" id="travel-back" type="button" hidden>Back to today</button>
+          </div>
         </div>
+        <!-- The stage: the route line, plus the views it flips to (one square per day, country
+             outlines, the elevation profile, the secret stats). js/banner.js runs all of it. -->
         <div class="banner-route" id="banner-route">
           <svg id="banner-line" preserveAspectRatio="none" aria-label="The route from Deadhorse to Ushuaia; the part ridden so far is highlighted"></svg>
+          <svg id="flip-countries" class="flip flip-countries" preserveAspectRatio="none" aria-hidden="true" hidden></svg>
+          <div id="flip-days" class="flip flip-days" role="img" aria-label="One square per day of the plan" hidden></div>
+          <div id="flip-stats" class="flip flip-stats" hidden></div>
           <div class="marker" id="banner-marker" hidden><div class="dot"></div><span class="place" id="banner-place"></span></div>
         </div>
         <div class="counters" id="counters"></div>
@@ -97,6 +105,17 @@
       </div>
     </section>
 
+    <section class="section stamps" data-section="stamps">
+      <div class="wrap">
+        <div class="days-head">
+          <h2 data-config="copy.stamps.title">Passport</h2>
+        </div>
+        <p class="stamps-intro" data-config="copy.stamps.intro"></p>
+        <div class="stamp-grid" id="stamps"></div>
+        <div class="stamp-view card" id="stamp-view" hidden></div>
+      </div>
+    </section>
+
     <section class="section videos" data-section="videos" hidden>
       <div class="wrap">
         <div class="head"><h2 id="video-title"></h2><span class="mono" data-config="sections.videos.label">THIS WEEK ON YOUTUBE</span></div>
@@ -129,7 +148,9 @@
   <script src="js/trip.js"></script>
   <script src="js/route-line.js"></script>
   <script src="js/site.js"></script>
+  <script src="js/stats.js"></script>
   <script src="js/map.js"></script>
+  <script src="js/banner.js"></script>
   <script src="js/home.js"></script>
   <script src="js/tinker.js"></script>
 </body>
