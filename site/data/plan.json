@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T21:29:47.780Z",
+  "generated_at": "2026-10-29T23:54:40.164Z",
   "day1_date": "2027-06-18",
   "total_days": 543,
   "source": {
@@ -2041,7 +2041,7 @@
       "plan_miles": 60,
       "plan_climb_ft": 4350,
       "terrain": "Rolling coast",
-      "notes": "Hwy 200 east along the Oaxaca coast via Pochutla and Huatulco to the surf village of Barra de la Cruz. Few shops on this stretch; carry food and water.",
+      "notes": "Hwy 200 east along the Oaxaca coast via Pochutla and Huatulco to the surf village of Barra de la Cruz. Few shops on this stretch; carry food and water",
       "route_url": "https://www.komoot.com/tour/3369245864",
       "stay": "Barra de la Cruz"
     },
@@ -2055,7 +2055,7 @@
       "plan_miles": 84,
       "plan_climb_ft": 4550,
       "terrain": "Mostly flat, hot, wind possible near Salina Cruz",
-      "notes": "Hwy 200 to Salina Cruz, then Hwy 185 to Tehuantepec. Start early. Check the forecast tonight: a cold front in the Gulf of Mexico means a north wind through the Isthmus.",
+      "notes": "Hwy 200 to Salina Cruz, then Hwy 185 to Tehuantepec. Start early. Check the forecast tonight: a cold front in the Gulf of Mexico means a north wind through the Isthmus",
       "route_url": "https://www.komoot.com/tour/3369308390",
       "stay": "Tehuantepec"
     },
@@ -2083,7 +2083,7 @@
       "plan_miles": 61.1,
       "plan_climb_ft": 1875,
       "terrain": "Rolling, exposed to the north wind",
-      "notes": "The windy stretch: Hwy 190 to Juchitan and La Ventosa, then Hwy 185 north through the Chivela pass to Matias Romero. Only ride it on a calm day; leave at first light.",
+      "notes": "The windy stretch: Hwy 190 to Juchitan and La Ventosa, then Hwy 185 north through the Chivela pass to Matias Romero. Only ride it on a calm day; leave at first light",
       "route_url": "https://www.komoot.com/tour/3369312217",
       "stay": "Matias Romero"
     },
@@ -2097,7 +2097,7 @@
       "plan_miles": 128,
       "plan_climb_ft": 5050,
       "terrain": "Rolling, then flat",
-      "notes": "Hwy 185 north via Palomares and Jesus Carranza to Acayucan.",
+      "notes": "Hwy 185 north via Palomares and Jesus Carranza to Acayucan",
       "route_url": "https://www.komoot.com/tour/3369330581",
       "stay": "Acayucan"
     },
@@ -2111,7 +2111,7 @@
       "plan_miles": 61.9,
       "plan_climb_ft": 1350,
       "terrain": "Flat",
-      "notes": "East past Cosoleacaque and Minatitlan (industrial; ride through, do not linger).",
+      "notes": "East past Cosoleacaque and Minatitlan (industrial; ride through, do not linger)",
       "route_url": "https://www.komoot.com/tour/3369336343",
       "stay": "Las Choapas"
     },
@@ -2125,7 +2125,7 @@
       "plan_miles": 117,
       "plan_climb_ft": 775,
       "terrain": "Flat",
-      "notes": "Hwy 180 via Cardenas into Villahermosa. REST DAY TOMORROW (Parque-Museo La Venta, Olmec heads).",
+      "notes": "Hwy 180 via Cardenas into Villahermosa. REST DAY TOMORROW (Parque-Museo La Venta, Olmec heads)",
       "route_url": "https://www.komoot.com/tour/3369360772",
       "stay": "Villahermosa"
     },
@@ -2153,7 +2153,7 @@
       "plan_miles": 52.9,
       "plan_climb_ft": 225,
       "terrain": "Flat",
-      "notes": "North to the Gulf coast at Frontera.",
+      "notes": "North to the Gulf coast at Frontera",
       "route_url": "https://www.komoot.com/tour/3369387450",
       "stay": "Frontera"
     },
@@ -2167,7 +2167,7 @@
       "plan_miles": 65.4,
       "plan_climb_ft": 250,
       "terrain": "Flat, coastal",
-      "notes": "Hwy 180 along the Gulf via Atasta and the Zacatal bridge onto Isla del Carmen.",
+      "notes": "Hwy 180 along the Gulf via Atasta and the Zacatal bridge onto Isla del Carmen",
       "route_url": "https://www.komoot.com/tour/3369423798",
       "stay": "Ciudad del Carmen"
     },
@@ -2181,7 +2181,7 @@
       "plan_miles": 113,
       "plan_climb_ft": 650,
       "terrain": "Flat, coastal",
-      "notes": "Hwy 180 along the Gulf via Isla Aguada and Sabancuy.",
+      "notes": "Hwy 180 along the Gulf via Isla Aguada and Sabancuy",
       "route_url": "https://www.komoot.com/tour/3369956370",
       "stay": "Champoton"
     },
@@ -2195,7 +2195,7 @@
       "plan_miles": 44.2,
       "plan_climb_ft": 1150,
       "terrain": "Flat, coastal, short",
-      "notes": "Coast road into Campeche; afternoon in the walled old town.",
+      "notes": "Coast road into Campeche; afternoon in the walled old town",
       "route_url": "https://www.komoot.com/tour/3369959970",
       "stay": "Campeche"
     },
@@ -2209,7 +2209,7 @@
       "plan_miles": 107,
       "plan_climb_ft": 2075,
       "terrain": "Rolling",
-      "notes": "Inland via Hopelchen and Bolonchen along the Ruta Puuc (Kabah) to Uxmal.",
+      "notes": "Inland via Hopelchen and Bolonchen along the Ruta Puuc (Kabah) to Uxmal",
       "route_url": "https://www.komoot.com/tour/3369968302",
       "stay": "Uxmal"
     },
@@ -2223,7 +2223,7 @@
       "plan_miles": 49.5,
       "plan_climb_ft": 375,
       "terrain": "Flat",
-      "notes": "Via Muna. REST DAY TOMORROW.",
+      "notes": "Via Muna. REST DAY TOMORROW",
       "route_url": "https://www.komoot.com/tour/3369977626",
       "stay": "Merida"
     },
@@ -2251,7 +2251,7 @@
       "plan_miles": 104,
       "plan_climb_ft": 475,
       "terrain": "Flat",
-      "notes": "East via Chichen Itza (stop at the ruins), then Valladolid; cenotes everywhere.",
+      "notes": "East via Chichen Itza (stop at the ruins), then Valladolid; cenotes everywhere",
       "route_url": "https://www.komoot.com/tour/3369984319",
       "stay": "Valladolid"
     },
@@ -2265,7 +2265,7 @@
       "plan_miles": 63.6,
       "plan_climb_ft": 200,
       "terrain": "Flat",
-      "notes": "Via Coba (ruins and lagoon) to Tulum. REST DAY TOMORROW.",
+      "notes": "Via Coba (ruins and lagoon) to Tulum. REST DAY TOMORROW",
       "route_url": "https://www.komoot.com/tour/3369988386",
       "stay": "Tulum"
     },
@@ -2293,7 +2293,7 @@
       "plan_miles": 60.3,
       "plan_climb_ft": 200,
       "terrain": "Flat",
-      "notes": "Hwy 307 south past Muyil and the Sian Ka'an edge.",
+      "notes": "Hwy 307 south past Muyil and the Sian Ka'an edge",
       "route_url": "https://www.komoot.com/tour/3370003513",
       "stay": "Felipe Carrillo Puerto"
     },
@@ -2307,7 +2307,7 @@
       "plan_miles": 76.3,
       "plan_climb_ft": 475,
       "terrain": "Flat",
-      "notes": "Hwy 307 to Bacalar; swim in the Laguna de los Siete Colores.",
+      "notes": "Hwy 307 to Bacalar; swim in the Laguna de los Siete Colores",
       "route_url": "https://www.komoot.com/tour/3370011699",
       "stay": "Bacalar"
     },
@@ -2321,7 +2321,7 @@
       "plan_miles": 59.1,
       "plan_climb_ft": 675,
       "terrain": "Flat",
-      "notes": "BORDER DAY (Mexico to Belize). Past Chetumal to the Subteniente Lopez / Santa Elena crossing, then Corozal and Orange Walk. Keep your Mexico tourist-fee receipt; Belize charges no entry fee.",
+      "notes": "BORDER DAY (Mexico to Belize). Past Chetumal to the Subteniente Lopez / Santa Elena crossing, then Corozal and Orange Walk. Keep your Mexico tourist-fee receipt; Belize charges no entry fee",
       "route_url": "https://www.komoot.com/tour/3370023221",
       "stay": "Orange Walk"
     },
@@ -2335,7 +2335,7 @@
       "plan_miles": 151,
       "plan_climb_ft": 2625,
       "terrain": "Flat, then rolling",
-      "notes": "Northern Hwy south, the Burrell Boom cut-off to skip Belize City, then the Western Hwy through Belmopan (the capital; lunch stop) to San Ignacio. Long day; do not ride between towns after dark.",
+      "notes": "Northern Hwy south, the Burrell Boom cut-off to skip Belize City, then the Western Hwy through Belmopan (the capital; lunch stop) to San Ignacio. Long day; do not ride between towns after dark",
       "route_url": "https://www.komoot.com/tour/3370063923",
       "stay": "San Ignacio"
     },
@@ -2349,7 +2349,7 @@
       "plan_miles": 67.7,
       "plan_climb_ft": 2875,
       "terrain": "Rolling",
-      "notes": "BORDER DAY (Belize to Guatemala). Benque Viejo to Melchor de Mencos (Belize land departure fee about US$20), then west to Flores. REST DAY TOMORROW (Tikal).",
+      "notes": "BORDER DAY (Belize to Guatemala). Benque Viejo to Melchor de Mencos (Belize land departure fee about US$20), then west to Flores. REST DAY TOMORROW (Tikal)",
       "route_url": "https://www.komoot.com/tour/3370068609",
       "stay": "Flores"
     },
@@ -2377,7 +2377,7 @@
       "plan_miles": 64.6,
       "plan_climb_ft": 3050,
       "terrain": "Rolling",
-      "notes": "CA-13 south. Ride in daylight.",
+      "notes": "CA-13 south. Ride in daylight",
       "route_url": "https://www.komoot.com/tour/3370073761",
       "stay": "Poptun"
     },
@@ -2391,7 +2391,7 @@
       "plan_miles": 65.7,
       "plan_climb_ft": 2625,
       "terrain": "Rolling",
-      "notes": "CA-13 to Rio Dulce and its big bridge.",
+      "notes": "CA-13 to Rio Dulce and its big bridge",
       "route_url": "https://www.komoot.com/tour/3370084442",
       "stay": "Rio Dulce"
     },
@@ -2405,7 +2405,7 @@
       "plan_miles": 86.7,
       "plan_climb_ft": 5050,
       "terrain": "Rolling, hot",
-      "notes": "South to La Ruidosa, then CA-9 west along the Motagua valley. Busy truck road; ride in daylight.",
+      "notes": "South to La Ruidosa, then CA-9 west along the Motagua valley. Busy truck road; ride in daylight",
       "route_url": "https://www.komoot.com/tour/3370094600",
       "stay": "Rio Hondo"
     },
@@ -2419,7 +2419,7 @@
       "plan_miles": 99.6,
       "plan_climb_ft": 9325,
       "terrain": "Big climb",
-      "notes": "CA-9 via El Rancho and Sanarate up to the capital. Stay in Zona 10 or 4; avoid Zona 18 and Villa Nueva.",
+      "notes": "CA-9 via El Rancho and Sanarate up to the capital. Stay in Zona 10 or 4; avoid Zona 18 and Villa Nueva",
       "route_url": "https://www.komoot.com/tour/3370112895",
       "stay": "Guatemala City"
     },
@@ -2433,7 +2433,7 @@
       "plan_miles": 23.3,
       "plan_climb_ft": 2475,
       "terrain": "Climb, short",
-      "notes": "Over the hill to Antigua. REST DAY TOMORROW.",
+      "notes": "Over the hill to Antigua. REST DAY TOMORROW",
       "route_url": "https://www.komoot.com/tour/3370119986",
       "stay": "Antigua"
     },
@@ -2461,7 +2461,7 @@
       "plan_miles": 75.7,
       "plan_climb_ft": 9050,
       "terrain": "Hilly",
-      "notes": "Via Chimaltenango, Tecpan and Los Encuentros, then the steep drop to Lake Atitlan. REST DAY TOMORROW.",
+      "notes": "Via Chimaltenango, Tecpan and Los Encuentros, then the steep drop to Lake Atitlan. REST DAY TOMORROW",
       "route_url": "https://www.komoot.com/tour/3370145695",
       "stay": "Panajachel"
     },
@@ -2489,7 +2489,7 @@
       "plan_miles": 44.8,
       "plan_climb_ft": 7775,
       "terrain": "Big climbs (850 m out of Pana, high point about 2,850 m)",
-      "notes": "Back up to the Interamericana, via Nahuala and Cuatro Caminos into Xela (last stretch busy and rough).",
+      "notes": "Back up to the Interamericana, via Nahuala and Cuatro Caminos into Xela (last stretch busy and rough)",
       "route_url": "https://www.komoot.com/tour/3370157436",
       "stay": "Quetzaltenango (Xela)"
     },
@@ -2503,7 +2503,7 @@
       "plan_miles": 12.3,
       "plan_climb_ft": 2050,
       "terrain": "Steep climb, short",
-      "notes": "Via Almolonga and Zunil, then 8 km up the access road. Overnight in a bungalow (about Q190 per person, entry included) for after-hours soaking. Cash only.",
+      "notes": "Via Almolonga and Zunil, then 8 km up the access road. Overnight in a bungalow (about Q190 per person, entry included) for after-hours soaking. Cash only",
       "route_url": "https://www.komoot.com/tour/3370160922",
       "stay": "Fuentes Georginas"
     },
@@ -2517,7 +2517,7 @@
       "plan_miles": 49.3,
       "plan_climb_ft": 1475,
       "terrain": "Long descent, then flat",
-      "notes": "Down to Zunil, then the road south through Santa Maria de Jesus and El Palmar to Retalhuleu and Mazatenango.",
+      "notes": "Down to Zunil, then the road south through Santa Maria de Jesus and El Palmar to Retalhuleu and Mazatenango",
       "route_url": "https://www.komoot.com/tour/3370165128",
       "stay": "Mazatenango"
     },
@@ -2531,7 +2531,7 @@
       "plan_miles": 116,
       "plan_climb_ft": 3075,
       "terrain": "Flat, hot",
-      "notes": "CA-2 east along the Pacific plain via Escuintla. Ride straight through in daylight.",
+      "notes": "CA-2 east along the Pacific plain via Escuintla. Ride straight through in daylight",
       "route_url": "https://www.komoot.com/tour/3370174041",
       "stay": "Taxisco"
     },
@@ -2545,7 +2545,7 @@
       "plan_miles": 70.6,
       "plan_climb_ft": 800,
       "terrain": "Flat",
-      "notes": "BORDER DAY (Guatemala to El Salvador). Via Chiquimulilla to Ciudad Pedro de Alvarado / La Hachadura, then the coast to Acajutla.",
+      "notes": "BORDER DAY (Guatemala to El Salvador). Via Chiquimulilla to Ciudad Pedro de Alvarado / La Hachadura, then the coast to Acajutla",
       "route_url": "https://www.komoot.com/tour/3370179330",
       "stay": "Acajutla"
     },
@@ -2559,7 +2559,7 @@
       "plan_miles": 48.4,
       "plan_climb_ft": 3300,
       "terrain": "Rolling coast with short steep climbs",
-      "notes": "The Litoral (CA-2) along the cliffs via Los Cobanos, Mizata and El Zonte. Narrow tunnels with little shoulder: lights on, wait for a gap in traffic.",
+      "notes": "The Litoral (CA-2) along the cliffs via Los Cobanos, Mizata and El Zonte. Narrow tunnels with little shoulder: lights on, wait for a gap in traffic",
       "route_url": "https://www.komoot.com/tour/3370189271",
       "stay": "El Tunco"
     },
@@ -2573,7 +2573,7 @@
       "plan_miles": 26.5,
       "plan_climb_ft": 3825,
       "terrain": "Big climb, short",
-      "notes": "Via La Libertad and Santa Tecla up to the capital. REST DAY TOMORROW.",
+      "notes": "Via La Libertad and Santa Tecla up to the capital. REST DAY TOMORROW",
       "route_url": "https://www.komoot.com/tour/3370193823",
       "stay": "San Salvador"
     },
@@ -2601,7 +2601,7 @@
       "plan_miles": 94,
       "plan_climb_ft": 3125,
       "terrain": "Rolling",
-      "notes": "CA-1 east via Cojutepeque and San Vicente junction.",
+      "notes": "CA-1 east via Cojutepeque and San Vicente junction",
       "route_url": "https://www.komoot.com/tour/3370202914",
       "stay": "San Miguel"
     },
@@ -2615,7 +2615,7 @@
       "plan_miles": 65.3,
       "plan_climb_ft": 3300,
       "terrain": "Flat, hot",
-      "notes": "BORDER DAY (El Salvador to Honduras). Via Santa Rosa de Lima to El Amatillo (Honduras entry about US$3 cash; online customs form), then Nacaome and San Lorenzo on the Gulf of Fonseca.",
+      "notes": "BORDER DAY (El Salvador to Honduras). Via Santa Rosa de Lima to El Amatillo (Honduras entry about US$3 cash; online customs form), then Nacaome and San Lorenzo on the Gulf of Fonseca",
       "route_url": "https://www.komoot.com/tour/3370207139",
       "stay": "San Lorenzo"
     },
@@ -2629,7 +2629,7 @@
       "plan_miles": 55.4,
       "plan_climb_ft": 2975,
       "terrain": "Flat, hot",
-      "notes": "BORDER DAY (Honduras to Nicaragua). Via Choluteca to Guasaule (Nicaragua online entry form filed in advance; US$10 cash), then Somotillo.",
+      "notes": "BORDER DAY (Honduras to Nicaragua). Via Choluteca to Guasaule (Nicaragua online entry form filed in advance; US$10 cash), then Somotillo",
       "route_url": "https://www.komoot.com/tour/3370216706",
       "stay": "Somotillo"
     },
@@ -2643,7 +2643,7 @@
       "plan_miles": 69.3,
       "plan_climb_ft": 1350,
       "terrain": "Flat",
-      "notes": "Via Chinandega, under the volcano chain.",
+      "notes": "Via Chinandega, under the volcano chain",
       "route_url": "https://www.komoot.com/tour/3370227896",
       "stay": "Leon"
     },
@@ -2657,7 +2657,7 @@
       "plan_miles": 86.7,
       "plan_climb_ft": 2425,
       "terrain": "Rolling",
-      "notes": "Via La Paz Centro and Nagarote, through the edge of Managua without stopping, then Masaya. REST DAYS (2) in Granada, over Christmas.",
+      "notes": "Via La Paz Centro and Nagarote, through the edge of Managua without stopping, then Masaya. REST DAYS (2) in Granada, over Christmas",
       "route_url": "https://www.komoot.com/tour/3370237024",
       "stay": "Granada"
     },
@@ -2699,7 +2699,7 @@
       "plan_miles": 54.8,
       "plan_climb_ft": 1100,
       "terrain": "Flat, then ferry",
-      "notes": "South via Nandaime to Rivas and San Jorge, then the ferry to Moyogalpa (about 1 hour; departures roughly every 30-90 min from 7:00 to 17:45; C$50 plus about US$1 port tax).",
+      "notes": "South via Nandaime to Rivas and San Jorge, then the ferry to Moyogalpa (about 1 hour; departures roughly every 30-90 min from 7:00 to 17:45; C$50 plus about US$1 port tax)",
       "route_url": "https://www.komoot.com/tour/3370264565",
       "stay": "Moyogalpa (Ometepe)"
     },
@@ -2713,7 +2713,7 @@
       "plan_miles": 39.8,
       "plan_climb_ft": 2225,
       "terrain": "Rolling, some rough road on the Maderas side",
-      "notes": "Unloaded loop day: around Volcan Concepcion via Altagracia, out to Playa Santo Domingo and Balgue on the Maderas side, back via Charco Verde.",
+      "notes": "Unloaded loop day: around Volcan Concepcion via Altagracia, out to Playa Santo Domingo and Balgue on the Maderas side, back via Charco Verde",
       "route_url": "https://www.komoot.com/tour/3370295528",
       "stay": "Moyogalpa (Ometepe loop)"
     },
@@ -2727,7 +2727,7 @@
       "plan_miles": 46.3,
       "plan_climb_ft": 1475,
       "terrain": "Ferry, then rolling",
-      "notes": "BORDER DAY (Nicaragua to Costa Rica). Early ferry to San Jorge (first boats 5:30-7:00), ride via Rivas to Penas Blancas, then La Cruz.",
+      "notes": "BORDER DAY (Nicaragua to Costa Rica). Early ferry to San Jorge (first boats 5:30-7:00), ride via Rivas to Penas Blancas, then La Cruz",
       "route_url": "https://www.komoot.com/tour/3370307448",
       "stay": "La Cruz"
     },
@@ -2741,7 +2741,7 @@
       "plan_miles": 67.1,
       "plan_climb_ft": 1750,
       "terrain": "Rolling",
-      "notes": "Interamericana via Liberia and Bagaces.",
+      "notes": "Interamericana via Liberia and Bagaces",
       "route_url": "https://www.komoot.com/tour/3370319723",
       "stay": "Canas"
     },
@@ -2755,7 +2755,7 @@
       "plan_miles": 34.9,
       "plan_climb_ft": 6525,
       "terrain": "Big climb",
-      "notes": "Interamericana south to Rio Lagarto, then up via Guacimal to Santa Elena / Monteverde cloud forest. REST DAY TOMORROW.",
+      "notes": "Interamericana south to Rio Lagarto, then up via Guacimal to Santa Elena / Monteverde cloud forest. REST DAY TOMORROW",
       "route_url": "https://www.komoot.com/tour/3370334123",
       "stay": "Monteverde"
     },
@@ -2783,7 +2783,7 @@
       "plan_miles": 55,
       "plan_climb_ft": 4525,
       "terrain": "Hilly; the Monteverde to Tilaran road may be partly unpaved",
-      "notes": "Down to Tilaran, around Lake Arenal via Nuevo Arenal and the dam to La Fortuna under Arenal volcano.",
+      "notes": "Down to Tilaran, around Lake Arenal via Nuevo Arenal and the dam to La Fortuna under Arenal volcano",
       "route_url": "https://www.komoot.com/tour/3370354838",
       "stay": "La Fortuna"
     },
@@ -2797,7 +2797,7 @@
       "plan_miles": 44.7,
       "plan_climb_ft": 6325,
       "terrain": "Big climb",
-      "notes": "South via Chachagua and the climb to San Ramon.",
+      "notes": "South via Chachagua and the climb to San Ramon",
       "route_url": "https://www.komoot.com/tour/3370369430",
       "stay": "San Ramon"
     },
@@ -2811,7 +2811,7 @@
       "plan_miles": 47.5,
       "plan_climb_ft": 4600,
       "terrain": "Rolling, busy at the end",
-      "notes": "Back roads via Palmares, Grecia, Alajuela and Heredia; avoid the Interamericana (Ruta 1) near San Jose. REST DAYS (2): sloths at Toucan Rescue Ranch near Heredia (book ahead).",
+      "notes": "Back roads via Palmares, Grecia, Alajuela and Heredia; avoid the Interamericana (Ruta 1) near San Jose. REST DAYS (2): sloths at Toucan Rescue Ranch near Heredia (book ahead)",
       "route_url": "https://www.komoot.com/tour/3370386599",
       "stay": "San Jose"
     },
@@ -2853,7 +2853,7 @@
       "plan_miles": 71.9,
       "plan_climb_ft": 4600,
       "terrain": "Climb, then big descent",
-      "notes": "Santa Ana and Ciudad Colon to Atenas, the old road (Ruta 3) to Orotina, then Tarcoles (crocodile bridge) to Jaco. Do not ride Ruta 27.",
+      "notes": "Santa Ana and Ciudad Colon to Atenas, the old road (Ruta 3) to Orotina, then Tarcoles (crocodile bridge) to Jaco. Do not ride Ruta 27",
       "route_url": "https://www.komoot.com/tour/3370401346",
       "stay": "Jaco"
     },
@@ -2867,7 +2867,7 @@
       "plan_miles": 48.4,
       "plan_climb_ft": 925,
       "terrain": "Flat, coastal",
-      "notes": "Costanera Sur (Ruta 34) via Parrita to Quepos and Manuel Antonio (sloths in the park).",
+      "notes": "Costanera Sur (Ruta 34) via Parrita to Quepos and Manuel Antonio (sloths in the park)",
       "route_url": "https://www.komoot.com/tour/3370407737",
       "stay": "Quepos"
     },
@@ -2881,7 +2881,7 @@
       "plan_miles": 33.4,
       "plan_climb_ft": 1075,
       "terrain": "Rolling coast",
-      "notes": "Costanera Sur via Dominical to Uvita (Whale's Tail).",
+      "notes": "Costanera Sur via Dominical to Uvita (Whale's Tail)",
       "route_url": "https://www.komoot.com/tour/3370418326",
       "stay": "Uvita"
     },
@@ -2895,7 +2895,7 @@
       "plan_miles": 70.7,
       "plan_climb_ft": 2400,
       "terrain": "Rolling",
-      "notes": "Via Ojochal and Palmar Norte, then the Interamericana to Ciudad Neily.",
+      "notes": "Via Ojochal and Palmar Norte, then the Interamericana to Ciudad Neily",
       "route_url": "https://www.komoot.com/tour/3370425969",
       "stay": "Ciudad Neily"
     },
@@ -2909,7 +2909,7 @@
       "plan_miles": 49.7,
       "plan_climb_ft": 1875,
       "terrain": "Flat",
-      "notes": "BORDER DAY (Costa Rica to Panama). Paso Canoas, then the Interamericana to David.",
+      "notes": "BORDER DAY (Costa Rica to Panama). Paso Canoas, then the Interamericana to David",
       "route_url": "https://www.komoot.com/tour/3370430803",
       "stay": "David"
     },
@@ -2923,7 +2923,7 @@
       "plan_miles": 27.1,
       "plan_climb_ft": 4175,
       "terrain": "Climb, short",
-      "notes": "Up to the coffee highlands. REST DAY TOMORROW.",
+      "notes": "Up to the coffee highlands. REST DAY TOMORROW",
       "route_url": "https://www.komoot.com/tour/3370483277",
       "stay": "Boquete"
     },
@@ -2951,7 +2951,7 @@
       "plan_miles": 72.9,
       "plan_climb_ft": 3000,
       "terrain": "Descent, then rolling",
-      "notes": "Back to David, then the Interamericana east (busy for about 15 km, wide shoulder after about 30 km).",
+      "notes": "Back to David, then the Interamericana east (busy for about 15 km, wide shoulder after about 30 km)",
       "route_url": "https://www.komoot.com/tour/3370499040",
       "stay": "San Felix"
     },
@@ -2965,7 +2965,7 @@
       "plan_miles": 85.1,
       "plan_climb_ft": 5225,
       "terrain": "Hilly",
-      "notes": "Interamericana via Tole.",
+      "notes": "Interamericana via Tole",
       "route_url": "https://www.komoot.com/tour/3370503021",
       "stay": "Santiago"
     },
@@ -2979,7 +2979,7 @@
       "plan_miles": 71.8,
       "plan_climb_ft": 1500,
       "terrain": "Rolling",
-      "notes": "Interamericana via Divisa and Aguadulce.",
+      "notes": "Interamericana via Divisa and Aguadulce",
       "route_url": "https://www.komoot.com/tour/3370508758",
       "stay": "Penonome"
     },
@@ -2993,7 +2993,7 @@
       "plan_miles": 45,
       "plan_climb_ft": 1600,
       "terrain": "Flat, near the coast",
-      "notes": "Via Anton and Rio Hato to the Pacific beaches at Coronado.",
+      "notes": "Via Anton and Rio Hato to the Pacific beaches at Coronado",
       "route_url": "https://www.komoot.com/tour/3370511178",
       "stay": "Coronado"
     },
@@ -3007,7 +3007,7 @@
       "plan_miles": 66.2,
       "plan_climb_ft": 5875,
       "terrain": "Rolling, heavy traffic at the end",
-      "notes": "Via Chame, Capira and La Chorrera. Bridge of the Americas is officially closed to bikes; arrive on a Sunday morning if you can. REST DAYS (2).",
+      "notes": "Via Chame, Capira and La Chorrera. Bridge of the Americas is officially closed to bikes; arrive on a Sunday morning if you can. REST DAYS (2)",
       "route_url": "https://www.komoot.com/tour/3370532517",
       "stay": "Panama City"
     },
@@ -3049,7 +3049,7 @@
       "plan_miles": 46.7,
       "plan_climb_ft": 1675,
       "terrain": "Rolling",
-      "notes": "East on the Interamericana via Tocumen and Chepo to El Llano, the start of the Carti road. Stock up on cash: no ATMs ahead until Necocli.",
+      "notes": "East on the Interamericana via Tocumen and Chepo to El Llano, the start of the Carti road. Stock up on cash: no ATMs ahead until Necocli",
       "route_url": "https://www.komoot.com/tour/3370538722",
       "stay": "El Llano"
     },
@@ -3063,7 +3063,7 @@
       "plan_miles": 16.7,
       "plan_climb_ft": 2125,
       "terrain": "Very steep climbs and descents",
-      "notes": "The El Llano to Carti road over the divide into Guna Yala (entry fee at the checkpoint). Sleep near Carti port for the morning boat. Komoot shows 25 ft up, an elevation-model artifact over its off-grid segment; the GPX showed 2,125 ft of gain. Elevation in this row is the GPX figure",
+      "notes": "The El Llano to Carti road over the divide into Guna Yala (entry fee at the checkpoint). Sleep near Carti port for the morning boat. Komoot shows 25 ft up, an elevation-model artifact over its off-grid segment; the GPX showed 2,125 ft of gain. Elevation in this row is the GPX figure.",
       "route_url": "https://www.komoot.com/tour/3370542855",
       "stay": "Carti"
     },
@@ -3077,7 +3077,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "San Blas Adventures day 1: Carti, boat into the islands",
+      "notes": "San Blas Adventures day 1: Carti, boat into the islands.",
       "route_url": "",
       "stay": "San Blas Islands"
     },
@@ -3091,7 +3091,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "San Blas Adventures day 2: island hopping",
+      "notes": "San Blas Adventures day 2: island hopping.",
       "route_url": "",
       "stay": "San Blas Islands"
     },
@@ -3105,7 +3105,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "San Blas Adventures day 3: island hopping",
+      "notes": "San Blas Adventures day 3: island hopping.",
       "route_url": "",
       "stay": "San Blas Islands"
     },
@@ -3119,7 +3119,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "San Blas Adventures day 4: Puerto Obaldia (Panama exit stamp), Sapzurro, Capurgana (Colombia entry stamp at immigration office)",
+      "notes": "San Blas Adventures day 4: Puerto Obaldia (Panama exit stamp), Sapzurro, Capurgana (Colombia entry stamp at immigration office).",
       "route_url": "",
       "stay": "Capurgana"
     },
@@ -3133,7 +3133,7 @@
       "plan_miles": 0,
       "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "San Blas Adventures day 5 ends in Capurgana; boat to Necocli (end of Section 4)",
+      "notes": "San Blas Adventures day 5 ends in Capurgana; boat to Necocli (end of Section 4).",
       "route_url": "",
       "stay": "Necocli"
     },
