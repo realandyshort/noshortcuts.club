@@ -84,13 +84,20 @@
       document.addEventListener("click", function (e) { if (!about.contains(e.target)) { about.setAttribute("aria-expanded", "false"); } });
       document.addEventListener("keydown", function (e) { if (e.key === "Escape") { about.setAttribute("aria-expanded", "false"); } });
       nav.appendChild(about);
-      // Keep the bubble on screen when the button sits near the right edge
+      // Keep the bubble on screen: flip it when the button sits near the right edge, and on
+      // phones (where it is a fixed card) sit it just above the subscribe block
       var place = function () {
         var r = about.getBoundingClientRect();
         about.classList.toggle("flip", r.left + bubble.offsetWidth > window.innerWidth - 16 && r.right > bubble.offsetWidth);
+        var ctaBlock = document.getElementById("cta");
+        if (window.innerWidth <= 640 && ctaBlock && !ctaBlock.hidden) {
+          bubble.style.bottom = (window.innerHeight - ctaBlock.getBoundingClientRect().top + 12) + "px";
+        } else { bubble.style.bottom = ""; }
       };
       about.addEventListener("mouseenter", place);
       about.addEventListener("focus", place);
+      about.addEventListener("click", place);
+      window.addEventListener("resize", place);
     }
 
     // The email is off on the coming-soon page unless comingSoon.showEmail is true
