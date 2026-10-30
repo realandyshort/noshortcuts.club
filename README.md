@@ -106,7 +106,11 @@ About a minute later the change is live. (Your browser agent can do this too.)
    exist. Until then the counters show plan numbers and say so ("MILES · PLAN").
 6. **Position**: the Garmin MapShare feed. Only a position at least 24 hours old is ever shown.
 7. **Weather** at that position, from Open-Meteo.
-8. Writes the day's **archive** file (`archive/days/NNN.json`), makes a **story image** for any new
+8. **Live geography**: for new rides, fetches the GPS track from Intervals.icu and records national
+   parks entered and the highest altitude (`site/data/geo_live.json`). **Daily weather**: the high and
+   low where each day ended, from Open-Meteo's archive, a few dozen days per run (`day_weather.json`).
+   Both keep earlier results if a lookup fails.
+9. Writes the day's **archive** file (`archive/days/NNN.json`), makes a **story image** for any new
    dispatch, updates **alerts**, commits, publishes.
 
 Secrets live in GitHub: repository > Settings > Secrets and variables > Actions. Never in files.
@@ -152,8 +156,17 @@ can look at them) and, when live, posts it as a story. Two safety switches:
   plan. The keyword lists, the distance rules (`volcanoMiles`, `waterMiles`) and the calorie constants
   are in `secretStats` in the config. Volcanoes and waters use each day's start and end place: a
   Smithsonian-listed volcano within 2 miles counts as climbed, a sea or lake within a quarter mile
-  counts as dipped in (hover a tile to see the names). Calories only appear once the four `CAL_*`
-  secrets exist in GitHub; the body stats themselves never leave the robot.
+  counts as dipped in (hover a tile to see the names). Also: national parks entered (OpenStreetMap
+  park boundaries along the route; a park counts once, the first time a day's track enters it), llamas
+  seen (`llamasPerHighDay`, 20, for every Andean day above `highAltitudeM`, 3,500 m), pedal strokes
+  (moving time times the Garmin's cadence, or `cadenceRpm`, 75, when it has none; planned days use
+  `planSpeedMph`), and chains worn out (miles divided by `chainMiles`, 3,000). A **Milestones** row
+  shows the highest point reached, and the hottest and coldest day (daily high and low from
+  Open-Meteo's weather archive at where the day ended). Until the ride starts these use the plan's
+  Komoot tracks and the weather from the same dates two years earlier, marked ESTIMATE; once a day is
+  ridden, the real ride replaces the plan for that day. Calories use the Garmin's own figure for a day
+  when it sent one, otherwise the estimate; they only appear once the four `CAL_*` secrets exist in
+  GitHub, and the body stats themselves never leave the robot.
 - **Time travel:** drag along the banner line (or the map) and the whole page shows that day, with
   the archived photo, caption and dispatches when there is an archive for it, and the plan otherwise.
   "Back to today" returns. The address updates (`?day=NNN`) so a day can be shared.

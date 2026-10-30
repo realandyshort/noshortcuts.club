@@ -1,6 +1,51 @@
 {
  "note": "Per-day geography for the secret stats: nearest Holocene volcano (Smithsonian GVP) and nearest shoreline (Natural Earth 1:10m coastline and lakes) to any point of the day's planned track (Komoot), or to the day's start and end place when there is no track. Distances in miles; only hits within 15 mi (volcano) and 5 mi (water) are kept. Thresholds live in config.",
  "days": {
+  "1": {
+   "from": "track",
+   "max_alt_m": 928,
+   "alt_source": "track"
+  },
+  "2": {
+   "from": "track",
+   "max_alt_m": 1445,
+   "alt_source": "track"
+  },
+  "3": {
+   "from": "track",
+   "max_alt_m": 642,
+   "alt_source": "track"
+  },
+  "4": {
+   "from": "track",
+   "max_alt_m": 582,
+   "alt_source": "track"
+  },
+  "5": {
+   "from": "track",
+   "max_alt_m": 671,
+   "alt_source": "track"
+  },
+  "6": {
+   "from": "places",
+   "max_alt_m": 136,
+   "alt_source": "route"
+  },
+  "7": {
+   "from": "track",
+   "max_alt_m": 406,
+   "alt_source": "track"
+  },
+  "8": {
+   "from": "track",
+   "max_alt_m": 642,
+   "alt_source": "track"
+  },
+  "9": {
+   "from": "track",
+   "max_alt_m": 802,
+   "alt_source": "track"
+  },
   "10": {
    "from": "track",
    "water": {
@@ -8,7 +53,14 @@
     "kind": "lake",
     "dist_mi": 0.24,
     "at": "route"
-   }
+   },
+   "max_alt_m": 880,
+   "alt_source": "track"
+  },
+  "11": {
+   "from": "track",
+   "max_alt_m": 755,
+   "alt_source": "track"
   },
   "13": {
    "from": "track",
@@ -17,7 +69,9 @@
     "kind": "lake",
     "dist_mi": 2.96,
     "at": "route"
-   }
+   },
+   "max_alt_m": 877,
+   "alt_source": "track"
   },
   "14": {
    "from": "track",
@@ -26,7 +80,29 @@
     "kind": "lake",
     "dist_mi": 0.02,
     "at": "route"
-   }
+   },
+   "max_alt_m": 1012,
+   "alt_source": "track"
+  },
+  "15": {
+   "from": "track",
+   "max_alt_m": 916,
+   "alt_source": "track"
+  },
+  "16": {
+   "from": "track",
+   "max_alt_m": 1003,
+   "alt_source": "track"
+  },
+  "18": {
+   "from": "track",
+   "max_alt_m": 1244,
+   "alt_source": "track"
+  },
+  "19": {
+   "from": "track",
+   "max_alt_m": 860,
+   "alt_source": "track"
   },
   "20": {
    "from": "track",
@@ -35,7 +111,9 @@
     "kind": "sea",
     "dist_mi": 0.14,
     "at": "route"
-   }
+   },
+   "max_alt_m": 632,
+   "alt_source": "track"
   },
   "21": {
    "from": "track",
@@ -44,7 +122,64 @@
     "kind": "sea",
     "dist_mi": 0.14,
     "at": "route"
-   }
+   },
+   "max_alt_m": 467,
+   "alt_source": "track"
+  },
+  "22": {
+   "from": "track",
+   "max_alt_m": 594,
+   "alt_source": "track"
+  },
+  "24": {
+   "from": "track",
+   "max_alt_m": 879,
+   "alt_source": "track"
+  },
+  "25": {
+   "from": "track",
+   "max_alt_m": 1086,
+   "alt_source": "track"
+  },
+  "26": {
+   "from": "track",
+   "max_alt_m": 856,
+   "alt_source": "track"
+  },
+  "27": {
+   "from": "track",
+   "max_alt_m": 943,
+   "alt_source": "track"
+  },
+  "28": {
+   "from": "track",
+   "max_alt_m": 1178,
+   "alt_source": "track"
+  },
+  "30": {
+   "from": "track",
+   "max_alt_m": 1972,
+   "alt_source": "track"
+  },
+  "31": {
+   "from": "track",
+   "max_alt_m": 2073,
+   "alt_source": "track"
+  },
+  "32": {
+   "from": "track",
+   "max_alt_m": 1735,
+   "alt_source": "track"
+  },
+  "33": {
+   "from": "places",
+   "max_alt_m": 1986,
+   "alt_source": "route"
+  },
+  "34": {
+   "from": "track",
+   "max_alt_m": 1318,
+   "alt_source": "track"
   },
   "35": {
    "from": "track",
@@ -53,7 +188,9 @@
     "kind": "lake",
     "dist_mi": 0.01,
     "at": "route"
-   }
+   },
+   "max_alt_m": 1330,
+   "alt_source": "track"
   },
   "36": {
    "from": "places",
@@ -62,7 +199,9 @@
     "kind": "lake",
     "dist_mi": 0.24,
     "at": "start"
-   }
+   },
+   "max_alt_m": 882,
+   "alt_source": "route"
   },
   "37": {
    "from": "track",
@@ -71,7 +210,24 @@
     "kind": "lake",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 1246,
+   "alt_source": "track"
+  },
+  "38": {
+   "from": "track",
+   "max_alt_m": 623,
+   "alt_source": "track"
+  },
+  "39": {
+   "from": "track",
+   "max_alt_m": 931,
+   "alt_source": "track"
+  },
+  "40": {
+   "from": "track",
+   "max_alt_m": 1346,
+   "alt_source": "track"
   },
   "41": {
    "from": "track",
@@ -80,7 +236,9 @@
     "kind": "sea",
     "dist_mi": 0.58,
     "at": "route"
-   }
+   },
+   "max_alt_m": 230,
+   "alt_source": "track"
   },
   "42": {
    "from": "places",
@@ -107,7 +265,9 @@
     "kind": "sea",
     "dist_mi": 0.06,
     "at": "route"
-   }
+   },
+   "max_alt_m": 226,
+   "alt_source": "track"
   },
   "45": {
    "from": "track",
@@ -116,7 +276,9 @@
     "kind": "sea",
     "dist_mi": 0.16,
     "at": "route"
-   }
+   },
+   "max_alt_m": 175,
+   "alt_source": "track"
   },
   "46": {
    "from": "places",
@@ -143,7 +305,9 @@
     "kind": "sea",
     "dist_mi": 0.01,
     "at": "route"
-   }
+   },
+   "max_alt_m": 137,
+   "alt_source": "track"
   },
   "49": {
    "from": "track",
@@ -152,7 +316,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 224,
+   "alt_source": "track"
   },
   "50": {
    "from": "track",
@@ -161,7 +327,9 @@
     "kind": "sea",
     "dist_mi": 0.13,
     "at": "route"
-   }
+   },
+   "max_alt_m": 856,
+   "alt_source": "track"
   },
   "51": {
    "from": "track",
@@ -170,7 +338,9 @@
     "kind": "sea",
     "dist_mi": 0.12,
     "at": "route"
-   }
+   },
+   "max_alt_m": 350,
+   "alt_source": "track"
   },
   "52": {
    "from": "track",
@@ -179,7 +349,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 185,
+   "alt_source": "track"
   },
   "53": {
    "from": "track",
@@ -188,7 +360,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 245,
+   "alt_source": "track"
   },
   "54": {
    "from": "track",
@@ -197,7 +371,29 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 520,
+   "alt_source": "track"
+  },
+  "55": {
+   "from": "track",
+   "max_alt_m": 280,
+   "alt_source": "track"
+  },
+  "56": {
+   "from": "track",
+   "max_alt_m": 193,
+   "alt_source": "track"
+  },
+  "57": {
+   "from": "track",
+   "max_alt_m": 549,
+   "alt_source": "track"
+  },
+  "58": {
+   "from": "places",
+   "max_alt_m": 1837,
+   "alt_source": "route"
   },
   "59": {
    "from": "track",
@@ -207,7 +403,9 @@
     "elevation_m": 2163,
     "type": "Volcanic field",
     "at": "route"
-   }
+   },
+   "max_alt_m": 1563,
+   "alt_source": "track"
   },
   "60": {
    "from": "track",
@@ -217,7 +415,14 @@
     "elevation_m": 2487,
     "type": "Caldera",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2335,
+   "alt_source": "track"
+  },
+  "61": {
+   "from": "track",
+   "max_alt_m": 1015,
+   "alt_source": "track"
   },
   "62": {
    "from": "track",
@@ -226,7 +431,9 @@
     "kind": "sea",
     "dist_mi": 0.31,
     "at": "route"
-   }
+   },
+   "max_alt_m": 660,
+   "alt_source": "track"
   },
   "63": {
    "from": "track",
@@ -235,7 +442,9 @@
     "kind": "sea",
     "dist_mi": 0.1,
     "at": "route"
-   }
+   },
+   "max_alt_m": 375,
+   "alt_source": "track"
   },
   "64": {
    "from": "places",
@@ -253,7 +462,9 @@
     "kind": "sea",
     "dist_mi": 0.01,
     "at": "route"
-   }
+   },
+   "max_alt_m": 128,
+   "alt_source": "track"
   },
   "66": {
    "from": "track",
@@ -262,7 +473,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 584,
+   "alt_source": "track"
   },
   "67": {
    "from": "track",
@@ -271,7 +484,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 100,
+   "alt_source": "track"
   },
   "68": {
    "from": "track",
@@ -280,7 +495,9 @@
     "kind": "sea",
     "dist_mi": 0.01,
     "at": "route"
-   }
+   },
+   "max_alt_m": 180,
+   "alt_source": "track"
   },
   "69": {
    "from": "places",
@@ -307,7 +524,9 @@
     "kind": "sea",
     "dist_mi": 0.04,
     "at": "route"
-   }
+   },
+   "max_alt_m": 356,
+   "alt_source": "track"
   },
   "72": {
    "from": "track",
@@ -316,7 +535,9 @@
     "kind": "sea",
     "dist_mi": 0.01,
     "at": "route"
-   }
+   },
+   "max_alt_m": 172,
+   "alt_source": "track"
   },
   "73": {
    "from": "track",
@@ -325,7 +546,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 291,
+   "alt_source": "track"
   },
   "74": {
    "from": "track",
@@ -334,7 +557,9 @@
     "kind": "sea",
     "dist_mi": 0.02,
     "at": "route"
-   }
+   },
+   "max_alt_m": 212,
+   "alt_source": "track"
   },
   "75": {
    "from": "track",
@@ -343,7 +568,9 @@
     "kind": "sea",
     "dist_mi": 0.02,
     "at": "route"
-   }
+   },
+   "max_alt_m": 668,
+   "alt_source": "track"
   },
   "76": {
    "from": "track",
@@ -352,7 +579,19 @@
     "kind": "sea",
     "dist_mi": 0.19,
     "at": "route"
-   }
+   },
+   "max_alt_m": 396,
+   "alt_source": "track"
+  },
+  "77": {
+   "from": "places",
+   "max_alt_m": 112,
+   "alt_source": "route"
+  },
+  "78": {
+   "from": "places",
+   "max_alt_m": 112,
+   "alt_source": "route"
   },
   "79": {
    "from": "track",
@@ -361,7 +600,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 236,
+   "alt_source": "track"
   },
   "80": {
    "from": "track",
@@ -370,7 +611,9 @@
     "kind": "sea",
     "dist_mi": 0.03,
     "at": "route"
-   }
+   },
+   "max_alt_m": 132,
+   "alt_source": "track"
   },
   "81": {
    "from": "places",
@@ -388,7 +631,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 777,
+   "alt_source": "track"
   },
   "83": {
    "from": "track",
@@ -397,7 +642,9 @@
     "kind": "sea",
     "dist_mi": 0.14,
     "at": "route"
-   }
+   },
+   "max_alt_m": 1230,
+   "alt_source": "track"
   },
   "84": {
    "from": "track",
@@ -406,7 +653,9 @@
     "kind": "sea",
     "dist_mi": 0.14,
     "at": "route"
-   }
+   },
+   "max_alt_m": 114,
+   "alt_source": "track"
   },
   "85": {
    "from": "track",
@@ -422,7 +671,9 @@
     "elevation_m": 183,
     "type": "Tuff cone",
     "at": "route"
-   }
+   },
+   "max_alt_m": 171,
+   "alt_source": "track"
   },
   "86": {
    "from": "track",
@@ -438,7 +689,9 @@
     "kind": "sea",
     "dist_mi": 0.06,
     "at": "route"
-   }
+   },
+   "max_alt_m": 733,
+   "alt_source": "track"
   },
   "87": {
    "from": "track",
@@ -447,7 +700,9 @@
     "kind": "sea",
     "dist_mi": 1.67,
     "at": "route"
-   }
+   },
+   "max_alt_m": 120,
+   "alt_source": "track"
   },
   "88": {
    "from": "track",
@@ -456,7 +711,9 @@
     "kind": "sea",
     "dist_mi": 0.03,
     "at": "route"
-   }
+   },
+   "max_alt_m": 526,
+   "alt_source": "track"
   },
   "89": {
    "from": "places",
@@ -474,7 +731,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 240,
+   "alt_source": "track"
   },
   "91": {
    "from": "track",
@@ -483,7 +742,9 @@
     "kind": "sea",
     "dist_mi": 0.02,
     "at": "route"
-   }
+   },
+   "max_alt_m": 499,
+   "alt_source": "track"
   },
   "92": {
    "from": "track",
@@ -492,7 +753,9 @@
     "kind": "sea",
     "dist_mi": 0.21,
     "at": "route"
-   }
+   },
+   "max_alt_m": 178,
+   "alt_source": "track"
   },
   "93": {
    "from": "track",
@@ -501,7 +764,9 @@
     "kind": "sea",
     "dist_mi": 0.11,
     "at": "route"
-   }
+   },
+   "max_alt_m": 29,
+   "alt_source": "track"
   },
   "94": {
    "from": "track",
@@ -510,7 +775,9 @@
     "kind": "sea",
     "dist_mi": 0.66,
     "at": "route"
-   }
+   },
+   "max_alt_m": 103,
+   "alt_source": "track"
   },
   "95": {
    "from": "track",
@@ -519,7 +786,9 @@
     "kind": "sea",
     "dist_mi": 0.17,
     "at": "route"
-   }
+   },
+   "max_alt_m": 72,
+   "alt_source": "track"
   },
   "96": {
    "from": "track",
@@ -528,7 +797,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 420,
+   "alt_source": "track"
   },
   "97": {
    "from": "places",
@@ -589,7 +860,9 @@
     "elevation_m": 2525,
     "type": "Volcanic field",
     "at": "route"
-   }
+   },
+   "max_alt_m": 1815,
+   "alt_source": "track"
   },
   "103": {
    "from": "track",
@@ -599,7 +872,104 @@
     "elevation_m": 2525,
     "type": "Volcanic field",
     "at": "route"
-   }
+   },
+   "max_alt_m": 1947,
+   "alt_source": "track"
+  },
+  "104": {
+   "from": "track",
+   "max_alt_m": 1675,
+   "alt_source": "track"
+  },
+  "106": {
+   "from": "track",
+   "max_alt_m": 1993,
+   "alt_source": "track"
+  },
+  "107": {
+   "from": "track",
+   "max_alt_m": 2299,
+   "alt_source": "track"
+  },
+  "108": {
+   "from": "track",
+   "max_alt_m": 2636,
+   "alt_source": "track"
+  },
+  "109": {
+   "from": "track",
+   "max_alt_m": 2179,
+   "alt_source": "track"
+  },
+  "110": {
+   "from": "track",
+   "max_alt_m": 2229,
+   "alt_source": "track"
+  },
+  "111": {
+   "from": "track",
+   "max_alt_m": 2651,
+   "alt_source": "track"
+  },
+  "112": {
+   "from": "track",
+   "max_alt_m": 1706,
+   "alt_source": "track"
+  },
+  "113": {
+   "from": "track",
+   "max_alt_m": 659,
+   "alt_source": "track"
+  },
+  "114": {
+   "from": "track",
+   "max_alt_m": 95,
+   "alt_source": "track"
+  },
+  "116": {
+   "from": "track",
+   "max_alt_m": 306,
+   "alt_source": "track"
+  },
+  "117": {
+   "from": "track",
+   "max_alt_m": 1734,
+   "alt_source": "track"
+  },
+  "118": {
+   "from": "track",
+   "max_alt_m": 2588,
+   "alt_source": "track"
+  },
+  "119": {
+   "from": "track",
+   "max_alt_m": 2463,
+   "alt_source": "track"
+  },
+  "120": {
+   "from": "track",
+   "max_alt_m": 2439,
+   "alt_source": "track"
+  },
+  "121": {
+   "from": "places",
+   "max_alt_m": 125,
+   "alt_source": "route"
+  },
+  "122": {
+   "from": "places",
+   "max_alt_m": 125,
+   "alt_source": "route"
+  },
+  "123": {
+   "from": "places",
+   "max_alt_m": 125,
+   "alt_source": "route"
+  },
+  "124": {
+   "from": "places",
+   "max_alt_m": 125,
+   "alt_source": "route"
   },
   "125": {
    "from": "track",
@@ -609,7 +979,9 @@
     "elevation_m": 5230,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2521,
+   "alt_source": "track"
   },
   "126": {
    "from": "track",
@@ -625,7 +997,9 @@
     "kind": "lake",
     "dist_mi": 4.64,
     "at": "route"
-   }
+   },
+   "max_alt_m": 3694,
+   "alt_source": "track"
   },
   "127": {
    "from": "track",
@@ -641,7 +1015,9 @@
     "elevation_m": 4461,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2593,
+   "alt_source": "track"
   },
   "128": {
    "from": "track",
@@ -651,7 +1027,9 @@
     "elevation_m": 2000,
     "type": "Volcanic field",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2977,
+   "alt_source": "track"
   },
   "129": {
    "from": "places",
@@ -671,7 +1049,44 @@
     "elevation_m": 2000,
     "type": "Volcanic field",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2170,
+   "alt_source": "track"
+  },
+  "131": {
+   "from": "track",
+   "max_alt_m": 1230,
+   "alt_source": "track"
+  },
+  "132": {
+   "from": "track",
+   "max_alt_m": 77,
+   "alt_source": "track"
+  },
+  "133": {
+   "from": "track",
+   "max_alt_m": 2970,
+   "alt_source": "track"
+  },
+  "134": {
+   "from": "places",
+   "max_alt_m": 1232,
+   "alt_source": "route"
+  },
+  "135": {
+   "from": "track",
+   "max_alt_m": 2724,
+   "alt_source": "track"
+  },
+  "139": {
+   "from": "track",
+   "max_alt_m": 2013,
+   "alt_source": "track"
+  },
+  "140": {
+   "from": "track",
+   "max_alt_m": 2501,
+   "alt_source": "track"
   },
   "141": {
    "from": "track",
@@ -680,7 +1095,9 @@
     "kind": "sea",
     "dist_mi": 0.25,
     "at": "route"
-   }
+   },
+   "max_alt_m": 2753,
+   "alt_source": "track"
   },
   "142": {
    "from": "places",
@@ -689,7 +1106,9 @@
     "kind": "sea",
     "dist_mi": 0.35,
     "at": "start"
-   }
+   },
+   "max_alt_m": 2007,
+   "alt_source": "route"
   },
   "143": {
    "from": "places",
@@ -698,7 +1117,9 @@
     "kind": "sea",
     "dist_mi": 0.35,
     "at": "start"
-   }
+   },
+   "max_alt_m": 2007,
+   "alt_source": "route"
   },
   "144": {
    "from": "places",
@@ -707,7 +1128,9 @@
     "kind": "sea",
     "dist_mi": 0.35,
     "at": "start"
-   }
+   },
+   "max_alt_m": 2007,
+   "alt_source": "route"
   },
   "145": {
    "from": "track",
@@ -716,7 +1139,9 @@
     "kind": "sea",
     "dist_mi": 0.17,
     "at": "route"
-   }
+   },
+   "max_alt_m": 228,
+   "alt_source": "track"
   },
   "146": {
    "from": "track",
@@ -725,7 +1150,19 @@
     "kind": "sea",
     "dist_mi": 0.35,
     "at": "route"
-   }
+   },
+   "max_alt_m": 227,
+   "alt_source": "track"
+  },
+  "148": {
+   "from": "track",
+   "max_alt_m": 270,
+   "alt_source": "track"
+  },
+  "149": {
+   "from": "track",
+   "max_alt_m": 258,
+   "alt_source": "track"
   },
   "150": {
    "from": "track",
@@ -734,7 +1171,14 @@
     "kind": "sea",
     "dist_mi": 1.74,
     "at": "route"
-   }
+   },
+   "max_alt_m": 103,
+   "alt_source": "track"
+  },
+  "151": {
+   "from": "track",
+   "max_alt_m": 30,
+   "alt_source": "track"
   },
   "153": {
    "from": "track",
@@ -743,7 +1187,9 @@
     "kind": "sea",
     "dist_mi": 0.02,
     "at": "route"
-   }
+   },
+   "max_alt_m": 24,
+   "alt_source": "track"
   },
   "154": {
    "from": "track",
@@ -752,7 +1198,9 @@
     "kind": "sea",
     "dist_mi": 0.01,
     "at": "route"
-   }
+   },
+   "max_alt_m": 9,
+   "alt_source": "track"
   },
   "155": {
    "from": "track",
@@ -761,7 +1209,9 @@
     "kind": "sea",
     "dist_mi": 0.01,
     "at": "route"
-   }
+   },
+   "max_alt_m": 42,
+   "alt_source": "track"
   },
   "156": {
    "from": "track",
@@ -770,7 +1220,9 @@
     "kind": "sea",
     "dist_mi": 0.25,
     "at": "route"
-   }
+   },
+   "max_alt_m": 52,
+   "alt_source": "track"
   },
   "157": {
    "from": "track",
@@ -779,7 +1231,24 @@
     "kind": "sea",
     "dist_mi": 1.83,
     "at": "route"
-   }
+   },
+   "max_alt_m": 140,
+   "alt_source": "track"
+  },
+  "158": {
+   "from": "track",
+   "max_alt_m": 94,
+   "alt_source": "track"
+  },
+  "159": {
+   "from": "places",
+   "max_alt_m": 8,
+   "alt_source": "route"
+  },
+  "160": {
+   "from": "track",
+   "max_alt_m": 31,
+   "alt_source": "track"
   },
   "161": {
    "from": "track",
@@ -788,7 +1257,9 @@
     "kind": "sea",
     "dist_mi": 1.31,
     "at": "route"
-   }
+   },
+   "max_alt_m": 25,
+   "alt_source": "track"
   },
   "162": {
    "from": "places",
@@ -806,7 +1277,14 @@
     "kind": "sea",
     "dist_mi": 1.8,
     "at": "route"
-   }
+   },
+   "max_alt_m": 14,
+   "alt_source": "track"
+  },
+  "164": {
+   "from": "track",
+   "max_alt_m": 21,
+   "alt_source": "track"
   },
   "165": {
    "from": "track",
@@ -815,7 +1293,9 @@
     "kind": "sea",
     "dist_mi": 0.55,
     "at": "route"
-   }
+   },
+   "max_alt_m": 27,
+   "alt_source": "track"
   },
   "166": {
    "from": "track",
@@ -824,7 +1304,19 @@
     "kind": "sea",
     "dist_mi": 1.63,
     "at": "route"
-   }
+   },
+   "max_alt_m": 98,
+   "alt_source": "track"
+  },
+  "167": {
+   "from": "track",
+   "max_alt_m": 289,
+   "alt_source": "track"
+  },
+  "169": {
+   "from": "track",
+   "max_alt_m": 509,
+   "alt_source": "track"
   },
   "170": {
    "from": "track",
@@ -833,7 +1325,9 @@
     "kind": "lake",
     "dist_mi": 0.03,
     "at": "route"
-   }
+   },
+   "max_alt_m": 593,
+   "alt_source": "track"
   },
   "171": {
    "from": "track",
@@ -842,7 +1336,14 @@
     "kind": "lake",
     "dist_mi": 0.03,
     "at": "route"
-   }
+   },
+   "max_alt_m": 543,
+   "alt_source": "track"
+  },
+  "172": {
+   "from": "track",
+   "max_alt_m": 1610,
+   "alt_source": "track"
   },
   "173": {
    "from": "track",
@@ -852,7 +1353,9 @@
     "elevation_m": 3760,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2166,
+   "alt_source": "track"
   },
   "174": {
    "from": "places",
@@ -872,7 +1375,9 @@
     "elevation_m": 3760,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2854,
+   "alt_source": "track"
   },
   "176": {
    "from": "places",
@@ -892,7 +1397,9 @@
     "elevation_m": 3173,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3012,
+   "alt_source": "track"
   },
   "178": {
    "from": "track",
@@ -902,7 +1409,9 @@
     "elevation_m": 3173,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2454,
+   "alt_source": "track"
   },
   "179": {
    "from": "track",
@@ -912,7 +1421,9 @@
     "elevation_m": 3173,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2446,
+   "alt_source": "track"
   },
   "180": {
    "from": "track",
@@ -922,7 +1433,9 @@
     "elevation_m": 3760,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 420,
+   "alt_source": "track"
   },
   "181": {
    "from": "track",
@@ -938,7 +1451,9 @@
     "kind": "sea",
     "dist_mi": 0.38,
     "at": "route"
-   }
+   },
+   "max_alt_m": 306,
+   "alt_source": "track"
   },
   "182": {
    "from": "track",
@@ -947,7 +1462,9 @@
     "kind": "sea",
     "dist_mi": 0.02,
     "at": "route"
-   }
+   },
+   "max_alt_m": 169,
+   "alt_source": "track"
   },
   "183": {
    "from": "track",
@@ -963,7 +1480,9 @@
     "elevation_m": 1893,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 984,
+   "alt_source": "track"
   },
   "184": {
    "from": "places",
@@ -973,7 +1492,9 @@
     "elevation_m": 1893,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 24,
+   "alt_source": "route"
   },
   "185": {
    "from": "track",
@@ -989,7 +1510,9 @@
     "kind": "sea",
     "dist_mi": 3.74,
     "at": "route"
-   }
+   },
+   "max_alt_m": 840,
+   "alt_source": "track"
   },
   "186": {
    "from": "track",
@@ -1005,7 +1528,9 @@
     "kind": "sea",
     "dist_mi": 0.09,
     "at": "route"
-   }
+   },
+   "max_alt_m": 472,
+   "alt_source": "track"
   },
   "187": {
    "from": "track",
@@ -1021,7 +1546,9 @@
     "kind": "sea",
     "dist_mi": 0.09,
     "at": "route"
-   }
+   },
+   "max_alt_m": 301,
+   "alt_source": "track"
   },
   "188": {
    "from": "track",
@@ -1031,7 +1558,9 @@
     "elevation_m": 1745,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 176,
+   "alt_source": "track"
   },
   "189": {
    "from": "track",
@@ -1047,7 +1576,9 @@
     "kind": "lake",
     "dist_mi": 0.5,
     "at": "route"
-   }
+   },
+   "max_alt_m": 295,
+   "alt_source": "track"
   },
   "190": {
    "from": "places",
@@ -1095,7 +1626,9 @@
     "kind": "lake",
     "dist_mi": 0.1,
     "at": "route"
-   }
+   },
+   "max_alt_m": 288,
+   "alt_source": "track"
   },
   "193": {
    "from": "track",
@@ -1111,7 +1644,9 @@
     "kind": "lake",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 222,
+   "alt_source": "track"
   },
   "194": {
    "from": "track",
@@ -1127,7 +1662,9 @@
     "kind": "lake",
     "dist_mi": 0.1,
     "at": "route"
-   }
+   },
+   "max_alt_m": 246,
+   "alt_source": "track"
   },
   "195": {
    "from": "track",
@@ -1137,7 +1674,9 @@
     "elevation_m": 1659,
     "type": "Stratovolcano(es)",
     "at": "route"
-   }
+   },
+   "max_alt_m": 309,
+   "alt_source": "track"
   },
   "196": {
    "from": "track",
@@ -1147,7 +1686,9 @@
     "elevation_m": 1670,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 1393,
+   "alt_source": "track"
   },
   "197": {
    "from": "places",
@@ -1157,7 +1698,9 @@
     "elevation_m": 1670,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 84,
+   "alt_source": "route"
   },
   "198": {
    "from": "track",
@@ -1167,7 +1710,9 @@
     "elevation_m": 1670,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 1393,
+   "alt_source": "track"
   },
   "199": {
    "from": "track",
@@ -1177,7 +1722,9 @@
     "elevation_m": 1670,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 1206,
+   "alt_source": "track"
   },
   "200": {
    "from": "track",
@@ -1187,7 +1734,9 @@
     "elevation_m": 2697,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 1165,
+   "alt_source": "track"
   },
   "201": {
    "from": "places",
@@ -1197,7 +1746,9 @@
     "elevation_m": 2906,
     "type": "Complex",
     "at": "start"
-   }
+   },
+   "max_alt_m": 1166,
+   "alt_source": "route"
   },
   "202": {
    "from": "places",
@@ -1207,7 +1758,9 @@
     "elevation_m": 2906,
     "type": "Complex",
     "at": "start"
-   }
+   },
+   "max_alt_m": 1166,
+   "alt_source": "route"
   },
   "203": {
    "from": "track",
@@ -1223,7 +1776,9 @@
     "kind": "sea",
     "dist_mi": 0.35,
     "at": "route"
-   }
+   },
+   "max_alt_m": 1165,
+   "alt_source": "track"
   },
   "204": {
    "from": "track",
@@ -1232,7 +1787,9 @@
     "kind": "sea",
     "dist_mi": 0.04,
     "at": "route"
-   }
+   },
+   "max_alt_m": 63,
+   "alt_source": "track"
   },
   "205": {
    "from": "track",
@@ -1241,7 +1798,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 75,
+   "alt_source": "track"
   },
   "206": {
    "from": "places",
@@ -1250,7 +1809,14 @@
     "kind": "sea",
     "dist_mi": 1.85,
     "at": "start"
-   }
+   },
+   "max_alt_m": 56,
+   "alt_source": "route"
+  },
+  "207": {
+   "from": "places",
+   "max_alt_m": 56,
+   "alt_source": "route"
   },
   "208": {
    "from": "places",
@@ -1260,7 +1826,9 @@
     "elevation_m": 3474,
     "type": "Stratovolcano",
     "at": "end"
-   }
+   },
+   "max_alt_m": 1138,
+   "alt_source": "route"
   },
   "209": {
    "from": "places",
@@ -1270,7 +1838,9 @@
     "elevation_m": 3474,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 1138,
+   "alt_source": "route"
   },
   "210": {
    "from": "places",
@@ -1286,7 +1856,9 @@
     "kind": "sea",
     "dist_mi": 2.4,
     "at": "end"
-   }
+   },
+   "max_alt_m": 1138,
+   "alt_source": "route"
   },
   "211": {
    "from": "places",
@@ -1295,7 +1867,14 @@
     "kind": "sea",
     "dist_mi": 2.4,
     "at": "start"
-   }
+   },
+   "max_alt_m": 117,
+   "alt_source": "route"
+  },
+  "212": {
+   "from": "places",
+   "max_alt_m": 89,
+   "alt_source": "route"
   },
   "213": {
    "from": "places",
@@ -1304,7 +1883,9 @@
     "kind": "sea",
     "dist_mi": 1.24,
     "at": "end"
-   }
+   },
+   "max_alt_m": 88,
+   "alt_source": "route"
   },
   "214": {
    "from": "places",
@@ -1313,7 +1894,9 @@
     "kind": "sea",
     "dist_mi": 1.08,
     "at": "end"
-   }
+   },
+   "max_alt_m": 21,
+   "alt_source": "route"
   },
   "215": {
    "from": "places",
@@ -1322,7 +1905,9 @@
     "kind": "sea",
     "dist_mi": 1.08,
     "at": "start"
-   }
+   },
+   "max_alt_m": 13,
+   "alt_source": "route"
   },
   "216": {
    "from": "places",
@@ -1331,7 +1916,9 @@
     "kind": "sea",
     "dist_mi": 1.08,
     "at": "start"
-   }
+   },
+   "max_alt_m": 13,
+   "alt_source": "route"
   },
   "217": {
    "from": "places",
@@ -1340,7 +1927,9 @@
     "kind": "sea",
     "dist_mi": 1.08,
     "at": "start"
-   }
+   },
+   "max_alt_m": 138,
+   "alt_source": "route"
   },
   "218": {
    "from": "places",
@@ -1349,7 +1938,9 @@
     "kind": "sea",
     "dist_mi": 0.17,
     "at": "end"
-   }
+   },
+   "max_alt_m": 138,
+   "alt_source": "route"
   },
   "219": {
    "from": "places",
@@ -1358,7 +1949,24 @@
     "kind": "sea",
     "dist_mi": 0.17,
     "at": "start"
-   }
+   },
+   "max_alt_m": 7,
+   "alt_source": "route"
+  },
+  "220": {
+   "from": "places",
+   "max_alt_m": 7,
+   "alt_source": "route"
+  },
+  "221": {
+   "from": "places",
+   "max_alt_m": 7,
+   "alt_source": "route"
+  },
+  "222": {
+   "from": "places",
+   "max_alt_m": 7,
+   "alt_source": "route"
   },
   "223": {
    "from": "places",
@@ -1367,7 +1975,9 @@
     "kind": "sea",
     "dist_mi": 4.64,
     "at": "start"
-   }
+   },
+   "max_alt_m": 7,
+   "alt_source": "route"
   },
   "224": {
    "from": "track",
@@ -1376,7 +1986,9 @@
     "kind": "sea",
     "dist_mi": 0.05,
     "at": "route"
-   }
+   },
+   "max_alt_m": 178,
+   "alt_source": "track"
   },
   "225": {
    "from": "track",
@@ -1385,7 +1997,9 @@
     "kind": "sea",
     "dist_mi": 0.27,
     "at": "route"
-   }
+   },
+   "max_alt_m": 77,
+   "alt_source": "track"
   },
   "226": {
    "from": "track",
@@ -1394,7 +2008,9 @@
     "kind": "sea",
     "dist_mi": 0.26,
     "at": "route"
-   }
+   },
+   "max_alt_m": 192,
+   "alt_source": "track"
   },
   "227": {
    "from": "places",
@@ -1421,7 +2037,14 @@
     "kind": "sea",
     "dist_mi": 0.92,
     "at": "route"
-   }
+   },
+   "max_alt_m": 219,
+   "alt_source": "track"
+  },
+  "230": {
+   "from": "places",
+   "max_alt_m": 2,
+   "alt_source": "route"
   },
   "231": {
    "from": "track",
@@ -1430,7 +2053,9 @@
     "kind": "sea",
     "dist_mi": 0.0,
     "at": "route"
-   }
+   },
+   "max_alt_m": 72,
+   "alt_source": "track"
   },
   "232": {
    "from": "places",
@@ -1439,7 +2064,9 @@
     "kind": "sea",
     "dist_mi": 1.98,
     "at": "start"
-   }
+   },
+   "max_alt_m": 6,
+   "alt_source": "route"
   },
   "233": {
    "from": "track",
@@ -1448,7 +2075,9 @@
     "kind": "sea",
     "dist_mi": 1.98,
     "at": "route"
-   }
+   },
+   "max_alt_m": 633,
+   "alt_source": "track"
   },
   "234": {
    "from": "track",
@@ -1457,7 +2086,164 @@
     "kind": "sea",
     "dist_mi": 0.01,
     "at": "route"
-   }
+   },
+   "max_alt_m": 633,
+   "alt_source": "track"
+  },
+  "235": {
+   "from": "track",
+   "max_alt_m": 173,
+   "alt_source": "track"
+  },
+  "236": {
+   "from": "track",
+   "max_alt_m": 91,
+   "alt_source": "track"
+  },
+  "237": {
+   "from": "track",
+   "max_alt_m": 34,
+   "alt_source": "track"
+  },
+  "238": {
+   "from": "places",
+   "max_alt_m": 44,
+   "alt_source": "route"
+  },
+  "239": {
+   "from": "track",
+   "max_alt_m": 218,
+   "alt_source": "track"
+  },
+  "240": {
+   "from": "track",
+   "max_alt_m": 988,
+   "alt_source": "track"
+  },
+  "241": {
+   "from": "track",
+   "max_alt_m": 1958,
+   "alt_source": "track"
+  },
+  "242": {
+   "from": "places",
+   "max_alt_m": 34,
+   "alt_source": "route"
+  },
+  "243": {
+   "from": "track",
+   "max_alt_m": 1973,
+   "alt_source": "track"
+  },
+  "244": {
+   "from": "track",
+   "max_alt_m": 2355,
+   "alt_source": "track"
+  },
+  "246": {
+   "from": "track",
+   "max_alt_m": 3161,
+   "alt_source": "track"
+  },
+  "247": {
+   "from": "places",
+   "max_alt_m": 1785,
+   "alt_source": "route"
+  },
+  "248": {
+   "from": "places",
+   "max_alt_m": 1785,
+   "alt_source": "route"
+  },
+  "249": {
+   "from": "places",
+   "max_alt_m": 1785,
+   "alt_source": "route"
+  },
+  "250": {
+   "from": "places",
+   "max_alt_m": 1785,
+   "alt_source": "route"
+  },
+  "251": {
+   "from": "places",
+   "max_alt_m": 1785,
+   "alt_source": "route"
+  },
+  "252": {
+   "from": "places",
+   "max_alt_m": 1785,
+   "alt_source": "route"
+  },
+  "253": {
+   "from": "track",
+   "max_alt_m": 2704,
+   "alt_source": "track"
+  },
+  "254": {
+   "from": "track",
+   "max_alt_m": 1971,
+   "alt_source": "track"
+  },
+  "255": {
+   "from": "track",
+   "max_alt_m": 236,
+   "alt_source": "track"
+  },
+  "256": {
+   "from": "places",
+   "max_alt_m": 2590,
+   "alt_source": "route"
+  },
+  "257": {
+   "from": "track",
+   "max_alt_m": 2240,
+   "alt_source": "track"
+  },
+  "258": {
+   "from": "track",
+   "max_alt_m": 2179,
+   "alt_source": "track"
+  },
+  "259": {
+   "from": "track",
+   "max_alt_m": 2609,
+   "alt_source": "track"
+  },
+  "260": {
+   "from": "places",
+   "max_alt_m": 2558,
+   "alt_source": "route"
+  },
+  "261": {
+   "from": "places",
+   "max_alt_m": 2558,
+   "alt_source": "route"
+  },
+  "262": {
+   "from": "places",
+   "max_alt_m": 2558,
+   "alt_source": "route"
+  },
+  "263": {
+   "from": "places",
+   "max_alt_m": 2558,
+   "alt_source": "route"
+  },
+  "264": {
+   "from": "places",
+   "max_alt_m": 2558,
+   "alt_source": "route"
+  },
+  "265": {
+   "from": "places",
+   "max_alt_m": 2558,
+   "alt_source": "route"
+  },
+  "266": {
+   "from": "track",
+   "max_alt_m": 1924,
+   "alt_source": "track"
   },
   "267": {
    "from": "track",
@@ -1467,7 +2253,9 @@
     "elevation_m": 3769,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2107,
+   "alt_source": "track"
   },
   "268": {
    "from": "track",
@@ -1477,7 +2265,49 @@
     "elevation_m": 3769,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2138,
+   "alt_source": "track"
+  },
+  "269": {
+   "from": "track",
+   "max_alt_m": 2116,
+   "alt_source": "track"
+  },
+  "270": {
+   "from": "places",
+   "max_alt_m": 1185,
+   "alt_source": "route"
+  },
+  "271": {
+   "from": "track",
+   "max_alt_m": 2018,
+   "alt_source": "track"
+  },
+  "272": {
+   "from": "track",
+   "max_alt_m": 1077,
+   "alt_source": "track"
+  },
+  "273": {
+   "from": "places",
+   "max_alt_m": 618,
+   "alt_source": "route"
+  },
+  "274": {
+   "from": "places",
+   "max_alt_m": 618,
+   "alt_source": "route"
+  },
+  "275": {
+   "from": "track",
+   "max_alt_m": 1906,
+   "alt_source": "track"
+  },
+  "276": {
+   "from": "places",
+   "max_alt_m": 1680,
+   "alt_source": "route"
   },
   "277": {
    "from": "track",
@@ -1487,7 +2317,9 @@
     "elevation_m": 4650,
     "type": "Stratovolcano(es)",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2479,
+   "alt_source": "track"
   },
   "278": {
    "from": "track",
@@ -1497,7 +2329,24 @@
     "elevation_m": 4650,
     "type": "Stratovolcano(es)",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3182,
+   "alt_source": "track"
+  },
+  "279": {
+   "from": "places",
+   "max_alt_m": 930,
+   "alt_source": "route"
+  },
+  "280": {
+   "from": "track",
+   "max_alt_m": 2269,
+   "alt_source": "track"
+  },
+  "281": {
+   "from": "track",
+   "max_alt_m": 2763,
+   "alt_source": "track"
   },
   "282": {
    "from": "track",
@@ -1507,7 +2356,9 @@
     "elevation_m": 4276,
     "type": "Complex",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3233,
+   "alt_source": "track"
   },
   "283": {
    "from": "track",
@@ -1517,7 +2368,9 @@
     "elevation_m": 4276,
     "type": "Complex",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3249,
+   "alt_source": "track"
   },
   "284": {
    "from": "track",
@@ -1527,7 +2380,9 @@
     "elevation_m": 3955,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3341,
+   "alt_source": "track"
   },
   "285": {
    "from": "track",
@@ -1537,7 +2392,9 @@
     "elevation_m": 4609,
     "type": "Compound",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3055,
+   "alt_source": "track"
   },
   "286": {
    "from": "places",
@@ -1547,7 +2404,9 @@
     "elevation_m": 4609,
     "type": "Compound",
     "at": "start"
-   }
+   },
+   "max_alt_m": 893,
+   "alt_source": "route"
   },
   "287": {
    "from": "track",
@@ -1557,7 +2416,9 @@
     "elevation_m": 4609,
     "type": "Compound",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3689,
+   "alt_source": "track"
   },
   "288": {
    "from": "track",
@@ -1567,7 +2428,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2825,
+   "alt_source": "track"
   },
   "289": {
    "from": "places",
@@ -1577,7 +2440,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "290": {
    "from": "places",
@@ -1587,7 +2452,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "291": {
    "from": "places",
@@ -1597,7 +2464,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "292": {
    "from": "places",
@@ -1607,7 +2476,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "293": {
    "from": "places",
@@ -1617,7 +2488,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "294": {
    "from": "places",
@@ -1627,7 +2500,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "295": {
    "from": "places",
@@ -1637,7 +2512,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "296": {
    "from": "places",
@@ -1647,7 +2524,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "297": {
    "from": "places",
@@ -1657,7 +2536,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "298": {
    "from": "places",
@@ -1667,7 +2548,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "299": {
    "from": "places",
@@ -1677,7 +2560,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "300": {
    "from": "places",
@@ -1687,7 +2572,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "301": {
    "from": "places",
@@ -1697,7 +2584,9 @@
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2539,
+   "alt_source": "route"
   },
   "302": {
    "from": "track",
@@ -1707,7 +2596,9 @@
     "elevation_m": 4463,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3063,
+   "alt_source": "track"
   },
   "303": {
    "from": "track",
@@ -1717,7 +2608,9 @@
     "elevation_m": 5162,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3500,
+   "alt_source": "track"
   },
   "304": {
    "from": "track",
@@ -1727,7 +2620,9 @@
     "elevation_m": 3914,
     "type": "Caldera",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3929,
+   "alt_source": "track"
   },
   "305": {
    "from": "track",
@@ -1737,7 +2632,9 @@
     "elevation_m": 3914,
     "type": "Caldera",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3929,
+   "alt_source": "track"
   },
   "306": {
    "from": "track",
@@ -1747,7 +2644,9 @@
     "elevation_m": 5023,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2736,
+   "alt_source": "track"
   },
   "307": {
    "from": "places",
@@ -1757,7 +2656,9 @@
     "elevation_m": 5023,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 2811,
+   "alt_source": "route"
   },
   "308": {
    "from": "track",
@@ -1767,7 +2668,24 @@
     "elevation_m": 5023,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 1797,
+   "alt_source": "track"
+  },
+  "309": {
+   "from": "places",
+   "max_alt_m": 2933,
+   "alt_source": "route"
+  },
+  "310": {
+   "from": "places",
+   "max_alt_m": 2933,
+   "alt_source": "route"
+  },
+  "311": {
+   "from": "places",
+   "max_alt_m": 2933,
+   "alt_source": "route"
   },
   "312": {
    "from": "track",
@@ -1777,7 +2695,9 @@
     "elevation_m": 5023,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 1797,
+   "alt_source": "track"
   },
   "313": {
    "from": "track",
@@ -1787,7 +2707,9 @@
     "elevation_m": 5023,
     "type": "Stratovolcano",
     "at": "route"
-   }
+   },
+   "max_alt_m": 2763,
+   "alt_source": "track"
   },
   "314": {
    "from": "track",
@@ -1797,7 +2719,14 @@
     "elevation_m": 3322,
     "type": "Pyroclastic cone(s)",
     "at": "route"
-   }
+   },
+   "max_alt_m": 3532,
+   "alt_source": "track"
+  },
+  "315": {
+   "from": "places",
+   "max_alt_m": 2747,
+   "alt_source": "route"
   },
   "316": {
    "from": "places",
@@ -1807,7 +2736,9 @@
     "elevation_m": 5023,
     "type": "Stratovolcano",
     "at": "end"
-   }
+   },
+   "max_alt_m": 1984,
+   "alt_source": "route"
   },
   "317": {
    "from": "places",
@@ -1817,7 +2748,9 @@
     "elevation_m": 5023,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 1797,
+   "alt_source": "route"
   },
   "318": {
    "from": "places",
@@ -1827,7 +2760,109 @@
     "elevation_m": 5023,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 3193,
+   "alt_source": "route"
+  },
+  "319": {
+   "from": "places",
+   "max_alt_m": 3881,
+   "alt_source": "route"
+  },
+  "320": {
+   "from": "places",
+   "max_alt_m": 2538,
+   "alt_source": "route"
+  },
+  "321": {
+   "from": "places",
+   "max_alt_m": 2538,
+   "alt_source": "route"
+  },
+  "322": {
+   "from": "places",
+   "max_alt_m": 3175,
+   "alt_source": "route"
+  },
+  "323": {
+   "from": "places",
+   "max_alt_m": 2500,
+   "alt_source": "route"
+  },
+  "324": {
+   "from": "places",
+   "max_alt_m": 2280,
+   "alt_source": "route"
+  },
+  "325": {
+   "from": "places",
+   "max_alt_m": 2779,
+   "alt_source": "route"
+  },
+  "326": {
+   "from": "places",
+   "max_alt_m": 1481,
+   "alt_source": "route"
+  },
+  "327": {
+   "from": "places",
+   "max_alt_m": 742,
+   "alt_source": "route"
+  },
+  "328": {
+   "from": "places",
+   "max_alt_m": 466,
+   "alt_source": "route"
+  },
+  "329": {
+   "from": "places",
+   "max_alt_m": 1632,
+   "alt_source": "route"
+  },
+  "330": {
+   "from": "places",
+   "max_alt_m": 2656,
+   "alt_source": "route"
+  },
+  "331": {
+   "from": "places",
+   "max_alt_m": 2656,
+   "alt_source": "route"
+  },
+  "332": {
+   "from": "places",
+   "max_alt_m": 2656,
+   "alt_source": "route"
+  },
+  "333": {
+   "from": "places",
+   "max_alt_m": 2635,
+   "alt_source": "route"
+  },
+  "334": {
+   "from": "places",
+   "max_alt_m": 2645,
+   "alt_source": "route"
+  },
+  "335": {
+   "from": "places",
+   "max_alt_m": 3701,
+   "alt_source": "route"
+  },
+  "336": {
+   "from": "places",
+   "max_alt_m": 2291,
+   "alt_source": "route"
+  },
+  "337": {
+   "from": "places",
+   "max_alt_m": 3155,
+   "alt_source": "route"
+  },
+  "338": {
+   "from": "places",
+   "max_alt_m": 3155,
+   "alt_source": "route"
   },
   "339": {
    "from": "places",
@@ -1836,7 +2871,9 @@
     "kind": "sea",
     "dist_mi": 3.13,
     "at": "end"
-   }
+   },
+   "max_alt_m": 2660,
+   "alt_source": "route"
   },
   "340": {
    "from": "places",
@@ -1854,7 +2891,14 @@
     "kind": "sea",
     "dist_mi": 3.13,
     "at": "start"
-   }
+   },
+   "max_alt_m": 4098,
+   "alt_source": "route"
+  },
+  "342": {
+   "from": "places",
+   "max_alt_m": 4014,
+   "alt_source": "route"
   },
   "343": {
    "from": "places",
@@ -1863,7 +2907,9 @@
     "kind": "sea",
     "dist_mi": 0.84,
     "at": "end"
-   }
+   },
+   "max_alt_m": 3040,
+   "alt_source": "route"
   },
   "344": {
    "from": "places",
@@ -1872,7 +2918,9 @@
     "kind": "sea",
     "dist_mi": 0.84,
     "at": "start"
-   }
+   },
+   "max_alt_m": 55,
+   "alt_source": "route"
   },
   "345": {
    "from": "places",
@@ -1881,7 +2929,9 @@
     "kind": "sea",
     "dist_mi": 2.94,
     "at": "start"
-   }
+   },
+   "max_alt_m": 34,
+   "alt_source": "route"
   },
   "346": {
    "from": "places",
@@ -1890,7 +2940,9 @@
     "kind": "sea",
     "dist_mi": 2.94,
     "at": "start"
-   }
+   },
+   "max_alt_m": 34,
+   "alt_source": "route"
   },
   "347": {
    "from": "places",
@@ -1899,7 +2951,9 @@
     "kind": "sea",
     "dist_mi": 2.94,
     "at": "start"
-   }
+   },
+   "max_alt_m": 34,
+   "alt_source": "route"
   },
   "348": {
    "from": "places",
@@ -1908,7 +2962,9 @@
     "kind": "sea",
     "dist_mi": 1.03,
     "at": "end"
-   }
+   },
+   "max_alt_m": 34,
+   "alt_source": "route"
   },
   "349": {
    "from": "places",
@@ -1917,7 +2973,9 @@
     "kind": "sea",
     "dist_mi": 1.03,
     "at": "start"
-   }
+   },
+   "max_alt_m": 95,
+   "alt_source": "route"
   },
   "350": {
    "from": "places",
@@ -1926,7 +2984,9 @@
     "kind": "sea",
     "dist_mi": 0.85,
     "at": "end"
-   }
+   },
+   "max_alt_m": 17,
+   "alt_source": "route"
   },
   "351": {
    "from": "places",
@@ -1935,7 +2995,9 @@
     "kind": "sea",
     "dist_mi": 0.85,
     "at": "start"
-   }
+   },
+   "max_alt_m": 111,
+   "alt_source": "route"
   },
   "352": {
    "from": "places",
@@ -1944,7 +3006,54 @@
     "kind": "sea",
     "dist_mi": 3.94,
     "at": "start"
-   }
+   },
+   "max_alt_m": 289,
+   "alt_source": "route"
+  },
+  "353": {
+   "from": "places",
+   "max_alt_m": 289,
+   "alt_source": "route"
+  },
+  "354": {
+   "from": "places",
+   "max_alt_m": 289,
+   "alt_source": "route"
+  },
+  "355": {
+   "from": "places",
+   "max_alt_m": 289,
+   "alt_source": "route"
+  },
+  "356": {
+   "from": "places",
+   "max_alt_m": 289,
+   "alt_source": "route"
+  },
+  "357": {
+   "from": "places",
+   "max_alt_m": 289,
+   "alt_source": "route"
+  },
+  "358": {
+   "from": "places",
+   "max_alt_m": 289,
+   "alt_source": "route"
+  },
+  "359": {
+   "from": "places",
+   "max_alt_m": 4434,
+   "alt_source": "route"
+  },
+  "360": {
+   "from": "places",
+   "max_alt_m": 4107,
+   "alt_source": "route"
+  },
+  "361": {
+   "from": "places",
+   "max_alt_m": 3177,
+   "alt_source": "route"
   },
   "362": {
    "from": "places",
@@ -1954,7 +3063,9 @@
     "elevation_m": 3848,
     "type": "Lava dome",
     "at": "end"
-   }
+   },
+   "max_alt_m": 3775,
+   "alt_source": "route"
   },
   "363": {
    "from": "places",
@@ -1964,7 +3075,19 @@
     "elevation_m": 3848,
     "type": "Lava dome",
     "at": "start"
-   }
+   },
+   "max_alt_m": 4345,
+   "alt_source": "route"
+  },
+  "364": {
+   "from": "places",
+   "max_alt_m": 3912,
+   "alt_source": "route"
+  },
+  "365": {
+   "from": "places",
+   "max_alt_m": 3912,
+   "alt_source": "route"
   },
   "366": {
    "from": "places",
@@ -1973,7 +3096,9 @@
     "kind": "lake",
     "dist_mi": 1.99,
     "at": "end"
-   }
+   },
+   "max_alt_m": 3826,
+   "alt_source": "route"
   },
   "367": {
    "from": "places",
@@ -1982,7 +3107,9 @@
     "kind": "lake",
     "dist_mi": 0.28,
     "at": "end"
-   }
+   },
+   "max_alt_m": 3973,
+   "alt_source": "route"
   },
   "368": {
    "from": "places",
@@ -1991,7 +3118,214 @@
     "kind": "lake",
     "dist_mi": 0.28,
     "at": "start"
-   }
+   },
+   "max_alt_m": 3843,
+   "alt_source": "route"
+  },
+  "369": {
+   "from": "places",
+   "max_alt_m": 4645,
+   "alt_source": "route"
+  },
+  "370": {
+   "from": "places",
+   "max_alt_m": 1669,
+   "alt_source": "route"
+  },
+  "371": {
+   "from": "places",
+   "max_alt_m": 4645,
+   "alt_source": "route"
+  },
+  "372": {
+   "from": "places",
+   "max_alt_m": 3966,
+   "alt_source": "route"
+  },
+  "373": {
+   "from": "places",
+   "max_alt_m": 3786,
+   "alt_source": "route"
+  },
+  "374": {
+   "from": "places",
+   "max_alt_m": 3786,
+   "alt_source": "route"
+  },
+  "375": {
+   "from": "places",
+   "max_alt_m": 3786,
+   "alt_source": "route"
+  },
+  "376": {
+   "from": "places",
+   "max_alt_m": 4322,
+   "alt_source": "route"
+  },
+  "377": {
+   "from": "places",
+   "max_alt_m": 4322,
+   "alt_source": "route"
+  },
+  "378": {
+   "from": "places",
+   "max_alt_m": 3862,
+   "alt_source": "route"
+  },
+  "380": {
+   "from": "places",
+   "max_alt_m": 4021,
+   "alt_source": "route"
+  },
+  "381": {
+   "from": "places",
+   "max_alt_m": 4021,
+   "alt_source": "route"
+  },
+  "382": {
+   "from": "places",
+   "max_alt_m": 4277,
+   "alt_source": "route"
+  },
+  "383": {
+   "from": "places",
+   "max_alt_m": 3917,
+   "alt_source": "route"
+  },
+  "384": {
+   "from": "places",
+   "max_alt_m": 3917,
+   "alt_source": "route"
+  },
+  "385": {
+   "from": "places",
+   "max_alt_m": 3917,
+   "alt_source": "route"
+  },
+  "386": {
+   "from": "places",
+   "max_alt_m": 3917,
+   "alt_source": "route"
+  },
+  "387": {
+   "from": "places",
+   "max_alt_m": 3917,
+   "alt_source": "route"
+  },
+  "388": {
+   "from": "places",
+   "max_alt_m": 3917,
+   "alt_source": "route"
+  },
+  "389": {
+   "from": "places",
+   "max_alt_m": 2800,
+   "alt_source": "route"
+  },
+  "390": {
+   "from": "places",
+   "max_alt_m": 2800,
+   "alt_source": "route"
+  },
+  "391": {
+   "from": "places",
+   "max_alt_m": 2248,
+   "alt_source": "route"
+  },
+  "392": {
+   "from": "places",
+   "max_alt_m": 1956,
+   "alt_source": "route"
+  },
+  "393": {
+   "from": "places",
+   "max_alt_m": 1564,
+   "alt_source": "route"
+  },
+  "394": {
+   "from": "places",
+   "max_alt_m": 289,
+   "alt_source": "route"
+  },
+  "396": {
+   "from": "places",
+   "max_alt_m": 294,
+   "alt_source": "route"
+  },
+  "397": {
+   "from": "places",
+   "max_alt_m": 623,
+   "alt_source": "route"
+  },
+  "398": {
+   "from": "places",
+   "max_alt_m": 623,
+   "alt_source": "route"
+  },
+  "399": {
+   "from": "places",
+   "max_alt_m": 224,
+   "alt_source": "route"
+  },
+  "400": {
+   "from": "places",
+   "max_alt_m": 224,
+   "alt_source": "route"
+  },
+  "401": {
+   "from": "places",
+   "max_alt_m": 122,
+   "alt_source": "route"
+  },
+  "402": {
+   "from": "places",
+   "max_alt_m": 151,
+   "alt_source": "route"
+  },
+  "403": {
+   "from": "places",
+   "max_alt_m": 91,
+   "alt_source": "route"
+  },
+  "404": {
+   "from": "places",
+   "max_alt_m": 91,
+   "alt_source": "route"
+  },
+  "405": {
+   "from": "places",
+   "max_alt_m": 131,
+   "alt_source": "route"
+  },
+  "406": {
+   "from": "places",
+   "max_alt_m": 525,
+   "alt_source": "route"
+  },
+  "407": {
+   "from": "places",
+   "max_alt_m": 525,
+   "alt_source": "route"
+  },
+  "409": {
+   "from": "places",
+   "max_alt_m": 600,
+   "alt_source": "route"
+  },
+  "410": {
+   "from": "places",
+   "max_alt_m": 468,
+   "alt_source": "route"
+  },
+  "411": {
+   "from": "places",
+   "max_alt_m": 367,
+   "alt_source": "route"
+  },
+  "416": {
+   "from": "places",
+   "max_alt_m": 347,
+   "alt_source": "route"
   },
   "417": {
    "from": "places",
@@ -2000,7 +3334,9 @@
     "kind": "lake",
     "dist_mi": 2.96,
     "at": "end"
-   }
+   },
+   "max_alt_m": 428,
+   "alt_source": "route"
   },
   "418": {
    "from": "places",
@@ -2009,7 +3345,9 @@
     "kind": "lake",
     "dist_mi": 2.96,
     "at": "start"
-   }
+   },
+   "max_alt_m": 311,
+   "alt_source": "route"
   },
   "419": {
    "from": "places",
@@ -2036,7 +3374,44 @@
     "kind": "lake",
     "dist_mi": 3.53,
     "at": "start"
-   }
+   },
+   "max_alt_m": 774,
+   "alt_source": "route"
+  },
+  "422": {
+   "from": "places",
+   "max_alt_m": 848,
+   "alt_source": "route"
+  },
+  "423": {
+   "from": "places",
+   "max_alt_m": 1107,
+   "alt_source": "route"
+  },
+  "424": {
+   "from": "places",
+   "max_alt_m": 1107,
+   "alt_source": "route"
+  },
+  "425": {
+   "from": "places",
+   "max_alt_m": 957,
+   "alt_source": "route"
+  },
+  "426": {
+   "from": "places",
+   "max_alt_m": 917,
+   "alt_source": "route"
+  },
+  "427": {
+   "from": "places",
+   "max_alt_m": 917,
+   "alt_source": "route"
+  },
+  "428": {
+   "from": "places",
+   "max_alt_m": 917,
+   "alt_source": "route"
   },
   "429": {
    "from": "places",
@@ -2045,7 +3420,9 @@
     "kind": "sea",
     "dist_mi": 3.91,
     "at": "end"
-   }
+   },
+   "max_alt_m": 917,
+   "alt_source": "route"
   },
   "430": {
    "from": "places",
@@ -2054,7 +3431,9 @@
     "kind": "sea",
     "dist_mi": 1.11,
     "at": "end"
-   }
+   },
+   "max_alt_m": 47,
+   "alt_source": "route"
   },
   "431": {
    "from": "places",
@@ -2063,7 +3442,9 @@
     "kind": "sea",
     "dist_mi": 0.04,
     "at": "end"
-   }
+   },
+   "max_alt_m": 23,
+   "alt_source": "route"
   },
   "432": {
    "from": "places",
@@ -2072,7 +3453,9 @@
     "kind": "sea",
     "dist_mi": 0.04,
     "at": "start"
-   }
+   },
+   "max_alt_m": 32,
+   "alt_source": "route"
   },
   "433": {
    "from": "places",
@@ -2081,7 +3464,54 @@
     "kind": "sea",
     "dist_mi": 1.5,
     "at": "start"
-   }
+   },
+   "max_alt_m": 2,
+   "alt_source": "route"
+  },
+  "434": {
+   "from": "places",
+   "max_alt_m": 2,
+   "alt_source": "route"
+  },
+  "435": {
+   "from": "places",
+   "max_alt_m": 25,
+   "alt_source": "route"
+  },
+  "436": {
+   "from": "places",
+   "max_alt_m": 32,
+   "alt_source": "route"
+  },
+  "437": {
+   "from": "places",
+   "max_alt_m": 34,
+   "alt_source": "route"
+  },
+  "438": {
+   "from": "places",
+   "max_alt_m": 34,
+   "alt_source": "route"
+  },
+  "439": {
+   "from": "places",
+   "max_alt_m": 34,
+   "alt_source": "route"
+  },
+  "440": {
+   "from": "places",
+   "max_alt_m": 40,
+   "alt_source": "route"
+  },
+  "441": {
+   "from": "places",
+   "max_alt_m": 40,
+   "alt_source": "route"
+  },
+  "443": {
+   "from": "places",
+   "max_alt_m": 14,
+   "alt_source": "route"
   },
   "444": {
    "from": "places",
@@ -2090,7 +3520,9 @@
     "kind": "lake",
     "dist_mi": 4.92,
     "at": "end"
-   }
+   },
+   "max_alt_m": 14,
+   "alt_source": "route"
   },
   "445": {
    "from": "places",
@@ -2099,7 +3531,9 @@
     "kind": "lake",
     "dist_mi": 4.92,
     "at": "start"
-   }
+   },
+   "max_alt_m": 2,
+   "alt_source": "route"
   },
   "446": {
    "from": "places",
@@ -2108,7 +3542,9 @@
     "kind": "sea",
     "dist_mi": 2.32,
     "at": "end"
-   }
+   },
+   "max_alt_m": 22,
+   "alt_source": "route"
   },
   "447": {
    "from": "places",
@@ -2117,7 +3553,9 @@
     "kind": "sea",
     "dist_mi": 2.32,
     "at": "start"
-   }
+   },
+   "max_alt_m": 8,
+   "alt_source": "route"
   },
   "448": {
    "from": "places",
@@ -2126,7 +3564,9 @@
     "kind": "sea",
     "dist_mi": 2.32,
     "at": "start"
-   }
+   },
+   "max_alt_m": 35,
+   "alt_source": "route"
   },
   "449": {
    "from": "places",
@@ -2135,7 +3575,9 @@
     "kind": "sea",
     "dist_mi": 0.25,
     "at": "end"
-   }
+   },
+   "max_alt_m": 22,
+   "alt_source": "route"
   },
   "450": {
    "from": "places",
@@ -2144,7 +3586,9 @@
     "kind": "sea",
     "dist_mi": 0.25,
     "at": "start"
-   }
+   },
+   "max_alt_m": 12,
+   "alt_source": "route"
   },
   "451": {
    "from": "places",
@@ -2153,7 +3597,9 @@
     "kind": "sea",
     "dist_mi": 1.31,
     "at": "end"
-   }
+   },
+   "max_alt_m": 40,
+   "alt_source": "route"
   },
   "452": {
    "from": "places",
@@ -2162,7 +3608,9 @@
     "kind": "sea",
     "dist_mi": 1.31,
     "at": "start"
-   }
+   },
+   "max_alt_m": 0,
+   "alt_source": "route"
   },
   "453": {
    "from": "places",
@@ -2171,7 +3619,9 @@
     "kind": "sea",
     "dist_mi": 2.14,
     "at": "end"
-   }
+   },
+   "max_alt_m": 0,
+   "alt_source": "route"
   },
   "454": {
    "from": "places",
@@ -2189,7 +3639,169 @@
     "kind": "sea",
     "dist_mi": 2.14,
     "at": "start"
-   }
+   },
+   "max_alt_m": 23,
+   "alt_source": "route"
+  },
+  "456": {
+   "from": "places",
+   "max_alt_m": 14,
+   "alt_source": "route"
+  },
+  "457": {
+   "from": "places",
+   "max_alt_m": 14,
+   "alt_source": "route"
+  },
+  "458": {
+   "from": "places",
+   "max_alt_m": 28,
+   "alt_source": "route"
+  },
+  "459": {
+   "from": "places",
+   "max_alt_m": 28,
+   "alt_source": "route"
+  },
+  "460": {
+   "from": "places",
+   "max_alt_m": 28,
+   "alt_source": "route"
+  },
+  "461": {
+   "from": "places",
+   "max_alt_m": 28,
+   "alt_source": "route"
+  },
+  "462": {
+   "from": "places",
+   "max_alt_m": 30,
+   "alt_source": "route"
+  },
+  "468": {
+   "from": "places",
+   "max_alt_m": 114,
+   "alt_source": "route"
+  },
+  "469": {
+   "from": "places",
+   "max_alt_m": 203,
+   "alt_source": "route"
+  },
+  "470": {
+   "from": "places",
+   "max_alt_m": 286,
+   "alt_source": "route"
+  },
+  "471": {
+   "from": "places",
+   "max_alt_m": 2203,
+   "alt_source": "route"
+  },
+  "472": {
+   "from": "places",
+   "max_alt_m": 2203,
+   "alt_source": "route"
+  },
+  "473": {
+   "from": "places",
+   "max_alt_m": 873,
+   "alt_source": "route"
+  },
+  "474": {
+   "from": "places",
+   "max_alt_m": 932,
+   "alt_source": "route"
+  },
+  "475": {
+   "from": "places",
+   "max_alt_m": 724,
+   "alt_source": "route"
+  },
+  "476": {
+   "from": "places",
+   "max_alt_m": 657,
+   "alt_source": "route"
+  },
+  "477": {
+   "from": "places",
+   "max_alt_m": 2341,
+   "alt_source": "route"
+  },
+  "478": {
+   "from": "places",
+   "max_alt_m": 3003,
+   "alt_source": "route"
+  },
+  "479": {
+   "from": "places",
+   "max_alt_m": 3003,
+   "alt_source": "route"
+  },
+  "480": {
+   "from": "places",
+   "max_alt_m": 3003,
+   "alt_source": "route"
+  },
+  "481": {
+   "from": "places",
+   "max_alt_m": 3759,
+   "alt_source": "route"
+  },
+  "482": {
+   "from": "places",
+   "max_alt_m": 835,
+   "alt_source": "route"
+  },
+  "483": {
+   "from": "places",
+   "max_alt_m": 540,
+   "alt_source": "route"
+  },
+  "484": {
+   "from": "places",
+   "max_alt_m": 504,
+   "alt_source": "route"
+  },
+  "485": {
+   "from": "places",
+   "max_alt_m": 336,
+   "alt_source": "route"
+  },
+  "486": {
+   "from": "places",
+   "max_alt_m": 336,
+   "alt_source": "route"
+  },
+  "487": {
+   "from": "places",
+   "max_alt_m": 336,
+   "alt_source": "route"
+  },
+  "488": {
+   "from": "places",
+   "max_alt_m": 336,
+   "alt_source": "route"
+  },
+  "489": {
+   "from": "places",
+   "max_alt_m": 157,
+   "alt_source": "route"
+  },
+  "490": {
+   "from": "places",
+   "max_alt_m": 150,
+   "alt_source": "route"
+  },
+  "491": {
+   "from": "places",
+   "max_alt_m": 150,
+   "alt_source": "route"
+  },
+  "492": {
+   "from": "places",
+   "max_alt_m": 346,
+   "alt_source": "route"
   },
   "493": {
    "from": "places",
@@ -2199,7 +3811,9 @@
     "elevation_m": 2847,
     "type": "Stratovolcano",
     "at": "end"
-   }
+   },
+   "max_alt_m": 230,
+   "alt_source": "route"
   },
   "494": {
    "from": "places",
@@ -2209,7 +3823,9 @@
     "elevation_m": 2847,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 213,
+   "alt_source": "route"
   },
   "495": {
    "from": "places",
@@ -2219,7 +3835,14 @@
     "elevation_m": 2847,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 230,
+   "alt_source": "route"
+  },
+  "496": {
+   "from": "places",
+   "max_alt_m": 237,
+   "alt_source": "route"
   },
   "497": {
    "from": "places",
@@ -2229,7 +3852,9 @@
     "elevation_m": 1979,
     "type": "Stratovolcano(es)",
     "at": "end"
-   }
+   },
+   "max_alt_m": 185,
+   "alt_source": "route"
   },
   "498": {
    "from": "places",
@@ -2239,7 +3864,9 @@
     "elevation_m": 1979,
     "type": "Stratovolcano(es)",
     "at": "start"
-   }
+   },
+   "max_alt_m": 1329,
+   "alt_source": "route"
   },
   "499": {
    "from": "places",
@@ -2248,7 +3875,9 @@
     "kind": "lake",
     "dist_mi": 0.73,
     "at": "end"
-   }
+   },
+   "max_alt_m": 1329,
+   "alt_source": "route"
   },
   "500": {
    "from": "places",
@@ -2257,7 +3886,9 @@
     "kind": "lake",
     "dist_mi": 0.73,
     "at": "start"
-   }
+   },
+   "max_alt_m": 768,
+   "alt_source": "route"
   },
   "501": {
    "from": "places",
@@ -2266,7 +3897,39 @@
     "kind": "lake",
     "dist_mi": 0.73,
     "at": "start"
-   }
+   },
+   "max_alt_m": 1832,
+   "alt_source": "route"
+  },
+  "502": {
+   "from": "places",
+   "max_alt_m": 1222,
+   "alt_source": "route"
+  },
+  "503": {
+   "from": "places",
+   "max_alt_m": 1138,
+   "alt_source": "route"
+  },
+  "504": {
+   "from": "places",
+   "max_alt_m": 1241,
+   "alt_source": "route"
+  },
+  "505": {
+   "from": "places",
+   "max_alt_m": 1241,
+   "alt_source": "route"
+  },
+  "506": {
+   "from": "places",
+   "max_alt_m": 244,
+   "alt_source": "route"
+  },
+  "507": {
+   "from": "places",
+   "max_alt_m": 1125,
+   "alt_source": "route"
   },
   "508": {
    "from": "places",
@@ -2282,7 +3945,9 @@
     "kind": "sea",
     "dist_mi": 1.94,
     "at": "end"
-   }
+   },
+   "max_alt_m": 826,
+   "alt_source": "route"
   },
   "509": {
    "from": "places",
@@ -2298,7 +3963,9 @@
     "kind": "sea",
     "dist_mi": 1.94,
     "at": "start"
-   }
+   },
+   "max_alt_m": 826,
+   "alt_source": "route"
   },
   "510": {
    "from": "places",
@@ -2314,7 +3981,24 @@
     "kind": "sea",
     "dist_mi": 1.94,
     "at": "start"
-   }
+   },
+   "max_alt_m": 1092,
+   "alt_source": "route"
+  },
+  "511": {
+   "from": "places",
+   "max_alt_m": 1001,
+   "alt_source": "route"
+  },
+  "512": {
+   "from": "places",
+   "max_alt_m": 1061,
+   "alt_source": "route"
+  },
+  "513": {
+   "from": "places",
+   "max_alt_m": 1668,
+   "alt_source": "route"
   },
   "514": {
    "from": "places",
@@ -2323,7 +4007,9 @@
     "kind": "lake",
     "dist_mi": 0.29,
     "at": "end"
-   }
+   },
+   "max_alt_m": 1668,
+   "alt_source": "route"
   },
   "515": {
    "from": "places",
@@ -2332,7 +4018,9 @@
     "kind": "lake",
     "dist_mi": 0.29,
     "at": "start"
-   }
+   },
+   "max_alt_m": 338,
+   "alt_source": "route"
   },
   "516": {
    "from": "places",
@@ -2341,7 +4029,9 @@
     "kind": "lake",
     "dist_mi": 0.29,
     "at": "start"
-   }
+   },
+   "max_alt_m": 620,
+   "alt_source": "route"
   },
   "517": {
    "from": "places",
@@ -2350,7 +4040,19 @@
     "kind": "lake",
     "dist_mi": 1.14,
     "at": "start"
-   }
+   },
+   "max_alt_m": 1253,
+   "alt_source": "route"
+  },
+  "518": {
+   "from": "places",
+   "max_alt_m": 1253,
+   "alt_source": "route"
+  },
+  "519": {
+   "from": "places",
+   "max_alt_m": 667,
+   "alt_source": "route"
   },
   "520": {
    "from": "places",
@@ -2359,7 +4061,9 @@
     "kind": "lake",
     "dist_mi": 2.1,
     "at": "end"
-   }
+   },
+   "max_alt_m": 272,
+   "alt_source": "route"
   },
   "521": {
    "from": "places",
@@ -2377,7 +4081,19 @@
     "kind": "lake",
     "dist_mi": 2.1,
     "at": "start"
-   }
+   },
+   "max_alt_m": 723,
+   "alt_source": "route"
+  },
+  "523": {
+   "from": "places",
+   "max_alt_m": 785,
+   "alt_source": "route"
+  },
+  "524": {
+   "from": "places",
+   "max_alt_m": 785,
+   "alt_source": "route"
   },
   "525": {
    "from": "places",
@@ -2386,7 +4102,9 @@
     "kind": "lake",
     "dist_mi": 3.44,
     "at": "end"
-   }
+   },
+   "max_alt_m": 785,
+   "alt_source": "route"
   },
   "526": {
    "from": "places",
@@ -2395,7 +4113,9 @@
     "kind": "lake",
     "dist_mi": 2.49,
     "at": "end"
-   }
+   },
+   "max_alt_m": 509,
+   "alt_source": "route"
   },
   "527": {
    "from": "places",
@@ -2404,7 +4124,9 @@
     "kind": "lake",
     "dist_mi": 2.49,
     "at": "start"
-   }
+   },
+   "max_alt_m": 195,
+   "alt_source": "route"
   },
   "528": {
    "from": "places",
@@ -2413,7 +4135,19 @@
     "kind": "lake",
     "dist_mi": 2.49,
     "at": "start"
-   }
+   },
+   "max_alt_m": 1170,
+   "alt_source": "route"
+  },
+  "529": {
+   "from": "places",
+   "max_alt_m": 219,
+   "alt_source": "route"
+  },
+  "530": {
+   "from": "places",
+   "max_alt_m": 183,
+   "alt_source": "route"
   },
   "536": {
    "from": "places",
@@ -2422,7 +4156,9 @@
     "kind": "sea",
     "dist_mi": 0.21,
     "at": "end"
-   }
+   },
+   "max_alt_m": 485,
+   "alt_source": "route"
   },
   "537": {
    "from": "places",
@@ -2431,7 +4167,9 @@
     "kind": "sea",
     "dist_mi": 0.21,
     "at": "start"
-   }
+   },
+   "max_alt_m": 465,
+   "alt_source": "route"
   },
   "538": {
    "from": "places",
@@ -2440,7 +4178,9 @@
     "kind": "sea",
     "dist_mi": 0.76,
     "at": "end"
-   }
+   },
+   "max_alt_m": 270,
+   "alt_source": "route"
   },
   "539": {
    "from": "places",
@@ -2449,7 +4189,14 @@
     "kind": "sea",
     "dist_mi": 0.76,
     "at": "start"
-   }
+   },
+   "max_alt_m": 45,
+   "alt_source": "route"
+  },
+  "540": {
+   "from": "places",
+   "max_alt_m": 54,
+   "alt_source": "route"
   },
   "541": {
    "from": "places",
@@ -2458,7 +4205,9 @@
     "kind": "sea",
     "dist_mi": 2.7,
     "at": "end"
-   }
+   },
+   "max_alt_m": 10,
+   "alt_source": "route"
   },
   "542": {
    "from": "places",
@@ -2467,7 +4216,9 @@
     "kind": "sea",
     "dist_mi": 2.7,
     "at": "start"
-   }
+   },
+   "max_alt_m": 118,
+   "alt_source": "route"
   },
   "543": {
    "from": "places",
@@ -2476,7 +4227,9 @@
     "kind": "sea",
     "dist_mi": 0.41,
     "at": "end"
-   }
+   },
+   "max_alt_m": 431,
+   "alt_source": "route"
   }
  }
 }

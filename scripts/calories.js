@@ -20,17 +20,22 @@ function run(ctx) {
   const kg = weightLb * 0.453592, cm = heightIn * 2.54;
   const massFactor = (weightLb + gearLb) / (weightLb + (cfg.gearLbDefault || 66));
   const milesFactor = cfg.milesFactor || 32, climbFactor = cfg.climbFactor || 0.41, restMult = cfg.restMultiplier || 1.4;
-  let total = 0;
+  const rides = (C.readData("rides.json", { days: {} }).days) || {};
+  let total = 0, fromDevice = 0;
   const cumulative = plan.days.map(d => {
     const t = Date.parse(d.date + "T12:00:00Z");
     const age = (t - birth) / (365.25 * 86400000);
     const resting = 10 * kg + 6.25 * cm - 5 * age + 5;
-    const riding = ((d.plan_miles || 0) * milesFactor + (d.plan_climb_ft || 0) * climbFactor) * massFactor;
-    const isRest = d.kind === "rest" || !(d.plan_miles > 0);
+    const r = rides[d.date];
+    let riding;
+    if (r && r.calories) { riding = r.calories; fromDevice++; }                       // the Garmin's own number for that day
+    else if (r && r.miles) riding = (r.miles * milesFactor + (r.climb_ft || 0) * climbFactor) * massFactor;   // ridden, but no calorie figure
+    else riding = ((d.plan_miles || 0) * milesFactor + (d.plan_climb_ft || 0) * climbFactor) * massFactor;    // the plan
+    const isRest = !(r && r.miles) && (d.kind === "rest" || !(d.plan_miles > 0));
     total += isRest ? resting * restMult : resting + riding;
     return Math.round(total);
   });
-  C.writeData("calories.json", { generated_at: new Date().toISOString(), available: true, cumulative_kcal: cumulative });
+  C.writeData("calories.json", { generated_at: new Date().toISOString(), available: true, cumulative_kcal: cumulative, days_from_device: fromDevice });
   C.log(`calories: total over the plan ${Math.round(total).toLocaleString()} kcal`);
   return { newestItemAt: new Date().toISOString() };
 }

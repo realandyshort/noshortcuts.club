@@ -23,20 +23,21 @@ async function main() {
   const plan = C.readData("plan.json");
   const file = path.join(C.P.seed, "day_tracks.json");
   const out = C.readJSON(file, { note: "", days: {} });
-  out.note = "Planned track for each day with a Komoot tour link, from Komoot's public tour data, thinned to about one point per 0.3 miles. [lat, lon] pairs. Used for the geography-based secret stats; not shipped to the site.";
+  out.note = "Planned track for each day with a Komoot tour link, from Komoot's public tour data, thinned to about one point per 0.3 miles. [lat, lon, altitude_m] triples. Used for the geography-based secret stats; not shipped to the site.";
   const pointsFile = path.join(C.P.seed, "day_points.json");
   const pts = C.readJSON(pointsFile, { note: "", days: {} });
   let fetched = 0, missing = 0;
   for (const d of plan.days) {
     const m = /komoot\.com\/tour\/(\d+)/.exec(d.route_url || "");
     if (!m) { missing++; continue; }
-    if (out.days[d.day] && out.days[d.day].tour === m[1]) continue;
+    if (out.days[d.day] && out.days[d.day].tour === m[1] && out.days[d.day].max_alt_m !== undefined) continue;
     try {
       const j = await C.fetchJSON(`https://api.komoot.de/v007/tours/${m[1]}/coordinates`, { headers: UA, timeoutMs: 30000 });
-      const raw = (j.items || []).map(p => [p.lat, p.lng]);
+      const raw = (j.items || []).map(p => [p.lat, p.lng, Math.round(p.alt || 0)]);
       if (raw.length < 2) throw new Error("no coordinates");
-      const t = thin(raw, 0.3).map(p => [+p[0].toFixed(5), +p[1].toFixed(5)]);
-      out.days[d.day] = { tour: m[1], points: t, start: t[0], end: t[t.length - 1], raw_points: raw.length };
+      const t = thin(raw, 0.3).map(p => [+p[0].toFixed(5), +p[1].toFixed(5), p[2]]);
+      const maxAlt = raw.reduce((m, p) => Math.max(m, p[2]), -1e9);
+      out.days[d.day] = { tour: m[1], points: t, start: t[0], end: t[t.length - 1], raw_points: raw.length, max_alt_m: maxAlt };
       const e = pts.days[d.day] || {};
       e.start = { lat: t[0][0], lon: t[0][1], place: d.from, source: "komoot" };
       e.end = { lat: t[t.length - 1][0], lon: t[t.length - 1][1], place: d.to, source: "komoot" };

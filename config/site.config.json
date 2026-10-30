@@ -150,7 +150,16 @@
       "capitals": "CAPITALS VISITED",
       "calories": "CALORIES BURNED",
       "volcanoes": "VOLCANOES CLIMBED",
-      "waters": "WATERS DIPPED IN"
+      "waters": "WATERS DIPPED IN",
+      "parks": "NATIONAL PARKS ENTERED",
+      "llamas": "LLAMAS SEEN",
+      "strokes": "PEDAL STROKES",
+      "chains": "CHAINS WORN OUT",
+      "milestones": "MILESTONES",
+      "highest": "HIGHEST POINT",
+      "hottest": "HOTTEST DAY",
+      "coldest": "COLDEST DAY",
+      "estimate": "ESTIMATE"
     },
     "stamps": {
       "title": "Passport",
@@ -258,6 +267,11 @@
       "gearLbDefault": 66
     },
     "volcanoMiles": 2,
-    "waterMiles": 0.25
+    "waterMiles": 0.25,
+    "llamasPerHighDay": 20,
+    "highAltitudeM": 3500,
+    "cadenceRpm": 75,
+    "planSpeedMph": 11,
+    "chainMiles": 3000
   }
 }

@@ -42,6 +42,41 @@ def main(volc_file, coast_file, lakes_file):
     pts = json.load(open(os.path.join(ROOT, "seed", "day_points.json")))["days"]
     tracks_file = os.path.join(ROOT, "seed", "day_tracks.json")
     tracks = json.load(open(tracks_file))["days"] if os.path.exists(tracks_file) else {}
+    parks_file = os.path.join(ROOT, "seed", "national_parks.json")
+    parks = json.load(open(parks_file))["parks"] if os.path.exists(parks_file) else []
+    def inside(lat, lon, ring):
+        ok = False; j = len(ring) - 1
+        for i in range(len(ring)):
+            xi, yi = ring[i]; xj, yj = ring[j]
+            if (yi > lat) != (yj > lat) and lon < (xj - xi) * (lat - yi) / (yj - yi) + xi: ok = not ok
+            j = i
+        return ok
+    for pk in parks:
+        pk["_bb"] = [(min(x for x, y in r), min(y for x, y in r), max(x for x, y in r), max(y for x, y in r)) for r in pk["rings"]]
+    def parks_entered(points):
+        hits = []
+        for pk in parks:
+            for ring, bb in zip(pk["rings"], pk["_bb"]):
+                if any(bb[0] <= p[1] <= bb[2] and bb[1] <= p[0] <= bb[3] and inside(p[0], p[1], ring) for p in points):
+                    hits.append(pk["name"]); break
+        return hits
+    seen_parks = set()
+    # Fallback altitude for days without a track: the cached elevations along the stylized route line,
+    # between the day's start and end fractions. Coarse, so it is marked and never used as a record.
+    plan = json.load(open(os.path.join(ROOT, "site", "data", "plan.json")))
+    route_pts = json.load(open(os.path.join(ROOT, "seed", "route_line.json")))["points"]
+    elev_file = os.path.join(ROOT, "seed", "route_elevation.json")
+    elev = json.load(open(elev_file))["elevation_m"] if os.path.exists(elev_file) else None
+    cum_mi = []; tot = 0.0
+    for d in plan["days"]: tot += float(d.get("plan_miles") or 0); cum_mi.append(tot)
+    line_cum = [0.0]
+    for i in range(1, len(route_pts)): line_cum.append(line_cum[-1] + hav(route_pts[i - 1], route_pts[i]))
+    def route_max_alt(day_no):
+        if not elev or not tot: return None
+        f0 = (cum_mi[day_no - 2] if day_no >= 2 else 0) / tot; f1 = cum_mi[day_no - 1] / tot
+        a, b = f0 * line_cum[-1], f1 * line_cum[-1]
+        vals = [elev[i] for i in range(len(route_pts)) if a - 10 <= line_cum[i] <= b + 10]
+        return max(vals) if vals else None
     volcs = [(f["geometry"]["coordinates"][1], f["geometry"]["coordinates"][0], f["properties"]) for f in json.load(open(volc_file))["features"] if f.get("geometry")]
     # Segments, bucketed into 0.5 degree cells
     cell = lambda lat, lon: (int(math.floor(lat * 2)), int(math.floor(lon * 2)))
@@ -110,10 +145,21 @@ def main(volc_file, coast_file, lakes_file):
                 name = w[1] if w[2] == "lake" else ocean_name(pt[0], pt[1])
                 cand = {"name": name, "kind": "lake" if w[2] == "lake" else "sea", "dist_mi": round(w[0], 2), "at": which}
                 if "water" not in rec or cand["dist_mi"] < rec["water"]["dist_mi"]: rec["water"] = cand
-        if "volcano" in rec or "water" in rec: out["days"][day] = rec
+        if day in tracks:
+            tr = tracks[day]
+            if tr.get("max_alt_m") is not None: rec["max_alt_m"] = tr["max_alt_m"]; rec["alt_source"] = "track"
+        else:
+            ra = route_max_alt(int(day))
+            if ra is not None: rec["max_alt_m"] = ra; rec["alt_source"] = "route"
+        if day in tracks:
+            tr = tracks[day]
+            new_parks = [n for n in parks_entered(tr["points"]) if n not in seen_parks]
+            if new_parks: rec["parks"] = new_parks; seen_parks.update(new_parks)
+        if any(k in rec for k in ("volcano", "water", "parks", "max_alt_m")): out["days"][day] = rec
     json.dump(out, open(os.path.join(ROOT, "seed", "day_geo.json"), "w"), indent=1, ensure_ascii=False)
     v2 = {d["volcano"]["name"] for d in out["days"].values() if "volcano" in d and d["volcano"]["dist_mi"] <= 2}
     w25 = {d["water"]["name"] for d in out["days"].values() if "water" in d and d["water"]["dist_mi"] <= 0.25}
+    print("national parks entered (plan):", sorted(seen_parks))
     print(f"days with data: {len(out['days'])}; volcanoes within 2 mi: {len(v2)} {sorted(v2)[:12]}; waters within 0.25 mi: {len(w25)} {sorted(w25)}")
 
 if __name__ == "__main__":

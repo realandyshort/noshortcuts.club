@@ -17,7 +17,14 @@
     capitals: "M4 20h16M6 20v-8h12v8M12 4a4 4 0 0 1 4 4H8a4 4 0 0 1 4-4zM12 2v2M9 20v-4M15 20v-4",
     calories: "M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 1-3-1-6 1-9z",
     volcanoes: "M3 20h18M5 20l5-11h4l5 11M10 9c0-2 1-3 2-5 1 2 2 3 2 5M12 2v1",
-    waters: "M3 15c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M3 19c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M12 4v7M9 8l3 3 3-3"
+    waters: "M3 15c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M3 19c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M12 4v7M9 8l3 3 3-3",
+    parks: "M12 3l5 7h-3l4 5h-4l3 5H7l3-5H6l4-5H7zM12 20v2",
+    llamas: "M5 20v-6c0-3 2-5 5-5h4V5l2-2 2 3v6c0 2-1 3-3 3h-1v5M9 20v-4M15 20v-4M18 6h1",
+    strokes: "M12 12m-7 0a7 7 0 1 0 14 0a7 7 0 1 0-14 0M12 12l4-3M16 9h3M12 12l-4 3M8 15H5",
+    chains: "M7 10a3 3 0 0 1 0-6h3a3 3 0 0 1 3 3M17 14a3 3 0 0 1 0 6h-3a3 3 0 0 1-3-3M9 7l6 10",
+    highest: "M3 20L10 7l3 5 2-3 6 11zM10 7V3h4l-3 1.5z",
+    hottest: "M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z",
+    coldest: "M12 2v20M4 7l16 10M4 17L20 7M12 2l-3 3M12 2l3 3M12 22l-3-3M12 22l3-3"
   };
 
   function ease(t) { return 1 - Math.pow(1 - t, 3); }
@@ -48,7 +55,7 @@
   function closeFlip() {
     if (!state.flip) return;
     var s = stage();
-    s.classList.remove("flipped", "flip-" + state.flip);
+    s.classList.remove("flipped", "mode-" + state.flip);
     document.querySelectorAll(".flip.on").forEach(function (f) { f.classList.remove("on"); setTimeout(function () { if (!f.classList.contains("on")) f.setAttribute("hidden", ""); }, 500); });
     document.querySelectorAll(".counter.active").forEach(function (c) { c.classList.remove("active"); });
     var mark = document.getElementById("mark-button"); if (mark) mark.classList.remove("active");
@@ -60,7 +67,7 @@
     if (state.flip === name) { closeFlip(); return; }
     closeFlip();
     state.flip = name;
-    var s = stage(); s.classList.add("flipped", "flip-" + name);
+    var s = stage(); s.classList.add("flipped", "mode-" + name);   // "mode-" so it never collides with the overlays' own classes
     if (trigger) trigger.classList.add("active");
     if (name === "days") showDays();
     else if (name === "countries") showCountries();
@@ -164,22 +171,35 @@
 
   function showStats() {
     var ctx = state.ctx, c = ctx.config, box = document.getElementById("flip-stats"), labels = c.copy.stats || {};
-    var st = window.Stats.asOf(ctx.plan, c, ctx.day, ctx.data.calories, ctx.geo, ctx.countries);
+    var st = window.Stats.asOf(ctx.plan, c, ctx.day, ctx.data.calories, ctx.geo, ctx.countries, { rides: ctx.data.rides, geoLive: ctx.data.geoLive, weather: ctx.data.dayWeather });
     box.textContent = "";
     var k = document.createElement("p"); k.className = "kicker"; k.textContent = (labels.kicker || "SECRET STATS") + " · DAY " + ctx.day; box.appendChild(k);
-    [["water", st.water], ["hotSprings", st.hotSprings], ["volcanoes", st.volcanoes], ["waters", st.waters], ["borders", st.borders], ["boats", st.boats], ["restDays", st.restDays], ["capitals", st.capitals], ["calories", st.calories]].forEach(function (pair) {
-      if (pair[1] === null || pair[1] === undefined) return;
-      var tile = document.createElement("div"); tile.className = "stat";
+    function tile(key, value, title, small) {
+      if (value === null || value === undefined) return;
+      var el = document.createElement("div"); el.className = "stat";
       var svg = document.createElementNS(NS, "svg"); svg.setAttribute("viewBox", "0 0 24 24");
-      var path = document.createElementNS(NS, "path"); path.setAttribute("d", ICONS[pair[0]]); svg.appendChild(path);
+      var path = document.createElementNS(NS, "path"); path.setAttribute("d", ICONS[key]); svg.appendChild(path);
       var txt = document.createElement("div");
-      var num = document.createElement("div"); num.className = "num"; num.textContent = Number(pair[1]).toLocaleString("en-US");
-      var lbl = document.createElement("div"); lbl.className = "lbl"; lbl.textContent = labels[pair[0]] || pair[0];
-      if (pair[0] === "capitals" && st.capitalNames.length) tile.title = st.capitalNames.join(", ");
-      if (pair[0] === "volcanoes" && st.volcanoNames.length) tile.title = st.volcanoNames.join(", ");
-      if (pair[0] === "waters" && st.waterNames.length) tile.title = st.waterNames.join(", ");
-      txt.appendChild(num); txt.appendChild(lbl); tile.appendChild(svg); tile.appendChild(txt); box.appendChild(tile);
-    });
+      var num = document.createElement("div"); num.className = "num"; num.textContent = typeof value === "number" ? value.toLocaleString("en-US") : value;
+      var lbl = document.createElement("div"); lbl.className = "lbl"; lbl.textContent = (labels[key] || key) + (small ? " · " + small : "");
+      if (title) el.title = title;
+      txt.appendChild(num); txt.appendChild(lbl); el.appendChild(svg); el.appendChild(txt); box.appendChild(el);
+    }
+    var names = function (arr) { return arr && arr.length ? arr.join(", ") : ""; };
+    tile("water", st.water); tile("hotSprings", st.hotSprings);
+    tile("volcanoes", st.volcanoes, names(st.volcanoNames)); tile("waters", st.waters, names(st.waterNames));
+    tile("parks", st.parks, names(st.parkNames)); tile("llamas", st.llamas);
+    tile("strokes", st.strokes); tile("chains", st.chains);
+    tile("borders", st.borders); tile("boats", st.boats); tile("restDays", st.restDays);
+    tile("capitals", st.capitals, names(st.capitalNames)); tile("calories", st.calories);
+    // Milestones: records rather than tallies. Day numbers, never dates, until showDates is on.
+    var when = function (m) { return c.showDates && ctx.plan.days[m.day - 1] ? ctx.plan.days[m.day - 1].date : "DAY " + m.day; };
+    if (st.highest || st.hottest || st.coldest) {
+      var mk = document.createElement("p"); mk.className = "kicker milestones"; mk.textContent = labels.milestones || "MILESTONES"; box.appendChild(mk);
+      if (st.highest) tile("highest", Math.round(st.highest.m * 3.28084).toLocaleString("en-US") + " FT", null, when(st.highest) + " · " + (st.highest.place || "").toUpperCase() + (st.highest.live ? "" : " · " + (labels.estimate || "ESTIMATE")));
+      if (st.hottest) tile("hottest", Math.round(st.hottest.f) + "°F", null, when(st.hottest) + " · " + (st.hottest.place || "").toUpperCase() + (st.hottest.sample ? " · " + (labels.estimate || "ESTIMATE") : ""));
+      if (st.coldest) tile("coldest", Math.round(st.coldest.f) + "°F", null, when(st.coldest) + " · " + (st.coldest.place || "").toUpperCase() + (st.coldest.sample ? " · " + (labels.estimate || "ESTIMATE") : ""));
+    }
     setHint(labels.kicker || "SECRET STATS");
     show(box);
   }

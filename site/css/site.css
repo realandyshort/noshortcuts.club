@@ -234,10 +234,10 @@ body.has-strip { padding-bottom: 2.2rem; }
 .banner-route.flipped { cursor: default; }
 .banner-route #banner-line { transition: opacity 0.45s ease; }
 .banner-route.flipped #banner-line { opacity: 0.12; }
-.banner-route.flipped.flip-climb #banner-line, .banner-route.flipped.flip-countries #banner-line { opacity: 1; }   /* the profile is the line; outlines sit over the line */
-.banner-route.flipped.flip-stats #banner-line { opacity: 0; }   /* nothing behind the secret stats */
+.banner-route.flipped.mode-climb #banner-line, .banner-route.flipped.mode-countries #banner-line { opacity: 1; }   /* the profile is the line; outlines sit over the line */
+.banner-route.flipped.mode-stats #banner-line { opacity: 0; }   /* nothing behind the secret stats */
 .banner-route.flipped .marker { opacity: 0; transition: opacity 0.3s; }
-.banner-route.flipped.flip-countries .marker { opacity: 1; }
+.banner-route.flipped.mode-countries .marker { opacity: 1; }
 .banner-route .flip { position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
 .banner-route .flip.on { opacity: 1; pointer-events: auto; }
 .flip-countries { width: 100%; height: 100%; overflow: visible; clip-path: inset(0); }   /* outlines stop at the banner's edges, not over the title */
@@ -254,6 +254,14 @@ body.has-strip { padding-bottom: 2.2rem; }
 .stat .num { font-family: var(--font-mono); font-size: clamp(1.1rem, 2vw, 1.6rem); color: var(--cream); line-height: 1.1; }
 .stat .lbl { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--peach); }
 .flip-stats .kicker { grid-column: 1 / -1; color: var(--peach); margin: 0; }
+.flip-stats .kicker.milestones { margin-top: 0.4rem; padding-top: 0.5rem; border-top: 1px solid var(--line-on-ink); }
+.flip-stats { grid-template-columns: repeat(5, 1fr); gap: 0.55rem 1rem; }
+/* With the stats open the banner grows to fit them; the (hidden) line sits behind */
+.banner-route.mode-stats { height: auto; min-height: var(--banner-height); }
+.banner-route.mode-stats #banner-line, .banner-route.mode-stats .marker { position: absolute; inset: 0; height: 100%; }
+.banner-route.mode-stats .flip-stats.on { position: relative; inset: auto; padding-top: 0.6rem; padding-bottom: 0.6rem; }
+.stat .num { font-size: clamp(0.95rem, 1.6vw, 1.3rem); }
+.stat svg { width: 24px; height: 24px; }
 .counter { cursor: default; border-radius: 6px; padding-inline: 0.3rem; margin-inline: -0.3rem; transition: background 0.2s; }
 .counter.clickable { cursor: pointer; }
 .counter.clickable:hover { background: rgba(251, 233, 215, 0.06); }
