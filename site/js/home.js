@@ -157,6 +157,7 @@
       now.appendChild(el("p", { text: Trip.nextUp(plan, day) }));
       now.hidden = false;
     } else now.hidden = true;
+    document.getElementById("now-card").hidden = now.hidden && !chips.children.length;
 
     /* ---- Map (beside the photo) and the dispatch panel ---- */
     var mapOK = !!(ctx.americas && ctx.route);
@@ -165,6 +166,7 @@
     var mapCard = document.getElementById("map-card"), dispatch = document.getElementById("dispatch");
     mapCard.hidden = !mapOK;
     document.getElementById("latest-grid").classList.toggle("single", !mapOK);
+    document.getElementById("latest-under").classList.toggle("single", !mapOK);
     if (sections.dispatch) sections.dispatch.hidden = !(dispOK || archDisp);
     if (mapOK) window.SiteMap.draw(document.getElementById("map"), {
       americas: ctx.americas, route: ctx.route.points, fraction: fraction,

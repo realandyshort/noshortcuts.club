@@ -92,20 +92,21 @@
             <div class="photo" id="latest-photo"></div>
           </article>
         </div>
-        <article class="card latest-body-card">
-          <div class="latest-body">
-            <div>
+        <!-- Under them, in the same two columns: "now / next up" under the map, the photo's words under the photo -->
+        <div class="latest-grid latest-under" id="latest-under">
+          <article class="card now-card" id="now-card">
+            <div class="chips" id="latest-chips"></div>
+            <div class="now" id="now-band" hidden></div>
+          </article>
+          <article class="card latest-body-card">
+            <div class="latest-body">
               <p class="kicker" id="latest-kicker"></p>
               <h2 id="latest-title"></h2>
               <p class="caption" id="latest-caption"></p>
               <p class="caption-note" id="latest-caption-note" hidden></p>
             </div>
-            <div>
-              <div class="chips" id="latest-chips"></div>
-              <div class="now" id="now-band" hidden></div>
-            </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
     </section>
 

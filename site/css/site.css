@@ -84,7 +84,12 @@ em { font-style: italic; color: var(--persimmon); }
 .placeholder .mark { width: clamp(44px, 8vw, 84px); height: auto; color: var(--persimmon); }
 .placeholder p { margin: 0; font-size: 0.9rem; opacity: 0.8; }
 .placeholder a { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
-.latest-body { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem 2rem; padding: 1.3rem 1.3rem 1.5rem; }
+.latest-body { padding: 1.3rem 1.3rem 1.5rem; }
+.latest-under { margin-bottom: 0; }
+.latest-grid.latest-under > .card { height: auto; }               /* these two follow the map and photo's columns, not their height */
+.now-card { padding: 1.3rem; display: flex; flex-direction: column; gap: 1rem; }
+.now-card .chips { margin-bottom: 0; }
+.latest-under.single .now-card { order: 2; }         /* no map: the photo's words come first */
 .latest-body h2, .h2 { font-family: var(--font-headline); font-weight: 600; font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.1; margin: 0 0 0.6rem; letter-spacing: -0.01em; }
 .caption { margin: 0; white-space: pre-line; }
 .caption-note { margin: 0.5rem 0 0; color: var(--gray); font-size: 0.85rem; }
@@ -229,7 +234,7 @@ body.has-strip { padding-bottom: 2.2rem; }
 
 /* Phones and small tablets */
 @media (max-width: 900px) {
-  .two-col, .latest-body, .about-hero .wrap, .latest-grid, .dispatch-wide, .signup-strip .wrap, .site-footer .wrap { grid-template-columns: 1fr; }
+  .two-col, .about-hero .wrap, .latest-grid, .dispatch-wide, .signup-strip .wrap, .site-footer .wrap { grid-template-columns: 1fr; }
   .stamp-view { grid-template-columns: 1fr; }
   .counters { grid-template-columns: repeat(3, 1fr); }
   .latest-grid > .card { height: auto; min-height: min(var(--map-height), 70vw); }
