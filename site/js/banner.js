@@ -164,7 +164,7 @@
 
   function showStats() {
     var ctx = state.ctx, c = ctx.config, box = document.getElementById("flip-stats"), labels = c.copy.stats || {};
-    var st = window.Stats.asOf(ctx.plan, c, ctx.day, ctx.data.calories, ctx.geo);
+    var st = window.Stats.asOf(ctx.plan, c, ctx.day, ctx.data.calories, ctx.geo, ctx.countries);
     box.textContent = "";
     var k = document.createElement("p"); k.className = "kicker"; k.textContent = (labels.kicker || "SECRET STATS") + " · DAY " + ctx.day; box.appendChild(k);
     [["water", st.water], ["hotSprings", st.hotSprings], ["volcanoes", st.volcanoes], ["waters", st.waters], ["borders", st.borders], ["boats", st.boats], ["restDays", st.restDays], ["capitals", st.capitals], ["calories", st.calories]].forEach(function (pair) {

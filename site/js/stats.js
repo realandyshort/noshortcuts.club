@@ -6,11 +6,17 @@
 })(typeof self !== "undefined" ? self : this, function () {
   "use strict";
   function fold(s) { return String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+  // Which country each capital belongs to, so a Santiago in Panama does not count as Chile's capital
+  var CAPITAL_COUNTRY = { "ottawa": "Canada", "washington": "United States", "mexico city": "Mexico", "belmopan": "Belize", "guatemala city": "Guatemala",
+    "san salvador": "El Salvador", "tegucigalpa": "Honduras", "managua": "Nicaragua", "san jose": "Costa Rica", "panama city": "Panama", "bogota": "Colombia",
+    "quito": "Ecuador", "lima": "Peru", "la paz": "Bolivia", "sucre": "Bolivia", "santiago": "Chile", "buenos aires": "Argentina", "montevideo": "Uruguay",
+    "asuncion": "Paraguay", "brasilia": "Brazil" };
+  function countryOfDay(countries, n) { var c = null; (countries || []).forEach(function (x) { if (x.first_day <= n) c = x.country; }); return c; }
   function textOf(d) { return fold([d.from, d.to, d.stay, d.notes, d.terrain].join(" | ")); }
 
   // Returns { water, hotSprings, borders, boats, restDays, capitals, calories, volcanoes, waters } as of day n.
   // geo: seed/day_geo.json (nearest volcano and shoreline per day), optional.
-  function asOf(plan, config, n, calories, geo) {
+  function asOf(plan, config, n, calories, geo, countries) {
     var cfg = config.secretStats || {}, days = plan.days.slice(0, Math.max(0, Math.min(n, plan.days.length)));
     var kws = (cfg.hotSpringKeywords || []).map(fold);
     var inc = cfg.hotSpringIncludeDays || [], exc = cfg.hotSpringExcludeDays || [];
@@ -27,9 +33,15 @@
       if (d.kind === "rest") rest++;
       // A capital counts when a day's start, end or stay IS that place (not merely contains the word,
       // or every "Santiago" in Mexico would count as Chile's capital)
+      var dayCountry = countryOfDay(countries, d.day);
       [d.from, d.to, d.stay].forEach(function (pl) {
         var f = fold(pl).replace(/\s*\(.*$/, "").trim();
-        capList.forEach(function (c) { if (f === c.key || f.indexOf(c.key + ",") === 0) caps[c.name] = true; });
+        capList.forEach(function (c) {
+          if (!(f === c.key || f.indexOf(c.key + ",") === 0)) return;
+          var want = CAPITAL_COUNTRY[c.key];
+          if (want && dayCountry && want !== dayCountry) return;      // same name, wrong country
+          caps[c.name] = true;
+        });
       });
     });
     (cfg.borderExtraDays || []).forEach(function (x) { if (x <= n) borders[x] = true; });
