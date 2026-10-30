@@ -25,8 +25,12 @@
       if (d.kind === "border") borders[d.day] = true;
       if (d.kind === "boat" || /\b(ferry|boat|lancha|barco)\b/.test(t)) boats++;
       if (d.kind === "rest") rest++;
-      var places = fold([d.from, d.to, d.stay].join(" | "));
-      capList.forEach(function (c) { if (places.indexOf(c.key) >= 0) caps[c.name] = true; });
+      // A capital counts when a day's start, end or stay IS that place (not merely contains the word,
+      // or every "Santiago" in Mexico would count as Chile's capital)
+      [d.from, d.to, d.stay].forEach(function (pl) {
+        var f = fold(pl).replace(/\s*\(.*$/, "").trim();
+        capList.forEach(function (c) { if (f === c.key || f.indexOf(c.key + ",") === 0) caps[c.name] = true; });
+      });
     });
     (cfg.borderExtraDays || []).forEach(function (x) { if (x <= n) borders[x] = true; });
     var kcal = (calories && calories.available && calories.cumulative_kcal && n >= 1) ? calories.cumulative_kcal[Math.min(n, calories.cumulative_kcal.length) - 1] : null;
