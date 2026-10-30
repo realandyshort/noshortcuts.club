@@ -166,7 +166,7 @@
   if (!light) {
     loads.push(quiet("data/plan.json"), quiet("data/meta.json"), quiet("data/status.json"), quiet("data/countries.json"), quiet("data/route_line.json"),
       quiet("data/dispatches.json"), quiet("data/instagram.json"), quiet("data/rides.json"), quiet("data/position.json"), quiet("data/weather.json"), quiet("data/videos.json"));
-    if (document.body.hasAttribute("data-needs-map")) loads.push(quiet("data/americas.json"), quiet("data/calories.json"), quiet("data/countries_outlines.json"), quiet("data/route_elevation.json"));
+    if (document.body.hasAttribute("data-needs-map")) loads.push(quiet("data/americas.json"), quiet("data/calories.json"), quiet("data/countries_outlines.json"), quiet("data/route_elevation.json"), quiet("data/day_geo.json"));
   }
 
   window.Site = ctx;
@@ -180,6 +180,7 @@
       ctx.data.calories = r[13] || null;
       ctx.outlines = r[14] || null;
       ctx.elevation = (r[15] && r[15].elevation_m && ctx.route && r[15].elevation_m.length === ctx.route.points.length) ? r[15] : null;
+      ctx.geo = r[16] || null;
       if (ctx.plan) decideDay();
     }
     applyChrome();

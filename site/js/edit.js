@@ -22,6 +22,9 @@
     return;
   }
 
+  // Edit-mode styles live in their own file so any page (including the coming-soon page) can load them
+  (function () { var l = document.createElement("link"); l.rel = "stylesheet"; l.href = "css/edit.css"; document.head.appendChild(l); })();
+
   var SIZES = [
     ["home.bannerHeight", "Banner height", 160, 640, "px"],
     ["home.titleSize", "Title size", 1.6, 7, "rem"],
@@ -122,8 +125,9 @@
     var closeBtn = el("a", { class: "btn btn-outline-ink", href: (function () { var u = new URL(location.href); u.searchParams.delete("edit"); u.searchParams.delete("tinker"); return u.pathname + u.search; })(), text: "Done" });
     panel.appendChild(el("div", { class: "row" }, [saveBtn, closeBtn]));
 
-    // Section order
-    panel.appendChild(el("h3", { text: "Home page: section order (drag)" }));
+    var onHome = !!document.getElementById("home");
+    // Section order (home page only)
+    if (onHome) panel.appendChild(el("h3", { text: "Home page: section order (drag)" }));
     var list = el("ul", { class: "order" });
     function drawList() {
       list.textContent = "";
@@ -142,7 +146,7 @@
         list.appendChild(li);
       });
     }
-    drawList(); panel.appendChild(list);
+    drawList(); if (onHome) panel.appendChild(list);
 
     panel.appendChild(el("h3", { text: "Switches" }));
     SWITCHES.forEach(function (sw) {
@@ -223,7 +227,6 @@
     document.body.classList.add("tinker-open");
   }
 
-  window.addEventListener("DOMContentLoaded", function () {
-    detect().then(function () { return window.Site.ready; }).then(function (ctx) { if (ctx.config) build(ctx); });
-  });
+  function start() { detect().then(function () { return window.Site.ready; }).then(function (ctx) { if (ctx && ctx.config) build(ctx); }); }
+  if (document.readyState === "loading") window.addEventListener("DOMContentLoaded", start); else start();
 })();

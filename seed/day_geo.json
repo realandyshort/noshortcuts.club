@@ -1,0 +1,2482 @@
+{
+ "note": "Per-day geography for the secret stats: nearest Holocene volcano (Smithsonian GVP) and nearest shoreline (Natural Earth 1:10m coastline and lakes) to any point of the day's planned track (Komoot), or to the day's start and end place when there is no track. Distances in miles; only hits within 15 mi (volcano) and 5 mi (water) are kept. Thresholds live in config.",
+ "days": {
+  "10": {
+   "from": "track",
+   "water": {
+    "name": "Kluane Lake",
+    "kind": "lake",
+    "dist_mi": 0.24,
+    "at": "route"
+   }
+  },
+  "13": {
+   "from": "track",
+   "water": {
+    "name": "Teslin Lake",
+    "kind": "lake",
+    "dist_mi": 2.96,
+    "at": "route"
+   }
+  },
+  "14": {
+   "from": "track",
+   "water": {
+    "name": "Teslin Lake",
+    "kind": "lake",
+    "dist_mi": 0.02,
+    "at": "route"
+   }
+  },
+  "20": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.14,
+    "at": "route"
+   }
+  },
+  "21": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.14,
+    "at": "route"
+   }
+  },
+  "35": {
+   "from": "track",
+   "water": {
+    "name": "Upper Arrow Lake",
+    "kind": "lake",
+    "dist_mi": 0.01,
+    "at": "route"
+   }
+  },
+  "36": {
+   "from": "places",
+   "water": {
+    "name": "Upper Arrow Lake",
+    "kind": "lake",
+    "dist_mi": 0.24,
+    "at": "start"
+   }
+  },
+  "37": {
+   "from": "track",
+   "water": {
+    "name": "Upper Arrow Lake",
+    "kind": "lake",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "41": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.58,
+    "at": "route"
+   }
+  },
+  "42": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.58,
+    "at": "start"
+   }
+  },
+  "43": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.58,
+    "at": "start"
+   }
+  },
+  "44": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.06,
+    "at": "route"
+   }
+  },
+  "45": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.16,
+    "at": "route"
+   }
+  },
+  "46": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.5,
+    "at": "start"
+   }
+  },
+  "47": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.5,
+    "at": "start"
+   }
+  },
+  "48": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   }
+  },
+  "49": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "50": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.13,
+    "at": "route"
+   }
+  },
+  "51": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.12,
+    "at": "route"
+   }
+  },
+  "52": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "53": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "54": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "59": {
+   "from": "track",
+   "volcano": {
+    "name": "Davis Lake",
+    "dist_mi": 6.77,
+    "elevation_m": 2163,
+    "type": "Volcanic field",
+    "at": "route"
+   }
+  },
+  "60": {
+   "from": "track",
+   "volcano": {
+    "name": "Crater Lake",
+    "dist_mi": 2.42,
+    "elevation_m": 2487,
+    "type": "Caldera",
+    "at": "route"
+   }
+  },
+  "62": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.31,
+    "at": "route"
+   }
+  },
+  "63": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.1,
+    "at": "route"
+   }
+  },
+  "64": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 2.93,
+    "at": "start"
+   }
+  },
+  "65": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   }
+  },
+  "66": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "67": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "68": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   }
+  },
+  "69": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 2.86,
+    "at": "start"
+   }
+  },
+  "70": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 2.86,
+    "at": "start"
+   }
+  },
+  "71": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.04,
+    "at": "route"
+   }
+  },
+  "72": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   }
+  },
+  "73": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "74": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.02,
+    "at": "route"
+   }
+  },
+  "75": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.02,
+    "at": "route"
+   }
+  },
+  "76": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.19,
+    "at": "route"
+   }
+  },
+  "79": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "80": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.03,
+    "at": "route"
+   }
+  },
+  "81": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 2.2,
+    "at": "start"
+   }
+  },
+  "82": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "83": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.14,
+    "at": "route"
+   }
+  },
+  "84": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.14,
+    "at": "route"
+   }
+  },
+  "85": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.08,
+    "at": "route"
+   },
+   "volcano": {
+    "name": "San Luis, Isla",
+    "dist_mi": 6.38,
+    "elevation_m": 183,
+    "type": "Tuff cone",
+    "at": "route"
+   }
+  },
+  "86": {
+   "from": "track",
+   "volcano": {
+    "name": "Jaraguay Volcanic Field",
+    "dist_mi": 8.05,
+    "elevation_m": 960,
+    "type": "Volcanic field",
+    "at": "route"
+   },
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.06,
+    "at": "route"
+   }
+  },
+  "87": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.67,
+    "at": "route"
+   }
+  },
+  "88": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.03,
+    "at": "route"
+   }
+  },
+  "89": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.23,
+    "at": "start"
+   }
+  },
+  "90": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "91": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.02,
+    "at": "route"
+   }
+  },
+  "92": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.21,
+    "at": "route"
+   }
+  },
+  "93": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.11,
+    "at": "route"
+   }
+  },
+  "94": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.66,
+    "at": "route"
+   }
+  },
+  "95": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.17,
+    "at": "route"
+   }
+  },
+  "96": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "97": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.11,
+    "at": "start"
+   }
+  },
+  "98": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.11,
+    "at": "start"
+   }
+  },
+  "99": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.11,
+    "at": "start"
+   }
+  },
+  "100": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.11,
+    "at": "start"
+   }
+  },
+  "101": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.11,
+    "at": "start"
+   }
+  },
+  "102": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.22,
+    "at": "route"
+   },
+   "volcano": {
+    "name": "Mascota Volcanic Field",
+    "dist_mi": 1.3,
+    "elevation_m": 2525,
+    "type": "Volcanic field",
+    "at": "route"
+   }
+  },
+  "103": {
+   "from": "track",
+   "volcano": {
+    "name": "Mascota Volcanic Field",
+    "dist_mi": 3.27,
+    "elevation_m": 2525,
+    "type": "Volcanic field",
+    "at": "route"
+   }
+  },
+  "125": {
+   "from": "track",
+   "volcano": {
+    "name": "Iztaccihuatl",
+    "dist_mi": 8.92,
+    "elevation_m": 5230,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "126": {
+   "from": "track",
+   "volcano": {
+    "name": "Popocatepetl",
+    "dist_mi": 4.62,
+    "elevation_m": 5393,
+    "type": "Stratovolcano(es)",
+    "at": "route"
+   },
+   "water": {
+    "name": "Presa Manuel vila Camacho",
+    "kind": "lake",
+    "dist_mi": 4.64,
+    "at": "route"
+   }
+  },
+  "127": {
+   "from": "track",
+   "water": {
+    "name": "Presa Manuel vila Camacho",
+    "kind": "lake",
+    "dist_mi": 4.57,
+    "at": "route"
+   },
+   "volcano": {
+    "name": "Malinche, La",
+    "dist_mi": 8.17,
+    "elevation_m": 4461,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "128": {
+   "from": "track",
+   "volcano": {
+    "name": "Naolinco Volcanic Field",
+    "dist_mi": 10.84,
+    "elevation_m": 2000,
+    "type": "Volcanic field",
+    "at": "route"
+   }
+  },
+  "129": {
+   "from": "places",
+   "volcano": {
+    "name": "Naolinco Volcanic Field",
+    "dist_mi": 13.08,
+    "elevation_m": 2000,
+    "type": "Volcanic field",
+    "at": "start"
+   }
+  },
+  "130": {
+   "from": "track",
+   "volcano": {
+    "name": "Naolinco Volcanic Field",
+    "dist_mi": 13.08,
+    "elevation_m": 2000,
+    "type": "Volcanic field",
+    "at": "route"
+   }
+  },
+  "141": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.25,
+    "at": "route"
+   }
+  },
+  "142": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.35,
+    "at": "start"
+   }
+  },
+  "143": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.35,
+    "at": "start"
+   }
+  },
+  "144": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.35,
+    "at": "start"
+   }
+  },
+  "145": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.17,
+    "at": "route"
+   }
+  },
+  "146": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.35,
+    "at": "route"
+   }
+  },
+  "150": {
+   "from": "track",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 1.74,
+    "at": "route"
+   }
+  },
+  "153": {
+   "from": "track",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 0.02,
+    "at": "route"
+   }
+  },
+  "154": {
+   "from": "track",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   }
+  },
+  "155": {
+   "from": "track",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   }
+  },
+  "156": {
+   "from": "track",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 0.25,
+    "at": "route"
+   }
+  },
+  "157": {
+   "from": "track",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 1.83,
+    "at": "route"
+   }
+  },
+  "161": {
+   "from": "track",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 1.31,
+    "at": "route"
+   }
+  },
+  "162": {
+   "from": "places",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 1.79,
+    "at": "start"
+   }
+  },
+  "163": {
+   "from": "track",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 1.8,
+    "at": "route"
+   }
+  },
+  "165": {
+   "from": "track",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 0.55,
+    "at": "route"
+   }
+  },
+  "166": {
+   "from": "track",
+   "water": {
+    "name": "the Gulf of Mexico",
+    "kind": "sea",
+    "dist_mi": 1.63,
+    "at": "route"
+   }
+  },
+  "170": {
+   "from": "track",
+   "water": {
+    "name": "Lago de Izabal",
+    "kind": "lake",
+    "dist_mi": 0.03,
+    "at": "route"
+   }
+  },
+  "171": {
+   "from": "track",
+   "water": {
+    "name": "Lago de Izabal",
+    "kind": "lake",
+    "dist_mi": 0.03,
+    "at": "route"
+   }
+  },
+  "173": {
+   "from": "track",
+   "volcano": {
+    "name": "Agua",
+    "dist_mi": 6.39,
+    "elevation_m": 3760,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "174": {
+   "from": "places",
+   "volcano": {
+    "name": "Agua",
+    "dist_mi": 6.39,
+    "elevation_m": 3760,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "175": {
+   "from": "track",
+   "volcano": {
+    "name": "Agua",
+    "dist_mi": 6.4,
+    "elevation_m": 3760,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "176": {
+   "from": "places",
+   "volcano": {
+    "name": "Toliman",
+    "dist_mi": 9.06,
+    "elevation_m": 3158,
+    "type": "Stratovolcano(es)",
+    "at": "start"
+   }
+  },
+  "177": {
+   "from": "track",
+   "volcano": {
+    "name": "Almolonga",
+    "dist_mi": 3.06,
+    "elevation_m": 3173,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "178": {
+   "from": "track",
+   "volcano": {
+    "name": "Almolonga",
+    "dist_mi": 1.6,
+    "elevation_m": 3173,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "179": {
+   "from": "track",
+   "volcano": {
+    "name": "Almolonga",
+    "dist_mi": 1.91,
+    "elevation_m": 3173,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "180": {
+   "from": "track",
+   "volcano": {
+    "name": "Agua",
+    "dist_mi": 11.84,
+    "elevation_m": 3760,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "181": {
+   "from": "track",
+   "volcano": {
+    "name": "Tecuamburro",
+    "dist_mi": 4.91,
+    "elevation_m": 1845,
+    "type": "Stratovolcano",
+    "at": "route"
+   },
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.38,
+    "at": "route"
+   }
+  },
+  "182": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.02,
+    "at": "route"
+   }
+  },
+  "183": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   },
+   "volcano": {
+    "name": "San Salvador",
+    "dist_mi": 4.62,
+    "elevation_m": 1893,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "184": {
+   "from": "places",
+   "volcano": {
+    "name": "San Salvador",
+    "dist_mi": 6.11,
+    "elevation_m": 1893,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "185": {
+   "from": "track",
+   "volcano": {
+    "name": "San Miguel",
+    "dist_mi": 4.17,
+    "elevation_m": 2130,
+    "type": "Stratovolcano",
+    "at": "route"
+   },
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 3.74,
+    "at": "route"
+   }
+  },
+  "186": {
+   "from": "track",
+   "volcano": {
+    "name": "Aramuaca, Laguna",
+    "dist_mi": 6.12,
+    "elevation_m": 181,
+    "type": "Maar",
+    "at": "route"
+   },
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.09,
+    "at": "route"
+   }
+  },
+  "187": {
+   "from": "track",
+   "volcano": {
+    "name": "Zacate Grande, Isla",
+    "dist_mi": 13.6,
+    "elevation_m": 640,
+    "type": "Stratovolcano",
+    "at": "route"
+   },
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.09,
+    "at": "route"
+   }
+  },
+  "188": {
+   "from": "track",
+   "volcano": {
+    "name": "San Cristobal",
+    "dist_mi": 5.4,
+    "elevation_m": 1745,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "189": {
+   "from": "track",
+   "volcano": {
+    "name": "Nejapa-Miraflores",
+    "dist_mi": 2.08,
+    "elevation_m": 360,
+    "type": "Fissure vent(s)",
+    "at": "route"
+   },
+   "water": {
+    "name": "Lago de Managua",
+    "kind": "lake",
+    "dist_mi": 0.5,
+    "at": "route"
+   }
+  },
+  "190": {
+   "from": "places",
+   "volcano": {
+    "name": "Granada",
+    "dist_mi": 2.59,
+    "elevation_m": 250,
+    "type": "Fissure vent(s)",
+    "at": "start"
+   },
+   "water": {
+    "name": "Lago de Nicaragua",
+    "kind": "lake",
+    "dist_mi": 1.3,
+    "at": "start"
+   }
+  },
+  "191": {
+   "from": "places",
+   "volcano": {
+    "name": "Granada",
+    "dist_mi": 2.59,
+    "elevation_m": 250,
+    "type": "Fissure vent(s)",
+    "at": "start"
+   },
+   "water": {
+    "name": "Lago de Nicaragua",
+    "kind": "lake",
+    "dist_mi": 1.3,
+    "at": "start"
+   }
+  },
+  "192": {
+   "from": "track",
+   "volcano": {
+    "name": "Granada",
+    "dist_mi": 0.46,
+    "elevation_m": 250,
+    "type": "Fissure vent(s)",
+    "at": "route"
+   },
+   "water": {
+    "name": "Lago de Nicaragua",
+    "kind": "lake",
+    "dist_mi": 0.1,
+    "at": "route"
+   }
+  },
+  "193": {
+   "from": "track",
+   "volcano": {
+    "name": "Concepcion",
+    "dist_mi": 2.06,
+    "elevation_m": 1700,
+    "type": "Stratovolcano",
+    "at": "route"
+   },
+   "water": {
+    "name": "Lago de Nicaragua",
+    "kind": "lake",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "194": {
+   "from": "track",
+   "volcano": {
+    "name": "Concepcion",
+    "dist_mi": 5.28,
+    "elevation_m": 1700,
+    "type": "Stratovolcano",
+    "at": "route"
+   },
+   "water": {
+    "name": "Lago de Nicaragua",
+    "kind": "lake",
+    "dist_mi": 0.1,
+    "at": "route"
+   }
+  },
+  "195": {
+   "from": "track",
+   "volcano": {
+    "name": "Orosi",
+    "dist_mi": 6.2,
+    "elevation_m": 1659,
+    "type": "Stratovolcano(es)",
+    "at": "route"
+   }
+  },
+  "196": {
+   "from": "track",
+   "volcano": {
+    "name": "Arenal",
+    "dist_mi": 12.64,
+    "elevation_m": 1670,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "197": {
+   "from": "places",
+   "volcano": {
+    "name": "Arenal",
+    "dist_mi": 13.43,
+    "elevation_m": 1670,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "198": {
+   "from": "track",
+   "volcano": {
+    "name": "Arenal",
+    "dist_mi": 2.1,
+    "elevation_m": 1670,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "199": {
+   "from": "track",
+   "volcano": {
+    "name": "Arenal",
+    "dist_mi": 3.95,
+    "elevation_m": 1670,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "200": {
+   "from": "track",
+   "volcano": {
+    "name": "Poas",
+    "dist_mi": 8.94,
+    "elevation_m": 2697,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "201": {
+   "from": "places",
+   "volcano": {
+    "name": "Barva",
+    "dist_mi": 14.02,
+    "elevation_m": 2906,
+    "type": "Complex",
+    "at": "start"
+   }
+  },
+  "202": {
+   "from": "places",
+   "volcano": {
+    "name": "Barva",
+    "dist_mi": 14.02,
+    "elevation_m": 2906,
+    "type": "Complex",
+    "at": "start"
+   }
+  },
+  "203": {
+   "from": "track",
+   "volcano": {
+    "name": "Barva",
+    "dist_mi": 12.86,
+    "elevation_m": 2906,
+    "type": "Complex",
+    "at": "route"
+   },
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.35,
+    "at": "route"
+   }
+  },
+  "204": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.04,
+    "at": "route"
+   }
+  },
+  "205": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "206": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 1.85,
+    "at": "start"
+   }
+  },
+  "208": {
+   "from": "places",
+   "volcano": {
+    "name": "Baru",
+    "dist_mi": 11.72,
+    "elevation_m": 3474,
+    "type": "Stratovolcano",
+    "at": "end"
+   }
+  },
+  "209": {
+   "from": "places",
+   "volcano": {
+    "name": "Baru",
+    "dist_mi": 11.72,
+    "elevation_m": 3474,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "210": {
+   "from": "places",
+   "volcano": {
+    "name": "Baru",
+    "dist_mi": 11.72,
+    "elevation_m": 3474,
+    "type": "Stratovolcano",
+    "at": "start"
+   },
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 2.4,
+    "at": "end"
+   }
+  },
+  "211": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 2.4,
+    "at": "start"
+   }
+  },
+  "213": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 1.24,
+    "at": "end"
+   }
+  },
+  "214": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 1.08,
+    "at": "end"
+   }
+  },
+  "215": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 1.08,
+    "at": "start"
+   }
+  },
+  "216": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 1.08,
+    "at": "start"
+   }
+  },
+  "217": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 1.08,
+    "at": "start"
+   }
+  },
+  "218": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.17,
+    "at": "end"
+   }
+  },
+  "219": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.17,
+    "at": "start"
+   }
+  },
+  "223": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 4.64,
+    "at": "start"
+   }
+  },
+  "224": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.05,
+    "at": "route"
+   }
+  },
+  "225": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.27,
+    "at": "route"
+   }
+  },
+  "226": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.26,
+    "at": "route"
+   }
+  },
+  "227": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.92,
+    "at": "start"
+   }
+  },
+  "228": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.92,
+    "at": "start"
+   }
+  },
+  "229": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.92,
+    "at": "route"
+   }
+  },
+  "231": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   }
+  },
+  "232": {
+   "from": "places",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 1.98,
+    "at": "start"
+   }
+  },
+  "233": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 1.98,
+    "at": "route"
+   }
+  },
+  "234": {
+   "from": "track",
+   "water": {
+    "name": "the Caribbean Sea",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   }
+  },
+  "267": {
+   "from": "track",
+   "volcano": {
+    "name": "Romeral",
+    "dist_mi": 10.12,
+    "elevation_m": 3769,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "268": {
+   "from": "track",
+   "volcano": {
+    "name": "Romeral",
+    "dist_mi": 14.17,
+    "elevation_m": 3769,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "277": {
+   "from": "track",
+   "volcano": {
+    "name": "Purace",
+    "dist_mi": 7.31,
+    "elevation_m": 4650,
+    "type": "Stratovolcano(es)",
+    "at": "route"
+   }
+  },
+  "278": {
+   "from": "track",
+   "volcano": {
+    "name": "Purace",
+    "dist_mi": 7.4,
+    "elevation_m": 4650,
+    "type": "Stratovolcano(es)",
+    "at": "route"
+   }
+  },
+  "282": {
+   "from": "track",
+   "volcano": {
+    "name": "Galeras",
+    "dist_mi": 6.24,
+    "elevation_m": 4276,
+    "type": "Complex",
+    "at": "route"
+   }
+  },
+  "283": {
+   "from": "track",
+   "volcano": {
+    "name": "Galeras",
+    "dist_mi": 4.42,
+    "elevation_m": 4276,
+    "type": "Complex",
+    "at": "route"
+   }
+  },
+  "284": {
+   "from": "track",
+   "volcano": {
+    "name": "Soche",
+    "dist_mi": 11.43,
+    "elevation_m": 3955,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "285": {
+   "from": "track",
+   "volcano": {
+    "name": "Imbabura",
+    "dist_mi": 3.56,
+    "elevation_m": 4609,
+    "type": "Compound",
+    "at": "route"
+   }
+  },
+  "286": {
+   "from": "places",
+   "volcano": {
+    "name": "Imbabura",
+    "dist_mi": 5.66,
+    "elevation_m": 4609,
+    "type": "Compound",
+    "at": "start"
+   }
+  },
+  "287": {
+   "from": "track",
+   "volcano": {
+    "name": "Imbabura",
+    "dist_mi": 5.21,
+    "elevation_m": 4609,
+    "type": "Compound",
+    "at": "route"
+   }
+  },
+  "288": {
+   "from": "track",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "289": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "290": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "291": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "292": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "293": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "294": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "295": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "296": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "297": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "298": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "299": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "300": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "301": {
+   "from": "places",
+   "volcano": {
+    "name": "Guagua Pichincha",
+    "dist_mi": 6.96,
+    "elevation_m": 4784,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "302": {
+   "from": "track",
+   "volcano": {
+    "name": "Atacazo",
+    "dist_mi": 4.66,
+    "elevation_m": 4463,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "303": {
+   "from": "track",
+   "volcano": {
+    "name": "Iliniza",
+    "dist_mi": 8.37,
+    "elevation_m": 5162,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "304": {
+   "from": "track",
+   "volcano": {
+    "name": "Quilotoa",
+    "dist_mi": 1.53,
+    "elevation_m": 3914,
+    "type": "Caldera",
+    "at": "route"
+   }
+  },
+  "305": {
+   "from": "track",
+   "volcano": {
+    "name": "Quilotoa",
+    "dist_mi": 1.55,
+    "elevation_m": 3914,
+    "type": "Caldera",
+    "at": "route"
+   }
+  },
+  "306": {
+   "from": "track",
+   "volcano": {
+    "name": "Tungurahua",
+    "dist_mi": 4.67,
+    "elevation_m": 5023,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "307": {
+   "from": "places",
+   "volcano": {
+    "name": "Tungurahua",
+    "dist_mi": 5.15,
+    "elevation_m": 5023,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "308": {
+   "from": "track",
+   "volcano": {
+    "name": "Tungurahua",
+    "dist_mi": 5.15,
+    "elevation_m": 5023,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "312": {
+   "from": "track",
+   "volcano": {
+    "name": "Tungurahua",
+    "dist_mi": 5.15,
+    "elevation_m": 5023,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "313": {
+   "from": "track",
+   "volcano": {
+    "name": "Tungurahua",
+    "dist_mi": 4.12,
+    "elevation_m": 5023,
+    "type": "Stratovolcano",
+    "at": "route"
+   }
+  },
+  "314": {
+   "from": "track",
+   "volcano": {
+    "name": "Licto",
+    "dist_mi": 2.38,
+    "elevation_m": 3322,
+    "type": "Pyroclastic cone(s)",
+    "at": "route"
+   }
+  },
+  "316": {
+   "from": "places",
+   "volcano": {
+    "name": "Tungurahua",
+    "dist_mi": 5.23,
+    "elevation_m": 5023,
+    "type": "Stratovolcano",
+    "at": "end"
+   }
+  },
+  "317": {
+   "from": "places",
+   "volcano": {
+    "name": "Tungurahua",
+    "dist_mi": 5.23,
+    "elevation_m": 5023,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "318": {
+   "from": "places",
+   "volcano": {
+    "name": "Tungurahua",
+    "dist_mi": 5.23,
+    "elevation_m": 5023,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "339": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 3.13,
+    "at": "end"
+   }
+  },
+  "340": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 3.13,
+    "at": "start"
+   }
+  },
+  "341": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 3.13,
+    "at": "start"
+   }
+  },
+  "343": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.84,
+    "at": "end"
+   }
+  },
+  "344": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.84,
+    "at": "start"
+   }
+  },
+  "345": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 2.94,
+    "at": "start"
+   }
+  },
+  "346": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 2.94,
+    "at": "start"
+   }
+  },
+  "347": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 2.94,
+    "at": "start"
+   }
+  },
+  "348": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.03,
+    "at": "end"
+   }
+  },
+  "349": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.03,
+    "at": "start"
+   }
+  },
+  "350": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.85,
+    "at": "end"
+   }
+  },
+  "351": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.85,
+    "at": "start"
+   }
+  },
+  "352": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 3.94,
+    "at": "start"
+   }
+  },
+  "362": {
+   "from": "places",
+   "volcano": {
+    "name": "Quimsachata-Oroscocha",
+    "dist_mi": 10.09,
+    "elevation_m": 3848,
+    "type": "Lava dome",
+    "at": "end"
+   }
+  },
+  "363": {
+   "from": "places",
+   "volcano": {
+    "name": "Quimsachata-Oroscocha",
+    "dist_mi": 10.09,
+    "elevation_m": 3848,
+    "type": "Lava dome",
+    "at": "start"
+   }
+  },
+  "366": {
+   "from": "places",
+   "water": {
+    "name": "Lago Titicaca",
+    "kind": "lake",
+    "dist_mi": 1.99,
+    "at": "end"
+   }
+  },
+  "367": {
+   "from": "places",
+   "water": {
+    "name": "Lago Titicaca",
+    "kind": "lake",
+    "dist_mi": 0.28,
+    "at": "end"
+   }
+  },
+  "368": {
+   "from": "places",
+   "water": {
+    "name": "Lago Titicaca",
+    "kind": "lake",
+    "dist_mi": 0.28,
+    "at": "start"
+   }
+  },
+  "417": {
+   "from": "places",
+   "water": {
+    "name": "Represa Itaipu",
+    "kind": "lake",
+    "dist_mi": 2.96,
+    "at": "end"
+   }
+  },
+  "418": {
+   "from": "places",
+   "water": {
+    "name": "Represa Itaipu",
+    "kind": "lake",
+    "dist_mi": 2.96,
+    "at": "start"
+   }
+  },
+  "419": {
+   "from": "places",
+   "water": {
+    "name": "Represa Itaipu",
+    "kind": "lake",
+    "dist_mi": 3.53,
+    "at": "start"
+   }
+  },
+  "420": {
+   "from": "places",
+   "water": {
+    "name": "Represa Itaipu",
+    "kind": "lake",
+    "dist_mi": 3.53,
+    "at": "start"
+   }
+  },
+  "421": {
+   "from": "places",
+   "water": {
+    "name": "Represa Itaipu",
+    "kind": "lake",
+    "dist_mi": 3.53,
+    "at": "start"
+   }
+  },
+  "429": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 3.91,
+    "at": "end"
+   }
+  },
+  "430": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.11,
+    "at": "end"
+   }
+  },
+  "431": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.04,
+    "at": "end"
+   }
+  },
+  "432": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.04,
+    "at": "start"
+   }
+  },
+  "433": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.5,
+    "at": "start"
+   }
+  },
+  "444": {
+   "from": "places",
+   "water": {
+    "name": "Lagoa Mirim",
+    "kind": "lake",
+    "dist_mi": 4.92,
+    "at": "end"
+   }
+  },
+  "445": {
+   "from": "places",
+   "water": {
+    "name": "Lagoa Mirim",
+    "kind": "lake",
+    "dist_mi": 4.92,
+    "at": "start"
+   }
+  },
+  "446": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 2.32,
+    "at": "end"
+   }
+  },
+  "447": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 2.32,
+    "at": "start"
+   }
+  },
+  "448": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 2.32,
+    "at": "start"
+   }
+  },
+  "449": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.25,
+    "at": "end"
+   }
+  },
+  "450": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.25,
+    "at": "start"
+   }
+  },
+  "451": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.31,
+    "at": "end"
+   }
+  },
+  "452": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.31,
+    "at": "start"
+   }
+  },
+  "453": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 2.14,
+    "at": "end"
+   }
+  },
+  "454": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 2.14,
+    "at": "start"
+   }
+  },
+  "455": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 2.14,
+    "at": "start"
+   }
+  },
+  "493": {
+   "from": "places",
+   "volcano": {
+    "name": "Villarrica",
+    "dist_mi": 10.47,
+    "elevation_m": 2847,
+    "type": "Stratovolcano",
+    "at": "end"
+   }
+  },
+  "494": {
+   "from": "places",
+   "volcano": {
+    "name": "Villarrica",
+    "dist_mi": 10.47,
+    "elevation_m": 2847,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "495": {
+   "from": "places",
+   "volcano": {
+    "name": "Villarrica",
+    "dist_mi": 10.47,
+    "elevation_m": 2847,
+    "type": "Stratovolcano",
+    "at": "start"
+   }
+  },
+  "497": {
+   "from": "places",
+   "volcano": {
+    "name": "Antillanca Volcanic Complex",
+    "dist_mi": 13.48,
+    "elevation_m": 1979,
+    "type": "Stratovolcano(es)",
+    "at": "end"
+   }
+  },
+  "498": {
+   "from": "places",
+   "volcano": {
+    "name": "Antillanca Volcanic Complex",
+    "dist_mi": 13.48,
+    "elevation_m": 1979,
+    "type": "Stratovolcano(es)",
+    "at": "start"
+   }
+  },
+  "499": {
+   "from": "places",
+   "water": {
+    "name": "Lago Nahuel Huapí",
+    "kind": "lake",
+    "dist_mi": 0.73,
+    "at": "end"
+   }
+  },
+  "500": {
+   "from": "places",
+   "water": {
+    "name": "Lago Nahuel Huapí",
+    "kind": "lake",
+    "dist_mi": 0.73,
+    "at": "start"
+   }
+  },
+  "501": {
+   "from": "places",
+   "water": {
+    "name": "Lago Nahuel Huapí",
+    "kind": "lake",
+    "dist_mi": 0.73,
+    "at": "start"
+   }
+  },
+  "508": {
+   "from": "places",
+   "volcano": {
+    "name": "Puyuhuapi",
+    "dist_mi": 2.24,
+    "elevation_m": 524,
+    "type": "Pyroclastic cone(s)",
+    "at": "end"
+   },
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.94,
+    "at": "end"
+   }
+  },
+  "509": {
+   "from": "places",
+   "volcano": {
+    "name": "Puyuhuapi",
+    "dist_mi": 2.24,
+    "elevation_m": 524,
+    "type": "Pyroclastic cone(s)",
+    "at": "start"
+   },
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.94,
+    "at": "start"
+   }
+  },
+  "510": {
+   "from": "places",
+   "volcano": {
+    "name": "Puyuhuapi",
+    "dist_mi": 2.24,
+    "elevation_m": 524,
+    "type": "Pyroclastic cone(s)",
+    "at": "start"
+   },
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.94,
+    "at": "start"
+   }
+  },
+  "514": {
+   "from": "places",
+   "water": {
+    "name": "Lago Buenos Aires",
+    "kind": "lake",
+    "dist_mi": 0.29,
+    "at": "end"
+   }
+  },
+  "515": {
+   "from": "places",
+   "water": {
+    "name": "Lago Buenos Aires",
+    "kind": "lake",
+    "dist_mi": 0.29,
+    "at": "start"
+   }
+  },
+  "516": {
+   "from": "places",
+   "water": {
+    "name": "Lago Buenos Aires",
+    "kind": "lake",
+    "dist_mi": 0.29,
+    "at": "start"
+   }
+  },
+  "517": {
+   "from": "places",
+   "water": {
+    "name": "Lago Buenos Aires",
+    "kind": "lake",
+    "dist_mi": 1.14,
+    "at": "start"
+   }
+  },
+  "520": {
+   "from": "places",
+   "water": {
+    "name": "Lago San Martín",
+    "kind": "lake",
+    "dist_mi": 2.1,
+    "at": "end"
+   }
+  },
+  "521": {
+   "from": "places",
+   "water": {
+    "name": "Lago San Martín",
+    "kind": "lake",
+    "dist_mi": 2.1,
+    "at": "start"
+   }
+  },
+  "522": {
+   "from": "places",
+   "water": {
+    "name": "Lago San Martín",
+    "kind": "lake",
+    "dist_mi": 2.1,
+    "at": "start"
+   }
+  },
+  "525": {
+   "from": "places",
+   "water": {
+    "name": "Lago Viedma",
+    "kind": "lake",
+    "dist_mi": 3.44,
+    "at": "end"
+   }
+  },
+  "526": {
+   "from": "places",
+   "water": {
+    "name": "Lago Argentino",
+    "kind": "lake",
+    "dist_mi": 2.49,
+    "at": "end"
+   }
+  },
+  "527": {
+   "from": "places",
+   "water": {
+    "name": "Lago Argentino",
+    "kind": "lake",
+    "dist_mi": 2.49,
+    "at": "start"
+   }
+  },
+  "528": {
+   "from": "places",
+   "water": {
+    "name": "Lago Argentino",
+    "kind": "lake",
+    "dist_mi": 2.49,
+    "at": "start"
+   }
+  },
+  "536": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.21,
+    "at": "end"
+   }
+  },
+  "537": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.21,
+    "at": "start"
+   }
+  },
+  "538": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.76,
+    "at": "end"
+   }
+  },
+  "539": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.76,
+    "at": "start"
+   }
+  },
+  "541": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 2.7,
+    "at": "end"
+   }
+  },
+  "542": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 2.7,
+    "at": "start"
+   }
+  },
+  "543": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.41,
+    "at": "end"
+   }
+  }
+ }
+}

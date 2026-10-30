@@ -147,9 +147,12 @@ can look at them) and, when live, posts it as a story. Two safety switches:
 - **Click a counter** and the banner flips: *Days* becomes one small square per day, *Countries*
   draws the outlines of the countries entered so far over the line, *Ft climbed* turns the line into
   the elevation profile of the whole route. Click again, or press Escape, to come back.
-- **Click the mark** after "No Shortcuts" for the secret stats: water, hot springs, border and boat
-  crossings, rest days, capitals, calories. All worked out from the plan. The keyword lists and the
-  calorie constants are in `secretStats` in the config. Calories only appear once the four `CAL_*`
+- **Click the mark** after "No Shortcuts" for the secret stats: water, hot springs, volcanoes climbed,
+  waters dipped in, border and boat crossings, rest days, capitals, calories. All worked out from the
+  plan. The keyword lists, the distance rules (`volcanoMiles`, `waterMiles`) and the calorie constants
+  are in `secretStats` in the config. Volcanoes and waters use each day's start and end place: a
+  Smithsonian-listed volcano within 2 miles counts as climbed, a sea or lake within a quarter mile
+  counts as dipped in (hover a tile to see the names). Calories only appear once the four `CAL_*`
   secrets exist in GitHub; the body stats themselves never leave the robot.
 - **Time travel:** drag along the banner line (or the map) and the whole page shows that day, with
   the archived photo, caption and dispatches when there is an archive for it, and the plan otherwise.
@@ -167,7 +170,7 @@ can look at them) and, when live, posts it as a story. Two safety switches:
 | `site/data/` | Written by the robot every hour. Do not edit by hand |
 | `site/stories/` | Story images made by the robot |
 | `config/site.config.json` | The one file to edit |
-| `seed/` | The starting copy of the plan, the countries, the route line, the map outlines, country outlines, elevations |
+| `seed/` | The starting copy of the plan, the countries, the route line, the map outlines, country outlines, elevations, place coordinates and per-day geography (`scripts/geo-places.js`, `scripts/geo-stats.py`, run by hand) |
 | `archive/days/` | One file per trip day, written by the robot |
 | `scripts/` | The robot (`update.js` runs everything), the dev server, `format-route-plan.gs` (sheet styling) |
 | `assets/fonts/` | Brand fonts (open licence) used for story images |

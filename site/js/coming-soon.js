@@ -37,8 +37,10 @@
     if (cta && links.substack) {
       var pitch = document.getElementById("pitch"), button = document.getElementById("cta-button");
       pitch.textContent = (cs.pitch || "").trim();
-      pitch.hidden = !pitch.textContent;
+      pitch.setAttribute("data-config", "comingSoon.pitch");
+      pitch.hidden = !pitch.textContent && !document.body.classList.contains("editing");
       button.textContent = cs.ctaLabel || "Subscribe on Substack";
+      button.setAttribute("data-config", "comingSoon.ctaLabel");
       button.href = (cs.ctaHref && cs.ctaHref.trim()) || links.substack.replace(/\/+$/, "") + "/subscribe";
       button.target = "_blank"; button.rel = "noopener";
       cta.hidden = false;
@@ -72,11 +74,15 @@
       about.type = "button";
       about.className = "about";
       about.setAttribute("aria-expanded", "false");
-      about.textContent = labels.about || "About";
+      var aboutLabel = document.createElement("span");
+      aboutLabel.textContent = labels.about || "About";
+      aboutLabel.setAttribute("data-config", "labels.about");
+      about.appendChild(aboutLabel);
       var bubble = document.createElement("span");
       bubble.className = "about-text";
       bubble.setAttribute("role", "tooltip");
       bubble.textContent = aboutText;
+      bubble.setAttribute("data-config", "comingSoon.aboutText");
       about.appendChild(bubble);
       about.addEventListener("click", function () {           // phones: tap to open, tap again to close
         about.setAttribute("aria-expanded", about.getAttribute("aria-expanded") === "true" ? "false" : "true");
@@ -115,6 +121,7 @@
       var note = document.createElement("span");
       note.className = "note";
       note.textContent = cs.note.trim();
+      note.setAttribute("data-config", "comingSoon.note");
       nav.appendChild(note);
     }
 
@@ -130,6 +137,21 @@
     var cs = config.comingSoon || {};
 
     if (results[0]) { applyConfig(config); }
+
+    // A small stand-in for the full site's Site object, so js/edit.js can edit this page too
+    var listeners = [];
+    window.Site = {
+      config: config, ready: Promise.resolve(null), listeners: listeners,
+      el: function (tag, attrs, children) {
+        var e = document.createElement(tag);
+        Object.keys(attrs || {}).forEach(function (k) { if (k === "class") e.className = attrs[k]; else if (k === "text") e.textContent = attrs[k]; else if (k === "html") e.innerHTML = attrs[k]; else if (attrs[k] !== null && attrs[k] !== undefined && attrs[k] !== false) e.setAttribute(k, attrs[k]); });
+        (children || []).forEach(function (c) { if (c) e.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+        return e;
+      },
+      onChange: function (fn) { listeners.push(fn); },
+      changed: function () { applyConfig(config); listeners.forEach(function (fn) { try { fn(); } catch (e) { console.error(e); } }); }
+    };
+    window.Site.ready = Promise.resolve(window.Site);
 
     if (route && route.points && window.RouteLine) {
       var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;

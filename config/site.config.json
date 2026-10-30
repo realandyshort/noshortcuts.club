@@ -148,7 +148,9 @@
       "boats": "BOAT CROSSINGS",
       "restDays": "REST DAYS",
       "capitals": "CAPITALS VISITED",
-      "calories": "CALORIES BURNED"
+      "calories": "CALORIES BURNED",
+      "volcanoes": "VOLCANOES CLIMBED",
+      "waters": "WATERS DIPPED IN"
     },
     "stamps": {
       "title": "Passport",
@@ -254,6 +256,8 @@
       "climbFactor": 0.41,
       "restMultiplier": 1.4,
       "gearLbDefault": 66
-    }
+    },
+    "volcanoMiles": 2,
+    "waterMiles": 0.25
   }
 }

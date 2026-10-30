@@ -15,7 +15,9 @@
     boats: "M3 15l2 5h14l2-5zM12 4v11M12 4l6 7H6z",
     restDays: "M3 19V9M3 13h18v6M7 13V10h9v3M21 19v-2",
     capitals: "M4 20h16M6 20v-8h12v8M12 4a4 4 0 0 1 4 4H8a4 4 0 0 1 4-4zM12 2v2M9 20v-4M15 20v-4",
-    calories: "M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 1-3-1-6 1-9z"
+    calories: "M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 1-3-1-6 1-9z",
+    volcanoes: "M3 20h18M5 20l5-11h4l5 11M10 9c0-2 1-3 2-5 1 2 2 3 2 5M12 2v1",
+    waters: "M3 15c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M3 19c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M12 4v7M9 8l3 3 3-3"
   };
 
   function ease(t) { return 1 - Math.pow(1 - t, 3); }
@@ -92,39 +94,24 @@
   }
 
   function showCountries() {
-    var ctx = state.ctx, svg = document.getElementById("flip-countries");
+    var ctx = state.ctx, svg = document.getElementById("flip-countries"), line = document.getElementById("banner-line");
+    // Same drawing space as the big line, stretched the same way, so the outlines sit exactly where
+    // the route crosses them. They run past the top and bottom of the banner, which is fine.
+    svg.setAttribute("viewBox", line.getAttribute("viewBox"));
+    svg.setAttribute("preserveAspectRatio", "none");
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     var data = ctx.outlines;
     if (data && ctx.route) {
-      // Same projection as the line, but the drawing is sized to the countries, not to the thin
-      // strip the line lives in, and a copy of the route is drawn inside so everything lines up.
       var map = RouteLine.projector(ctx.route.points);
       var entered = data.countries.filter(function (c) { return c.first_day <= ctx.day; }).sort(function (a, b) { return a.first_day - b.first_day; });
-      var minX = 0, maxX = RouteLine.VIEW_WIDTH, minY = Infinity, maxY = -Infinity;
-      var routePts = ctx.route.points.map(map);
-      routePts.forEach(function (q) { if (q[1] < minY) minY = q[1]; if (q[1] > maxY) maxY = q[1]; });
-      var shapes = entered.map(function (c) {
-        return { c: c, d: c.rings.map(function (ring) {
-          return "M" + ring.map(function (ll) {
-            var q = map([ll[1], ll[0]]);
-            if (q[0] < minX) minX = q[0]; if (q[0] > maxX) maxX = q[0]; if (q[1] < minY) minY = q[1]; if (q[1] > maxY) maxY = q[1];
-            return q[0].toFixed(1) + " " + q[1].toFixed(1);
-          }).join("L") + "Z"; }).join("") };
-      });
-      var pad = 10;
-      svg.setAttribute("viewBox", (minX - pad) + " " + (minY - pad) + " " + (maxX - minX + 2 * pad) + " " + (maxY - minY + 2 * pad));
-      svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
-      shapes.forEach(function (sh, i) {
+      entered.forEach(function (c, i) {
+        var d = c.rings.map(function (ring) { return "M" + ring.map(function (ll) { var q = map([ll[1], ll[0]]); return q[0].toFixed(1) + " " + q[1].toFixed(1); }).join("L") + "Z"; }).join("");
         var path = document.createElementNS(NS, "path");
-        path.setAttribute("d", sh.d);
-        var t = document.createElementNS(NS, "title"); t.textContent = sh.c.country + " · day " + sh.c.first_day; path.appendChild(t);
+        path.setAttribute("d", d);
+        var t = document.createElementNS(NS, "title"); t.textContent = c.country + " · day " + c.first_day; path.appendChild(t);
         svg.appendChild(path);
-        setTimeout(function () { path.classList.add("in"); }, reduced ? 0 : 70 * i);
+        setTimeout(function () { path.classList.add("in"); }, reduced ? 0 : 90 * i);
       });
-      var halves = Trip.splitAtFraction(ctx.route.points, state.info.fraction);
-      var rest = document.createElementNS(NS, "path"); rest.setAttribute("class", "mini-rest"); rest.setAttribute("d", RouteLine.pathData(halves[1].map(map), {}));
-      var done = document.createElementNS(NS, "path"); done.setAttribute("class", "mini-done"); done.setAttribute("d", RouteLine.pathData(halves[0].map(map), {}));
-      svg.appendChild(rest); svg.appendChild(done);
       setHint(ctx.config.copy.flips.countries + " · " + entered.length + " OF " + data.countries.length);
     }
     show(svg);
@@ -177,10 +164,10 @@
 
   function showStats() {
     var ctx = state.ctx, c = ctx.config, box = document.getElementById("flip-stats"), labels = c.copy.stats || {};
-    var st = window.Stats.asOf(ctx.plan, c, ctx.day, ctx.data.calories);
+    var st = window.Stats.asOf(ctx.plan, c, ctx.day, ctx.data.calories, ctx.geo);
     box.textContent = "";
     var k = document.createElement("p"); k.className = "kicker"; k.textContent = (labels.kicker || "SECRET STATS") + " · DAY " + ctx.day; box.appendChild(k);
-    [["water", st.water], ["hotSprings", st.hotSprings], ["borders", st.borders], ["boats", st.boats], ["restDays", st.restDays], ["capitals", st.capitals], ["calories", st.calories]].forEach(function (pair) {
+    [["water", st.water], ["hotSprings", st.hotSprings], ["volcanoes", st.volcanoes], ["waters", st.waters], ["borders", st.borders], ["boats", st.boats], ["restDays", st.restDays], ["capitals", st.capitals], ["calories", st.calories]].forEach(function (pair) {
       if (pair[1] === null || pair[1] === undefined) return;
       var tile = document.createElement("div"); tile.className = "stat";
       var svg = document.createElementNS(NS, "svg"); svg.setAttribute("viewBox", "0 0 24 24");
@@ -189,6 +176,8 @@
       var num = document.createElement("div"); num.className = "num"; num.textContent = Number(pair[1]).toLocaleString("en-US");
       var lbl = document.createElement("div"); lbl.className = "lbl"; lbl.textContent = labels[pair[0]] || pair[0];
       if (pair[0] === "capitals" && st.capitalNames.length) tile.title = st.capitalNames.join(", ");
+      if (pair[0] === "volcanoes" && st.volcanoNames.length) tile.title = st.volcanoNames.join(", ");
+      if (pair[0] === "waters" && st.waterNames.length) tile.title = st.waterNames.join(", ");
       txt.appendChild(num); txt.appendChild(lbl); tile.appendChild(svg); tile.appendChild(txt); box.appendChild(tile);
     });
     setHint(labels.kicker || "SECRET STATS");

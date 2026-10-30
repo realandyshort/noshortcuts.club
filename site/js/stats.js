@@ -8,8 +8,9 @@
   function fold(s) { return String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
   function textOf(d) { return fold([d.from, d.to, d.stay, d.notes, d.terrain].join(" | ")); }
 
-  // Returns { water, hotSprings, borders, boats, restDays, capitals, calories } as of day n.
-  function asOf(plan, config, n, calories) {
+  // Returns { water, hotSprings, borders, boats, restDays, capitals, calories, volcanoes, waters } as of day n.
+  // geo: seed/day_geo.json (nearest volcano and shoreline per day), optional.
+  function asOf(plan, config, n, calories, geo) {
     var cfg = config.secretStats || {}, days = plan.days.slice(0, Math.max(0, Math.min(n, plan.days.length)));
     var kws = (cfg.hotSpringKeywords || []).map(fold);
     var inc = cfg.hotSpringIncludeDays || [], exc = cfg.hotSpringExcludeDays || [];
@@ -29,10 +30,24 @@
     });
     (cfg.borderExtraDays || []).forEach(function (x) { if (x <= n) borders[x] = true; });
     var kcal = (calories && calories.available && calories.cumulative_kcal && n >= 1) ? calories.cumulative_kcal[Math.min(n, calories.cumulative_kcal.length) - 1] : null;
+    // Geography: a volcano within volcanoMiles of a day's start or end counts as climbed; a sea or
+    // lake within waterMiles of where the day ends counts as dipped in. Distinct names.
+    var volc = {}, waters = {};
+    if (geo && geo.days) {
+      var vMi = cfg.volcanoMiles !== undefined ? cfg.volcanoMiles : 2, wMi = cfg.waterMiles !== undefined ? cfg.waterMiles : 0.25;
+      Object.keys(geo.days).forEach(function (k) {
+        var dayN = Number(k); if (dayN > n) return;
+        var g = geo.days[k];
+        if (g.volcano && g.volcano.dist_mi <= vMi) volc[g.volcano.name] = true;
+        if (g.water && g.water.dist_mi <= wMi) waters[g.water.name] = true;
+      });
+    }
     return {
       water: (cfg.litersPerDay || 5) * Math.max(0, n),
       hotSprings: hot, borders: Object.keys(borders).length, boats: boats, restDays: rest,
-      capitals: Object.keys(caps).length, capitalNames: Object.keys(caps), calories: kcal
+      capitals: Object.keys(caps).length, capitalNames: Object.keys(caps), calories: kcal,
+      volcanoes: geo ? Object.keys(volc).length : null, volcanoNames: Object.keys(volc),
+      waters: geo ? Object.keys(waters).length : null, waterNames: Object.keys(waters)
     };
   }
   return { asOf: asOf, fold: fold };

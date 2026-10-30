@@ -36,7 +36,7 @@ jobs:
           mkdir -p _pages/config _pages/data _pages/archive
           cp -R site/. _pages/
           cp config/site.config.json _pages/config/
-          cp seed/route_line.json seed/countries.json seed/americas.json seed/countries_outlines.json seed/route_elevation.json _pages/data/
+          cp seed/route_line.json seed/countries.json seed/americas.json seed/countries_outlines.json seed/route_elevation.json seed/day_geo.json _pages/data/
           cp -R archive/. _pages/archive/ 2>/dev/null || true
           touch _pages/.nojekyll
           FRONT=$(node scripts/which-index.js)

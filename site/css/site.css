@@ -202,22 +202,6 @@ body.has-strip { padding-bottom: 2.2rem; }
 .test-page table { border-collapse: collapse; font-size: 0.9rem; }
 .test-page td, .test-page th { text-align: left; padding: 0.35rem 0.8rem 0.35rem 0; border-bottom: 1px solid var(--line); }
 
-/* Tinker panel (local preview only) */
-.tinker { position: fixed; top: 0; right: 0; bottom: 0; width: min(380px, 100vw); background: #fff8f0; color: var(--ink); border-left: 1px solid var(--line); z-index: 60; overflow: auto; padding: 1rem; font-size: 0.85rem; box-shadow: -8px 0 30px rgba(0,0,0,0.12); }
-.tinker h2 { font-family: var(--font-headline); margin: 0 0 0.3rem; font-size: 1.4rem; }
-.tinker h3 { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); margin: 1.2rem 0 0.4rem; }
-.tinker label { display: block; margin: 0.45rem 0; }
-.tinker label span { display: block; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.05em; color: var(--gray); margin-bottom: 0.15rem; }
-.tinker input[type=text], .tinker textarea { width: 100%; font: inherit; padding: 0.35em 0.5em; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
-.tinker textarea { min-height: 4.5em; }
-.tinker input[type=range] { width: 100%; }
-.tinker ul.order { list-style: none; padding: 0; margin: 0; }
-.tinker ul.order li { padding: 0.45rem 0.6rem; border: 1px solid var(--line); border-radius: 6px; margin-bottom: 0.3rem; background: #fff; cursor: grab; display: flex; justify-content: space-between; }
-.tinker ul.order li.dragging { opacity: 0.4; }
-.tinker .actions { position: sticky; bottom: 0; background: #fff8f0; padding: 0.8rem 0 0; display: flex; gap: 0.5rem; align-items: center; }
-.tinker .saved { color: var(--gray); font-family: var(--font-mono); font-size: 0.62rem; }
-body.tinker-open { padding-right: min(380px, 100vw); }
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
 
@@ -250,17 +234,15 @@ body.tinker-open { padding-right: min(380px, 100vw); }
 .banner-route.flipped { cursor: default; }
 .banner-route #banner-line { transition: opacity 0.45s ease; }
 .banner-route.flipped #banner-line { opacity: 0.12; }
-.banner-route.flipped.flip-climb #banner-line { opacity: 1; }   /* the profile is the line itself */
-.banner-route.flipped.flip-countries #banner-line { opacity: 0; }
+.banner-route.flipped.flip-climb #banner-line, .banner-route.flipped.flip-countries #banner-line { opacity: 1; }   /* the profile is the line; outlines sit over the line */
+.banner-route.flipped.flip-stats #banner-line { opacity: 0; }   /* nothing behind the secret stats */
 .banner-route.flipped .marker { opacity: 0; transition: opacity 0.3s; }
+.banner-route.flipped.flip-countries .marker { opacity: 1; }
 .banner-route .flip { position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
 .banner-route .flip.on { opacity: 1; pointer-events: auto; }
 .flip-countries { width: 100%; height: 100%; overflow: visible; }
-.flip-countries path { fill: rgba(244, 200, 171, 0.08); stroke: var(--peach); stroke-opacity: 0.9; stroke-width: 1px; vector-effect: non-scaling-stroke; opacity: 0; transition: opacity 0.6s ease; }
+.flip-countries path { fill: none; stroke: var(--cream); stroke-opacity: 0.75; stroke-width: 1.2px; vector-effect: non-scaling-stroke; opacity: 0; transition: opacity 0.7s ease; }
 .flip-countries path.in { opacity: 1; }
-.flip-countries path.mini-rest, .flip-countries path.mini-done { fill: none; opacity: 1; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; }
-.flip-countries path.mini-rest { stroke: var(--gray); }
-.flip-countries path.mini-done { stroke: var(--persimmon); }
 .flip-days { display: grid; gap: 3px; align-content: center; justify-content: center; padding: 0.4rem 0; }
 .flip-days span { display: block; width: var(--sq, 10px); height: var(--sq, 10px); background: rgba(251, 233, 215, 0.14); border-radius: 1.5px; cursor: pointer; }
 .flip-days span.done { background: var(--persimmon); }
@@ -317,6 +299,38 @@ body.tinker-open { padding-right: min(380px, 100vw); }
 .map-hover circle { fill: var(--cream); stroke: var(--persimmon); }
 .map-hover text { font-family: var(--font-mono); letter-spacing: 0.08em; fill: var(--ink); font-weight: 500; paint-order: stroke; stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round; }
 
+/* Passport stamps */
+.stamps-intro { max-width: 46em; margin: 0 0 1.2rem; }
+.stamp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.9rem; }
+.stamp { position: relative; aspect-ratio: 1 / 0.78; border: 2px dashed var(--gray); border-radius: 12px; background: transparent; color: var(--gray); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.35rem; padding: 0.6rem; cursor: pointer; opacity: 0.45; transform: rotate(var(--tilt, -2deg)); transition: transform 0.2s, opacity 0.2s; }
+.stamp .name { font-size: 0.72rem; font-weight: 500; text-align: center; line-height: 1.2; }
+.stamp .when { font-size: 0.56rem; }
+.stamp .mark { width: 16px; height: 16px; position: absolute; top: 8px; right: 10px; }
+.stamp.inked { opacity: 1; border-style: solid; border-color: var(--persimmon); color: var(--persimmon); background: rgba(232, 89, 61, 0.06); }
+.stamp:hover, .stamp:focus-visible { transform: rotate(0deg) scale(1.03); opacity: 1; outline: none; }
+.stamp.active { box-shadow: 0 0 0 3px var(--ink); }
+.stamp-view { margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; }
+.stamp-view .photo { height: clamp(220px, 32vw, 420px); }
+.stamp-view .body { padding: 1.2rem 1.3rem; }
+.stamp-view .body h3 { font-family: var(--font-headline); font-size: 1.5rem; margin: 0 0 0.4rem; }
+@media (max-width: 900px) { .flip-stats { grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem; } .stamp-view { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .flip-stats { padding: 0.2rem 0.4rem; } .stat svg { width: 22px; height: 22px; } .stat .num { font-size: 1rem; } .banner-right { align-items: flex-start; } .stamp-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); } }
+
+
+/* Hover scrubbing: a connector from the cursor to the day on the line, and a label */
+.hover-layer { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; opacity: 0; transition: opacity 0.15s; }
+.hover-layer.on { opacity: 1; }
+.hover-layer .hl-line { stroke: var(--cream); stroke-opacity: 0.7; stroke-width: 1px; stroke-dasharray: 3 3; }
+.hover-layer .hl-dot { fill: var(--ink); stroke: var(--persimmon); stroke-width: 2.5px; }
+.hover-label { position: absolute; pointer-events: none; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em; background: var(--cream); color: var(--ink); padding: 0.3em 0.6em; border-radius: 4px; white-space: nowrap; opacity: 0; transition: opacity 0.15s; z-index: 3; }
+.hover-label.on { opacity: 1; }
+.counters.previewing .num { color: var(--peach); }
+.map-hover { opacity: 0; transition: opacity 0.15s; pointer-events: none; }
+.map-hover.on { opacity: 1; }
+.map-hover line { stroke: var(--ink); stroke-opacity: 0.5; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+.map-hover circle { fill: var(--cream); stroke: var(--persimmon); }
+.map-hover text { font-family: var(--font-mono); letter-spacing: 0.08em; fill: var(--ink); font-weight: 500; paint-order: stroke; stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round; }
+
 /* Edit mode */
 .editing [data-config] { outline: 1px dashed rgba(232, 89, 61, 0.55); outline-offset: 3px; cursor: text; border-radius: 2px; min-width: 1ch; }
 .editing [data-config]:hover { outline-color: var(--persimmon); }
@@ -324,15 +338,3 @@ body.tinker-open { padding-right: min(380px, 100vw); }
 .editing .menu a[data-config], .editing a [data-config] { cursor: text; }
 .edit-link { position: fixed; left: 1rem; bottom: 1rem; z-index: 40; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--ink); color: var(--cream); padding: 0.5em 0.9em; border-radius: 999px; text-decoration: none; opacity: 0.85; }
 .edit-link:hover { opacity: 1; background: var(--persimmon); color: var(--ink); }
-.tinker .status { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.05em; color: var(--gray); min-height: 1.2em; }
-.tinker .status.err { color: var(--persimmon); }
-.tinker .help { font-size: 0.8rem; color: #5C5650; margin: 0.3rem 0 0.6rem; }
-.tinker .help ol { padding-left: 1.2em; margin: 0.3rem 0; }
-.tinker input[type=file] { font-size: 0.8rem; }
-.tinker .row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
-.tinker .btn { font-size: 0.85rem; padding: 0.45em 1em; }
-/* On phones the edit panel is a bottom sheet, so the page stays visible above it */
-@media (max-width: 640px) {
-  .tinker { top: auto; left: 0; right: 0; bottom: 0; width: 100vw; height: 46vh; border-left: 0; border-top: 2px solid var(--persimmon); box-shadow: 0 -8px 30px rgba(0,0,0,0.12); }
-  body.tinker-open { padding-right: 0; padding-bottom: 46vh; }
-}
