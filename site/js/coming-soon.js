@@ -50,9 +50,9 @@
 
     var listenHref = (config.podLink && config.podLink.trim()) || links.spotify;
     var items = [
-      { label: labels.listen || "Listen", href: listenHref },
       { label: labels.see || "See", href: links.instagram }
     ];
+    if (cs.showListen === true) items.unshift({ label: labels.listen || "Listen", href: listenHref });
 
     nav.innerHTML = "";
     items.forEach(function (item) {

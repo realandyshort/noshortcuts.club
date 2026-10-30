@@ -26,12 +26,13 @@ html, body {
   min-height: 100%;
   background: var(--ink);
   color: var(--cream);
+  overflow-x: hidden;   /* nothing may be scrolled to sideways, on any phone */
+  max-width: 100%;
 }
 
 body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden; /* the route line's tails run off both edges on purpose */
 }
 
 /* The page is a column: title at the top, route line in the middle, buttons at the bottom.
@@ -39,6 +40,8 @@ body {
 .page {
   height: 100vh;
   height: 100svh; /* phones: the real visible height, below the browser bar */
+  width: 100%;
+  overflow: hidden;      /* clips the route line's tails at the screen edge */
   display: flex;
   flex-direction: column;
   padding-top: max(calc(var(--gutter) * 0.8), env(safe-area-inset-top));
@@ -94,6 +97,7 @@ body {
   display: flex;
   align-items: center;
   padding: clamp(12px, 3vh, 40px) 0;
+  overflow: hidden;      /* the tails are meant to run off the edge, not create a scroll */
 }
 
 .route-line {
@@ -288,4 +292,7 @@ body {
 @media (prefers-reduced-motion: reduce) { .links .note::before { animation: none; } }
 @media (max-width: 640px) {
   .links .note { margin-left: 0; width: 100%; margin-top: 0.4em; }
+  /* On phones the About text sits in a fixed card inside the screen, whatever the button's position */
+  .about-text, .links .about.flip .about-text { position: fixed; left: var(--gutter); right: var(--gutter); bottom: calc(var(--gutter) + 6.5rem); width: auto; transform: none; }
+  .about-text::after, .links .about.flip .about-text::after { display: none; }
 }

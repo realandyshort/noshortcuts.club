@@ -171,9 +171,10 @@
     "drawOnLoad": true,
     "note": "Site coming soon",
     "aboutText": "If a tree falls in the forest but no one is around to hear it, does it make a sound? If a man bicycles across continents and doesn’t microblog about it, did it even happen?\n\nMore coming soon…",
-    "pitch": "Dispatches from the road, in your inbox. Free.",
+    "pitch": "Dispatches from the ol’ Pan American highway. Ish.",
     "ctaLabel": "Subscribe on Substack",
-    "ctaHref": ""
+    "ctaHref": "",
+    "showListen": false
   },
   "plan": {
     "sheetId": "1qAlzQWOvfifr_0LJ1YUm8b1mv0ewg51yYJVj1JHcOyo",
