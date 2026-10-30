@@ -32,40 +32,27 @@
     var links = config.links || {};
     var labels = config.labels || {};
 
-    // The one ask: subscribe on Substack
+    // The one ask: the email field. It hands the address to Substack (config signup.mode, as on the full site).
     var cta = document.getElementById("cta");
     if (cta && links.substack) {
-      var pitch = document.getElementById("pitch"), button = document.getElementById("cta-button");
+      var base = links.substack.replace(/\/+$/, ""), direct = config.signup && config.signup.mode === "direct";
+      cta.setAttribute("action", direct ? base + "/api/v1/free?nojs=true" : base + "/subscribe");
+      cta.setAttribute("method", direct ? "post" : "get");
+      var pitch = document.getElementById("pitch"), button = document.getElementById("cta-button"), field = document.getElementById("cta-email");
       pitch.textContent = (cs.pitch || "").trim();
       pitch.setAttribute("data-config", "comingSoon.pitch");
       pitch.hidden = !pitch.textContent && !document.body.classList.contains("editing");
-      button.textContent = cs.ctaLabel || "Subscribe on Substack";
+      button.textContent = cs.ctaLabel || "Don’t miss the launch.";
       button.setAttribute("data-config", "comingSoon.ctaLabel");
-      button.href = (cs.ctaHref && cs.ctaHref.trim()) || links.substack.replace(/\/+$/, "") + "/subscribe";
-      button.target = "_blank"; button.rel = "noopener";
+      var ph = pick(config, "copy.signup.placeholder");
+      if (typeof ph === "string" && ph.trim()) field.placeholder = ph;
       cta.hidden = false;
     }
 
-    // Quiet links underneath: Listen (podcast), See (Instagram), About (hover text)
+    // Underneath on the left: About (hover text) and the coming-soon note
     var nav = document.getElementById("links");
-    if (!nav || cs.showLinks === false) { return; }
-
-    var listenHref = (config.podLink && config.podLink.trim()) || links.spotify;
-    var items = [
-      { label: labels.see || "See", href: links.instagram }
-    ];
-    if (cs.showListen === true) items.unshift({ label: labels.listen || "Listen", href: listenHref });
-
+    if (!nav) { return; }
     nav.innerHTML = "";
-    items.forEach(function (item) {
-      if (!item.href) { return; }
-      var a = document.createElement("a");
-      a.href = item.href;
-      a.textContent = item.label;
-      a.target = "_blank";
-      a.rel = "noopener";
-      nav.appendChild(a);
-    });
 
     // "About": a button that shows a short piece of text on hover, focus or tap
     var aboutText = (cs.aboutText || "").trim();
@@ -104,16 +91,6 @@
       about.addEventListener("focus", place);
       about.addEventListener("click", place);
       window.addEventListener("resize", place);
-    }
-
-    // The email is off on the coming-soon page unless comingSoon.showEmail is true
-    var email = pick(config, "site.email");
-    if (email && cs.showEmail === true) {
-      var m = document.createElement("a");
-      m.href = "mailto:" + email;
-      m.textContent = email;
-      m.className = "email";
-      nav.appendChild(m);
     }
 
     // Small "coming soon" note at the end of the row

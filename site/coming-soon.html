@@ -52,14 +52,18 @@
       <svg id="route-line" class="route-line" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
     </section>
 
-    <!-- The one thing this page asks: subscribe on Substack. Filled from config by js/coming-soon.js. -->
-    <section class="cta" id="cta" hidden>
-      <p class="pitch" id="pitch"></p>
-      <a class="cta-button" id="cta-button" href="#">Subscribe on Substack</a>
+    <!-- The bottom row: About and the coming-soon note on the left, the one ask (the email field) on the
+         right. Filled from config by js/coming-soon.js; hidden until it loads. -->
+    <section class="bottom">
+      <nav class="links" id="links" hidden aria-label="About"></nav>
+      <form class="cta" id="cta" hidden data-signup action="https://noshortcutsclub.substack.com/subscribe" method="get" target="_blank">
+        <p class="pitch" id="pitch"></p>
+        <div class="field">
+          <input id="cta-email" type="email" name="email" required autocomplete="email" placeholder="your@email.com" aria-label="Email address">
+          <button class="cta-button" id="cta-button" type="submit">Don’t miss the launch.</button>
+        </div>
+      </form>
     </section>
-
-    <!-- Quiet text links underneath (Listen, See, About) and the coming-soon note. Hidden until the config loads. -->
-    <nav class="links" id="links" hidden aria-label="Elsewhere"></nav>
 
   </main>
 

@@ -1,5 +1,5 @@
 {
-  "_readme": "This is the one file to edit for wording, links, sizes and switches. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. podLink: once the show is on Apple Podcasts, paste the link here and every Listen button switches to it. home.sectionOrder: drag-free reordering, just move the names. sections.videos.enabled: true turns the video section on. comingSoon.pitch and comingSoon.ctaLabel are the landing page's one ask (the big Substack button; ctaHref blank = the Substack subscribe page); comingSoon.note is the small line; comingSoon.aboutText is what the About button shows when hovered (blank hides the button). signup.mode picks how the email fields hand people to Substack (see signup._note). home.odometer / home.timeTravel switch the phase 3 interactions on and off.",
+  "_readme": "This is the one file to edit for wording, links, sizes and switches. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. podLink: once the show is on Apple Podcasts, paste the link here and every Listen button switches to it. home.sectionOrder: drag-free reordering, just move the names. sections.videos.enabled: true turns the video section on. comingSoon.pitch and comingSoon.ctaLabel are the landing page's one ask (the line over the email field and the button; the field hands the address to Substack per signup.mode); comingSoon.note is the small line; comingSoon.aboutText is what the About button shows when hovered (blank hides the button). signup.mode picks how the email fields hand people to Substack (see signup._note). home.odometer / home.timeTravel switch the phase 3 interactions on and off.",
   "showDates": false,
   "podLink": "",
   "site": {
@@ -23,9 +23,6 @@
     "mode": "subscribe"
   },
   "labels": {
-    "listen": "Listen",
-    "see": "See",
-    "consider": "Consider",
     "about": "About"
   },
   "menu": {
@@ -183,17 +180,13 @@
     }
   },
   "comingSoon": {
-    "showLinks": true,
-    "showEmail": false,
     "titleSize": "clamp(2.4rem, min(9.5vw, 16vh), 14rem)",
     "routeStrokePx": 2.5,
     "drawOnLoad": true,
     "note": "Site coming soon",
     "aboutText": "If a tree falls in the forest but no one is around to hear it, does it make a sound? If a man bicycles across continents and doesn’t microblog about it, did it even happen?\n\nMore coming soon…",
     "pitch": "Dispatches from the ol’ Pan American highway. Ish.",
-    "ctaLabel": "Subscribe on Substack",
-    "ctaHref": "",
-    "showListen": false
+    "ctaLabel": "Don’t miss the launch."
   },
   "plan": {
     "sheetId": "1qAlzQWOvfifr_0LJ1YUm8b1mv0ewg51yYJVj1JHcOyo",

@@ -133,34 +133,54 @@ body {
 }
 
 /* The one ask: a pitch line and a big persimmon button */
-.cta {
+/* The bottom row: About + note on the left, the email ask on the right, one line on wide screens */
+.bottom {
   flex: 0 0 auto;
   padding: 0 var(--gutter);
-  margin-bottom: clamp(14px, 2.4vh, 28px);
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr auto;     /* left: About + note; right: the pitch over the email field */
   align-items: center;
-  gap: 0.8em clamp(16px, 2.5vw, 36px);
+  column-gap: clamp(16px, 2.5vw, 36px);
+  row-gap: 0.35em;
 }
+.cta { display: contents; }            /* the form's two parts sit in the grid: the pitch above, the field level with About */
+.cta .pitch { grid-column: 2; grid-row: 1; }
+.cta .field { grid-column: 2; grid-row: 2; }
+.links { grid-column: 1; grid-row: 2; }
 .pitch {
   margin: 0;
   font-family: var(--font-headline);
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(1.05rem, min(1.9vw, 3.2vh), 1.6rem);
+  font-size: clamp(1rem, min(1.6vw, 2.8vh), 1.4rem);
   color: var(--cream);
 }
+.cta .field { display: flex; gap: 0.5em; }
+.cta input {
+  flex: 1 1 14em;
+  min-width: 0;
+  font: 500 clamp(0.95rem, min(1.4vw, 2.6vh), 1.15rem) var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--cream);
+  border-radius: 999px;
+  padding: 0.65em 1.1em;
+}
+.cta input::placeholder { color: var(--gray); }
+.cta input:focus { outline: 2px solid var(--persimmon); outline-offset: 2px; }
 .cta-button {
-  display: inline-block;
+  flex: 0 0 auto;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: clamp(1rem, min(1.6vw, 2.8vh), 1.35rem);
+  font-size: clamp(0.95rem, min(1.4vw, 2.6vh), 1.15rem);
   color: var(--ink);
   background: var(--persimmon);
   text-decoration: none;
-  padding: 0.75em 1.6em;
+  padding: 0.65em 1.4em;
   border-radius: 999px;
   border: 2px solid var(--persimmon);
+  cursor: pointer;
+  white-space: nowrap;
   transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 .cta-button:hover, .cta-button:focus-visible { background: var(--cream); border-color: var(--cream); transform: translateY(-1px); outline: none; }
@@ -171,8 +191,8 @@ body {
   flex: 0 0 auto;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.6em clamp(16px, 2vw, 28px);
-  padding: 0 var(--gutter);
   font-family: var(--font-mono);
   font-size: var(--ui-size);
   letter-spacing: 0.08em;
@@ -270,7 +290,6 @@ body {
 
 /* A quiet "coming soon" note at the end of the button row */
 .links .note {
-  margin-left: auto;
   align-self: center;
   color: var(--gray);
   letter-spacing: 0.14em;
@@ -291,7 +310,12 @@ body {
 @keyframes note-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 @media (prefers-reduced-motion: reduce) { .links .note::before { animation: none; } }
 @media (max-width: 640px) {
-  .links .note { margin-left: 0; width: 100%; margin-top: 0.4em; }
+  .bottom { grid-template-columns: 1fr; row-gap: 0.5em; }   /* phones: pitch, field, then About and the note */
+  .cta .pitch { grid-column: 1; grid-row: 1; }
+  .cta .field { grid-column: 1; grid-row: 2; }
+  .links { grid-column: 1; grid-row: 3; }
+  .cta .field { flex-wrap: wrap; }
+  .cta-button { flex: 1 1 100%; }
   /* On phones the About text sits in a fixed card inside the screen, whatever the button's position */
   .about-text, .links .about.flip .about-text { position: fixed; left: var(--gutter); right: var(--gutter); bottom: calc(var(--gutter) + 6.5rem); width: auto; transform: none; }
   .about-text::after, .links .about.flip .about-text::after { display: none; }

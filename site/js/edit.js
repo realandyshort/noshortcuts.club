@@ -36,7 +36,6 @@
     ["sections.videos.enabled", "Video section on"],
     ["home.odometer", "Counters roll up"],
     ["home.timeTravel", "Time travel (hover the line)"],
-    ["comingSoon.showEmail", "Email on the coming-soon page"],
     ["showDates", "Show dates (keep off until you decide)"]
   ];
   var SECTION_NAMES = { banner: "Banner", latest: "Map + latest photo", dispatch: "Dispatch player", days: "The days", stamps: "Passport", videos: "Videos" };
