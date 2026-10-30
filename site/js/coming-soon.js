@@ -29,17 +29,29 @@
       document.documentElement.style.setProperty("--title-size", cs.titleSize);
     }
 
-    // Buttons: Listen (podcast), See (Instagram), Consider (Substack)
+    var links = config.links || {};
+    var labels = config.labels || {};
+
+    // The one ask: subscribe on Substack
+    var cta = document.getElementById("cta");
+    if (cta && links.substack) {
+      var pitch = document.getElementById("pitch"), button = document.getElementById("cta-button");
+      pitch.textContent = (cs.pitch || "").trim();
+      pitch.hidden = !pitch.textContent;
+      button.textContent = cs.ctaLabel || "Subscribe on Substack";
+      button.href = (cs.ctaHref && cs.ctaHref.trim()) || links.substack.replace(/\/+$/, "") + "/subscribe";
+      button.target = "_blank"; button.rel = "noopener";
+      cta.hidden = false;
+    }
+
+    // Quiet links underneath: Listen (podcast), See (Instagram), About (hover text)
     var nav = document.getElementById("links");
     if (!nav || cs.showLinks === false) { return; }
 
-    var links = config.links || {};
-    var labels = config.labels || {};
     var listenHref = (config.podLink && config.podLink.trim()) || links.spotify;
     var items = [
       { label: labels.listen || "Listen", href: listenHref },
-      { label: labels.see || "See", href: links.instagram },
-      { label: labels.consider || "Consider", href: links.substack }
+      { label: labels.see || "See", href: links.instagram }
     ];
 
     nav.innerHTML = "";

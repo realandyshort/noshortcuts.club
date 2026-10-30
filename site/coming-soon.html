@@ -52,8 +52,14 @@
       <svg id="route-line" class="route-line" preserveAspectRatio="none" aria-hidden="true" focusable="false"></svg>
     </section>
 
-    <!-- The three buttons are filled in from config/site.config.json by js/coming-soon.js. Hidden until the config loads. -->
-    <nav class="links" id="links" hidden aria-label="Follow along"></nav>
+    <!-- The one thing this page asks: subscribe on Substack. Filled from config by js/coming-soon.js. -->
+    <section class="cta" id="cta" hidden>
+      <p class="pitch" id="pitch"></p>
+      <a class="cta-button" id="cta-button" href="#">Subscribe on Substack</a>
+    </section>
+
+    <!-- Quiet text links underneath (Listen, See, About) and the coming-soon note. Hidden until the config loads. -->
+    <nav class="links" id="links" hidden aria-label="Elsewhere"></nav>
 
   </main>
 
