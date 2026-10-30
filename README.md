@@ -45,9 +45,9 @@ Node is installed in your home folder at `~/.local/node`. To uninstall it, delet
 Open `config/site.config.json` in any text editor. Keep the quotes and commas as they are.
 
 - `site.*` name, tagline, description, email.
-- `links.*` Spotify, Pocket Casts, Instagram, Substack, the route plan, YouTube.
-- `podLink` leave empty for now. When the show is on Apple Podcasts, paste that link here and every
-  Listen button switches to it.
+- `links.*` Spotify, Instagram, Substack, the route plan, YouTube.
+- `podLink` the show on Apple Podcasts. Every "Podcast app" / Listen button opens it (the Podcasts app
+  opens when it is installed). If it is ever blank, those buttons fall back to Spotify.
 - `menu.*` the words in the header (Map, Route plan, About, and the Subscribe button).
 - `signup.mode` how the email fields hand people to Substack: `subscribe` opens Substack's subscribe page with the address filled in; `direct` posts it straight to Substack's free-signup endpoint. `copy.signup.*` is the wording of the strip and the footer field.
 - `labels.*` the words on the coming-soon buttons (Listen, See, Consider, About).

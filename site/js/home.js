@@ -121,8 +121,23 @@
     var photo = document.getElementById("latest-photo");
     photo.textContent = "";
     if (shot) {
-      photo.appendChild(el("a", { href: shot.link || c.links.instagram, target: "_blank", rel: "noopener" }, [ctx.fittedPhoto(photo, shot.url, scrub(shot.caption).slice(0, 120) || "Photo from day " + tagDay)]));
+      var img = ctx.fittedPhoto(photo, shot.url, scrub(shot.caption).slice(0, 120) || "Photo from day " + tagDay);
+      photo.appendChild(el("a", { href: shot.link || c.links.instagram, target: "_blank", rel: "noopener" }, [img]));
       photo.appendChild(el("span", { class: "tag", text: Trip.dayTag(td) }));
+      // Instagram's picture addresses expire after a while. If this one will not load, try the next
+      // newest post (once), and failing that show the placeholder rather than a broken picture.
+      img.addEventListener("error", function () {
+        var items = (igOK && ctx.data.instagram.items) || [], alt = null;
+        for (var i = 0; i < items.length && !alt; i++) if (items[i].media_url && items[i].media_url !== shot.url) alt = items[i];
+        photo.textContent = "";
+        if (alt && !photo._retried) {
+          photo._retried = true;
+          var img2 = ctx.fittedPhoto(photo, alt.media_url, scrub(alt.caption || "").slice(0, 120));
+          img2.addEventListener("error", function () { photo.textContent = ""; photo.appendChild(ctx.photoPlaceholder(Trip.dayTag(td))); });
+          photo.appendChild(el("a", { href: alt.permalink || c.links.instagram, target: "_blank", rel: "noopener" }, [img2]));
+          photo.appendChild(el("span", { class: "tag", text: Trip.dayTag(td) }));
+        } else photo.appendChild(ctx.photoPlaceholder(Trip.dayTag(td)));
+      });
     } else photo.appendChild(ctx.photoPlaceholder(Trip.dayTag(td)));
     document.getElementById("latest-kicker").textContent = (live ? (c.copy.latest.kicker || "LATEST") : "DAY") + " · DAY " + tagDay;
     if (!live) document.getElementById("latest-kicker").textContent = (travelling ? (c.copy.travel.label || "TIME TRAVEL · DAY") : "DAY") + " " + tagDay;
@@ -137,6 +152,8 @@
     var climbDay = ride ? ride.climb_ft : td.plan_climb_ft;
     if (climbDay > 0) chips.appendChild(el("span", { class: "chip", text: (c.copy.latest.climb || "CLIMB") + " " + Trip.fmtInt(climbDay) + " FT" }));
 
+    // The black "next up" box: where the ride is now (when the tracker says), then what the plan
+    // says comes next. It always shows the plan line, so the box is never empty.
     var now = document.getElementById("now-band"); now.textContent = "";
     if (showMarker) {
       var where = posOK ? [pos.place, pos.country].filter(Boolean).join(", ") : (archive && archive.position && archive.position.place) || d.to;
@@ -154,10 +171,14 @@
       } else if (archive && archive.weather && archive.weather.temp_f !== undefined) {
         now.appendChild(el("span", { class: "mono", text: (c.copy.latest.weather || "WEATHER") + " " + archive.weather.temp_f + "°F " + (archive.weather.text || "") }));
       }
-      now.appendChild(el("p", { text: Trip.nextUp(plan, day) }));
-      now.hidden = false;
-    } else now.hidden = true;
-    document.getElementById("now-card").hidden = now.hidden && !chips.children.length;
+    }
+    now.appendChild(el("p", { text: Trip.nextUp(plan, day) }));
+    // Phones: the plan chips sit inside the black box (css shows one set or the other)
+    var inChips = el("div", { class: "chips chips-in" });
+    Array.prototype.forEach.call(chips.children, function (ch) { inChips.appendChild(ch.cloneNode(true)); });
+    if (inChips.children.length) now.appendChild(inChips);
+    now.hidden = false;
+    document.getElementById("now-card").hidden = false;
 
     /* ---- Map (beside the photo) and the dispatch panel ---- */
     var mapOK = !!(ctx.americas && ctx.route);
@@ -166,7 +187,6 @@
     var mapCard = document.getElementById("map-card"), dispatch = document.getElementById("dispatch");
     mapCard.hidden = !mapOK;
     document.getElementById("latest-grid").classList.toggle("single", !mapOK);
-    document.getElementById("latest-under").classList.toggle("single", !mapOK);
     if (sections.dispatch) sections.dispatch.hidden = !(dispOK || archDisp);
     if (mapOK) window.SiteMap.draw(document.getElementById("map"), {
       americas: ctx.americas, route: ctx.route.points, fraction: fraction,
@@ -314,11 +334,13 @@
   function stampFrame() {
     var svg = document.createElementNS(NS_SVG, "svg");
     svg.setAttribute("class", "frame"); svg.setAttribute("viewBox", "0 0 160 124"); svg.setAttribute("preserveAspectRatio", "none"); svg.setAttribute("aria-hidden", "true");
+    var g = document.createElementNS(NS_SVG, "g"); g.setAttribute("class", "ink");
     [["outer", 5, 5, 150, 114, 10], ["inner", 11, 11, 138, 102, 6]].forEach(function (r) {
       var rect = document.createElementNS(NS_SVG, "rect");
       rect.setAttribute("class", r[0]); rect.setAttribute("x", r[1]); rect.setAttribute("y", r[2]); rect.setAttribute("width", r[3]); rect.setAttribute("height", r[4]); rect.setAttribute("rx", r[5]);
-      svg.appendChild(rect);
+      g.appendChild(rect);
     });
+    svg.appendChild(g);
     return svg;
   }
   function roughFilter() {            // the rough ink edge: one SVG filter shared by every stamp
@@ -338,9 +360,13 @@
     var toStamp = [];
     list.forEach(function (country) {
       var inked = country.first_day <= day;
+      var frame = stampFrame();
+      // The rough ink edge goes on as an SVG attribute, not a CSS filter: Safari (iPhone and Mac)
+      // dropped the whole frame when the filter came from the stylesheet, so the stamps never showed.
+      if (inked) frame.querySelector("g").setAttribute("filter", "url(#stamp-rough)");
       var b = el("button", { class: "stamp" + (inked ? " inked" : ""), type: "button", "aria-pressed": "false",
         "aria-label": inked ? country.country + ", " + (copy.day || "DAY") + " " + country.first_day : country.country + " (not yet)" }, [
-        stampFrame(), ctx.mark(), el("span", { class: "name", text: country.country }),
+        frame, ctx.mark(), el("span", { class: "name", text: country.country }),
         el("span", { class: "when", text: (copy.day || "DAY") + " " + country.first_day })
       ]);
       b.style.setProperty("--tilt", inked ? tiltFor(country.country) : "0deg");

@@ -1,7 +1,7 @@
 {
   "_readme": "This is the one file to edit for wording, links, sizes and switches. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. podLink: once the show is on Apple Podcasts, paste the link here and every Listen button switches to it. home.sectionOrder: drag-free reordering, just move the names. sections.videos.enabled: true turns the video section on. comingSoon.pitch and comingSoon.ctaLabel are the landing page's one ask (the line over the email field and the button; the field hands the address to Substack per signup.mode); comingSoon.note is the small line; comingSoon.aboutText is what the About button shows when hovered (blank hides the button). signup.mode picks how the email fields hand people to Substack (see signup._note). home.odometer / home.timeTravel switch the phase 3 interactions on and off.",
   "showDates": false,
-  "podLink": "",
+  "podLink": "https://podcasts.apple.com/us/podcast/no-shortcuts/id6828185728",
   "site": {
     "name": "No Shortcuts",
     "domain": "noshortcuts.club",
@@ -12,7 +12,6 @@
   },
   "links": {
     "spotify": "https://open.spotify.com/show/4hV5UdSqhmQpzcv4tShkrY",
-    "pocketCasts": "https://pca.st/kdvoa4ii",
     "instagram": "https://www.instagram.com/wicked.short/",
     "substack": "https://noshortcutsclub.substack.com",
     "routePlan": "https://docs.google.com/spreadsheets/d/1qAlzQWOvfifr_0LJ1YUm8b1mv0ewg51yYJVj1JHcOyo/edit",
@@ -110,15 +109,15 @@
       "photoLine": "Photos arrive as the ride happens."
     },
     "signup": {
-      "title": "Ride along from your inbox.",
+      "title": "Hear, see, read all about it",
       "sub": "WRITING · AUDIO · VIDEO, AS IT HAPPENS. FREE.",
-      "prompt": "Get your updates delivered.",
+      "prompt": "Add your email to join the journey.",
       "placeholder": "your@email.com",
-      "button": "Sign up"
+      "button": "Subscribe"
     },
     "footer": {
-      "title": "Don’t miss a",
-      "titleEm": "mile.",
+      "title": "Hear, see, read all about it",
+      "titleEm": "",
       "blurb": "Every story, voice note and video from the road, sent to your inbox as it goes up.",
       "listen": "Podcast app",
       "instagram": "Instagram",
@@ -185,8 +184,8 @@
     "drawOnLoad": true,
     "note": "Site coming soon",
     "aboutText": "If a tree falls in the forest but no one is around to hear it, does it make a sound? If a man bicycles across continents and doesn’t microblog about it, did it even happen?\n\nMore coming soon…",
-    "pitch": "Dispatches from the ol’ Pan American highway. Ish.",
-    "ctaLabel": "Don’t miss the launch."
+    "pitch": "Add your email to join the journey.",
+    "ctaLabel": "Subscribe"
   },
   "plan": {
     "sheetId": "1qAlzQWOvfifr_0LJ1YUm8b1mv0ewg51yYJVj1JHcOyo",

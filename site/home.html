@@ -26,7 +26,6 @@
   <header class="site-header">
     <div class="wrap">
       <a class="wordmark" href="home.html" data-href="home"><span data-config="menu.wordmark">Andy</span> <em data-config="menu.wordmarkEm">Short.</em></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
       <ul class="menu" id="menu">
         <li><a href="home.html" data-href="home" data-config="menu.map">Map</a></li>
         <li><a href="#" data-href="routePlan" data-config="menu.routePlan">Route plan</a></li>
@@ -82,7 +81,10 @@
 
     <section class="section" data-section="latest">
       <div class="wrap">
-        <!-- Map on the left, the latest photo on the right, the same height, so the photo keeps its shape -->
+        <!-- One grid, four cards. Desktop: map and the latest photo side by side at the same height,
+             then under them, in the same columns, "next up" under the map and the photo's words under
+             the photo. Phones (one column): map, photo, the photo's words right under it, then next up.
+             The order is set by grid-template-areas in css/site.css. -->
         <div class="latest-grid" id="latest-grid">
           <div class="card map-card" id="map-card">
             <svg id="map" preserveAspectRatio="xMidYMid meet" aria-label="Map of the Americas with the route"></svg>
@@ -91,9 +93,6 @@
           <article class="card photo-card">
             <div class="photo" id="latest-photo"></div>
           </article>
-        </div>
-        <!-- Under them, in the same two columns: "now / next up" under the map, the photo's words under the photo -->
-        <div class="latest-grid latest-under" id="latest-under">
           <article class="card now-card" id="now-card">
             <div class="chips" id="latest-chips"></div>
             <div class="now" id="now-band" hidden></div>

@@ -45,7 +45,6 @@ em { font-style: italic; color: var(--persimmon); }
 .btn-ink:hover { background: var(--persimmon); color: var(--ink); }
 .btn-outline { border-color: currentColor; }
 .header-subscribe { font-size: 0.9rem; padding: 0.45em 1.15em; white-space: nowrap; }
-.menu-toggle { display: none; background: none; border: 1px solid var(--line-on-ink); color: var(--cream); border-radius: 999px; padding: 0.4em 0.9em; font: 500 0.85rem var(--font-body); }
 
 /* Banner */
 .banner { background: var(--ink); color: var(--cream); padding: clamp(1.2rem, 3vw, 2.4rem) 0 1.2rem; overflow: hidden; }
@@ -85,11 +84,9 @@ em { font-style: italic; color: var(--persimmon); }
 .placeholder p { margin: 0; font-size: 0.9rem; opacity: 0.8; }
 .placeholder a { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
 .latest-body { padding: 1.3rem 1.3rem 1.5rem; }
-.latest-under { margin-bottom: 0; }
-.latest-grid.latest-under > .card { height: auto; }               /* these two follow the map and photo's columns, not their height */
 .now-card { padding: 1.3rem; display: flex; flex-direction: column; gap: 1rem; }
 .now-card .chips { margin-bottom: 0; }
-.latest-under.single .now-card { order: 2; }         /* no map: the photo's words come first */
+.now .chips-in { display: none; }                      /* phones only (see below) */
 .latest-body h2, .h2 { font-family: var(--font-headline); font-weight: 600; font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.1; margin: 0 0 0.6rem; letter-spacing: -0.01em; }
 .caption { margin: 0; white-space: pre-line; }
 .caption-note { margin: 0.5rem 0 0; color: var(--gray); font-size: 0.85rem; }
@@ -100,9 +97,15 @@ em { font-style: italic; color: var(--persimmon); }
 .now p { margin: 0.4rem 0 0; }
 
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
-.latest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
-.latest-grid.single { grid-template-columns: 1fr; }
-.latest-grid > .card { height: var(--map-height); }
+/* Map and photo on top at the same height; under them, same columns, next-up and the photo's words */
+.latest-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: var(--map-height) auto; grid-template-areas: "map photo" "now caption"; gap: 1.5rem; margin-bottom: 1.5rem; }
+.latest-grid.single { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "photo" "caption" "now"; }   /* no map: the photo, its words, then next up */
+.map-card { grid-area: map; }
+.photo-card { grid-area: photo; }
+.now-card { grid-area: now; }
+.latest-body-card { grid-area: caption; }
+.latest-grid > .map-card, .latest-grid > .photo-card { height: var(--map-height); }
+.latest-grid.single > .photo-card { height: var(--photo-height); }
 .photo-card .photo { height: 100%; }
 .map-card { position: relative; height: var(--map-height); display: flex; flex-direction: column; padding: 0.8rem 0.8rem 0; }
 .map-card svg { width: 100%; flex: 1 1 auto; min-height: 0; display: block; }
@@ -237,16 +240,28 @@ body.has-strip { padding-bottom: 2.2rem; }
   .two-col, .about-hero .wrap, .latest-grid, .dispatch-wide, .signup-strip .wrap, .site-footer .wrap { grid-template-columns: 1fr; }
   .stamp-view { grid-template-columns: 1fr; }
   .counters { grid-template-columns: repeat(3, 1fr); }
-  .latest-grid > .card { height: auto; min-height: min(var(--map-height), 70vw); }
-  .photo-card .photo { height: min(var(--photo-height), 110vw); }
+  /* One column: map, the photo, its words right under it, then the next-up box */
+  .latest-grid, .latest-grid.single { grid-template-rows: auto; grid-template-areas: "map" "photo" "caption" "now"; }
+  .latest-grid.single { grid-template-areas: "photo" "caption" "now"; }
+  .latest-grid > .map-card { height: auto; min-height: min(var(--map-height), 70vw); }
+  /* The photo takes the picture's own shape (css --ar from js), edge to edge, no side bars */
+  .latest-grid > .photo-card, .latest-grid.single > .photo-card { height: auto; }
+  .photo-card .photo { height: auto; aspect-ratio: var(--ar, 4 / 5); max-height: 150vw; }
+  .photo-card .photo.contain img { object-fit: cover; }
+  .photo-card .photo.contain::before { display: none; }
+  /* Next up: the plan chips move inside the black box */
+  .now-card > .chips { display: none; }
+  .now .chips-in { display: flex; margin: 0.8rem 0 0; }
+  .now .chip { border-color: var(--peach); color: var(--cream); }
   .day-cards { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
-  .site-header .wrap { flex-wrap: wrap; min-height: 60px; padding-block: 0.6rem; }
-  .menu { order: 3; width: 100%; display: none; flex-direction: row; gap: 0.5rem; padding-bottom: 0.6rem; }
-  .menu.open { display: flex; }
-  .menu-toggle { display: inline-block; margin-left: auto; }
-  .header-subscribe { order: 2; }
+  /* Phones: no menu button. Every link sits in the one bar, sized so the whole set fits at 390px. */
+  .site-header .wrap { flex-wrap: nowrap; gap: 0.4rem; min-height: 56px; padding-block: 0.5rem; }
+  .wordmark { font-size: 1.12rem; }
+  .menu { flex-wrap: nowrap; gap: 0.3rem; }
+  .menu a { font-size: 0.7rem; padding: 0.4em 0.62em; white-space: nowrap; }
+  .header-subscribe { font-size: 0.7rem; padding: 0.4em 0.7em; }
   .counters { grid-template-columns: repeat(2, 1fr); gap: 0.8rem 1rem; }
   .counter .num { font-size: 1.25rem; }
   .banner-route { height: max(var(--banner-height), 150px); }
@@ -259,8 +274,8 @@ body.has-strip { padding-bottom: 2.2rem; }
 /* ---------- Phase 3: interactions ---------- */
 .banner-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
 .travel-back { font-size: 0.85rem; padding: 0.45em 1em; }
-.banner-route { touch-action: none; cursor: crosshair; user-select: none; -webkit-user-select: none; }
-.banner-route.flipped { cursor: default; }
+.banner-route { touch-action: pan-y; cursor: crosshair; user-select: none; -webkit-user-select: none; }   /* pan-y: up/down scrolls the page, sideways scrubs the line */
+.banner-route.flipped { cursor: default; touch-action: auto; }   /* with the stats (or another flip) open there is nothing to scrub: the page scrolls as usual */
 .banner-route #banner-line { transition: opacity 0.45s ease; }
 .banner-route.flipped #banner-line { opacity: 0.12; }
 .banner-route.flipped.mode-climb #banner-line, .banner-route.flipped.mode-countries #banner-line { opacity: 1; }   /* the profile is the line; outlines sit over the line */
@@ -301,7 +316,7 @@ body.has-strip { padding-bottom: 2.2rem; }
 .title .mark.active { transform: rotate(90deg) scale(1.12); }
 .banner-hint { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.08em; color: var(--gray); margin: 0.5rem 0 0; }
 .travel-note { font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0 0; }
-.map-card svg { touch-action: none; cursor: crosshair; }
+.map-card svg { touch-action: pan-y; cursor: crosshair; }
 .latest-link { font-size: 0.85rem; }
 
 @media (max-width: 900px) { .flip-stats { grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem; } }
@@ -362,7 +377,6 @@ body.has-strip { padding-bottom: 2.2rem; }
 .stamp .mark { position: relative; width: 14px; height: 14px; margin-bottom: 0.1rem; }
 .stamp .name, .stamp .when, .stamp .mark { opacity: 0; }
 .stamp.inked .name, .stamp.inked .when, .stamp.inked .mark { opacity: 1; }
-.stamp.inked .frame { filter: url(#stamp-rough); }
 .stamp.inked { color: var(--persimmon); }
 /* not yet: a faint outline and nothing else */
 .stamp:not(.inked) { color: var(--gray); opacity: 0.35; }

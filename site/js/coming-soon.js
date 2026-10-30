@@ -82,9 +82,12 @@
       var place = function () {
         var r = about.getBoundingClientRect();
         about.classList.toggle("flip", r.left + bubble.offsetWidth > window.innerWidth - 16 && r.right > bubble.offsetWidth);
+        // Measure the pitch line, not the form: the form is display:contents, so its own box is empty
+        // (measuring it put the card 800px up, off the top of the screen).
         var ctaBlock = document.getElementById("cta");
-        if (window.innerWidth <= 640 && ctaBlock && !ctaBlock.hidden) {
-          bubble.style.bottom = (window.innerHeight - ctaBlock.getBoundingClientRect().top + 12) + "px";
+        var pitch = ctaBlock && ctaBlock.querySelector(".pitch");
+        if (window.innerWidth <= 640 && ctaBlock && !ctaBlock.hidden && pitch) {
+          bubble.style.bottom = (window.innerHeight - pitch.getBoundingClientRect().top + 12) + "px";
         } else { bubble.style.bottom = ""; }
       };
       about.addEventListener("mouseenter", place);

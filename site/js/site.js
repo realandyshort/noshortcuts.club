@@ -38,7 +38,10 @@
   };
   ctx.ok = function (name) { return ctx.state(name) === "ok" || (ctx.state(name) === "failing"); };   // one blip does not hide a section
   ctx.connected = function (name) { var s = ctx.state(name); return s !== "not_connected" && s !== "skipped"; };
-  ctx.listenHref = function () { var c = ctx.config; return (c.podLink && c.podLink.trim()) || c.links.pocketCasts || c.links.spotify; };
+  // The "Podcast app" button. It opens config `podLink` (the show on Apple Podcasts, an https link the
+  // Podcasts app claims when it is installed, so it opens in the app rather than a web page). If that is
+  // ever blank it falls back to Spotify. Pocket Casts is no longer used here.
+  ctx.listenHref = function () { var c = ctx.config; return (c.podLink && c.podLink.trim()) || c.links.spotify; };
   ctx.withDay = function (href) { return ctx.testDay ? href + (href.indexOf("?") >= 0 ? "&" : "?") + "day=" + ctx.testDay : href; };
   ctx.mark = function () { var t = document.createElement("template"); t.innerHTML = MARK_SVG; return t.content.firstChild; };
   ctx.el = el; ctx.pick = pick;
@@ -82,6 +85,8 @@
       if (!img.naturalWidth) return;
       var tall = img.naturalWidth / img.naturalHeight < 1.35;
       box.classList.toggle("contain", tall);
+      // the picture's own shape, so a phone-width box can take exactly that shape (css --ar)
+      box.style.setProperty("--ar", img.naturalWidth + " / " + img.naturalHeight);
       if (tall) box.style.setProperty("--backdrop", "url(\"" + src.replace(/"/g, "%22") + "\")"); else box.style.removeProperty("--backdrop");
     }
     img.addEventListener("load", fit);
@@ -123,8 +128,6 @@
     if (hp.photoHeight) root.setProperty("--photo-height", hp.photoHeight);
     if (hp.mapHeight) root.setProperty("--map-height", hp.mapHeight);
     if (hp.dayCards) root.setProperty("--day-cards", hp.dayCards);
-    var toggle = document.querySelector(".menu-toggle"), menu = document.querySelector(".menu");
-    if (toggle && menu && !toggle._wired) { toggle._wired = true; toggle.addEventListener("click", function () { menu.classList.toggle("open"); toggle.setAttribute("aria-expanded", menu.classList.contains("open")); }); }
     var videosOn = !!(c.sections && c.sections.videos && c.sections.videos.enabled);
     document.querySelectorAll("[data-when-videos]").forEach(function (a) { a.hidden = !videosOn; });
     // Placeholders come from config too (data-placeholder="copy.signup.placeholder")
