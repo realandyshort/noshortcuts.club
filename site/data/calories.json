@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T23:54:42.359Z",
+  "generated_at": "2026-10-30T05:37:01.027Z",
   "available": true,
   "cumulative_kcal": [
     9427,
@@ -545,5 +545,6 @@
     2582645,
     2586890,
     2591033
-  ]
+  ],
+  "days_from_device": 0
 }
