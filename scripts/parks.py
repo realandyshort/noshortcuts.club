@@ -9,17 +9,26 @@ import json, math, os, sys, time, urllib.request, urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UA = "noshortcuts.club site robot (hello@noshortcuts.club)"
-OVERPASS = "https://overpass-api.de/api/interpreter"
+MIRRORS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter", "https://overpass.private.coffee/api/interpreter"]
 NAME_OK = ("national park", "parque nacional", "parc national", "national park and preserve")
 NAME_BAD = ("provincial", "state park", "regional", "municipal", "county", "territorial", "recreation area", "national forest", "wildlife", "ecological reserve")
 
-def overpass(q, tries=3):
+import subprocess, tempfile
+def overpass(q, tries=6):
+    """Through curl: Python's own downloader has no root certificates on this Mac."""
     for i in range(tries):
+        url = MIRRORS[i % len(MIRRORS)]
         try:
-            req = urllib.request.Request(OVERPASS, data=urllib.parse.urlencode({"data": q}).encode(), headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=240) as r: return json.load(r)
+            with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False) as f: f.write(q); qf = f.name
+            r = subprocess.run(["curl", "-s", "--max-time", "200", "-A", UA, "--data-urlencode", f"data@{qf}", url], capture_output=True, text=True, timeout=220)
+            os.unlink(qf)
+            if r.returncode == 0 and r.stdout.strip().startswith("{"):
+                j = json.loads(r.stdout)
+                if "elements" in j: return j
+            print("  overpass retry on another mirror:", url.split("/")[2], (r.stdout or r.stderr)[:60].replace("\n", " "), flush=True)
         except Exception as e:
-            print("  overpass retry:", str(e)[:80]); time.sleep(30 * (i + 1))
+            print("  overpass retry on another mirror:", url.split("/")[2], str(e)[:60], flush=True)
+        time.sleep(10)
     return {"elements": []}
 
 def tiles():
@@ -72,18 +81,26 @@ def simplify(ring, tol):
 
 def main():
     found = {}
-    for (s, w, n, e) in tiles():
+    found_file = os.path.join(ROOT, "seed", "national_parks.found.json")
+    if os.path.exists(found_file) and "--retile" not in sys.argv:
+        for el in json.load(open(found_file)): found[(el["type"], el["id"])] = el
+        print(len(found), "parks from the saved search; use --retile to search again", flush=True)
+    for (s, w, n, e) in ([] if found else tiles()):
         q = f'[out:json][timeout:180];(relation["boundary"="national_park"]({s},{w},{n},{e});relation["boundary"="protected_area"]["protect_class"="2"]({s},{w},{n},{e});relation["leisure"="nature_reserve"]["protect_class"="2"]({s},{w},{n},{e});way["boundary"="national_park"]({s},{w},{n},{e}););out tags center;'
         res = overpass(q)
         hits = [el for el in res.get("elements", []) if is_national_park(el.get("tags", {}))]
         for el in hits: found[(el["type"], el["id"])] = el
-        print(f"tile {s}..{n} lat, {w:.0f}..{e:.0f} lon: {len(res.get('elements', []))} tagged, {len(hits)} national parks")
-        time.sleep(8)
-    print(len(found), "national parks along the corridor; fetching outlines")
-    parks = []
-    keys = list(found)
-    for i in range(0, len(keys), 25):
-        batch = keys[i:i + 25]
+        print(f"tile {s}..{n} lat, {w:.0f}..{e:.0f} lon: {len(res.get('elements', []))} tagged, {len(hits)} national parks", flush=True)
+        time.sleep(3)
+    json.dump(list(found.values()), open(found_file, "w"))
+    print(len(found), "national parks along the corridor; fetching outlines", flush=True)
+    out_file = os.path.join(ROOT, "seed", "national_parks.json")
+    parks = json.load(open(out_file))["parks"] if os.path.exists(out_file) else []
+    done_ids = {pk["osm"] for pk in parks}
+    keys = [k for k in found if f"{k[0]}/{k[1]}" not in done_ids]
+    print(len(parks), "outlines already saved;", len(keys), "to fetch", flush=True)
+    for i in range(0, len(keys), 6):
+        batch = keys[i:i + 6]
         rel_ids = [str(k[1]) for k in batch if k[0] == "relation"]; way_ids = [str(k[1]) for k in batch if k[0] == "way"]
         parts = []
         if rel_ids: parts.append(f"relation(id:{','.join(rel_ids)});")
@@ -97,7 +114,9 @@ def main():
             rings = [[[round(x, 4), round(y, 4)] for x, y in r] for r in rings if len(r) > 3]
             if not rings: continue
             parks.append({"name": tags.get("name:en") or tags.get("name"), "country": tags.get("addr:country") or tags.get("is_in:country") or "", "osm": f"{el['type']}/{el['id']}", "rings": rings})
-        time.sleep(8)
+        json.dump({"note": "National parks along the route corridor from OpenStreetMap (ODbL), kept when named a National Park / Parque Nacional / Parc national. Simplified outer rings as [lon, lat]. Used to count parks entered.", "parks": parks}, open(out_file, "w"), separators=(",", ":"), ensure_ascii=False)
+        print(f"  outlines saved: {len(parks)}", flush=True)
+        time.sleep(4)
     parks.sort(key=lambda p: p["name"] or "")
     json.dump({"note": "National parks along the route corridor from OpenStreetMap (ODbL), kept when named a National Park / Parque Nacional / Parc national. Simplified outer rings as [lon, lat]. Used to count parks entered.", "parks": parks},
               open(os.path.join(ROOT, "seed", "national_parks.json"), "w"), separators=(",", ":"), ensure_ascii=False)

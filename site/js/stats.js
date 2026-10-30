@@ -80,9 +80,10 @@
       // milestones
       // the record only from real tracks (live or the planned Komoot track), never from the coarse route profile
       var altIsRecordWorthy = !!(L && L.max_alt_m != null) || !!(r && r.max_alt_ft) || (g.alt_source === "track");
-      if (maxAlt != null && altIsRecordWorthy && (!highest || maxAlt > highest.m)) highest = { m: maxAlt, day: i, place: d.to, live: !!(L || r) };
-      if (w && w.tmax_f != null && (!hottest || w.tmax_f > hottest.f)) hottest = { f: w.tmax_f, day: i, place: w.place || d.to, sample: !!w.sample };
-      if (w && w.tmin_f != null && (!coldest || w.tmin_f < coldest.f)) coldest = { f: w.tmin_f, day: i, place: w.place || d.to, sample: !!w.sample };
+      if (maxAlt != null && altIsRecordWorthy && (!highest || maxAlt > highest.m)) highest = { m: maxAlt, day: i, place: d.to || d.from || "", live: !!(L || r) };
+      var wherePlace = (w && w.place) || d.to || d.from || "";
+      if (w && w.tmax_f != null && (!hottest || w.tmax_f > hottest.f)) hottest = { f: w.tmax_f, day: i, place: wherePlace, sample: !!w.sample };
+      if (w && w.tmin_f != null && (!coldest || w.tmin_f < coldest.f)) coldest = { f: w.tmin_f, day: i, place: wherePlace, sample: !!w.sample };
     }
     return {
       water: (cfg.litersPerDay || 5) * Math.max(0, n),
@@ -90,7 +91,7 @@
       capitals: Object.keys(caps).length, capitalNames: Object.keys(caps), calories: kcal,
       volcanoes: geo ? Object.keys(volc).length : null, volcanoNames: Object.keys(volc),
       waters: geo ? Object.keys(waters).length : null, waterNames: Object.keys(waters),
-      parks: geo ? Object.keys(parks).length : null, parkNames: Object.keys(parks),
+      parks: (geo && geo.has_parks) ? Object.keys(parks).length : null, parkNames: Object.keys(parks),
       llamas: geo ? llamas : null, strokes: Math.round(strokes), chains: Math.floor(milesTotal / chainMi),
       highest: highest, hottest: hottest, coldest: coldest
     };

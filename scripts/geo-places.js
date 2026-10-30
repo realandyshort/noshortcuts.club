@@ -9,10 +9,15 @@ const Trip = require("../site/js/trip.js");
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+// Towns, villages, campgrounds and the like, never a province or state of the same name
+const PLACE_TYPES = /^(city|town|village|hamlet|municipality|locality|suburb|neighbourhood|isolated_dwelling|camp_site|tourism|natural|amenity|leisure|place)$/;
 async function geocode(q) {
-  const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=${encodeURIComponent(q)}`;
-  try { const j = await C.fetchJSON(url, { timeoutMs: 20000 }); return j[0] ? { lat: +j[0].lat, lon: +j[0].lon, name: j[0].display_name } : null; }
-  catch (e) { return null; }
+  const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&q=${encodeURIComponent(q)}`;
+  try {
+    const j = await C.fetchJSON(url, { timeoutMs: 20000 });
+    const pick = j.find(r => PLACE_TYPES.test(r.addresstype || "") || PLACE_TYPES.test(r.category || "") || PLACE_TYPES.test(r.type || ""));
+    return pick ? { lat: +pick.lat, lon: +pick.lon, name: pick.display_name } : null;
+  } catch (e) { return null; }
 }
 
 async function main() {
@@ -26,7 +31,9 @@ async function main() {
   const skip = /^(free camp|wild camp|camp|bush camp|roadside|tbd|\?)$/i;
 
   for (const d of plan.days) {
-    if (out.days[d.day] && out.days[d.day].end) continue;        // already done
+    const prior = out.days[d.day];
+    const settled = prior && prior.end && ["osm", "komoot"].includes(prior.end.source) && prior.start && ["osm", "komoot"].includes(prior.start.source);
+    if (settled && !process.argv.includes("--redo")) continue;    // already placed well
     const routePt = Trip.pointAtFraction(route, Trip.fractionAtDay(plan, d.day));
     const startPt = Trip.pointAtFraction(route, Trip.fractionAtDay(plan, d.day - 1));
     const entry = {};
@@ -37,7 +44,11 @@ async function main() {
         if (cache[q] === undefined) { cache[q] = await geocode(q); await sleep(1100); }
         hit = cache[q];
       }
-      if (hit && Trip.haversineMi([hit.lat, hit.lon], near) <= 80) entry[key] = { lat: +hit.lat.toFixed(4), lon: +hit.lon.toFixed(4), place, source: "osm" };
+      const prev = prior && prior[key];
+      if (prev && prev.source === "komoot") { entry[key] = prev; continue; }                       // a real track beats any lookup
+      if (hit && Trip.haversineMi([hit.lat, hit.lon], near) <= 120) entry[key] = { lat: +hit.lat.toFixed(4), lon: +hit.lon.toFixed(4), place, source: "osm" };
+      else if (key === "start" && out.days[d.day - 1] && out.days[d.day - 1].end) entry[key] = Object.assign({}, out.days[d.day - 1].end, { place });   // where yesterday ended
+      else if (key === "end" && (d.kind === "rest" || !place) && out.days[d.day - 1] && out.days[d.day - 1].end) entry[key] = Object.assign({}, out.days[d.day - 1].end, { place: place || d.from });
       else entry[key] = { lat: +near[0].toFixed(4), lon: +near[1].toFixed(4), place, source: "route" };
     }
     out.days[d.day] = entry;

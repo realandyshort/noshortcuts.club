@@ -23,14 +23,16 @@ async function run(ctx) {
     const arch = sample ? null : C.readJSON(path.join(C.P.archive, String(d.day).padStart(3, "0") + ".json"), null);
     const at = (arch && arch.position) ? arch.position : (pts[d.day] && pts[d.day].end) || null;
     if (!at) continue;
-    const ymd = sample ? d.date.replace(/^(\d{4})/, (m, y) => String(Number(y) - 2)) : d.date;
+    // Sample years: the same calendar date two years earlier, or three if two is not yet in the past
+    const back = y => d.date.replace(/^(\d{4})/, (m, yr) => String(Number(yr) - y));
+    const ymd = sample ? (Date.parse(back(2)) < Date.now() - 3 * 86400000 ? back(2) : back(3)) : d.date;
     if (!sample && Date.parse(ymd) > Date.now() - 2 * 86400000) continue;   // the archive lags a couple of days
     try {
       const j = await C.fetchJSON(`https://archive-api.open-meteo.com/v1/archive?latitude=${at.lat}&longitude=${at.lon}&start_date=${ymd}&end_date=${ymd}&daily=temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=auto`, { timeoutMs: 30000 });
       const tmax = j.daily && j.daily.temperature_2m_max && j.daily.temperature_2m_max[0];
       const tmin = j.daily && j.daily.temperature_2m_min && j.daily.temperature_2m_min[0];
       if (tmax == null || tmin == null) throw new Error("no daily values");
-      out.days[d.day] = { tmax_f: Math.round(tmax), tmin_f: Math.round(tmin), place: at.place || d.to, sample, looked_up_at: new Date().toISOString() };
+      out.days[d.day] = { tmax_f: Math.round(tmax), tmin_f: Math.round(tmin), place: at.place || d.to || d.from || "", sample, looked_up_at: new Date().toISOString() };
       done++;
       await new Promise(r => setTimeout(r, 400));
     } catch (e) { C.log(`day weather: day ${d.day}: ${e.message.slice(0, 80)} (kept previous)`); if (/429/.test(e.message)) break; }

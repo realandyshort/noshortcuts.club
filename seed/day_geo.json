@@ -1974,7 +1974,7 @@
     "name": "the Caribbean Sea",
     "kind": "sea",
     "dist_mi": 4.64,
-    "at": "start"
+    "at": "end"
    },
    "max_alt_m": 7,
    "alt_source": "route"
@@ -2730,37 +2730,16 @@
   },
   "316": {
    "from": "places",
-   "volcano": {
-    "name": "Tungurahua",
-    "dist_mi": 5.23,
-    "elevation_m": 5023,
-    "type": "Stratovolcano",
-    "at": "end"
-   },
    "max_alt_m": 1984,
    "alt_source": "route"
   },
   "317": {
    "from": "places",
-   "volcano": {
-    "name": "Tungurahua",
-    "dist_mi": 5.23,
-    "elevation_m": 5023,
-    "type": "Stratovolcano",
-    "at": "start"
-   },
    "max_alt_m": 1797,
    "alt_source": "route"
   },
   "318": {
    "from": "places",
-   "volcano": {
-    "name": "Tungurahua",
-    "dist_mi": 5.23,
-    "elevation_m": 5023,
-    "type": "Stratovolcano",
-    "at": "start"
-   },
    "max_alt_m": 3193,
    "alt_source": "route"
   },
@@ -2889,80 +2868,50 @@
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
-    "dist_mi": 3.13,
-    "at": "start"
+    "dist_mi": 0.2,
+    "at": "end"
    },
    "max_alt_m": 4098,
    "alt_source": "route"
   },
   "342": {
    "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.2,
+    "at": "start"
+   },
    "max_alt_m": 4014,
    "alt_source": "route"
   },
   "343": {
    "from": "places",
-   "water": {
-    "name": "the Pacific Ocean",
-    "kind": "sea",
-    "dist_mi": 0.84,
-    "at": "end"
-   },
    "max_alt_m": 3040,
    "alt_source": "route"
   },
   "344": {
    "from": "places",
-   "water": {
-    "name": "the Pacific Ocean",
-    "kind": "sea",
-    "dist_mi": 0.84,
-    "at": "start"
-   },
    "max_alt_m": 55,
    "alt_source": "route"
   },
   "345": {
    "from": "places",
-   "water": {
-    "name": "the Pacific Ocean",
-    "kind": "sea",
-    "dist_mi": 2.94,
-    "at": "start"
-   },
    "max_alt_m": 34,
    "alt_source": "route"
   },
   "346": {
    "from": "places",
-   "water": {
-    "name": "the Pacific Ocean",
-    "kind": "sea",
-    "dist_mi": 2.94,
-    "at": "start"
-   },
    "max_alt_m": 34,
    "alt_source": "route"
   },
   "347": {
    "from": "places",
-   "water": {
-    "name": "the Pacific Ocean",
-    "kind": "sea",
-    "dist_mi": 2.94,
-    "at": "start"
-   },
    "max_alt_m": 34,
    "alt_source": "route"
   },
   "348": {
    "from": "places",
-   "water": {
-    "name": "the Pacific Ocean",
-    "kind": "sea",
-    "dist_mi": 1.03,
-    "at": "end"
-   },
    "max_alt_m": 34,
    "alt_source": "route"
   },
@@ -2971,8 +2920,8 @@
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
-    "dist_mi": 1.03,
-    "at": "start"
+    "dist_mi": 1.51,
+    "at": "end"
    },
    "max_alt_m": 95,
    "alt_source": "route"
@@ -4231,5 +4180,6 @@
    "max_alt_m": 431,
    "alt_source": "route"
   }
- }
+ },
+ "has_parks": false
 }

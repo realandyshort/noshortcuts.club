@@ -2199,53 +2199,53 @@
       "looked_up_at": "2026-10-30T02:43:05.750Z"
     },
     "315": {
-      "tmax_f": 72,
-      "tmin_f": 62,
+      "tmax_f": 51,
+      "tmin_f": 40,
       "place": "Canar",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:06.465Z"
+      "looked_up_at": "2026-10-30T03:20:30.126Z"
     },
     "316": {
-      "tmax_f": 72,
-      "tmin_f": 55,
+      "tmax_f": 65,
+      "tmin_f": 47,
       "place": "Cuenca",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:07.712Z"
+      "looked_up_at": "2026-10-30T03:20:30.734Z"
     },
     "317": {
-      "tmax_f": 72,
-      "tmin_f": 54,
+      "tmax_f": 70,
+      "tmin_f": 46,
       "place": "Cuenca",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:08.562Z"
+      "looked_up_at": "2026-10-30T03:20:31.405Z"
     },
     "318": {
-      "tmax_f": 62,
-      "tmin_f": 44,
+      "tmax_f": 66,
+      "tmin_f": 49,
       "place": "Ona",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:09.273Z"
+      "looked_up_at": "2026-10-30T03:20:32.000Z"
     },
     "319": {
-      "tmax_f": 62,
-      "tmin_f": 48,
+      "tmax_f": 83,
+      "tmin_f": 63,
       "place": "Loja",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:09.889Z"
+      "looked_up_at": "2026-10-30T03:20:32.645Z"
     },
     "320": {
-      "tmax_f": 63,
-      "tmin_f": 49,
+      "tmax_f": 74,
+      "tmin_f": 64,
       "place": "Vilcabamba",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:10.497Z"
+      "looked_up_at": "2026-10-30T03:20:33.239Z"
     },
     "321": {
-      "tmax_f": 61,
-      "tmin_f": 53,
+      "tmax_f": 73,
+      "tmin_f": 63,
       "place": "Vilcabamba",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:11.180Z"
+      "looked_up_at": "2026-10-30T03:20:33.830Z"
     },
     "322": {
       "tmax_f": 58,
@@ -2276,11 +2276,11 @@
       "looked_up_at": "2026-10-30T02:43:13.684Z"
     },
     "326": {
-      "tmax_f": 91,
-      "tmin_f": 71,
+      "tmax_f": 82,
+      "tmin_f": 70,
       "place": "Pedro Ruiz",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:14.330Z"
+      "looked_up_at": "2026-10-30T03:20:34.420Z"
     },
     "327": {
       "tmax_f": 79,
@@ -2381,11 +2381,11 @@
       "looked_up_at": "2026-10-30T02:43:22.906Z"
     },
     "341": {
-      "tmax_f": 51,
-      "tmin_f": 29,
+      "tmax_f": 82,
+      "tmin_f": 68,
       "place": "Chimbote",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:23.502Z"
+      "looked_up_at": "2026-10-30T03:20:35.081Z"
     },
     "342": {
       "tmax_f": 81,
@@ -2395,46 +2395,46 @@
       "looked_up_at": "2026-10-30T02:43:24.151Z"
     },
     "343": {
-      "tmax_f": 79,
-      "tmin_f": 66,
+      "tmax_f": 82,
+      "tmin_f": 67,
       "place": "Pariacoto",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:24.814Z"
+      "looked_up_at": "2026-10-30T03:20:35.675Z"
     },
     "344": {
-      "tmax_f": 79,
-      "tmin_f": 65,
+      "tmax_f": 72,
+      "tmin_f": 43,
       "place": "Huaraz",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:25.409Z"
+      "looked_up_at": "2026-10-30T03:20:36.320Z"
     },
     "345": {
-      "tmax_f": 78,
-      "tmin_f": 64,
+      "tmax_f": 73,
+      "tmin_f": 43,
       "place": "Huaraz",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:26.050Z"
+      "looked_up_at": "2026-10-30T03:20:36.961Z"
     },
     "346": {
-      "tmax_f": 79,
-      "tmin_f": 64,
+      "tmax_f": 74,
+      "tmin_f": 44,
       "place": "Huaraz",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:26.639Z"
+      "looked_up_at": "2026-10-30T03:20:37.569Z"
     },
     "347": {
-      "tmax_f": 79,
-      "tmin_f": 63,
+      "tmax_f": 72,
+      "tmin_f": 46,
       "place": "Huaraz",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:27.229Z"
+      "looked_up_at": "2026-10-30T03:20:38.228Z"
     },
     "348": {
-      "tmax_f": 77,
-      "tmin_f": 69,
+      "tmax_f": 54,
+      "tmin_f": 29,
       "place": "Conococha",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:43:27.843Z"
+      "looked_up_at": "2026-10-30T03:20:38.820Z"
     },
     "349": {
       "tmax_f": 81,
@@ -3291,32 +3291,32 @@
       "looked_up_at": "2026-10-30T02:44:43.504Z"
     },
     "471": {
-      "tmax_f": 56,
-      "tmin_f": 39,
+      "tmax_f": 71,
+      "tmin_f": 54,
       "place": "Villa Maria",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:44:44.100Z"
+      "looked_up_at": "2026-10-30T03:20:39.469Z"
     },
     "472": {
-      "tmax_f": 68,
-      "tmin_f": 51,
+      "tmax_f": 69,
+      "tmin_f": 52,
       "place": "Cordoba",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:44:44.688Z"
+      "looked_up_at": "2026-10-30T03:20:40.068Z"
     },
     "473": {
       "tmax_f": 73,
-      "tmin_f": 51,
-      "place": "",
+      "tmin_f": 50,
+      "place": "Cordoba",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:44:45.279Z"
+      "looked_up_at": "2026-10-30T03:20:40.658Z"
     },
     "474": {
-      "tmax_f": 64,
-      "tmin_f": 46,
+      "tmax_f": 73,
+      "tmin_f": 55,
       "place": "Mina Clavero",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:44:45.871Z"
+      "looked_up_at": "2026-10-30T03:20:41.249Z"
     },
     "475": {
       "tmax_f": 80,
@@ -3326,39 +3326,39 @@
       "looked_up_at": "2026-10-30T02:44:46.466Z"
     },
     "476": {
-      "tmax_f": 73,
-      "tmin_f": 53,
+      "tmax_f": 69,
+      "tmin_f": 48,
       "place": "San Luis",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:44:47.062Z"
+      "looked_up_at": "2026-10-30T03:20:41.891Z"
     },
     "477": {
-      "tmax_f": 67,
-      "tmin_f": 51,
+      "tmax_f": 82,
+      "tmin_f": 57,
       "place": "La Paz (Mendoza)",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:44:47.653Z"
+      "looked_up_at": "2026-10-30T03:20:42.493Z"
     },
     "478": {
-      "tmax_f": 27,
-      "tmin_f": 5,
+      "tmax_f": 68,
+      "tmin_f": 56,
       "place": "Mendoza",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:44:48.246Z"
+      "looked_up_at": "2026-10-30T03:20:43.133Z"
     },
     "479": {
-      "tmax_f": 25,
-      "tmin_f": 0,
-      "place": "",
+      "tmax_f": 58,
+      "tmin_f": 50,
+      "place": "Mendoza",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:44:48.836Z"
+      "looked_up_at": "2026-10-30T03:20:43.732Z"
     },
     "480": {
-      "tmax_f": 23,
-      "tmin_f": 8,
-      "place": "",
+      "tmax_f": 59,
+      "tmin_f": 49,
+      "place": "Mendoza",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:44:49.432Z"
+      "looked_up_at": "2026-10-30T03:20:44.321Z"
     },
     "481": {
       "tmax_f": 57,
@@ -3375,11 +3375,11 @@
       "looked_up_at": "2026-10-30T02:44:50.645Z"
     },
     "483": {
-      "tmax_f": 59,
-      "tmin_f": 49,
+      "tmax_f": 60,
+      "tmin_f": 48,
       "place": "Los Andes",
       "sample": true,
-      "looked_up_at": "2026-10-30T02:44:51.233Z"
+      "looked_up_at": "2026-10-30T03:20:44.911Z"
     },
     "484": {
       "tmax_f": 63,
@@ -3506,7 +3506,301 @@
       "place": "El Bolson",
       "sample": true,
       "looked_up_at": "2026-10-30T02:45:01.915Z"
+    },
+    "502": {
+      "tmax_f": 49,
+      "tmin_f": 37,
+      "place": "Cholila",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:06.180Z"
+    },
+    "503": {
+      "tmax_f": 54,
+      "tmin_f": 41,
+      "place": "Trevelin",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:06.775Z"
+    },
+    "504": {
+      "tmax_f": 64,
+      "tmin_f": 36,
+      "place": "Futaleufu",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:07.375Z"
+    },
+    "505": {
+      "tmax_f": 68,
+      "tmin_f": 41,
+      "place": "Villa Santa Lucia",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:08.036Z"
+    },
+    "506": {
+      "tmax_f": 68,
+      "tmin_f": 38,
+      "place": "Futaleufu",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:08.708Z"
+    },
+    "507": {
+      "tmax_f": 74,
+      "tmin_f": 37,
+      "place": "La Junta",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:09.307Z"
+    },
+    "508": {
+      "tmax_f": 66,
+      "tmin_f": 44,
+      "place": "Puyuhuapi",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:09.906Z"
+    },
+    "509": {
+      "tmax_f": 61,
+      "tmin_f": 43,
+      "place": "Puyuhuapi (hot springs, Queulat)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:10.508Z"
+    },
+    "510": {
+      "tmax_f": 70,
+      "tmin_f": 44,
+      "place": "Villa Amengual",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:11.140Z"
+    },
+    "511": {
+      "tmax_f": 80,
+      "tmin_f": 50,
+      "place": "Villa Manihuales",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:11.746Z"
+    },
+    "512": {
+      "tmax_f": 65,
+      "tmin_f": 47,
+      "place": "Coyhaique",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:12.376Z"
+    },
+    "513": {
+      "tmax_f": 33,
+      "tmin_f": 28,
+      "place": "Villa Cerro Castillo",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:12.981Z"
+    },
+    "514": {
+      "tmax_f": 57,
+      "tmin_f": 47,
+      "place": "Puerto Rio Tranquilo",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:13.584Z"
+    },
+    "515": {
+      "tmax_f": 60,
+      "tmin_f": 47,
+      "place": "Puerto Rio Tranquilo (Marble Caves)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:14.182Z"
+    },
+    "516": {
+      "tmax_f": 61,
+      "tmin_f": 44,
+      "place": "Puerto Bertrand",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:14.818Z"
+    },
+    "517": {
+      "tmax_f": 56,
+      "tmin_f": 41,
+      "place": "Cochrane",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:15.411Z"
+    },
+    "518": {
+      "tmax_f": 38,
+      "tmin_f": 30,
+      "place": "Tortel junction",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:16.064Z"
+    },
+    "519": {
+      "tmax_f": 46,
+      "tmin_f": 37,
+      "place": "Rio Bravo",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:20:45.571Z"
+    },
+    "520": {
+      "tmax_f": 46,
+      "tmin_f": 37,
+      "place": "Villa O'Higgins",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:17.260Z"
+    },
+    "521": {
+      "tmax_f": 42,
+      "tmin_f": 38,
+      "place": "Villa O'Higgins (boat wait / buffer)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:17.861Z"
+    },
+    "522": {
+      "tmax_f": 47,
+      "tmin_f": 31,
+      "place": "Lago del Desierto (north)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:18.491Z"
+    },
+    "523": {
+      "tmax_f": 48,
+      "tmin_f": 40,
+      "place": "El Chalten",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:19.090Z"
+    },
+    "524": {
+      "tmax_f": 52,
+      "tmin_f": 38,
+      "place": "El Chalten (Fitz Roy)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:19.721Z"
+    },
+    "525": {
+      "tmax_f": 60,
+      "tmin_f": 52,
+      "place": "La Leona",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:20.370Z"
+    },
+    "526": {
+      "tmax_f": 55,
+      "tmin_f": 47,
+      "place": "El Calafate",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:20.963Z"
+    },
+    "527": {
+      "tmax_f": 53,
+      "tmin_f": 48,
+      "place": "El Calafate (Perito Moreno)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:21.629Z"
+    },
+    "528": {
+      "tmax_f": 54,
+      "tmin_f": 44,
+      "place": "Tapi Aike",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:22.284Z"
+    },
+    "529": {
+      "tmax_f": 54,
+      "tmin_f": 36,
+      "place": "Villa Cerro Castillo (Chile)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:22.897Z"
+    },
+    "530": {
+      "tmax_f": 61,
+      "tmin_f": 38,
+      "place": "Torres del Paine (Laguna Amarga)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:23.493Z"
+    },
+    "531": {
+      "tmax_f": 66,
+      "tmin_f": 39,
+      "place": "Torres del Paine W trek (day 1 of 5)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:20:46.174Z"
+    },
+    "532": {
+      "tmax_f": 67,
+      "tmin_f": 42,
+      "place": "Torres del Paine W trek (day 2 of 5)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:20:46.805Z"
+    },
+    "533": {
+      "tmax_f": 59,
+      "tmin_f": 47,
+      "place": "Torres del Paine W trek (day 3 of 5)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:20:47.400Z"
+    },
+    "534": {
+      "tmax_f": 57,
+      "tmin_f": 45,
+      "place": "Torres del Paine W trek (day 4 of 5)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:20:48.017Z"
+    },
+    "535": {
+      "tmax_f": 51,
+      "tmin_f": 38,
+      "place": "Torres del Paine W trek (day 5 of 5)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:20:48.606Z"
+    },
+    "536": {
+      "tmax_f": 51,
+      "tmin_f": 40,
+      "place": "Puerto Natales",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:27.141Z"
+    },
+    "537": {
+      "tmax_f": 51,
+      "tmin_f": 40,
+      "place": "Villa Tehuelches",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:27.735Z"
+    },
+    "538": {
+      "tmax_f": 59,
+      "tmin_f": 45,
+      "place": "Punta Delgada",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:28.333Z"
+    },
+    "539": {
+      "tmax_f": 63,
+      "tmin_f": 48,
+      "place": "Cerro Sombrero",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:28.970Z"
+    },
+    "540": {
+      "tmax_f": 57,
+      "tmin_f": 46,
+      "place": "San Sebastian (Argentina)",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:29.586Z"
+    },
+    "541": {
+      "tmax_f": 61,
+      "tmin_f": 48,
+      "place": "Rio Grande",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:30.203Z"
+    },
+    "542": {
+      "tmax_f": 53,
+      "tmin_f": 39,
+      "place": "Tolhuin",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:30.833Z"
+    },
+    "543": {
+      "tmax_f": 55,
+      "tmin_f": 42,
+      "place": "Ushuaia",
+      "sample": true,
+      "looked_up_at": "2026-10-30T03:08:31.431Z"
     }
   },
-  "generated_at": "2026-10-30T02:45:38.371Z"
+  "generated_at": "2026-10-30T03:20:49.041Z"
 }

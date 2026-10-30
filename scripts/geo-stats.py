@@ -156,6 +156,7 @@ def main(volc_file, coast_file, lakes_file):
             new_parks = [n for n in parks_entered(tr["points"]) if n not in seen_parks]
             if new_parks: rec["parks"] = new_parks; seen_parks.update(new_parks)
         if any(k in rec for k in ("volcano", "water", "parks", "max_alt_m")): out["days"][day] = rec
+    out["has_parks"] = bool(parks)        # false until national_parks.json exists, so the site hides the tile
     json.dump(out, open(os.path.join(ROOT, "seed", "day_geo.json"), "w"), indent=1, ensure_ascii=False)
     v2 = {d["volcano"]["name"] for d in out["days"].values() if "volcano" in d and d["volcano"]["dist_mi"] <= 2}
     w25 = {d["water"]["name"] for d in out["days"].values() if "water" in d and d["water"]["dist_mi"] <= 0.25}

@@ -2887,10 +2887,10 @@
     },
     "207": {
       "start": {
-        "lat": 8.6777,
-        "lon": -82.9835,
+        "lat": 8.649,
+        "lon": -82.9439,
         "place": "Ciudad Neily",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
         "lat": 8.4371,
@@ -3111,10 +3111,10 @@
     },
     "223": {
       "start": {
-        "lat": 9.3852,
-        "lon": -78.96,
+        "lat": 9.5859,
+        "lon": -78.8788,
         "place": "Capurgana",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
         "lat": 9.3852,
@@ -4405,102 +4405,102 @@
         "source": "osm"
       },
       "end": {
-        "lat": -1.4826,
-        "lon": -78.0106,
+        "lat": -2.5745,
+        "lon": -78.9805,
         "place": "Canar",
-        "source": "route"
+        "source": "osm"
       }
     },
     "316": {
       "start": {
-        "lat": -1.4826,
-        "lon": -78.0106,
+        "lat": -2.5745,
+        "lon": -78.9805,
         "place": "Canar",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -1.3961,
-        "lon": -78.4153,
+        "lat": -2.8974,
+        "lon": -79.0042,
         "place": "Cuenca",
-        "source": "route"
+        "source": "osm"
       }
     },
     "317": {
       "start": {
-        "lat": -1.3961,
-        "lon": -78.4153,
+        "lat": -2.8974,
+        "lon": -79.0042,
         "place": "Cuenca",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -1.3961,
-        "lon": -78.4153,
+        "lat": -2.8974,
+        "lon": -79.0042,
         "place": "Cuenca",
-        "source": "route"
+        "source": "osm"
       }
     },
     "318": {
       "start": {
-        "lat": -1.3961,
-        "lon": -78.4153,
+        "lat": -2.8974,
+        "lon": -79.0042,
         "place": "Cuenca",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -2.0897,
-        "lon": -78.7945,
+        "lat": -3.4963,
+        "lon": -79.1093,
         "place": "Ona",
-        "source": "route"
+        "source": "osm"
       }
     },
     "319": {
       "start": {
-        "lat": -2.0897,
-        "lon": -78.7945,
+        "lat": -3.4963,
+        "lon": -79.1093,
         "place": "Ona",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -2.7059,
-        "lon": -78.867,
+        "lat": -4.0529,
+        "lon": -79.8053,
         "place": "Loja",
-        "source": "route"
+        "source": "osm"
       }
     },
     "320": {
       "start": {
-        "lat": -2.7059,
-        "lon": -78.867,
+        "lat": -4.0529,
+        "lon": -79.8053,
         "place": "Loja",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -2.8987,
-        "lon": -78.9988,
+        "lat": -4.2607,
+        "lon": -79.2226,
         "place": "Vilcabamba",
-        "source": "route"
+        "source": "osm"
       }
     },
     "321": {
       "start": {
-        "lat": -2.8987,
-        "lon": -78.9988,
+        "lat": -4.2607,
+        "lon": -79.2226,
         "place": "Vilcabamba",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -2.8987,
-        "lon": -78.9988,
+        "lat": -4.2607,
+        "lon": -79.2226,
         "place": "Vilcabamba",
-        "source": "route"
+        "source": "osm"
       }
     },
     "322": {
       "start": {
-        "lat": -2.8987,
-        "lon": -78.9988,
+        "lat": -4.2607,
+        "lon": -79.2226,
         "place": "Vilcabamba",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
         "lat": -4.521,
@@ -4525,10 +4525,10 @@
     },
     "324": {
       "start": {
-        "lat": -3.7855,
-        "lon": -79.2492,
+        "lat": -4.8633,
+        "lon": -79.1308,
         "place": "Zumba",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
         "lat": -4.2792,
@@ -4559,18 +4559,18 @@
         "source": "osm"
       },
       "end": {
-        "lat": -5.7255,
-        "lon": -78.6952,
+        "lat": -6.7051,
+        "lon": -79.9014,
         "place": "Pedro Ruiz",
-        "source": "route"
+        "source": "osm"
       }
     },
     "327": {
       "start": {
-        "lat": -5.7255,
-        "lon": -78.6952,
+        "lat": -6.7051,
+        "lon": -79.9014,
         "place": "Pedro Ruiz",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
         "lat": -5.7507,
@@ -4769,18 +4769,18 @@
         "source": "osm"
       },
       "end": {
-        "lat": -10.1463,
-        "lon": -77.2963,
+        "lat": -9.0745,
+        "lon": -78.5936,
         "place": "Chimbote",
-        "source": "route"
+        "source": "osm"
       }
     },
     "342": {
       "start": {
-        "lat": -10.1463,
-        "lon": -77.2963,
+        "lat": -9.0745,
+        "lon": -78.5936,
         "place": "Chimbote",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
         "lat": -9.4729,
@@ -4797,88 +4797,88 @@
         "source": "osm"
       },
       "end": {
-        "lat": -10.7433,
-        "lon": -77.7653,
+        "lat": -9.5593,
+        "lon": -77.8906,
         "place": "Pariacoto",
-        "source": "route"
+        "source": "osm"
       }
     },
     "344": {
       "start": {
-        "lat": -10.7433,
-        "lon": -77.7653,
+        "lat": -9.5593,
+        "lon": -77.8906,
         "place": "Pariacoto",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -11.1908,
-        "lon": -77.5503,
+        "lat": -9.5299,
+        "lon": -77.529,
         "place": "Huaraz",
-        "source": "route"
+        "source": "osm"
       }
     },
     "345": {
       "start": {
-        "lat": -11.1908,
-        "lon": -77.5503,
+        "lat": -9.5299,
+        "lon": -77.529,
         "place": "Huaraz",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -11.1908,
-        "lon": -77.5503,
+        "lat": -9.5299,
+        "lon": -77.529,
         "place": "Huaraz",
-        "source": "route"
+        "source": "osm"
       }
     },
     "346": {
       "start": {
-        "lat": -11.1908,
-        "lon": -77.5503,
+        "lat": -9.5299,
+        "lon": -77.529,
         "place": "Huaraz",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -11.1908,
-        "lon": -77.5503,
+        "lat": -9.5299,
+        "lon": -77.529,
         "place": "Huaraz",
-        "source": "route"
+        "source": "osm"
       }
     },
     "347": {
       "start": {
-        "lat": -11.1908,
-        "lon": -77.5503,
+        "lat": -9.5299,
+        "lon": -77.529,
         "place": "Huaraz",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -11.1908,
-        "lon": -77.5503,
+        "lat": -9.5299,
+        "lon": -77.529,
         "place": "Huaraz",
-        "source": "route"
+        "source": "osm"
       }
     },
     "348": {
       "start": {
-        "lat": -11.1908,
-        "lon": -77.5503,
+        "lat": -9.5299,
+        "lon": -77.529,
         "place": "Huaraz",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -11.639,
-        "lon": -77.2355,
+        "lat": -10.1237,
+        "lon": -77.2926,
         "place": "Conococha",
-        "source": "route"
+        "source": "osm"
       }
     },
     "349": {
       "start": {
-        "lat": -11.639,
-        "lon": -77.2355,
+        "lat": -10.1237,
+        "lon": -77.2926,
         "place": "Conococha",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
         "lat": -12.4236,
@@ -5527,7 +5527,7 @@
       "end": {
         "lat": -17.6459,
         "lon": -61.5345,
-        "place": "",
+        "place": "Uyuni (Salar de Uyuni: guided tour or ride out to Colchani)",
         "source": "route"
       }
     },
@@ -5583,7 +5583,7 @@
       "end": {
         "lat": -18.5492,
         "lon": -59.2019,
-        "place": "",
+        "place": "Sucre",
         "source": "route"
       }
     },
@@ -5653,7 +5653,7 @@
       "end": {
         "lat": -19.6238,
         "lon": -56.9243,
-        "place": "",
+        "place": "Samaipata",
         "source": "route"
       }
     },
@@ -5709,7 +5709,7 @@
       "end": {
         "lat": -21.5142,
         "lon": -55.7791,
-        "place": "",
+        "place": "San Jose de Chiquitos (Jesuit missions)",
         "source": "route"
       }
     },
@@ -5779,7 +5779,7 @@
       "end": {
         "lat": -23.6343,
         "lon": -54.2608,
-        "place": "",
+        "place": "Pantanal (day 1 of 3: lodge or guided Estrada Parque trip)",
         "source": "route"
       }
     },
@@ -5793,7 +5793,7 @@
       "end": {
         "lat": -23.6343,
         "lon": -54.2608,
-        "place": "",
+        "place": "Pantanal (day 2 of 3: lodge or guided Estrada Parque trip)",
         "source": "route"
       }
     },
@@ -5807,7 +5807,7 @@
       "end": {
         "lat": -23.6343,
         "lon": -54.2608,
-        "place": "",
+        "place": "Pantanal (day 3 of 3: lodge or guided Estrada Parque trip)",
         "source": "route"
       }
     },
@@ -5863,7 +5863,7 @@
       "end": {
         "lat": -25.4492,
         "lon": -54.3858,
-        "place": "",
+        "place": "Bonito",
         "source": "route"
       }
     },
@@ -5877,7 +5877,7 @@
       "end": {
         "lat": -25.4492,
         "lon": -54.3858,
-        "place": "",
+        "place": "Bonito",
         "source": "route"
       }
     },
@@ -5975,7 +5975,7 @@
       "end": {
         "lat": -25.7424,
         "lon": -49.0678,
-        "place": "",
+        "place": "Foz do Iguacu (Iguazu Falls)",
         "source": "route"
       }
     },
@@ -5989,7 +5989,7 @@
       "end": {
         "lat": -25.7424,
         "lon": -49.0678,
-        "place": "",
+        "place": "Foz do Iguacu (Iguazu Falls, Argentine side day trip)",
         "source": "route"
       }
     },
@@ -6073,7 +6073,7 @@
       "end": {
         "lat": -29.647,
         "lon": -50.0438,
-        "place": "",
+        "place": "Curitiba",
         "source": "route"
       }
     },
@@ -6129,7 +6129,7 @@
       "end": {
         "lat": -30.8771,
         "lon": -51.8244,
-        "place": "",
+        "place": "Florianopolis",
         "source": "route"
       }
     },
@@ -6143,7 +6143,7 @@
       "end": {
         "lat": -30.8771,
         "lon": -51.8244,
-        "place": "",
+        "place": "Florianopolis",
         "source": "route"
       }
     },
@@ -6185,7 +6185,7 @@
       "end": {
         "lat": -31.5129,
         "lon": -52.1814,
-        "place": "",
+        "place": "Praia do Rosa (whales)",
         "source": "route"
       }
     },
@@ -6255,7 +6255,7 @@
       "end": {
         "lat": -33.9447,
         "lon": -53.545,
-        "place": "",
+        "place": "Porto Alegre",
         "source": "route"
       }
     },
@@ -6353,7 +6353,7 @@
       "end": {
         "lat": -34.4595,
         "lon": -57.6094,
-        "place": "",
+        "place": "Cabo Polonio",
         "source": "route"
       }
     },
@@ -6395,7 +6395,7 @@
       "end": {
         "lat": -34.2085,
         "lon": -58.9081,
-        "place": "",
+        "place": "Punta del Este (Casapueblo)",
         "source": "route"
       }
     },
@@ -6423,7 +6423,7 @@
       "end": {
         "lat": -33.6328,
         "lon": -59.7356,
-        "place": "",
+        "place": "Montevideo",
         "source": "route"
       }
     },
@@ -6437,7 +6437,7 @@
       "end": {
         "lat": -33.6328,
         "lon": -59.7356,
-        "place": "",
+        "place": "Montevideo",
         "source": "route"
       }
     },
@@ -6451,7 +6451,7 @@
       "end": {
         "lat": -33.6328,
         "lon": -59.7356,
-        "place": "",
+        "place": "Montevideo",
         "source": "route"
       }
     },
@@ -6493,7 +6493,7 @@
       "end": {
         "lat": -32.8824,
         "lon": -60.8754,
-        "place": "",
+        "place": "Buenos Aires",
         "source": "route"
       }
     },
@@ -6507,7 +6507,7 @@
       "end": {
         "lat": -32.8824,
         "lon": -60.8754,
-        "place": "",
+        "place": "Buenos Aires",
         "source": "route"
       }
     },
@@ -6521,7 +6521,7 @@
       "end": {
         "lat": -32.8824,
         "lon": -60.8754,
-        "place": "",
+        "place": "Buenos Aires",
         "source": "route"
       }
     },
@@ -6535,7 +6535,7 @@
       "end": {
         "lat": -32.8824,
         "lon": -60.8754,
-        "place": "",
+        "place": "Buenos Aires",
         "source": "route"
       }
     },
@@ -6589,60 +6589,60 @@
         "source": "route"
       },
       "end": {
-        "lat": -31.6264,
-        "lon": -64.8441,
+        "lat": -32.4106,
+        "lon": -63.2436,
         "place": "Villa Maria",
-        "source": "route"
+        "source": "osm"
       }
     },
     "472": {
       "start": {
-        "lat": -31.6264,
-        "lon": -64.8441,
+        "lat": -32.4106,
+        "lon": -63.2436,
         "place": "Villa Maria",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -32.426,
-        "lon": -65.127,
+        "lat": -31.4167,
+        "lon": -64.1834,
         "place": "Cordoba",
-        "source": "route"
+        "source": "osm"
       }
     },
     "473": {
       "start": {
-        "lat": -32.426,
-        "lon": -65.127,
+        "lat": -31.4167,
+        "lon": -64.1834,
         "place": "Cordoba",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -32.426,
-        "lon": -65.127,
-        "place": "",
-        "source": "route"
+        "lat": -31.4167,
+        "lon": -64.1834,
+        "place": "Cordoba",
+        "source": "osm"
       }
     },
     "474": {
       "start": {
-        "lat": -32.426,
-        "lon": -65.127,
+        "lat": -31.4167,
+        "lon": -64.1834,
         "place": "Cordoba",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -33.0741,
-        "lon": -66.0238,
+        "lat": -31.7209,
+        "lon": -65.0039,
         "place": "Mina Clavero",
-        "source": "route"
+        "source": "osm"
       }
     },
     "475": {
       "start": {
-        "lat": -33.0741,
-        "lon": -66.0238,
+        "lat": -31.7209,
+        "lon": -65.0039,
         "place": "Mina Clavero",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
         "lat": -33.359,
@@ -6659,74 +6659,74 @@
         "source": "route"
       },
       "end": {
-        "lat": -33.2495,
-        "lon": -68.0764,
+        "lat": -33.3021,
+        "lon": -66.337,
         "place": "San Luis",
-        "source": "route"
+        "source": "osm"
       }
     },
     "477": {
       "start": {
-        "lat": -33.2495,
-        "lon": -68.0764,
+        "lat": -33.3021,
+        "lon": -66.337,
         "place": "San Luis",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -32.9317,
-        "lon": -68.9754,
+        "lat": -33.4594,
+        "lon": -67.5524,
         "place": "La Paz (Mendoza)",
-        "source": "route"
+        "source": "osm"
       }
     },
     "478": {
       "start": {
-        "lat": -32.9317,
-        "lon": -68.9754,
+        "lat": -33.4594,
+        "lon": -67.5524,
         "place": "La Paz (Mendoza)",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -32.7961,
-        "lon": -69.8519,
+        "lat": -32.8894,
+        "lon": -68.8446,
         "place": "Mendoza",
-        "source": "route"
+        "source": "osm"
       }
     },
     "479": {
       "start": {
-        "lat": -32.7961,
-        "lon": -69.8519,
+        "lat": -32.8894,
+        "lon": -68.8446,
         "place": "Mendoza",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -32.7961,
-        "lon": -69.8519,
-        "place": "",
-        "source": "route"
+        "lat": -32.8894,
+        "lon": -68.8446,
+        "place": "Mendoza",
+        "source": "osm"
       }
     },
     "480": {
       "start": {
-        "lat": -32.7961,
-        "lon": -69.8519,
+        "lat": -32.8894,
+        "lon": -68.8446,
         "place": "Mendoza",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -32.7961,
-        "lon": -69.8519,
-        "place": "",
-        "source": "route"
+        "lat": -32.8894,
+        "lon": -68.8446,
+        "place": "Mendoza",
+        "source": "osm"
       }
     },
     "481": {
       "start": {
-        "lat": -32.7961,
-        "lon": -69.8519,
+        "lat": -32.8894,
+        "lon": -68.8446,
         "place": "Mendoza",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
         "lat": -32.5968,
@@ -6751,24 +6751,24 @@
     },
     "483": {
       "start": {
-        "lat": -33.4956,
-        "lon": -70.6744,
+        "lat": -32.8135,
+        "lon": -70.0485,
         "place": "Las Cuevas",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -34.0497,
-        "lon": -70.7283,
+        "lat": -32.8337,
+        "lon": -70.5982,
         "place": "Los Andes",
-        "source": "route"
+        "source": "osm"
       }
     },
     "484": {
       "start": {
-        "lat": -34.0497,
-        "lon": -70.7283,
+        "lat": -32.8337,
+        "lon": -70.5982,
         "place": "Los Andes",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
         "lat": -33.4377,
@@ -6997,7 +6997,7 @@
       "end": {
         "lat": -41.0694,
         "lon": -71.374,
-        "place": "",
+        "place": "Bariloche",
         "source": "route"
       }
     },
@@ -7261,8 +7261,8 @@
         "source": "route"
       },
       "end": {
-        "lat": -48.1082,
-        "lon": -72.7247,
+        "lat": -48.1292,
+        "lon": -72.8328,
         "place": "Rio Bravo",
         "source": "osm"
       }
@@ -7333,7 +7333,7 @@
       "end": {
         "lat": -49.2429,
         "lon": -72.9045,
-        "place": "",
+        "place": "El Chalten (Fitz Roy)",
         "source": "route"
       }
     },
@@ -7375,7 +7375,7 @@
       "end": {
         "lat": -50.3512,
         "lon": -72.2627,
-        "place": "",
+        "place": "El Calafate (Perito Moreno)",
         "source": "route"
       }
     },
@@ -7423,72 +7423,72 @@
     },
     "531": {
       "start": {
-        "lat": -51.3359,
-        "lon": -72.6867,
+        "lat": -50.9652,
+        "lon": -72.8635,
         "place": "Torres del Paine W trek (day 1 of 5)",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -51.3359,
-        "lon": -72.6867,
-        "place": "",
-        "source": "route"
+        "lat": -50.9652,
+        "lon": -72.8635,
+        "place": "Torres del Paine W trek (day 1 of 5)",
+        "source": "osm"
       }
     },
     "532": {
       "start": {
-        "lat": -51.3359,
-        "lon": -72.6867,
+        "lat": -50.9652,
+        "lon": -72.8635,
         "place": "Torres del Paine W trek (day 2 of 5)",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -51.3359,
-        "lon": -72.6867,
-        "place": "",
-        "source": "route"
+        "lat": -50.9652,
+        "lon": -72.8635,
+        "place": "Torres del Paine W trek (day 2 of 5)",
+        "source": "osm"
       }
     },
     "533": {
       "start": {
-        "lat": -51.3359,
-        "lon": -72.6867,
+        "lat": -50.9652,
+        "lon": -72.8635,
         "place": "Torres del Paine W trek (day 3 of 5)",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -51.3359,
-        "lon": -72.6867,
-        "place": "",
-        "source": "route"
+        "lat": -50.9652,
+        "lon": -72.8635,
+        "place": "Torres del Paine W trek (day 3 of 5)",
+        "source": "osm"
       }
     },
     "534": {
       "start": {
-        "lat": -51.3359,
-        "lon": -72.6867,
+        "lat": -50.9652,
+        "lon": -72.8635,
         "place": "Torres del Paine W trek (day 4 of 5)",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -51.3359,
-        "lon": -72.6867,
-        "place": "",
-        "source": "route"
+        "lat": -50.9652,
+        "lon": -72.8635,
+        "place": "Torres del Paine W trek (day 4 of 5)",
+        "source": "osm"
       }
     },
     "535": {
       "start": {
-        "lat": -51.3359,
-        "lon": -72.6867,
+        "lat": -50.9652,
+        "lon": -72.8635,
         "place": "Torres del Paine W trek (day 5 of 5)",
-        "source": "route"
+        "source": "osm"
       },
       "end": {
-        "lat": -51.3359,
-        "lon": -72.6867,
-        "place": "",
-        "source": "route"
+        "lat": -50.9652,
+        "lon": -72.8635,
+        "place": "Torres del Paine W trek (day 5 of 5)",
+        "source": "osm"
       }
     },
     "536": {
