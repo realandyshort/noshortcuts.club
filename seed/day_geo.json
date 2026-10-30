@@ -55,7 +55,10 @@
     "at": "route"
    },
    "max_alt_m": 880,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Kluane National Park and Reserve"
+   ]
   },
   "11": {
    "from": "track",
@@ -154,7 +157,10 @@
   "28": {
    "from": "track",
    "max_alt_m": 1178,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Jasper National Park"
+   ]
   },
   "30": {
    "from": "track",
@@ -164,12 +170,18 @@
   "31": {
    "from": "track",
    "max_alt_m": 2073,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Banff National Park"
+   ]
   },
   "32": {
    "from": "track",
    "max_alt_m": 1735,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Kootenay National Park"
+   ]
   },
   "33": {
    "from": "places",
@@ -179,7 +191,10 @@
   "34": {
    "from": "track",
    "max_alt_m": 1318,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Glacier National Park"
+   ]
   },
   "35": {
    "from": "track",
@@ -190,7 +205,10 @@
     "at": "route"
    },
    "max_alt_m": 1330,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Mount Revelstoke National Park"
+   ]
   },
   "36": {
    "from": "places",
@@ -329,7 +347,10 @@
     "at": "route"
    },
    "max_alt_m": 856,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Olympic National Park"
+   ]
   },
   "51": {
    "from": "track",
@@ -417,7 +438,10 @@
     "at": "route"
    },
    "max_alt_m": 2335,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Crater Lake National Park"
+   ]
   },
   "61": {
    "from": "track",
@@ -444,7 +468,10 @@
     "at": "route"
    },
    "max_alt_m": 375,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Redwood National Park"
+   ]
   },
   "64": {
    "from": "places",
@@ -744,7 +771,10 @@
     "at": "route"
    },
    "max_alt_m": 499,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Parque Nacional Bahía de Loreto"
+   ]
   },
   "92": {
    "from": "track",
@@ -1327,7 +1357,10 @@
     "at": "route"
    },
    "max_alt_m": 593,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Parque Nacional Río Dulce"
+   ]
   },
   "171": {
    "from": "track",
@@ -1676,7 +1709,11 @@
     "at": "route"
    },
    "max_alt_m": 309,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Guanacaste National Park",
+    "Parque Nacional Santa Rosa"
+   ]
   },
   "196": {
    "from": "track",
@@ -1712,7 +1749,10 @@
     "at": "route"
    },
    "max_alt_m": 1393,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Arenal Volcano National Park"
+   ]
   },
   "199": {
    "from": "track",
@@ -1778,7 +1818,10 @@
     "at": "route"
    },
    "max_alt_m": 1165,
-   "alt_source": "track"
+   "alt_source": "track",
+   "parks": [
+    "Carara National Park"
+   ]
   },
   "204": {
    "from": "track",
@@ -4181,5 +4224,5 @@
    "alt_source": "route"
   }
  },
- "has_parks": false
+ "has_parks": true
 }
