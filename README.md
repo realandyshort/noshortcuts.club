@@ -48,7 +48,8 @@ Open `config/site.config.json` in any text editor. Keep the quotes and commas as
 - `links.*` Spotify, Pocket Casts, Instagram, Substack, the route plan, YouTube.
 - `podLink` leave empty for now. When the show is on Apple Podcasts, paste that link here and every
   Listen button switches to it.
-- `menu.*` the words in the header.
+- `menu.*` the words in the header (Map, Route plan, About, and the Subscribe button).
+- `signup.mode` how the email fields hand people to Substack: `subscribe` opens Substack's subscribe page with the address filled in; `direct` posts it straight to Substack's free-signup endpoint. `copy.signup.*` is the wording of the strip and the footer field.
 - `labels.*` the words on the coming-soon buttons (Listen, See, Consider, About).
 - `comingSoon.note` the small line on the coming-soon page; `comingSoon.aboutText` what the About
   button shows when hovered (empty hides the button).

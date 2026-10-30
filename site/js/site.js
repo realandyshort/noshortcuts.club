@@ -125,12 +125,31 @@
     if (hp.dayCards) root.setProperty("--day-cards", hp.dayCards);
     var toggle = document.querySelector(".menu-toggle"), menu = document.querySelector(".menu");
     if (toggle && menu && !toggle._wired) { toggle._wired = true; toggle.addEventListener("click", function () { menu.classList.toggle("open"); toggle.setAttribute("aria-expanded", menu.classList.contains("open")); }); }
-    var yt = document.querySelector("[data-when-videos]");
-    if (yt) yt.hidden = !(c.sections && c.sections.videos && c.sections.videos.enabled);
+    var videosOn = !!(c.sections && c.sections.videos && c.sections.videos.enabled);
+    document.querySelectorAll("[data-when-videos]").forEach(function (a) { a.hidden = !videosOn; });
+    // Placeholders come from config too (data-placeholder="copy.signup.placeholder")
+    document.querySelectorAll("[data-placeholder]").forEach(function (node) {
+      var v = pick(c, node.getAttribute("data-placeholder"));
+      if (typeof v === "string") node.placeholder = v;
+    });
+    wireSignup();
     document.querySelectorAll(".menu a").forEach(function (a) {
       var here = location.pathname.split("/").pop() || "index.html";
       var target = (a.getAttribute("href") || "").split("?")[0];
       if (target === here || (here === "home.html" && target === "index.html")) a.setAttribute("aria-current", "page");
+    });
+  }
+
+  // The email fields hand people to Substack, which keeps the list. Two ways (config signup.mode):
+  // "subscribe" opens Substack's subscribe page with the email filled in; "direct" posts the email to the
+  // endpoint Substack's own embed form uses. Either way the form works as plain HTML, no script needed.
+  function wireSignup() {
+    var c = ctx.config, base = ((c.links && c.links.substack) || "").replace(/\/+$/, "");
+    if (!base) return;
+    var direct = c.signup && c.signup.mode === "direct";
+    document.querySelectorAll("form[data-signup]").forEach(function (form) {
+      form.setAttribute("action", direct ? base + "/api/v1/free?nojs=true" : base + "/subscribe");
+      form.setAttribute("method", direct ? "post" : "get");
     });
   }
 

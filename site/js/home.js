@@ -298,23 +298,87 @@
     } else side.hidden = true;
   }
 
-  // 18 stamps; tapping one shows the first photo from that country (archive first, then live posts)
+  // 18 stamps. A country not yet reached shows only a faint outline; from its entry day it is stamped.
+  // A stamp earned since the visitor last looked (or since time travel moved past its entry day) stamps
+  // down when the section is in view. Reduced motion: stamps simply appear.
+  var NS_SVG = "http://www.w3.org/2000/svg", SEEN_KEY = "ns_stamps_seen";
+  var stampState = { prevDay: null, pending: [], observer: null };
+  function tiltFor(name) {            // a fixed "random" tilt per country, -8..8 degrees, so it never jumps between renders
+    var h = 0; for (var i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
+    return ((h % 1601) / 100 - 8).toFixed(2) + "deg";
+  }
+  function seenStamps() { try { return JSON.parse(localStorage.getItem(SEEN_KEY) || "[]"); } catch (e) { return []; } }
+  function rememberStamps(list) { try { localStorage.setItem(SEEN_KEY, JSON.stringify(list)); } catch (e) { /* private mode: fine */ } }
+  function stampFrame() {
+    var svg = document.createElementNS(NS_SVG, "svg");
+    svg.setAttribute("class", "frame"); svg.setAttribute("viewBox", "0 0 160 124"); svg.setAttribute("preserveAspectRatio", "none"); svg.setAttribute("aria-hidden", "true");
+    [["outer", 5, 5, 150, 114, 10], ["inner", 11, 11, 138, 102, 6]].forEach(function (r) {
+      var rect = document.createElementNS(NS_SVG, "rect");
+      rect.setAttribute("class", r[0]); rect.setAttribute("x", r[1]); rect.setAttribute("y", r[2]); rect.setAttribute("width", r[3]); rect.setAttribute("height", r[4]); rect.setAttribute("rx", r[5]);
+      svg.appendChild(rect);
+    });
+    return svg;
+  }
+  function roughFilter() {            // the rough ink edge: one SVG filter shared by every stamp
+    if (document.getElementById("stamp-rough")) return;
+    var t = document.createElement("template");
+    t.innerHTML = '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stamp-rough" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/></filter></svg>';
+    document.body.appendChild(t.content.firstChild);
+  }
   function renderStamps(ctx, day, scrub) {
     var c = ctx.config, el = ctx.el, grid = document.getElementById("stamps"), view = document.getElementById("stamp-view"), copy = c.copy.stamps || {};
     if (!grid) return;
+    roughFilter();
     grid.textContent = "";
     var list = (ctx.countries || []).slice().sort(function (a, b) { return a.first_day - b.first_day; });
-    list.forEach(function (country, i) {
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var seen = ctx.live ? seenStamps() : null, firstVisit = seen && seen.length === 0;
+    var toStamp = [];
+    list.forEach(function (country) {
       var inked = country.first_day <= day;
-      var b = el("button", { class: "stamp" + (inked ? " inked" : ""), type: "button", "aria-pressed": "false" }, [
-        ctx.mark(), el("span", { class: "name", text: country.country }),
-        el("span", { class: "when", text: inked ? (copy.entered || "ENTERED DAY") + " " + country.first_day : (copy.notYet || "NOT YET") })
+      var b = el("button", { class: "stamp" + (inked ? " inked" : ""), type: "button", "aria-pressed": "false",
+        "aria-label": inked ? country.country + ", " + (copy.day || "DAY") + " " + country.first_day : country.country + " (not yet)" }, [
+        stampFrame(), ctx.mark(), el("span", { class: "name", text: country.country }),
+        el("span", { class: "when", text: (copy.day || "DAY") + " " + country.first_day })
       ]);
-      b.style.setProperty("--tilt", ((i % 3) - 1) * 2.5 + "deg");
-      b.addEventListener("click", function () { openStamp(ctx, country, list[i + 1], b, scrub); });
+      b.style.setProperty("--tilt", inked ? tiltFor(country.country) : "0deg");
+      b.addEventListener("click", function () { openStamp(ctx, country, list[list.indexOf(country) + 1], b, scrub); });
       grid.appendChild(b);
+      if (!inked) return;
+      // newly earned? Live: not seen on an earlier visit. Time travel / test: entry day just passed.
+      var fresh = stampState.prevDay !== null ? (country.first_day > stampState.prevDay)
+        : (seen ? (!firstVisit && seen.indexOf(country.country) < 0) : false);
+      if (fresh) toStamp.push(b);
     });
+    if (seen) rememberStamps(list.filter(function (k) { return k.first_day <= day; }).map(function (k) { return k.country; }));
+    stampState.prevDay = day;
     view.hidden = true;
+    if (reduce || !toStamp.length) return;
+    // play when the stamps are actually on screen
+    toStamp.forEach(function (b) { b.style.opacity = "0"; });
+    stampState.pending = toStamp;
+    if (!("IntersectionObserver" in window)) { playStamps(); return; }
+    if (stampState.observer) stampState.observer.disconnect();
+    stampState.observer = new IntersectionObserver(function (entries) {
+      if (entries.some(function (e) { return e.isIntersecting; })) { stampState.observer.disconnect(); stampState.observer = null; playStamps(); }
+    }, { threshold: 0.35 });
+    stampState.observer.observe(grid);
+  }
+  function playStamps() {
+    var list = stampState.pending; stampState.pending = [];
+    var wrap = document.querySelector(".stamps .wrap");
+    list.forEach(function (b, i) {
+      setTimeout(function () {
+        if (!b.isConnected) return;
+        b.style.opacity = "";
+        b.classList.add("stamping");
+        setTimeout(function () {                      // the thud, timed to the moment it hits the page
+          if (!wrap) return;
+          wrap.classList.remove("thud"); void wrap.offsetWidth; wrap.classList.add("thud");
+        }, 300);
+        b.addEventListener("animationend", function () { b.classList.remove("stamping"); }, { once: true });
+      }, i * 260);
+    });
   }
   function openStamp(ctx, country, next, btn, scrub) {
     var c = ctx.config, el = ctx.el, view = document.getElementById("stamp-view"), copy = c.copy.stamps || {};

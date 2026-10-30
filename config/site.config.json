@@ -1,5 +1,5 @@
 {
-  "_readme": "This is the one file to edit for wording, links, sizes and switches. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. podLink: once the show is on Apple Podcasts, paste the link here and every Listen button switches to it. home.sectionOrder: drag-free reordering, just move the names. sections.videos.enabled: true turns the video section on. comingSoon.pitch and comingSoon.ctaLabel are the landing page's one ask (the big Substack button; ctaHref blank = the Substack subscribe page); comingSoon.note is the small line; comingSoon.aboutText is what the About button shows when hovered (blank hides the button). home.odometer / home.timeTravel switch the phase 3 interactions on and off.",
+  "_readme": "This is the one file to edit for wording, links, sizes and switches. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. podLink: once the show is on Apple Podcasts, paste the link here and every Listen button switches to it. home.sectionOrder: drag-free reordering, just move the names. sections.videos.enabled: true turns the video section on. comingSoon.pitch and comingSoon.ctaLabel are the landing page's one ask (the big Substack button; ctaHref blank = the Substack subscribe page); comingSoon.note is the small line; comingSoon.aboutText is what the About button shows when hovered (blank hides the button). signup.mode picks how the email fields hand people to Substack (see signup._note). home.odometer / home.timeTravel switch the phase 3 interactions on and off.",
   "showDates": false,
   "podLink": "",
   "site": {
@@ -18,6 +18,10 @@
     "routePlan": "https://docs.google.com/spreadsheets/d/1qAlzQWOvfifr_0LJ1YUm8b1mv0ewg51yYJVj1JHcOyo/edit",
     "youtube": "https://www.youtube.com/playlist?list=PLdutpqTR1PWY"
   },
+  "signup": {
+    "_note": "mode \"subscribe\" opens Substack's subscribe page with the email already filled in (one more tap there). mode \"direct\" posts the email straight to Substack's own free-signup endpoint, the one its embed form uses. Try direct with your own email once; switch back if Substack ever shows an error page.",
+    "mode": "subscribe"
+  },
   "labels": {
     "listen": "Listen",
     "see": "See",
@@ -28,10 +32,9 @@
     "wordmark": "Andy",
     "wordmarkEm": "Short.",
     "map": "Map",
-    "dispatches": "Dispatches",
-    "pictures": "Pictures",
     "routePlan": "Route plan",
-    "about": "About"
+    "about": "About",
+    "subscribe": "Subscribe"
   },
   "trip": {
     "totalDays": 543,
@@ -109,16 +112,21 @@
       "photoLink": "See the pictures on Instagram",
       "photoLine": "Photos arrive as the ride happens."
     },
+    "signup": {
+      "title": "Ride along from your inbox.",
+      "sub": "WRITING · AUDIO · VIDEO, AS IT HAPPENS. FREE.",
+      "prompt": "Get your updates delivered.",
+      "placeholder": "your@email.com",
+      "button": "Sign up"
+    },
     "footer": {
-      "title": "Follow along",
-      "blurb": "Dispatches every few days, a video every week, photos as they happen.",
-      "listen": "Listen in your podcast app",
-      "youtube": "Watch on YouTube",
+      "title": "Don’t miss a",
+      "titleEm": "mile.",
+      "blurb": "Every story, voice note and video from the road, sent to your inbox as it goes up.",
+      "listen": "Podcast app",
       "instagram": "Instagram",
-      "emailPrompt": "Prefer email?",
-      "substack": "Subscribe on Substack",
-      "sayHi": "Say hi:",
-      "emailButton": "Email me"
+      "youtube": "YouTube",
+      "sayHi": "Say hi:"
     },
     "about": {
       "kicker": "ABOUT",
@@ -164,8 +172,8 @@
     "stamps": {
       "title": "Passport",
       "intro": "One stamp per country, inked the day the ride crosses in. Tap a stamp for the first photo from there.",
+      "day": "DAY",
       "entered": "ENTERED DAY",
-      "notYet": "NOT YET",
       "noPhoto": "No photo from here yet."
     },
     "travel": {

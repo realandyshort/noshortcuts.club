@@ -29,7 +29,11 @@
     svg.appendChild(land);
 
     var halves = Trip.splitAtFraction(o.route, Math.max(0, Math.min(1, o.fraction || 0)));
-    svg.appendChild(mk("path", { "class": "route-rest", d: path(halves[1]) }));
+    // The part still to ride: evenly spaced round dots. Dot size and spacing are set in screen pixels
+    // (a dot of DOT_PX across every GAP_PX), converted to drawing units for the current card width.
+    var rest = mk("path", { "class": "route-rest", d: path(halves[1]) });
+    svg.appendChild(rest);
+    dotify(svg, rest);
     if (halves[0].length > 1) svg.appendChild(mk("path", { "class": "route-done", d: path(halves[0]) }));
 
     function label(ll, text, dx, dy, anchor) {
@@ -55,6 +59,17 @@
       var right = document.createElement("span"); right.textContent = o.note || "";
       o.legend.appendChild(left); o.legend.appendChild(right);
     }
+  }
+  var DOT_PX = 2.6, GAP_PX = 7;
+  function dotify(svg, p) {
+    function apply() {
+      var vb = (svg.getAttribute("viewBox") || "0 0 1 1").split(/\s+/), w = svg.getBoundingClientRect().width || 1;
+      var k = Number(vb[2]) / w;                      // drawing units per screen pixel
+      p.setAttribute("stroke-width", (DOT_PX * k).toFixed(3));
+      p.setAttribute("stroke-dasharray", "0 " + (GAP_PX * k).toFixed(3));
+    }
+    apply();
+    if (!svg._dotResize) { svg._dotResize = true; window.addEventListener("resize", function () { var r = svg.querySelector(".route-rest"); if (r) { p = r; apply(); } }); }
   }
   window.SiteMap = { draw: draw, proj: proj };
 })();
