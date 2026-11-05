@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-11-05T02:18:58.929Z",
+  "generated_at": "2026-11-05T10:44:35.243Z",
   "sources": {
     "plan": {
       "state": "ok",
-      "last_success_at": "2026-11-05T02:18:55.732Z",
-      "last_new_item_at": "2026-11-05T02:18:55.731Z",
+      "last_success_at": "2026-11-05T10:44:29.499Z",
+      "last_new_item_at": "2026-11-05T10:44:29.497Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-05T02:18:55.732Z",
+      "last_attempt_at": "2026-11-05T10:44:29.499Z",
       "note": "some sections from the seed"
     },
     "dispatches": {
       "state": "ok",
-      "last_success_at": "2026-11-05T02:18:55.814Z",
+      "last_success_at": "2026-11-05T10:44:29.614Z",
       "last_new_item_at": "2026-10-28T21:35:02.000Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-05T02:18:55.814Z",
+      "last_attempt_at": "2026-11-05T10:44:29.614Z",
       "note": null
     },
     "instagram": {
       "state": "ok",
-      "last_success_at": "2026-11-05T02:18:57.261Z",
+      "last_success_at": "2026-11-05T10:44:33.134Z",
       "last_new_item_at": "2026-10-08T05:40:49+0000",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-05T02:18:57.261Z",
+      "last_attempt_at": "2026-11-05T10:44:33.134Z",
       "note": null,
       "token_fingerprint": "4970b811",
       "token_first_seen_at": "2026-10-29T21:29:49.695Z",
@@ -37,25 +37,25 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-05T02:18:57.262Z",
+      "last_attempt_at": "2026-11-05T10:44:33.134Z",
       "note": "videos are turned off in config"
     },
     "rides": {
       "state": "ok",
-      "last_success_at": "2026-11-05T02:18:57.538Z",
+      "last_success_at": "2026-11-05T10:44:33.800Z",
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-05T02:18:57.538Z",
+      "last_attempt_at": "2026-11-05T10:44:33.800Z",
       "note": null
     },
     "position": {
       "state": "ok",
-      "last_success_at": "2026-11-05T02:18:58.317Z",
+      "last_success_at": "2026-11-05T10:44:34.499Z",
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-05T02:18:58.317Z",
+      "last_attempt_at": "2026-11-05T10:44:34.499Z",
       "note": "no points in the feed yet"
     },
     "weather": {
@@ -64,7 +64,7 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-05T02:18:58.318Z",
+      "last_attempt_at": "2026-11-05T10:44:34.500Z",
       "note": "no position"
     }
   },
