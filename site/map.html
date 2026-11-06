@@ -26,6 +26,7 @@
     <div class="wrap">
       <a class="wordmark" href="home.html" data-href="home"><span data-config="menu.wordmark">Andy</span> <em data-config="menu.wordmarkEm">Short.</em></a>
       <ul class="menu" id="menu">
+        <li><a href="home.html" data-href="home" data-config="menu.home">Home</a></li>
         <li><a href="map.html" data-href="map" data-config="menu.map">Map</a></li>
         <li><a href="#" data-href="routePlan" data-config="menu.routePlan">Route plan</a></li>
         <li><a href="about.html" data-href="about" data-config="menu.about">About</a></li>
@@ -52,6 +53,12 @@
       <div class="bigmap-view">
         <svg id="bigmap" preserveAspectRatio="xMidYMid slice" aria-label="Detailed map of the route"></svg>
         <div class="bigmap-bar" id="bigmap-bar" hidden></div>
+        <!-- Manual controls for anyone who would rather not scroll: a day back, a day on, or drag the slider -->
+        <div class="bigmap-controls" id="bigmap-controls" hidden>
+          <button class="btn btn-small btn-ink" type="button" id="bigmap-prev" aria-label="Previous day">&#8249;</button>
+          <label class="bigmap-slider"><span class="mono" id="bigmap-slider-label">DAY 1</span><input type="range" id="bigmap-slider" min="1" max="543" value="1" step="1" aria-label="Day"></label>
+          <button class="btn btn-small btn-ink" type="button" id="bigmap-next" aria-label="Next day">&#8250;</button>
+        </div>
       </div>
     </div>
     <div class="wrap"><p class="bigmap-hint" id="bigmap-hint"></p></div>

@@ -37,6 +37,7 @@
   "menu": {
     "wordmark": "Andy",
     "wordmarkEm": "Short.",
+    "home": "Home",
     "map": "Map",
     "routePlan": "Route plan",
     "about": "About",
@@ -125,7 +126,27 @@
       "highest": "HIGHEST POINT",
       "jumpToday": "Where I should be today",
       "top": "Back to the start",
-      "opens": "Open the full map"
+      "opens": "Open the full map",
+      "soFar": "SO FAR",
+      "mi": "MI",
+      "ft": "FT CLIMBED",
+      "prev": "Previous day",
+      "next": "Next day",
+      "slider": "Day",
+      "whole": "THE WHOLE ROAD · DEADHORSE TO USHUAIA",
+      "scrollHint": "SCROLL, OR USE THE BUTTONS AND THE SLIDER",
+      "events": {
+        "borders": "CROSSED INTO",
+        "boats": "BOAT CROSSING",
+        "hotSprings": "HOT SPRINGS",
+        "capitals": "CAPITAL CITY",
+        "volcanoes": "VOLCANO",
+        "waters": "SWAM IN",
+        "parks": "NATIONAL PARK",
+        "chains": "CHAIN WORN OUT",
+        "llamas": "LLAMAS",
+        "restDays": "DAY OFF"
+      }
     },
     "placeholders": {
       "photoLink": "See the pictures on Instagram",
@@ -134,14 +155,14 @@
     "signup": {
       "title": "Add your email to join the journey.",
       "sub": "Updates from the road.",
-      "prompt": "Add your email to join the journey.",
+      "prompt": "",
       "placeholder": "your@email.com",
       "button": "Subscribe"
     },
     "footer": {
-      "title": "Hear, see, read all about it",
+      "title": "Add your email to join the journey.",
       "titleEm": "",
-      "blurb": "Every story, voice note and video from the road, sent to your inbox as it goes up.",
+      "blurb": "Updates from the road.",
       "listen": "Podcast app",
       "instagram": "Instagram",
       "youtube": "YouTube",

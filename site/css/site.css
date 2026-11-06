@@ -86,7 +86,7 @@ em { font-style: italic; color: var(--persimmon); }
 .placeholder p { margin: 0; font-size: 0.9rem; opacity: 0.8; }
 .placeholder a { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
 .latest-body { padding: 1.3rem 1.3rem 1.5rem; }
-.now-card { padding: 1.3rem; display: flex; flex-direction: column; gap: 1rem; }
+.now-card { padding: 1.3rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }   /* chips at the top, the black box at the bottom, level with the photo card */
 .now-card .chips { margin-bottom: 0; }
 .now .chips-in { display: none; }                      /* phones only (see below) */
 .latest-body h2, .h2 { font-family: var(--font-headline); font-weight: 600; font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.1; margin: 0 0 0.6rem; letter-spacing: -0.01em; }
@@ -100,7 +100,7 @@ em { font-style: italic; color: var(--persimmon); }
 
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
 /* Map and photo on top at the same height; under them, same columns, next-up and the photo's words */
-.latest-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: var(--map-height) auto; grid-template-areas: "map photo" "now photo"; gap: 1.5rem; margin-bottom: 1.5rem; align-items: start; }
+.latest-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: var(--map-height) auto; grid-template-areas: "map photo" "now photo"; gap: 1.5rem; margin-bottom: 1.5rem; align-items: stretch; }
 .latest-grid.single { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "photo" "now"; }   /* no map: the photo (with its words), then next up */
 .map-card { grid-area: map; }
 .photo-card { grid-area: photo; }
@@ -181,6 +181,7 @@ em { font-style: italic; color: var(--persimmon); }
 /* The email field (signup strip and footer) */
 .signup-form { display: flex; flex-direction: column; gap: 0.45rem; }
 .signup-prompt { font-weight: 600; font-size: 0.95rem; }
+.signup-prompt:empty { display: none; }
 .signup-field { display: flex; gap: 0.5rem; }
 .signup-field input { flex: 1 1 auto; min-width: 0; font: 500 1rem var(--font-body); padding: 0.6em 1em; border-radius: 999px; border: 1px solid var(--ink); background: #FFF8F0; color: var(--ink); }
 .signup-field input::placeholder { color: var(--gray); }
@@ -438,5 +439,24 @@ body.has-strip { padding-bottom: 2.2rem; }
 .bigmap-bar b { font-family: var(--font-headline); font-weight: 600; font-size: 1.15rem; }
 .bigmap-bar .trail { position: absolute; right: 0.9rem; top: 0.7rem; width: 60px; height: 4px; background: var(--line-on-ink); border-radius: 2px; overflow: hidden; }
 .bigmap-bar .trail i { display: block; height: 100%; background: var(--persimmon); width: var(--p, 0%); }
+.bigmap-controls { position: absolute; right: var(--gutter); bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.5rem; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.18); }
+.bigmap-controls .btn { padding: 0.3em 0.75em; font-size: 1rem; line-height: 1; }
+.bigmap-slider { display: flex; align-items: center; gap: 0.5rem; }
+.bigmap-slider .mono { color: var(--ink); min-width: 5.5em; text-align: right; }
+.bigmap-slider input { width: min(220px, 30vw); accent-color: var(--persimmon); }
+.bigmap .detail { opacity: 1; transition: opacity 0.4s; }
+.bigmap .lake { fill: var(--cream); stroke: var(--ink); stroke-opacity: 0.35; stroke-width: 0.8px; vector-effect: non-scaling-stroke; }
+.bigmap .river { fill: none; stroke: var(--ink); stroke-opacity: 0.3; stroke-width: 0.8px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.bigmap .road { fill: none; stroke: var(--gray); stroke-opacity: 0.55; stroke-width: 0.7px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.bigmap .road.M { stroke-width: 1.1px; stroke-opacity: 0.7; }
+.bigmap .road.R { stroke-width: 0.5px; stroke-opacity: 0.4; }
+.bigmap text.landform { font-family: var(--font-headline); font-style: italic; font-weight: 500; font-size: calc(13px * var(--u, 1)); fill: var(--ink); opacity: 0.5; letter-spacing: 0.02em; text-transform: none; stroke: none; }
+/* zoomed out (the start of the scroll): only the land, borders, the route and the country names */
+.bigmap.far .labels, .bigmap.far .marks, .bigmap.far .detail, .bigmap.far .landforms, .bigmap.far .pos-label, .bigmap.far .pos-dot, .bigmap.far .mile-dot { opacity: 0; }
+.bigmap .labels, .bigmap .marks, .bigmap .landforms, .bigmap .pos-label, .bigmap .pos-dot, .bigmap .mile-dot { transition: opacity 0.4s; }
+.bigmap-bar .events { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+.bigmap-bar .events span { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--persimmon); color: var(--persimmon); border-radius: 999px; padding: 0.25em 0.6em; }
+.bigmap-bar .totals { display: block; margin-top: 0.3rem; color: var(--cream); }
+@media (max-width: 640px) { .bigmap-controls { left: var(--gutter); right: var(--gutter); bottom: 0.8rem; justify-content: space-between; } .bigmap-slider input { width: 100%; } .bigmap-slider { flex: 1; } .bigmap-bar { bottom: 4.2rem; } }
 .bigmap-hint { text-align: right; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--gray); margin: 0.6rem 0 0; text-transform: uppercase; }
 @media (max-width: 640px) { .bigmap-bar { left: var(--gutter); right: var(--gutter); bottom: 0.8rem; font-size: 0.85rem; } .bigmap-bar .trail { display: none; } }

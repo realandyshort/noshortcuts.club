@@ -41,7 +41,11 @@
   var SECTION_NAMES = { banner: "Banner", latest: "Map + latest photo", dispatch: "Dispatch player", days: "The days", videos: "Videos" };
 
   function get(o, path) { return path.split(".").reduce(function (a, k) { return a && a[k]; }, o); }
-  function set(o, path, v) { var ks = path.split("."), last = ks.pop(); var t = ks.reduce(function (a, k) { return a[k] = a[k] || {}; }, o); t[last] = v; }
+  // Every edit is also remembered by path, so saving can lay just these changes over whatever the
+  // file holds by then (the robot and other edits keep changing it) instead of overwriting it.
+  var changes = {};
+  function set(o, path, v) { var ks = path.split("."), last = ks.pop(); var t = ks.reduce(function (a, k) { return a[k] = a[k] || {}; }, o); t[last] = v; changes[path] = v; }
+  function utf8FromB64(b) { var bin = atob(String(b || "").replace(/\n/g, "")), bytes = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i); return new TextDecoder().decode(bytes); }
   function b64(str) { var bytes = new TextEncoder().encode(str), bin = ""; for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]); return btoa(bin); }
   function b64bytes(buf) { var bytes = new Uint8Array(buf), bin = ""; for (var i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(bin); }
 
@@ -57,19 +61,34 @@
   function gh(ctx, method, path, body) {
     var repo = ctx.config.site.repo;
     return fetch("https://api.github.com/repos/" + repo + "/contents/" + path, {
-      method: method, headers: { Authorization: "Bearer " + ls(LS.token), Accept: "application/vnd.github+json", "Content-Type": "application/json" },
+      method: method, cache: "no-store", headers: { Authorization: "Bearer " + ls(LS.token), Accept: "application/vnd.github+json", "Content-Type": "application/json" },
       body: body ? JSON.stringify(body) : undefined
     }).then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.message || ("GitHub said " + r.status)); return j; }); });
   }
-  function ghPut(ctx, path, contentB64, message) {
-    return gh(ctx, "GET", path + "?ref=main").catch(function () { return {}; }).then(function (cur) {
-      return gh(ctx, "PUT", path, { message: message, content: contentB64, sha: cur.sha, branch: "main" });
+  // Reads the file as it is on GitHub right now (never from the browser's cache), then writes with
+  // that version's id. If the file moved in between, one more try with a fresh read.
+  function ghPut(ctx, path, makeContent, message, attempt) {
+    return gh(ctx, "GET", path + "?ref=main&t=" + Date.now()).catch(function () { return {}; }).then(function (cur) {
+      return gh(ctx, "PUT", path, { message: message, content: makeContent(cur), sha: cur.sha, branch: "main" });
+    }).catch(function (e) {
+      if (!attempt && /does not match|409/.test(e.message || "")) return ghPut(ctx, path, makeContent, message, 1);
+      throw e;
     });
+  }
+  // The saved file is the latest copy from GitHub with this session's edits laid over it
+  function mergedConfigText(cur) {
+    var base = ctx_cfg_latest(cur);
+    Object.keys(changes).forEach(function (path) { set(base, path, changes[path]); });
+    return b64(JSON.stringify(base, null, 2) + "\n");
+  }
+  function ctx_cfg_latest(cur) {
+    try { if (cur && cur.content) return JSON.parse(utf8FromB64(cur.content)); } catch (e) { /* fall through */ }
+    return JSON.parse(JSON.stringify(window.Site.config));
   }
   function saveConfig(ctx) {
     var text = JSON.stringify(ctx.config, null, 2) + "\n";
     if (backend.kind === "local") return fetch("/__tinker/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: text }).then(function (r) { return r.json(); }).then(function (j) { if (!j.ok) throw new Error(j.error); return "Saved to config/site.config.json"; });
-    if (backend.kind === "github") return ghPut(ctx, "config/site.config.json", b64(text), "Edit from the site: words, links or settings").then(function () { ls(LS.on, "1"); return "Saved. Live in about a minute."; });
+    if (backend.kind === "github") return ghPut(ctx, "config/site.config.json", mergedConfigText, "Edit from the site: words, links or settings").then(function () { ls(LS.on, "1"); changes = {}; return "Saved. Live in about a minute."; });
     return Promise.reject(new Error("Add your GitHub key first (see Saving, below)."));
   }
   // Shrinks a photo so the repository stays small, then uploads it
@@ -84,7 +103,7 @@
       img.onerror = function () { reject(new Error("That file is not an image I can read.")); };
       img.src = URL.createObjectURL(file);
     }).then(function (data) {
-      if (backend.kind === "github") return ghPut(ctx, "site/" + path, data, "Edit from the site: new image " + path);
+      if (backend.kind === "github") return ghPut(ctx, "site/" + path, function () { return data; }, "Edit from the site: new image " + path);
       if (backend.kind === "local") return fetch("/__tinker/upload?path=" + encodeURIComponent(path), { method: "POST", headers: { "Content-Type": "text/plain" }, body: data }).then(function (r) { return r.json(); }).then(function (j) { if (!j.ok) throw new Error(j.error); });
       throw new Error("Add your GitHub key first.");
     });
@@ -140,7 +159,7 @@
           var from = e.dataTransfer.getData("text/plain"), order = c.home.sectionOrder.slice();
           if (from === n) return;
           order.splice(order.indexOf(from), 1); order.splice(order.indexOf(n), 0, from);
-          c.home.sectionOrder = order; drawList(); dirty(true);
+          c.home.sectionOrder = order; changes["home.sectionOrder"] = order; drawList(); dirty(true);
         });
         list.appendChild(li);
       });
