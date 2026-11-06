@@ -265,11 +265,11 @@ body.has-strip { padding-bottom: 2.2rem; }
 }
 @media (max-width: 640px) {
   /* Phones: no menu button. Every link sits in the one bar, sized so the whole set fits at 390px. */
-  .site-header .wrap { flex-wrap: nowrap; gap: 0.4rem; min-height: 56px; padding-block: 0.5rem; }
-  .wordmark { font-size: 1.12rem; }
-  .menu { flex-wrap: nowrap; gap: 0.3rem; }
-  .menu a { font-size: 0.7rem; padding: 0.4em 0.62em; white-space: nowrap; }
-  .header-subscribe { font-size: 0.7rem; padding: 0.4em 0.7em; }
+  .site-header .wrap { flex-wrap: wrap; gap: 0.4rem 0.5rem; min-height: 56px; padding-block: 0.6rem 0.7rem; }
+  .wordmark { font-size: 1.2rem; }
+  .header-subscribe { margin-left: auto; font-size: 0.8rem; padding: 0.45em 0.95em; }
+  .menu { order: 3; width: 100%; margin: 0; flex-wrap: nowrap; gap: 0.35rem; }
+  .menu a { font-size: 0.74rem; padding: 0.42em 0.7em; white-space: nowrap; }
   .counters { grid-template-columns: repeat(2, 1fr); gap: 0.8rem 1rem; }
   .counter .num { font-size: 1.25rem; }
   .banner-route { height: max(var(--banner-height), 150px); }
@@ -452,7 +452,7 @@ body.has-strip { padding-bottom: 2.2rem; }
 .bigmap .road.R { stroke-width: 0.5px; stroke-opacity: 0.4; }
 .bigmap text.landform { font-family: var(--font-headline); font-style: italic; font-weight: 500; font-size: calc(13px * var(--u, 1)); fill: var(--ink); opacity: 0.5; letter-spacing: 0.02em; text-transform: none; stroke: none; }
 /* zoomed out (the start of the scroll): only the land, borders, the route and the country names */
-.bigmap.far .labels, .bigmap.far .marks, .bigmap.far .detail, .bigmap.far .landforms, .bigmap.far .pos-label, .bigmap.far .pos-dot, .bigmap.far .mile-dot { opacity: 0; }
+#bigmap.far .labels, #bigmap.far .marks, #bigmap.far .detail, #bigmap.far .landforms, #bigmap.far .pos-label, #bigmap.far .pos-dot, #bigmap.far .mile-dot { opacity: 0; }
 .bigmap .labels, .bigmap .marks, .bigmap .landforms, .bigmap .pos-label, .bigmap .pos-dot, .bigmap .mile-dot { transition: opacity 0.4s; }
 .bigmap-bar .events { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
 .bigmap-bar .events span { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--persimmon); color: var(--persimmon); border-radius: 999px; padding: 0.25em 0.6em; }
