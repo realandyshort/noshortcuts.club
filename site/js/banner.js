@@ -61,6 +61,8 @@
     var mark = document.getElementById("mark-button"); if (mark) mark.classList.remove("active");
     if (state.flip === "climb") morphTo(0);
     setHint(state.ctx.config.copy.flips.hint);
+    var x = document.getElementById("flip-close"); if (x) x.hidden = true;
+    var db = document.getElementById("days-button"); if (db) db.classList.remove("active");
     state.flip = null;
   }
   function openFlip(name, trigger) {
@@ -73,6 +75,15 @@
     else if (name === "countries") showCountries();
     else if (name === "climb") morphTo(1);
     else if (name === "stats") showStats();
+    else if (name === "cards") showCards();
+    var x = document.getElementById("flip-close"); if (x) x.hidden = false;   // the way back, on every flip
+  }
+  // THE DAYS: the last few days as cards (home.js fills them on every render)
+  function showCards() {
+    var box = document.getElementById("flip-cards");
+    if (!box) return;
+    setHint(state.ctx.config.copy.flips.cards || "");
+    show(box);
   }
   // (attribute form on purpose: SVG elements have no .hidden property)
   function show(el) { el.removeAttribute("hidden"); requestAnimationFrame(function () { el.classList.add("on"); }); }
@@ -344,6 +355,14 @@
         if (state.flip === flip) el.classList.add("active");
       }
     });
+    var db = document.getElementById("days-button");
+    if (db && !db._wired) {
+      db._wired = true;
+      db.addEventListener("click", function () { openFlip("cards", db); });
+    }
+    if (db) db.classList.toggle("active", state.flip === "cards");
+    var x = document.getElementById("flip-close");
+    if (x && !x._wired) { x._wired = true; x.addEventListener("click", function (e) { e.stopPropagation(); closeFlip(); }); }
     var mark = document.getElementById("mark-button");
     if (mark && !mark._wired) {
       mark._wired = true;
@@ -358,6 +377,7 @@
     if (!state.flip) setHint(ctx.config.copy.flips.hint);
     // A render while a flip is open (time travel from inside the days grid): refresh that view
     if (state.flip === "days") showDays(); else if (state.flip === "countries") showCountries(); else if (state.flip === "stats") showStats(); else if (state.flip === "climb") { state.morph = null; morphTo(1); }
+    if (x) x.hidden = !state.flip;
     wireScrub();
     wireMapScrub(document.getElementById("map"));
     ambientCountries(ctx);

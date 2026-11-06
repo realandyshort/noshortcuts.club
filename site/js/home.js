@@ -216,18 +216,30 @@
     var posts = sbOK ? sb.items.filter(function (p) { return !p.is_audio && p.title; }) : [];
     if (!live) posts = posts.filter(function (p) { var n = Trip.dayOfTimestamp(plan, p.published_at, ctx.offset); return isNaN(n) || n <= day; });
     var post = posts[0] || null;
-    sections.substack.hidden = !post;
+    var S = c.copy.substack || {}, card = document.getElementById("substack-card"), cover = document.getElementById("substack-cover");
+    var sub = document.getElementById("substack-sub"), ex = document.getElementById("substack-excerpt"), readBtn = document.getElementById("substack-read");
+    sections.substack.hidden = false;          // always shown: the post, or the placeholder that explains what will appear
+    cover.textContent = "";
     if (post) {
-      var S = c.copy.substack || {}, card = document.getElementById("substack-card"), cover = document.getElementById("substack-cover");
       card.href = post.link || c.links.substack;
-      cover.textContent = "";
+      card.classList.remove("placeholder-card");
       if (post.image) cover.appendChild(el("img", { src: post.image, alt: "", loading: "lazy" })); else cover.appendChild(ctx.mark());
       document.getElementById("substack-kicker").textContent = (S.kicker || "LATEST FROM SUBSTACK") + " · " + postedLine(c, post.published_at);
       document.getElementById("substack-title").textContent = scrub(post.title);
-      var sub = document.getElementById("substack-sub"), ex = document.getElementById("substack-excerpt");
       sub.textContent = scrub(post.subtitle || ""); sub.hidden = !sub.textContent;
       var excerpt = scrub(post.excerpt || ""); if (excerpt && sub.textContent && excerpt.indexOf(sub.textContent) === 0) excerpt = excerpt.slice(sub.textContent.length).trim();
       ex.textContent = excerpt; ex.hidden = !excerpt;
+      readBtn.textContent = S.read || "Read it on Substack";
+    } else {
+      // nothing written yet: the card says what will appear here, and points at Substack meanwhile
+      card.href = c.links.substack;
+      card.classList.add("placeholder-card");
+      cover.appendChild(ctx.mark());
+      document.getElementById("substack-kicker").textContent = S.kicker || "LATEST FROM SUBSTACK";
+      document.getElementById("substack-title").textContent = S.placeholderTitle || "The first written post goes here.";
+      sub.textContent = S.placeholder || ""; sub.hidden = !sub.textContent;
+      ex.textContent = ""; ex.hidden = true;
+      readBtn.textContent = S.follow || "Follow on Substack";
     }
 
     /* ---- The days ---- */

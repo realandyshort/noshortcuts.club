@@ -179,8 +179,8 @@ em { font-style: italic; color: var(--persimmon); }
 
 /* Footer: the email ask, then small secondary buttons */
 .site-footer { padding: clamp(2.2rem, 4vw, 3.5rem) 0 2.5rem; border-top: 1px solid var(--line); }
-.site-footer .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem 3rem; align-items: end; }
-.footer-title { font-family: var(--font-headline); font-weight: 600; font-size: clamp(1.9rem, 3.4vw, 2.6rem); line-height: 1.05; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+.site-footer .wrap { display: grid; grid-template-columns: 1.35fr 1fr; gap: 2rem 2.5rem; align-items: end; }
+.footer-title { font-family: var(--font-headline); font-weight: 600; font-size: clamp(1.6rem, 2.7vw, 2.25rem); line-height: 1.08; margin: 0 0 0.5rem; letter-spacing: -0.01em; text-wrap: balance; }
 .footer-blurb { margin: 0 0 1rem; max-width: 34em; }
 .footer-secondary { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; }
 .follow-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -202,8 +202,8 @@ em { font-style: italic; color: var(--persimmon); }
 
 /* Signup strip under the header: persimmon, ink text */
 .signup-strip { background: var(--persimmon); color: var(--ink); padding: clamp(1.1rem, 2.4vw, 1.8rem) 0; }
-.signup-strip .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1rem 3rem; align-items: center; }
-.signup-strip h2 { font-family: var(--font-headline); font-weight: 600; font-size: clamp(1.6rem, 3.2vw, 2.5rem); line-height: 1.05; margin: 0 0 0.35rem; letter-spacing: -0.01em; }
+.signup-strip .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 1rem 2.5rem; align-items: center; }
+.signup-strip h2 { font-family: var(--font-headline); font-weight: 600; font-size: clamp(1.45rem, 2.55vw, 2.15rem); line-height: 1.08; margin: 0 0 0.35rem; letter-spacing: -0.01em; text-wrap: balance; }   /* sized to sit on one line on a laptop; balanced when it must wrap */
 .signup-sub { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; }
 .signup-strip .signup-field input { border-color: var(--ink); background: var(--cream); }
 .signup-strip .signup-field input:focus { outline-color: var(--ink); }
@@ -474,3 +474,35 @@ body.has-strip { padding-bottom: 2.2rem; }
 @media (max-width: 640px) { .bigmap-controls { left: var(--gutter); right: var(--gutter); bottom: 0.8rem; justify-content: space-between; } .bigmap-slider input { width: 100%; } .bigmap-slider { flex: 1; } .bigmap-bar { bottom: 4.2rem; } }
 .bigmap-hint { text-align: right; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--gray); margin: 0.6rem 0 0; text-transform: uppercase; }
 @media (max-width: 640px) { .bigmap-bar { left: var(--gutter); right: var(--gutter); bottom: 0.8rem; font-size: 0.85rem; } .bigmap-bar .trail { display: none; } }
+
+/* THE DAYS in the banner: the last few days as cards on the ink, and the way back from any flip */
+.banner-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+.btn-outline-cream { border-color: var(--line-on-ink); color: var(--cream); background: transparent; font-size: 0.85rem; padding: 0.45em 1em; }
+.btn-outline-cream:hover, .btn-outline-cream.active { border-color: var(--persimmon); color: var(--persimmon); }
+.btn-outline-cream.active { background: var(--persimmon); color: var(--ink); }
+.flip-cards { padding: 0.8rem var(--gutter) 0.6rem; }
+.flip-cards .days-head { margin-bottom: 0.8rem; }
+.flip-cards .days-head h2 { color: var(--cream); font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
+.flip-cards .days-head a { color: var(--peach); }
+.flip-cards .day-card { background: var(--ink-soft); border-color: var(--line-on-ink); color: var(--cream); }
+.flip-cards .day-card .mono { color: var(--peach); }
+.flip-cards .day-card .stats { color: var(--cream); opacity: 0.85; }
+.flip-cards .day-card .photo { background: rgba(251, 233, 215, 0.08); }
+.flip-cards .day-card .placeholder { color: var(--cream); }
+.flip-cards .day-card .placeholder a { color: var(--peach); }
+.banner-route.mode-cards { height: auto; min-height: var(--banner-height); }
+.banner-route.mode-cards #banner-line, .banner-route.mode-cards .marker, .banner-route.mode-cards .banner-countries { position: absolute; inset: 0; height: 100%; }
+.banner-route.mode-cards .flip-cards.on { position: relative; inset: auto; }
+.banner-route.mode-cards #banner-line { opacity: 0; }
+.flip-close { position: absolute; top: 0.4rem; right: var(--gutter); z-index: 4; font: 500 0.78rem var(--font-body); background: var(--cream); color: var(--ink); border: 0; border-radius: 999px; padding: 0.45em 0.95em; cursor: pointer; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); }
+.flip-close:hover { background: var(--persimmon); }
+.flip-close span[aria-hidden] { font-size: 1.1em; line-height: 1; margin-right: 0.15em; }
+.substack-card.placeholder-card .substack-cover { background: var(--ink); }
+.substack-card.placeholder-card .substack-cover .mark { width: 56px; height: 56px; }
+@media (max-width: 640px) {
+  .flip-cards { padding-inline: 0.6rem; }
+  .flip-cards .day-cards { margin-inline: 0; padding-inline: 0; }
+  .flip-cards .day-card { flex: 0 0 68vw; }
+  .banner-buttons { justify-content: flex-start; }
+  .flip-close { right: 0.6rem; }
+}

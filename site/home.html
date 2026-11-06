@@ -63,7 +63,10 @@
           <h1 class="title">No <em>Short</em>cuts<svg class="mark" id="mark-button" viewBox="0 0 40 40" role="button" tabindex="0" aria-label="Secret stats" focusable="true"><g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M20.5 4.2 C20.1 11 19.8 27 19.6 35.6"/><path d="M6.8 11.6 C13 15.4 26 23.5 33.4 28.1"/><path d="M33.9 11 C27.5 15.8 13.4 24.6 6.2 28.9"/></g></svg></h1>
           <div class="banner-right">
             <p class="banner-info" id="banner-info">ALASKA TO ARGENTINA</p>
-            <button class="btn btn-persimmon travel-back" id="travel-back" type="button" hidden>Back to today</button>
+            <div class="banner-buttons">
+              <button class="btn btn-outline-cream days-button" id="days-button" type="button" data-config="copy.days.button">The days</button>
+              <button class="btn btn-persimmon travel-back" id="travel-back" type="button" hidden>Back to today</button>
+            </div>
           </div>
         </div>
         <!-- The stage: the route line, plus the views it flips to (one square per day, country
@@ -74,6 +77,15 @@
           <div id="flip-days" class="flip flip-days" role="img" aria-label="One square per day of the plan" hidden></div>
           <div id="flip-stamps" class="flip flip-stamps" aria-label="Passport: one stamp per country, inked the day the ride crosses in" hidden></div>
           <div id="flip-stats" class="flip flip-stats" hidden></div>
+          <!-- The last few days, as cards (THE DAYS button) -->
+          <div id="flip-cards" class="flip flip-cards" hidden>
+            <div class="days-head">
+              <h2 data-config="copy.days.title">The days</h2>
+              <a href="days.html" data-href="days" data-config="copy.days.all">All 543 days</a>
+            </div>
+            <div class="day-cards" id="day-cards"></div>
+          </div>
+          <button class="flip-close" id="flip-close" type="button" hidden><span aria-hidden="true">&times;</span> <span data-config="copy.flips.close">Back to the route</span></button>
           <div class="marker" id="banner-marker" hidden><div class="dot"></div><span class="place" id="banner-place"></span></div>
         </div>
         <div class="counters" id="counters"></div>
@@ -129,16 +141,6 @@
             <span class="btn btn-ink btn-small" id="substack-read" data-config="copy.substack.read">Read it on Substack</span>
           </div>
         </a>
-      </div>
-    </section>
-
-    <section class="section" data-section="days">
-      <div class="wrap">
-        <div class="days-head">
-          <h2 data-config="copy.days.title">The days</h2>
-          <a href="days.html" data-href="days" data-config="copy.days.all">All 543 days</a>
-        </div>
-        <div class="day-cards" id="day-cards"></div>
       </div>
     </section>
 

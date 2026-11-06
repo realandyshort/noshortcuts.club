@@ -38,7 +38,7 @@
     ["home.timeTravel", "Time travel (hover the line)"],
     ["showDates", "Show dates (keep off until you decide)"]
   ];
-  var SECTION_NAMES = { banner: "Banner", latest: "Map + latest photo", dispatch: "Dispatch player", substack: "Latest written post", days: "The days", videos: "Videos" };
+  var SECTION_NAMES = { banner: "Banner", latest: "Map + latest photo", dispatch: "Dispatch player", substack: "Latest written post", videos: "Videos" };
 
   function get(o, path) { return path.split(".").reduce(function (a, k) { return a && a[k]; }, o); }
   // Every edit is also remembered by path, so saving can lay just these changes over whatever the
