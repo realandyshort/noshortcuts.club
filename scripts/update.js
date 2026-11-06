@@ -9,6 +9,7 @@ const Trip = require("../site/js/trip.js");
 const SOURCES = [
   ["plan", require("./fetch-plan")],
   ["dispatches", require("./fetch-dispatches")],
+  ["substack", require("./fetch-substack")],
   ["instagram", require("./fetch-instagram")],
   ["videos", require("./fetch-videos")],
   ["rides", require("./fetch-rides")],

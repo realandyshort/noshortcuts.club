@@ -25,7 +25,7 @@
   <!-- Header: wordmark and a row of pill buttons. Labels and links are filled from config by js/site.js. -->
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="home.html" data-href="home"><span data-config="menu.wordmark">Andy</span> <em data-config="menu.wordmarkEm">Short.</em></a>
+      <a class="wordmark" href="home.html" data-href="home"><span class="wm-away" data-config="menu.wordmarkAway" hidden>No Shortcuts with</span> <span data-config="menu.wordmark">Andy</span> <em data-config="menu.wordmarkEm">Short</em></a>
       <ul class="menu" id="menu">
         <li><a href="home.html" data-href="home" data-config="menu.home">Home</a></li>
         <li><a href="map.html" data-href="map" data-config="menu.map">Map</a></li>
@@ -113,6 +113,22 @@
     <section class="section" data-section="dispatch">
       <div class="wrap">
         <div class="dispatch dispatch-wide" id="dispatch"></div>
+      </div>
+    </section>
+
+    <!-- The latest written post on Substack: cover, title, a taste of it, a link. Hidden until there is one. -->
+    <section class="section substack" data-section="substack" hidden>
+      <div class="wrap">
+        <a class="card substack-card" id="substack-card" href="#" target="_blank" rel="noopener">
+          <div class="substack-cover" id="substack-cover"></div>
+          <div class="substack-body">
+            <p class="kicker" id="substack-kicker" data-config="copy.substack.kicker">LATEST FROM SUBSTACK</p>
+            <h2 id="substack-title"></h2>
+            <p class="substack-sub" id="substack-sub"></p>
+            <p class="substack-excerpt" id="substack-excerpt"></p>
+            <span class="btn btn-ink btn-small" id="substack-read" data-config="copy.substack.read">Read it on Substack</span>
+          </div>
+        </a>
       </div>
     </section>
 

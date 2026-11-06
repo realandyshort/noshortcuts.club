@@ -101,6 +101,7 @@ About a minute later the change is live. (Your browser agent can do this too.)
    yet (Segment 6 today) comes from `seed/route_days_seed.csv` and switches to the sheet the moment
    the tab appears. The 543 days are never incomplete.
 2. **Dispatches**: the podcast RSS feed.
+   **Substack**: the publication feed, for the latest written post under the dispatch player (audio posts are left to the player).
 3. **Instagram**: newest posts, only when the `IG_ACCESS_TOKEN` and `IG_USER_ID` secrets exist.
    Until then the photo spots show brand placeholders with a link to Instagram.
 4. **Videos**: the YouTube playlist, only when videos are turned on in config.

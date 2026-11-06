@@ -211,6 +211,25 @@
     });
     if (dispOK || archDisp) renderDispatch(ctx, dispatch, scrub, archDisp, day);
 
+    /* ---- The latest written post on Substack (audio posts belong to the dispatch player) ---- */
+    var sb = ctx.data.substack, sbOK = ctx.ok("substack") && sb && sb.items && sb.items.length;
+    var posts = sbOK ? sb.items.filter(function (p) { return !p.is_audio && p.title; }) : [];
+    if (!live) posts = posts.filter(function (p) { var n = Trip.dayOfTimestamp(plan, p.published_at, ctx.offset); return isNaN(n) || n <= day; });
+    var post = posts[0] || null;
+    sections.substack.hidden = !post;
+    if (post) {
+      var S = c.copy.substack || {}, card = document.getElementById("substack-card"), cover = document.getElementById("substack-cover");
+      card.href = post.link || c.links.substack;
+      cover.textContent = "";
+      if (post.image) cover.appendChild(el("img", { src: post.image, alt: "", loading: "lazy" })); else cover.appendChild(ctx.mark());
+      document.getElementById("substack-kicker").textContent = (S.kicker || "LATEST FROM SUBSTACK") + " · " + postedLine(c, post.published_at);
+      document.getElementById("substack-title").textContent = scrub(post.title);
+      var sub = document.getElementById("substack-sub"), ex = document.getElementById("substack-excerpt");
+      sub.textContent = scrub(post.subtitle || ""); sub.hidden = !sub.textContent;
+      var excerpt = scrub(post.excerpt || ""); if (excerpt && sub.textContent && excerpt.indexOf(sub.textContent) === 0) excerpt = excerpt.slice(sub.textContent.length).trim();
+      ex.textContent = excerpt; ex.hidden = !excerpt;
+    }
+
     /* ---- The days ---- */
     var cards = document.getElementById("day-cards"); cards.textContent = "";
     var count = Math.max(1, Math.min(12, Number(c.home.dayCards) || 5));
