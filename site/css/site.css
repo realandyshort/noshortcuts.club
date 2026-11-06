@@ -318,11 +318,21 @@ body.has-strip { padding-bottom: 2.2rem; }
 .banner-route.mode-countries .flip-stamps.on { position: relative; inset: auto; padding-top: 0.8rem; padding-bottom: 0.8rem; }
 .flip-stamps .stamp:not(.inked) { color: var(--peach); opacity: 0.3; }
 .flip-stamps .stamp.active::after { border-color: var(--cream); }
-.flip-days { display: grid; gap: 3px; align-content: center; justify-content: center; padding: 0.4rem 0; }
-.flip-days span { display: block; width: var(--sq, 10px); height: var(--sq, 10px); background: rgba(251, 233, 215, 0.14); border-radius: 1.5px; cursor: pointer; }
-.flip-days span.done { background: var(--persimmon); }
-.flip-days span.now { box-shadow: 0 0 0 2px var(--cream); background: var(--persimmon); }
-.flip-days span:hover { background: var(--cream); }
+/* The days mosaic: a tile per day. Photo tiles, sketch tiles (ridden, no photo yet), faint future tiles */
+.flip-days { display: grid; gap: 4px; align-content: center; justify-content: center; padding: 0.6rem 0; }
+.flip-days .tile { display: grid; place-items: center; width: var(--sq, 22px); height: var(--sq, 22px); border-radius: 3px; cursor: pointer; background: rgba(251, 233, 215, 0.08); border: 1px solid rgba(251, 233, 215, 0.12); transition: transform 0.15s; background-size: cover; background-position: center; }
+.flip-days .tile.sketch { background-color: var(--ink-soft); border-color: rgba(232, 89, 61, 0.35); }
+.flip-days .tile.sketch svg { width: 70%; height: 70%; fill: none; stroke: var(--peach); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
+.flip-days .tile.photo { border-color: var(--persimmon); }
+.flip-days .tile.now { box-shadow: 0 0 0 2px var(--persimmon); }
+.flip-days .tile:hover { transform: scale(1.25); z-index: 2; border-color: var(--cream); }
+.tile-peek { position: absolute; z-index: 6; width: 168px; background: var(--ink); color: var(--cream); border: 1px solid var(--line-on-ink); border-radius: 8px; padding: 6px; pointer-events: none; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45); }
+.tile-peek img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; display: block; margin-bottom: 4px; }
+.tile-peek .mono { color: var(--peach); font-size: 0.56rem; display: block; }
+.banner-route.mode-days { height: auto; min-height: var(--banner-height); }
+.banner-route.mode-days #banner-line, .banner-route.mode-days .marker, .banner-route.mode-days .banner-countries { position: absolute; inset: 0; height: 100%; }
+.banner-route.mode-days .flip-days.on { position: relative; inset: auto; }
+.banner-route.mode-days #banner-line { opacity: 0; }
 .flip-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem 1.2rem; align-content: center; padding: 0.4rem var(--gutter); }
 .stat { display: flex; gap: 0.8rem; align-items: center; min-width: 0; }
 .stat svg { width: 30px; height: 30px; flex: 0 0 auto; fill: none; stroke: var(--persimmon); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -432,77 +442,79 @@ body.has-strip { padding-bottom: 2.2rem; }
 .bigmap-intro h1 { font-family: var(--font-headline); font-weight: 600; font-size: clamp(2rem, 4.5vw, 3.4rem); margin: 0 0 0.3rem; letter-spacing: -0.015em; }
 .bigmap-intro p { margin: 0; max-width: 40em; color: var(--ink); }
 .bigmap-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.bigmap { position: relative; height: calc(var(--map-screens, 10) * 100vh); }
+.bigmap { position: relative; height: calc(var(--map-screens, 12) * 100vh); }
 .bigmap-view { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.bigmap-view svg { width: 100%; height: 100%; display: block; }
-.bigmap .land { fill: var(--peach); stroke: none; }
-.bigmap .border { fill: none; stroke: var(--ink); stroke-opacity: 0.5; stroke-width: 1px; vector-effect: non-scaling-stroke; }
-.bigmap .route-rest { fill: none; stroke: var(--gray); stroke-linecap: round; }
-.bigmap .route-done { fill: none; stroke: var(--persimmon); stroke-width: 2.6px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
-.bigmap .day-dot { fill: var(--ink); opacity: 0.55; }
-.bigmap .rest-dot { fill: var(--cream); stroke: var(--ink); stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
-.bigmap .seg-dot { fill: var(--ink); }
-.bigmap .mile-dot { fill: var(--cream); stroke: var(--persimmon); stroke-width: 2px; vector-effect: non-scaling-stroke; }
-.bigmap .pos-dot { fill: var(--persimmon); stroke: var(--cream); stroke-width: 2px; vector-effect: non-scaling-stroke; }
-.bigmap text { font-family: var(--font-mono); font-size: calc(10.5px * var(--u, 1)); letter-spacing: 0.06em; fill: var(--ink); paint-order: stroke; stroke: var(--cream); stroke-width: calc(3px * var(--u, 1)); stroke-linejoin: round; text-transform: uppercase; }
-.bigmap text.seg-label { font-weight: 600; font-size: calc(12px * var(--u, 1)); }
-.bigmap text.country-name { font-family: var(--font-headline); font-style: italic; font-weight: 600; font-size: calc(22px * var(--u, 1)); fill: var(--ink); opacity: 0.35; letter-spacing: 0; text-transform: none; stroke: none; }
-.bigmap text.pos-label { fill: var(--persimmon); font-weight: 600; }
-.bigmap-bar { position: absolute; left: var(--gutter); bottom: 1.2rem; max-width: calc(100% - 2 * var(--gutter)); background: var(--ink); color: var(--cream); border-radius: 10px; padding: 0.7rem 0.9rem; font-size: 0.92rem; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.25); }
-.bigmap-bar .mono { color: var(--peach); display: block; margin-bottom: 0.25rem; }
-.bigmap-bar b { font-family: var(--font-headline); font-weight: 600; font-size: 1.15rem; }
-.bigmap-bar .trail { position: absolute; right: 0.9rem; top: 0.7rem; width: 60px; height: 4px; background: var(--line-on-ink); border-radius: 2px; overflow: hidden; }
-.bigmap-bar .trail i { display: block; height: 100%; background: var(--persimmon); width: var(--p, 0%); }
-.bigmap-controls { position: absolute; right: var(--gutter); bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.5rem; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.18); }
-.bigmap-controls .btn { padding: 0.3em 0.75em; font-size: 1rem; line-height: 1; }
-.bigmap-slider { display: flex; align-items: center; gap: 0.5rem; }
-.bigmap-slider .mono { color: var(--ink); min-width: 5.5em; text-align: right; }
-.bigmap-slider input { width: min(220px, 30vw); accent-color: var(--persimmon); }
-.bigmap .detail { opacity: 1; transition: opacity 0.4s; }
-.bigmap .lake { fill: var(--cream); stroke: var(--ink); stroke-opacity: 0.35; stroke-width: 0.8px; vector-effect: non-scaling-stroke; }
-.bigmap .river { fill: none; stroke: var(--ink); stroke-opacity: 0.3; stroke-width: 0.8px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
-.bigmap .road { fill: none; stroke: var(--gray); stroke-opacity: 0.55; stroke-width: 0.7px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
-.bigmap .road.M { stroke-width: 1.1px; stroke-opacity: 0.7; }
-.bigmap .road.R { stroke-width: 0.5px; stroke-opacity: 0.4; }
-.bigmap text.landform { font-family: var(--font-headline); font-style: italic; font-weight: 500; font-size: calc(13px * var(--u, 1)); fill: var(--ink); opacity: 0.5; letter-spacing: 0.02em; text-transform: none; stroke: none; }
-/* zoomed out (the start of the scroll): only the land, borders, the route and the country names */
-#bigmap.far .labels, #bigmap.far .marks, #bigmap.far .detail, #bigmap.far .landforms, #bigmap.far .pos-label, #bigmap.far .pos-dot, #bigmap.far .mile-dot { opacity: 0; }
-.bigmap .labels, .bigmap .marks, .bigmap .landforms, .bigmap .pos-label, .bigmap .pos-dot, .bigmap .mile-dot { transition: opacity 0.4s; }
+.bigmap-view svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.bigmap-base .land { fill: var(--peach); stroke: none; }
+.bigmap-base .border { fill: none; stroke: var(--ink); stroke-opacity: 0.45; stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.bigmap-base .lake { fill: var(--cream); stroke: var(--ink); stroke-opacity: 0.35; stroke-width: 0.8px; vector-effect: non-scaling-stroke; }
+.bigmap-base .river { fill: none; stroke: var(--ink); stroke-opacity: 0.3; stroke-width: 0.8px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.bigmap-base .road { fill: none; stroke: var(--gray); stroke-opacity: 0.55; stroke-width: 0.7px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.bigmap-base .road.M { stroke-width: 1.1px; stroke-opacity: 0.7; }
+.bigmap-base text { font-family: var(--font-headline); fill: var(--ink); paint-order: stroke; stroke: var(--cream); stroke-linejoin: round; }
+.bigmap-base text.landform { font-style: italic; font-weight: 500; font-size: calc(13px * var(--u, 1)); opacity: 0.5; stroke: none; }
+#bigmap text.country-name { font-family: var(--font-headline); font-style: italic; font-weight: 600; font-size: calc(20px * var(--u, 1)); letter-spacing: 0; text-transform: none; opacity: 0; stroke-width: calc(5px * var(--u, 1)); transition: opacity 0.4s; }
+#bigmap.far text.country-name { opacity: 0.85; }
+#bigmap.far text.country-name.small { opacity: 0; }
+.bigmap-base.far .detail, .bigmap-base.far .landforms { opacity: 0; }
+/* map tiles over the drawing: each tile is an absolutely placed image, moved with a transform */
+.bigmap-tiles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.bigmap-tiles img { position: absolute; left: 0; top: 0; opacity: 0; transition: opacity 0.25s; will-change: transform; }
+.bigmap-tiles img.in { opacity: 1; }
+.bigmap-tiles.tint img { filter: sepia(0.42) saturate(0.7) brightness(1.03); }
+/* the route and its marks, on top */
+#bigmap { pointer-events: none; }
+#bigmap .route-casing { fill: none; stroke: var(--cream); stroke-opacity: 0.85; stroke-width: 6px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+#bigmap .route-rest { fill: none; stroke: var(--ink); stroke-opacity: 0.75; stroke-linecap: round; }
+#bigmap .route-done { fill: none; stroke: var(--persimmon); stroke-width: 3px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+#bigmap.far .route-done { stroke-width: 3.5px; }
+#bigmap .day-dot { fill: var(--ink); opacity: 0.6; }
+#bigmap .rest-dot { fill: var(--cream); stroke: var(--ink); stroke-width: 1.6px; vector-effect: non-scaling-stroke; }
+#bigmap .seg-dot { fill: var(--ink); stroke: var(--cream); stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+#bigmap .mile-dot { fill: var(--cream); stroke: var(--persimmon); stroke-width: 2px; vector-effect: non-scaling-stroke; }
+#bigmap .pos-dot { fill: var(--persimmon); stroke: var(--cream); stroke-width: 2.5px; vector-effect: non-scaling-stroke; }
+#bigmap text { font-family: var(--font-mono); font-size: calc(10.5px * var(--u, 1)); letter-spacing: 0.06em; fill: var(--ink); paint-order: stroke; stroke: var(--cream); stroke-width: calc(3.5px * var(--u, 1)); stroke-linejoin: round; text-transform: uppercase; font-weight: 500; }
+#bigmap text.seg-label { font-weight: 600; font-size: calc(12px * var(--u, 1)); }
+#bigmap text.pos-label { fill: var(--persimmon); font-weight: 600; }
+#bigmap .labels, #bigmap .marks, #bigmap .pos-label, #bigmap .pos-dot, #bigmap .mile-dot { transition: opacity 0.4s; }
+#bigmap.far .labels, #bigmap.far .marks, #bigmap.far .pos-label, #bigmap.far .mile-dot { opacity: 0; }
+/* the two boxes */
+.bigmap-totals, .bigmap-bar { position: absolute; left: var(--gutter); background: var(--ink); color: var(--cream); border-radius: 10px; padding: 0.7rem 0.9rem; font-size: 0.92rem; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.25); max-width: min(360px, calc(100% - 2 * var(--gutter))); }
+.bigmap-totals { top: 1rem; }
+.bigmap-bar { bottom: 1.2rem; }
+.bigmap-totals .mono, .bigmap-bar .mono { color: var(--peach); display: block; margin-bottom: 0.25rem; }
+.bigmap-totals .line, .bigmap-bar .line { color: var(--cream); margin: 0.3rem 0 0; }
+.bigmap-totals b, .bigmap-bar b { font-family: var(--font-headline); font-weight: 600; font-size: 1.15rem; display: block; }
 .bigmap-bar .events { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
 .bigmap-bar .events span { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--persimmon); color: var(--persimmon); border-radius: 999px; padding: 0.25em 0.6em; }
-.bigmap-bar .totals { display: block; margin-top: 0.3rem; color: var(--cream); }
-@media (max-width: 640px) { .bigmap-controls { left: var(--gutter); right: var(--gutter); bottom: 0.8rem; justify-content: space-between; } .bigmap-slider input { width: 100%; } .bigmap-slider { flex: 1; } .bigmap-bar { bottom: 4.2rem; } }
+/* the controls, bottom right */
+.bigmap-controls { position: absolute; right: var(--gutter); bottom: 1.2rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem; }
+.bigmap-segments { display: flex; gap: 0.3rem; background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.18); }
+.bigmap-segments .seg { font: 500 0.78rem var(--font-mono); width: 2em; height: 2em; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.bigmap-segments .seg:hover { border-color: var(--persimmon); color: var(--persimmon); }
+.bigmap-segments .seg.active { background: var(--persimmon); border-color: var(--persimmon); color: var(--ink); }
+.bigmap-row { display: flex; align-items: center; gap: 0.5rem; background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.5rem; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.18); flex-wrap: wrap; }
+.bigmap-row .btn { padding: 0.3em 0.75em; font-size: 1rem; line-height: 1; }
+.bigmap-slider { display: flex; align-items: center; gap: 0.5rem; }
+.bigmap-slider .mono { color: var(--ink); min-width: 9.5em; text-align: right; }
+.bigmap-slider input { width: min(200px, 26vw); accent-color: var(--persimmon); }
+.bigmap-goto { display: flex; align-items: center; gap: 0.4rem; margin-left: 0.3rem; padding-left: 0.6rem; border-left: 1px solid var(--line); }
+.bigmap-goto .mono { color: var(--ink); }
+.bigmap-goto input { width: 4.2em; font: 500 0.85rem var(--font-mono); padding: 0.3em 0.5em; border: 1px solid var(--ink); border-radius: 8px; background: #FFF8F0; }
+.bigmap-goto .btn { font-size: 0.78rem; padding: 0.35em 0.8em; }
 .bigmap-hint { text-align: right; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--gray); margin: 0.6rem 0 0; text-transform: uppercase; }
-@media (max-width: 640px) { .bigmap-bar { left: var(--gutter); right: var(--gutter); bottom: 0.8rem; font-size: 0.85rem; } .bigmap-bar .trail { display: none; } }
-
-/* THE DAYS in the banner: the last few days as cards on the ink, and the way back from any flip */
-.banner-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
-.btn-outline-cream { border-color: var(--line-on-ink); color: var(--cream); background: transparent; font-size: 0.85rem; padding: 0.45em 1em; }
-.btn-outline-cream:hover, .btn-outline-cream.active { border-color: var(--persimmon); color: var(--persimmon); }
-.btn-outline-cream.active { background: var(--persimmon); color: var(--ink); }
-.flip-cards { padding: 0.8rem var(--gutter) 0.6rem; }
-.flip-cards .days-head { margin-bottom: 0.8rem; }
-.flip-cards .days-head h2 { color: var(--cream); font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
-.flip-cards .days-head a { color: var(--peach); }
-.flip-cards .day-card { background: var(--ink-soft); border-color: var(--line-on-ink); color: var(--cream); }
-.flip-cards .day-card .mono { color: var(--peach); }
-.flip-cards .day-card .stats { color: var(--cream); opacity: 0.85; }
-.flip-cards .day-card .photo { background: rgba(251, 233, 215, 0.08); }
-.flip-cards .day-card .placeholder { color: var(--cream); }
-.flip-cards .day-card .placeholder a { color: var(--peach); }
-.banner-route.mode-cards { height: auto; min-height: var(--banner-height); }
-.banner-route.mode-cards #banner-line, .banner-route.mode-cards .marker, .banner-route.mode-cards .banner-countries { position: absolute; inset: 0; height: 100%; }
-.banner-route.mode-cards .flip-cards.on { position: relative; inset: auto; }
-.banner-route.mode-cards #banner-line { opacity: 0; }
-.flip-close { position: absolute; top: 0.4rem; right: var(--gutter); z-index: 4; font: 500 0.78rem var(--font-body); background: var(--cream); color: var(--ink); border: 0; border-radius: 999px; padding: 0.45em 0.95em; cursor: pointer; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); }
-.flip-close:hover { background: var(--persimmon); }
-.flip-close span[aria-hidden] { font-size: 1.1em; line-height: 1; margin-right: 0.15em; }
-.substack-card.placeholder-card .substack-cover { background: var(--ink); }
-.substack-card.placeholder-card .substack-cover .mark { width: 56px; height: 56px; }
+@media (max-width: 900px) {
+  .bigmap-totals { max-width: min(260px, calc(100% - 2 * var(--gutter))); font-size: 0.82rem; }
+}
 @media (max-width: 640px) {
-  .flip-cards { padding-inline: 0.6rem; }
-  .flip-cards .day-cards { margin-inline: 0; padding-inline: 0; }
-  .flip-cards .day-card { flex: 0 0 68vw; }
-  .banner-buttons { justify-content: flex-start; }
-  .flip-close { right: 0.6rem; }
+  .bigmap-totals { top: 0.6rem; left: var(--gutter); right: var(--gutter); max-width: none; padding: 0.5rem 0.7rem; font-size: 0.78rem; }
+  .bigmap-totals b, .bigmap-bar b { font-size: 1rem; }
+  .bigmap-bar { left: var(--gutter); right: var(--gutter); max-width: none; bottom: 6.6rem; font-size: 0.82rem; }
+  .bigmap-controls { left: var(--gutter); right: var(--gutter); bottom: 0.6rem; align-items: stretch; }
+  .bigmap-segments { justify-content: center; }
+  .bigmap-row { justify-content: space-between; }
+  .bigmap-slider { flex: 1; }
+  .bigmap-slider input { width: 100%; }
+  .bigmap-slider .mono { min-width: 0; font-size: 0.6rem; }
+  .bigmap-goto { display: none; }
 }

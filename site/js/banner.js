@@ -89,25 +89,70 @@
   function show(el) { el.removeAttribute("hidden"); requestAnimationFrame(function () { el.classList.add("on"); }); }
   function setHint(text) { var h = document.getElementById("banner-hint"); if (h) h.textContent = text || ""; }
 
+  // DAYS ON THE ROAD: one tile per day. A day with an Instagram photo shows a thumbnail (the robot
+  // makes them, data/photo_index.json); a ridden day without one shows a little sketch; days still to
+  // come are faint squares. Hover for a bigger look, click to travel there.
+  var SKETCHES = ["mountain", "tent", "wheel", "wave", "sun", "pine", "road", "cactus"];
+  var SKETCH_PATHS = {
+    mountain: "M2 19L8 8l4 6 2-3 6 8zM16 5a2 2 0 1 0 0.01 0",
+    tent: "M3 19L12 5l9 14zM12 5v14M7 19h10",
+    wheel: "M12 12m-8 0a8 8 0 1 0 16 0a8 8 0 1 0-16 0M12 4v16M4 12h16M6.3 6.3l11.4 11.4M17.7 6.3L6.3 17.7",
+    wave: "M2 14c2.5-2.5 5-2.5 7.5 0s5 2.5 7.5 0 3.5-2 5 0M2 18c2.5-2.5 5-2.5 7.5 0s5 2.5 7.5 0 3.5-2 5 0M12 9V4l3 2",
+    sun: "M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0-8 0M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1",
+    pine: "M12 3l5 7h-3l4 5h-4l3 5H7l3-5H6l4-5H7zM12 20v2",
+    road: "M4 21L10 3h4l6 18M12 6v3M12 12v3M12 18v3",
+    cactus: "M12 21V5a2 2 0 0 1 4 0v4M12 12H9a2 2 0 0 1-2-2V8M12 15h3a2 2 0 0 0 2-2v-1M8 21h8"
+  };
+  function sketchFor(n) { return SKETCHES[(n * 7 + 3) % SKETCHES.length]; }
+  function sketchDefs() {
+    if (document.getElementById("sketch-defs")) return;
+    var svg = document.createElementNS(NS, "svg"); svg.id = "sketch-defs"; svg.setAttribute("width", "0"); svg.setAttribute("height", "0"); svg.style.position = "absolute"; svg.setAttribute("aria-hidden", "true");
+    SKETCHES.forEach(function (k) {
+      var sym = document.createElementNS(NS, "symbol"); sym.id = "sk-" + k; sym.setAttribute("viewBox", "0 0 24 24");
+      var p = document.createElementNS(NS, "path"); p.setAttribute("d", SKETCH_PATHS[k]); sym.appendChild(p); svg.appendChild(sym);
+    });
+    document.body.appendChild(svg);
+  }
   function showDays() {
     var ctx = state.ctx, plan = ctx.plan, box = document.getElementById("flip-days"), copy = ctx.config.copy.flips;
+    var index = (ctx.data.photoIndex && ctx.data.photoIndex.days) || {};
+    sketchDefs();
     box.textContent = "";
-    var total = plan.days.length, r = stage().getBoundingClientRect();
-    var cols = Math.min(total, Math.max(20, Math.ceil(Math.sqrt(total * (r.width / Math.max(60, r.height)) * 1.15))));
-    var rows = Math.ceil(total / cols);
-    var sq = Math.max(4, Math.floor(Math.min((r.width - 32) / cols, (r.height - 16) / rows)) - 3);
+    var total = plan.days.length, r = stage().getBoundingClientRect(), w = r.width - 32;
+    var cols = Math.max(12, Math.floor(w / 30));                     // tiles at least 26px, so a sketch reads
+    var sq = Math.max(22, Math.floor(w / cols) - 4);
     box.style.setProperty("--sq", sq + "px");
     box.style.gridTemplateColumns = "repeat(" + cols + ", " + sq + "px)";
-    var frag = document.createDocumentFragment();
+    var frag = document.createDocumentFragment(), withPhoto = 0;
     plan.days.forEach(function (d) {
-      var sp = document.createElement("span");
-      if (d.day < ctx.day) sp.className = "done"; else if (d.day === ctx.day) sp.className = "now";
+      var sp = document.createElement("span"), ph = index[String(d.day)];
+      var done = d.day < ctx.day, now = d.day === ctx.day;
+      sp.className = "tile" + (done ? " done" : "") + (now ? " now" : "") + (ph ? " photo" : (done || now ? " sketch" : ""));
+      if (ph && ph.thumb) { sp.style.backgroundImage = "url(" + ph.thumb + ")"; withPhoto++; }
+      else if (done || now) { var u = document.createElementNS(NS, "svg"); var use = document.createElementNS(NS, "use"); use.setAttribute("href", "#sk-" + sketchFor(d.day)); u.appendChild(use); sp.appendChild(u); }
       sp.title = "Day " + d.day + " · " + d.from + (d.from === d.to ? "" : " to " + d.to);
+      sp.setAttribute("data-day", d.day);
       sp.addEventListener("click", function (e) { e.stopPropagation(); travelTo(d.day); });
       frag.appendChild(sp);
     });
     box.appendChild(frag);
-    setHint(copy.days + " · " + (ctx.day) + " OF " + total);
+    // a bigger look on hover (or touch): the photo and the day, following the pointer
+    var peek = document.getElementById("tile-peek");
+    if (!peek) { peek = document.createElement("div"); peek.id = "tile-peek"; peek.className = "tile-peek"; peek.hidden = true; stage().appendChild(peek); }
+    box.onmousemove = function (e) {
+      var t = e.target.closest ? e.target.closest(".tile") : null;
+      if (!t) { peek.hidden = true; return; }
+      var n = Number(t.getAttribute("data-day")), d = plan.days[n - 1], ph = index[String(n)];
+      peek.innerHTML = "";
+      if (ph && ph.thumb) { var im = document.createElement("img"); im.src = ph.thumb; im.alt = ""; peek.appendChild(im); }
+      var cap = document.createElement("span"); cap.className = "mono"; cap.textContent = "DAY " + n + " · " + (d.to || d.from || "").toUpperCase(); peek.appendChild(cap);
+      var sr = stage().getBoundingClientRect();
+      peek.style.left = Math.min(sr.width - 180, e.clientX - sr.left + 14) + "px";
+      peek.style.top = Math.max(0, e.clientY - sr.top - 90) + "px";
+      peek.hidden = false;
+    };
+    box.onmouseleave = function () { peek.hidden = true; };
+    setHint((copy.days || "ONE TILE PER DAY") + " · " + ctx.day + " OF " + total + (withPhoto ? " · " + withPhoto + " WITH A PHOTO" : ""));
     show(box);
   }
 

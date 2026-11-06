@@ -51,13 +51,22 @@
     </div>
     <div class="bigmap" id="bigmap-scroll">
       <div class="bigmap-view">
+        <!-- three layers: the drawn land and borders (always there), the map tiles over them, the route and labels on top -->
+        <svg id="bigmap-base" class="bigmap-base" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+        <div id="bigmap-tiles" class="bigmap-tiles" aria-hidden="true"></div>
         <svg id="bigmap" preserveAspectRatio="xMidYMid slice" aria-label="Detailed map of the route"></svg>
+        <!-- totals so far (top left) and the day under the middle of the screen (bottom left) -->
+        <div class="bigmap-totals" id="bigmap-totals" hidden></div>
         <div class="bigmap-bar" id="bigmap-bar" hidden></div>
-        <!-- Manual controls for anyone who would rather not scroll: a day back, a day on, or drag the slider -->
+        <!-- manual controls: segments, a day back or on, a slider across the segment, a day to type -->
         <div class="bigmap-controls" id="bigmap-controls" hidden>
-          <button class="btn btn-small btn-ink" type="button" id="bigmap-prev" aria-label="Previous day">&#8249;</button>
-          <label class="bigmap-slider"><span class="mono" id="bigmap-slider-label">DAY 1</span><input type="range" id="bigmap-slider" min="1" max="543" value="1" step="1" aria-label="Day"></label>
-          <button class="btn btn-small btn-ink" type="button" id="bigmap-next" aria-label="Next day">&#8250;</button>
+          <div class="bigmap-segments" id="bigmap-segments"></div>
+          <div class="bigmap-row">
+            <button class="btn btn-small btn-ink" type="button" id="bigmap-prev" aria-label="Previous day">&#8249;</button>
+            <label class="bigmap-slider"><span class="mono" id="bigmap-slider-label">DAY 1</span><input type="range" id="bigmap-slider" min="1" max="543" value="1" step="1" aria-label="Day"></label>
+            <button class="btn btn-small btn-ink" type="button" id="bigmap-next" aria-label="Next day">&#8250;</button>
+            <form class="bigmap-goto" id="bigmap-goto"><label class="mono" for="bigmap-day" data-config="copy.map.goTo">Go to day</label><input type="number" id="bigmap-day" min="1" max="543" inputmode="numeric"><button class="btn btn-small btn-outline-ink" type="submit" data-config="copy.map.go">Go</button></form>
+          </div>
         </div>
       </div>
     </div>

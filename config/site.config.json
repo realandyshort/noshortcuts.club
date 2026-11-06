@@ -77,7 +77,16 @@
       "vsPlan": "DAYS VS. THE PLAN"
     },
     "odometer": true,
-    "timeTravel": true
+    "timeTravel": true,
+    "map": {
+      "_note": "The full map page. tiles: the map behind the route, any standard {z}/{x}/{y} tile address (blank = no tiles, the plain drawing instead). tint keeps the tiles in the site's colours. zoomNear is how close the map sits when following the route (7 = a whole region, 10 = a town).",
+      "tiles": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+      "tilesMaxZoom": 16,
+      "tint": true,
+      "zoomNear": 8.8,
+      "zoomNearPhone": 8.2,
+      "screens": 12
+    }
   },
   "sections": {
     "videos": {
@@ -156,7 +165,12 @@
         "chains": "CHAIN WORN OUT",
         "llamas": "LLAMAS",
         "restDays": "DAY OFF"
-      }
+      },
+      "soFarTitle": "SO FAR",
+      "dayTitle": "THIS DAY",
+      "goTo": "Go to day",
+      "go": "Go",
+      "tiles": "Map tiles © Esri · HERE · Garmin · FAO · NOAA · USGS. Route from Komoot."
     },
     "placeholders": {
       "photoLink": "See the pictures on Instagram",

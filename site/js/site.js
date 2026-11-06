@@ -203,7 +203,7 @@
   var loads = [getJSON("config/site.config.json").catch(function () { return null; })];
   if (!light) {
     loads.push(quiet("data/plan.json"), quiet("data/meta.json"), quiet("data/status.json"), quiet("data/countries.json"), quiet("data/route_line.json"),
-      quiet("data/dispatches.json"), quiet("data/instagram.json"), quiet("data/rides.json"), quiet("data/position.json"), quiet("data/weather.json"), quiet("data/videos.json"), quiet("data/substack.json"));
+      quiet("data/dispatches.json"), quiet("data/instagram.json"), quiet("data/rides.json"), quiet("data/position.json"), quiet("data/weather.json"), quiet("data/videos.json"), quiet("data/substack.json"), quiet("data/photo_index.json"));
     if (document.body.hasAttribute("data-needs-map")) loads.push(quiet("data/americas.json"), quiet("data/calories.json"), quiet("data/countries_outlines.json"), quiet("data/route_elevation.json"), quiet("data/day_geo.json"), quiet("data/geo_live.json"), quiet("data/day_weather.json"), quiet("data/day_points.json"));
   }
 
@@ -213,15 +213,15 @@
     if (!ctx.config) { console.warn("config failed to load; leaving the page as written"); return ctx; }
     if (!light) {
       ctx.plan = r[1]; ctx.meta = r[2]; ctx.status = r[3]; ctx.countries = r[4] || []; ctx.route = r[5];
-      ctx.data = { dispatches: r[6], instagram: r[7], rides: r[8], position: r[9], weather: r[10], videos: r[11], substack: r[12] };
-      ctx.americas = r[13] || null;
-      ctx.data.calories = r[14] || null;
-      ctx.outlines = r[15] || null;
-      ctx.elevation = (r[16] && r[16].elevation_m && ctx.route && r[16].elevation_m.length === ctx.route.points.length) ? r[16] : null;
-      ctx.geo = r[17] || null;
-      ctx.data.geoLive = r[18] || null;
-      ctx.data.dayWeather = r[19] || null;
-      ctx.dayPoints = r[20] || null;
+      ctx.data = { dispatches: r[6], instagram: r[7], rides: r[8], position: r[9], weather: r[10], videos: r[11], substack: r[12], photoIndex: r[13] };
+      ctx.americas = r[14] || null;
+      ctx.data.calories = r[15] || null;
+      ctx.outlines = r[16] || null;
+      ctx.elevation = (r[17] && r[17].elevation_m && ctx.route && r[17].elevation_m.length === ctx.route.points.length) ? r[17] : null;
+      ctx.geo = r[18] || null;
+      ctx.data.geoLive = r[19] || null;
+      ctx.data.dayWeather = r[20] || null;
+      ctx.dayPoints = r[21] || null;
       if (ctx.plan) decideDay();
     }
     applyChrome();

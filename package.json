@@ -10,8 +10,11 @@
     "story:dry-run": "node scripts/story.js --dry-run",
     "which-index": "node scripts/which-index.js"
   },
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
-    "@resvg/resvg-js": "2.6.2"
+    "@resvg/resvg-js": "2.6.2",
+    "sharp": "^0.33.5"
   }
 }
