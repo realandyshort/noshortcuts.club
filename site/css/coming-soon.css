@@ -94,18 +94,36 @@ body {
 .route {
   flex: 1 1 auto;
   min-height: 0;
-  display: flex;
+  display: grid;         /* the line and the country outlines share one cell, so they are sized alike */
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
   align-items: center;
   padding: clamp(12px, 3vh, 40px) 0;
   overflow: hidden;      /* the tails are meant to run off the edge, not create a scroll */
 }
 
-.route-line {
+.route-line, .route-countries {
+  grid-area: 1 / 1;
   display: block;
   width: 100%;
   height: min(100%, 55vw);
   overflow: visible; /* lets the short tails run past both edges */
 }
+
+/* Country outlines over the line: cream, faint, fading in and out on a loop (timings set by js/coming-soon.js) */
+.route-countries { pointer-events: none; }
+.route-countries path {
+  fill: none;
+  stroke: var(--cream);
+  stroke-opacity: 0.55;
+  stroke-width: 1.1px;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+  transition: opacity var(--fade-out, 4s) ease-in-out;
+}
+.route-countries path.in { opacity: 1; transition-duration: var(--fade-in, 4s); }
+.route-countries.still path { opacity: 0.6; transition: none; }
 
 .route-line path {
   fill: none;
@@ -237,7 +255,6 @@ body {
   cursor: pointer;
   transition: color 0.15s ease;
 }
-.links .about:hover,
 .links .about:focus-visible,
 .links .about[aria-expanded="true"] {
   color: var(--cream);
@@ -278,12 +295,16 @@ body {
   border: 8px solid transparent;
   border-top-color: var(--cream);
 }
-.links .about:hover .about-text,
 .links .about:focus-visible .about-text,
 .links .about[aria-expanded="true"] .about-text {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+/* Hovering shows it too, but only where there is a real pointer: on phones a tap toggles it, cleanly */
+@media (hover: hover) {
+  .links .about:hover { color: var(--cream); }
+  .links .about:hover .about-text { opacity: 1; visibility: visible; transform: translateY(0); }
 }
 .links .about.flip .about-text { left: auto; right: 0; }
 .links .about.flip .about-text::after { left: auto; right: 1.6em; }

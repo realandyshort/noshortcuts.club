@@ -182,6 +182,16 @@
     "titleSize": "clamp(2.4rem, min(9.5vw, 16vh), 14rem)",
     "routeStrokePx": 2.5,
     "drawOnLoad": true,
+    "countriesFade": {
+      "_note": "The country outlines over the route: each fades in secondsIn long, secondsBetween apart north to south; all hold secondsHold, fade out over secondsOut, rest secondsOff, repeat. on: false switches it off.",
+      "on": true,
+      "secondsStart": 3,
+      "secondsIn": 4,
+      "secondsBetween": 0.6,
+      "secondsHold": 10,
+      "secondsOut": 4,
+      "secondsOff": 8
+    },
     "note": "Site coming soon",
     "aboutText": "If a tree falls in the forest but no one is around to hear it, does it make a sound? If a man bicycles across continents and doesn’t microblog about it, did it even happen?\n\nMore coming soon…",
     "pitch": "Add your email to join the journey.",
