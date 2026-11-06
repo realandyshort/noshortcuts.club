@@ -1,5 +1,5 @@
 {
-  "_readme": "This is the one file to edit for wording, links, sizes and switches. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. podLink: once the show is on Apple Podcasts, paste the link here and every Listen button switches to it. home.sectionOrder: drag-free reordering, just move the names. sections.videos.enabled: true turns the video section on. comingSoon.pitch and comingSoon.ctaLabel are the landing page's one ask (the line over the email field and the button; the field hands the address to Substack per signup.mode); comingSoon.note is the small line; comingSoon.aboutText is what the About button shows when hovered (blank hides the button). signup.mode picks how the email fields hand people to Substack (see signup._note). home.odometer / home.timeTravel switch the phase 3 interactions on and off.",
+  "_readme": "This is the one file to edit for wording, links, sizes and switches. Keep the quotes and commas as they are. showDates must stay false until Andy says otherwise. podLink: once the show is on Apple Podcasts, paste the link here and every Listen button switches to it. home.sectionOrder: drag-free reordering, just move the names. sections.videos.enabled: true turns the video section on. comingSoon.pitch and comingSoon.ctaLabel are the landing page's one ask (the line over the email field and the button; the field hands the address to Substack per signup.mode); comingSoon.note is the small line; comingSoon.aboutText is what the About button shows when hovered (blank hides the button). signup.mode picks how the email fields hand people to Substack (see signup._note). countriesFade times the country outlines fading in and out over the route. plan.tabGids lets the Route plan button open the current segment. home.odometer / home.timeTravel switch the phase 3 interactions on and off.",
   "showDates": false,
   "podLink": "https://podcasts.apple.com/us/podcast/no-shortcuts/id6828185728",
   "site": {
@@ -20,6 +20,16 @@
   "signup": {
     "_note": "mode \"subscribe\" opens Substack's subscribe page with the email already filled in (one more tap there). mode \"direct\" posts the email straight to Substack's own free-signup endpoint, the one its embed form uses. Try direct with your own email once; switch back if Substack ever shows an error page.",
     "mode": "subscribe"
+  },
+  "countriesFade": {
+    "_note": "The country outlines over the route, on the landing page and the home banner: each fades in secondsIn long, secondsBetween apart north to south; all hold secondsHold, fade out over secondsOut, rest secondsOff, repeat. on: false switches it off.",
+    "on": true,
+    "secondsStart": 3,
+    "secondsIn": 4,
+    "secondsBetween": 0.6,
+    "secondsHold": 10,
+    "secondsOut": 4,
+    "secondsOff": 8
   },
   "labels": {
     "about": "About"
@@ -45,7 +55,6 @@
       "latest",
       "dispatch",
       "days",
-      "stamps",
       "videos"
     ],
     "dayCards": 5,
@@ -83,7 +92,11 @@
       "now": "NOW",
       "localTime": "LOCAL TIME",
       "weather": "WEATHER",
-      "captionFallbackNote": "From the route plan."
+      "captionFallbackNote": "From the route plan.",
+      "posted": "POSTED",
+      "ago": "DAYS AGO",
+      "today": "TODAY",
+      "yesterday": "YESTERDAY"
     },
     "dispatch": {
       "kicker": "LATEST DISPATCH",
@@ -102,15 +115,25 @@
       "legendRidden": "RIDDEN",
       "legendPlanned": "PLANNED",
       "start": "DEADHORSE",
-      "end": "USHUAIA"
+      "end": "USHUAIA",
+      "pageTitle": "The whole road",
+      "pageIntro": "Deadhorse to Ushuaia, north to south. Scroll to follow the route; the bar shows the day under the middle of the screen.",
+      "expected": "EXPECTED TODAY",
+      "actual": "LAST SEEN",
+      "segment": "SEGMENT",
+      "restDay": "DAY OFF",
+      "highest": "HIGHEST POINT",
+      "jumpToday": "Where I should be today",
+      "top": "Back to the start",
+      "opens": "Open the full map"
     },
     "placeholders": {
       "photoLink": "See the pictures on Instagram",
       "photoLine": "Photos arrive as the ride happens."
     },
     "signup": {
-      "title": "Hear, see, read all about it",
-      "sub": "WRITING · AUDIO · VIDEO, AS IT HAPPENS. FREE.",
+      "title": "Add your email to join the journey.",
+      "sub": "Updates from the road.",
       "prompt": "Add your email to join the journey.",
       "placeholder": "your@email.com",
       "button": "Subscribe"
@@ -166,11 +189,8 @@
       "estimate": "ESTIMATE"
     },
     "stamps": {
-      "title": "Passport",
-      "intro": "One stamp per country, inked the day the ride crosses in. Tap a stamp for the first photo from there.",
       "day": "DAY",
-      "entered": "ENTERED DAY",
-      "noPhoto": "No photo from here yet."
+      "hint": "Tap a stamp to jump to that day"
     },
     "travel": {
       "back": "Back to today",
@@ -182,16 +202,6 @@
     "titleSize": "clamp(2.4rem, min(9.5vw, 16vh), 14rem)",
     "routeStrokePx": 2.5,
     "drawOnLoad": true,
-    "countriesFade": {
-      "_note": "The country outlines over the route: each fades in secondsIn long, secondsBetween apart north to south; all hold secondsHold, fade out over secondsOut, rest secondsOff, repeat. on: false switches it off.",
-      "on": true,
-      "secondsStart": 3,
-      "secondsIn": 4,
-      "secondsBetween": 0.6,
-      "secondsHold": 10,
-      "secondsOut": 4,
-      "secondsOff": 8
-    },
     "note": "Site coming soon",
     "aboutText": "If a tree falls in the forest but no one is around to hear it, does it make a sound? If a man bicycles across continents and doesn’t microblog about it, did it even happen?\n\nMore coming soon…",
     "pitch": "Add your email to join the journey.",
@@ -200,7 +210,16 @@
   "plan": {
     "sheetId": "1qAlzQWOvfifr_0LJ1YUm8b1mv0ewg51yYJVj1JHcOyo",
     "tabPrefix": "Segment ",
-    "tabs": 6
+    "tabs": 6,
+    "tabGids": {
+      "1": 1988507252,
+      "2": 2018769757,
+      "3": 1973643066,
+      "4": 730615717,
+      "5": 1200222099
+    },
+    "overviewGid": 1090960330,
+    "_note": "tabGids: the id of each Segment tab in the sheet (the number after #gid= in its address), so the Route plan button opens the segment being ridden. A segment without one opens the Overview tab."
   },
   "sources": {
     "dispatchesRss": "https://anchor.fm/s/11951c6c8/podcast/rss",

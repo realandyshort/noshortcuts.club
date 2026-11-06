@@ -125,6 +125,43 @@
     return { marker: marker, viewBox: svg.getAttribute("viewBox"), bounds: bounds(all) };
   }
 
+  // Country outlines in the line's own stretched drawing space, so they sit where the route crosses
+  // them. svg should carry the line's viewBox. Returns the paths, north to south.
+  function outlines(svg, points, countries) {
+    if (!svg || !points || !countries) return [];
+    var map = projector(points);
+    clear(svg);
+    return countries.slice().sort(function (a, b) { return a.first_day - b.first_day; }).map(function (c) {
+      var d = c.rings.map(function (ring) { return "M" + ring.map(function (ll) { var q = map([ll[1], ll[0]]); return q[0].toFixed(1) + " " + q[1].toFixed(1); }).join("L") + "Z"; }).join("");
+      var p = el("path", { d: d });
+      var t = el("title"); t.textContent = c.country + " · day " + c.first_day; p.appendChild(t);
+      svg.appendChild(p);
+      return p;
+    });
+  }
+  // The outlines fade in one after another, hold, fade out together, rest, and go again. Timings in
+  // seconds from config (countriesFade). Reduced motion: still and faint. Returns a stop function.
+  function fadeCycle(svg, paths, o) {
+    o = o || {};
+    if (!svg || !paths.length || o.on === false) return function () {};
+    var reduced = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) { svg.classList.add("still"); paths.forEach(function (p) { p.classList.add("in"); }); return function () {}; }
+    var tIn = Number(o.secondsIn) || 4, stagger = Number(o.secondsBetween) || 0.6, hold = Number(o.secondsHold) || 10, tOut = Number(o.secondsOut) || 4, rest = Number(o.secondsOff) || 8;
+    svg.style.setProperty("--fade-in", tIn + "s");
+    svg.style.setProperty("--fade-out", tOut + "s");
+    var timers = [];
+    function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+    function run() {
+      paths.forEach(function (p, i) { later(function () { p.classList.add("in"); }, i * stagger * 1000); });
+      later(function () {
+        paths.forEach(function (p) { p.classList.remove("in"); });
+        later(run, (tOut + rest) * 1000);
+      }, ((paths.length - 1) * stagger + tIn + hold) * 1000);
+    }
+    later(run, (o.secondsStart !== undefined ? Number(o.secondsStart) : 3) * 1000);
+    return function () { timers.forEach(clearTimeout); paths.forEach(function (p) { p.classList.remove("in"); }); };
+  }
+
   return { VIEW_WIDTH: VIEW_WIDTH, TAIL: TAIL, projector: projector, project: project, pathData: pathData,
-           bounds: bounds, viewBox: viewBox, draw: draw, drawProgress: drawProgress };
+           bounds: bounds, viewBox: viewBox, draw: draw, drawProgress: drawProgress, outlines: outlines, fadeCycle: fadeCycle };
 });

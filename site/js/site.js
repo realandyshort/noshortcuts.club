@@ -68,6 +68,7 @@
       if (ctx.travelDay || ctx.testDay) u.searchParams.set("day", n); else u.searchParams.delete("day");
       history.replaceState(null, "", u.pathname + (u.search || "") + u.hash);
     } catch (e) { /* older browsers: fine without */ }
+    document.querySelectorAll("[data-href=routePlan]").forEach(function (a) { var h = routePlanHref(); if (h) a.setAttribute("href", h); });
     ctx.listeners.forEach(function (fn) { try { fn(); } catch (e) { console.error(e); } });
   };
 
@@ -117,6 +118,8 @@
       else if (key === "home") href = ctx.withDay("home.html");      // always the home page, never the coming-soon front door
       else if (key === "days") href = ctx.withDay("days.html");
       else if (key === "about") href = ctx.withDay("about.html");
+      else if (key === "map") href = ctx.withDay("map.html");
+      else if (key === "routePlan") href = routePlanHref();
       else href = pick(c, key) || links[key];
       if (href) a.setAttribute("href", href); else a.hidden = true;
       if (/^https?:/.test(href || "")) { a.target = "_blank"; a.rel = "noopener"; }
@@ -156,6 +159,17 @@
     });
   }
 
+  // The route plan opens at the tab of the segment being ridden (ids in config plan.tabGids),
+  // or at the Overview when that segment has no tab yet.
+  function routePlanHref() {
+    var c = ctx.config, base = ((c.links && c.links.routePlan) || "").replace(/#.*$/, "");
+    if (!base) return "";
+    var p = c.plan || {}, section = ctx.plan ? window.Trip.day(ctx.plan, ctx.day).section : null;
+    var gid = (p.tabGids && section != null && p.tabGids[String(section)]) || p.overviewGid;
+    return gid ? base + "#gid=" + gid : base;
+  }
+  ctx.routePlanHref = routePlanHref;
+
   function statusStrip() {
     if (!ctx.isTest) return;
     var names = ["plan", "dispatches", "instagram", "videos", "rides", "position", "weather"];
@@ -188,7 +202,7 @@
   if (!light) {
     loads.push(quiet("data/plan.json"), quiet("data/meta.json"), quiet("data/status.json"), quiet("data/countries.json"), quiet("data/route_line.json"),
       quiet("data/dispatches.json"), quiet("data/instagram.json"), quiet("data/rides.json"), quiet("data/position.json"), quiet("data/weather.json"), quiet("data/videos.json"));
-    if (document.body.hasAttribute("data-needs-map")) loads.push(quiet("data/americas.json"), quiet("data/calories.json"), quiet("data/countries_outlines.json"), quiet("data/route_elevation.json"), quiet("data/day_geo.json"), quiet("data/geo_live.json"), quiet("data/day_weather.json"));
+    if (document.body.hasAttribute("data-needs-map")) loads.push(quiet("data/americas.json"), quiet("data/calories.json"), quiet("data/countries_outlines.json"), quiet("data/route_elevation.json"), quiet("data/day_geo.json"), quiet("data/geo_live.json"), quiet("data/day_weather.json"), quiet("data/day_points.json"));
   }
 
   window.Site = ctx;
@@ -205,6 +219,7 @@
       ctx.geo = r[16] || null;
       ctx.data.geoLive = r[17] || null;
       ctx.data.dayWeather = r[18] || null;
+      ctx.dayPoints = r[19] || null;
       if (ctx.plan) decideDay();
     }
     applyChrome();

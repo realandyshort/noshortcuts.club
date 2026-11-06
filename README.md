@@ -48,7 +48,8 @@ Open `config/site.config.json` in any text editor. Keep the quotes and commas as
 - `links.*` Spotify, Instagram, Substack, the route plan, YouTube.
 - `podLink` the show on Apple Podcasts. Every "Podcast app" / Listen button opens it (the Podcasts app
   opens when it is installed). If it is ever blank, those buttons fall back to Spotify.
-- `menu.*` the words in the header (Map, Route plan, About, and the Subscribe button).
+- `menu.*` the words in the header (Map, Route plan, About, and the Subscribe button). Map opens the full map page; Route plan opens the sheet at the tab of the segment being ridden (`plan.tabGids`, the number after `#gid=` in each tab's address).
+- `countriesFade` timings of the country outlines fading in and out over the route, on the landing page and the home banner.
 - `signup.mode` how the email fields hand people to Substack: `subscribe` opens Substack's subscribe page with the address filled in; `direct` posts it straight to Substack's free-signup endpoint. `copy.signup.*` is the wording of the strip and the footer field.
 - `labels.*` the words on the coming-soon buttons (Listen, See, Consider, About).
 - `comingSoon.note` the small line on the coming-soon page; `comingSoon.aboutText` what the About

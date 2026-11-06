@@ -26,11 +26,6 @@
    "max_alt_m": 671,
    "alt_source": "track"
   },
-  "6": {
-   "from": "places",
-   "max_alt_m": 136,
-   "alt_source": "route"
-  },
   "7": {
    "from": "track",
    "max_alt_m": 406,
@@ -162,6 +157,11 @@
     "Jasper National Park"
    ]
   },
+  "29": {
+   "from": "places",
+   "max_alt_m": 781,
+   "alt_source": "route"
+  },
   "30": {
    "from": "track",
    "max_alt_m": 1972,
@@ -182,11 +182,6 @@
    "parks": [
     "Kootenay National Park"
    ]
-  },
-  "33": {
-   "from": "places",
-   "max_alt_m": 1986,
-   "alt_source": "route"
   },
   "34": {
    "from": "track",
@@ -218,7 +213,7 @@
     "dist_mi": 0.24,
     "at": "start"
    },
-   "max_alt_m": 882,
+   "max_alt_m": 1388,
    "alt_source": "route"
   },
   "37": {
@@ -410,11 +405,6 @@
    "from": "track",
    "max_alt_m": 549,
    "alt_source": "track"
-  },
-  "58": {
-   "from": "places",
-   "max_alt_m": 1837,
-   "alt_source": "route"
   },
   "59": {
    "from": "track",
@@ -612,12 +602,12 @@
   },
   "77": {
    "from": "places",
-   "max_alt_m": 112,
+   "max_alt_m": 87,
    "alt_source": "route"
   },
   "78": {
    "from": "places",
-   "max_alt_m": 112,
+   "max_alt_m": 87,
    "alt_source": "route"
   },
   "79": {
@@ -981,26 +971,6 @@
    "max_alt_m": 2439,
    "alt_source": "track"
   },
-  "121": {
-   "from": "places",
-   "max_alt_m": 125,
-   "alt_source": "route"
-  },
-  "122": {
-   "from": "places",
-   "max_alt_m": 125,
-   "alt_source": "route"
-  },
-  "123": {
-   "from": "places",
-   "max_alt_m": 125,
-   "alt_source": "route"
-  },
-  "124": {
-   "from": "places",
-   "max_alt_m": 125,
-   "alt_source": "route"
-  },
   "125": {
    "from": "track",
    "volcano": {
@@ -1069,7 +1039,9 @@
     "elevation_m": 2000,
     "type": "Volcanic field",
     "at": "start"
-   }
+   },
+   "max_alt_m": 1336,
+   "alt_source": "route"
   },
   "130": {
    "from": "track",
@@ -1097,11 +1069,6 @@
    "from": "track",
    "max_alt_m": 2970,
    "alt_source": "track"
-  },
-  "134": {
-   "from": "places",
-   "max_alt_m": 1232,
-   "alt_source": "route"
   },
   "135": {
    "from": "track",
@@ -1136,9 +1103,7 @@
     "kind": "sea",
     "dist_mi": 0.35,
     "at": "start"
-   },
-   "max_alt_m": 2007,
-   "alt_source": "route"
+   }
   },
   "143": {
    "from": "places",
@@ -1147,9 +1112,7 @@
     "kind": "sea",
     "dist_mi": 0.35,
     "at": "start"
-   },
-   "max_alt_m": 2007,
-   "alt_source": "route"
+   }
   },
   "144": {
    "from": "places",
@@ -1158,9 +1121,7 @@
     "kind": "sea",
     "dist_mi": 0.35,
     "at": "start"
-   },
-   "max_alt_m": 2007,
-   "alt_source": "route"
+   }
   },
   "145": {
    "from": "track",
@@ -1209,6 +1170,11 @@
    "from": "track",
    "max_alt_m": 30,
    "alt_source": "track"
+  },
+  "152": {
+   "from": "places",
+   "max_alt_m": 203,
+   "alt_source": "route"
   },
   "153": {
    "from": "track",
@@ -1272,7 +1238,7 @@
   },
   "159": {
    "from": "places",
-   "max_alt_m": 8,
+   "max_alt_m": 3,
    "alt_source": "route"
   },
   "160": {
@@ -1298,7 +1264,9 @@
     "kind": "sea",
     "dist_mi": 1.79,
     "at": "start"
-   }
+   },
+   "max_alt_m": 8,
+   "alt_source": "route"
   },
   "163": {
    "from": "track",
@@ -1342,6 +1310,11 @@
    "from": "track",
    "max_alt_m": 289,
    "alt_source": "track"
+  },
+  "168": {
+   "from": "places",
+   "max_alt_m": 14,
+   "alt_source": "route"
   },
   "169": {
    "from": "track",
@@ -1398,7 +1371,9 @@
     "elevation_m": 3760,
     "type": "Stratovolcano",
     "at": "start"
-   }
+   },
+   "max_alt_m": 115,
+   "alt_source": "route"
   },
   "175": {
    "from": "track",
@@ -1420,7 +1395,9 @@
     "elevation_m": 3158,
     "type": "Stratovolcano(es)",
     "at": "start"
-   }
+   },
+   "max_alt_m": 510,
+   "alt_source": "route"
   },
   "177": {
    "from": "track",
@@ -1526,7 +1503,7 @@
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 24,
+   "max_alt_m": 350,
    "alt_source": "route"
   },
   "185": {
@@ -1735,9 +1712,7 @@
     "elevation_m": 1670,
     "type": "Stratovolcano",
     "at": "start"
-   },
-   "max_alt_m": 84,
-   "alt_source": "route"
+   }
   },
   "198": {
    "from": "track",
@@ -1787,7 +1762,7 @@
     "type": "Complex",
     "at": "start"
    },
-   "max_alt_m": 1166,
+   "max_alt_m": 237,
    "alt_source": "route"
   },
   "202": {
@@ -1799,7 +1774,7 @@
     "type": "Complex",
     "at": "start"
    },
-   "max_alt_m": 1166,
+   "max_alt_m": 237,
    "alt_source": "route"
   },
   "203": {
@@ -1846,144 +1821,140 @@
    "alt_source": "track"
   },
   "206": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Caribbean Sea",
     "kind": "sea",
-    "dist_mi": 1.85,
-    "at": "start"
+    "dist_mi": 0.27,
+    "at": "route"
    },
-   "max_alt_m": 56,
-   "alt_source": "route"
+   "max_alt_m": 111,
+   "alt_source": "track"
   },
   "207": {
-   "from": "places",
-   "max_alt_m": 56,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 285,
+   "alt_source": "track"
   },
   "208": {
-   "from": "places",
+   "from": "track",
    "volcano": {
     "name": "Baru",
-    "dist_mi": 11.72,
+    "dist_mi": 7.33,
     "elevation_m": 3474,
     "type": "Stratovolcano",
-    "at": "end"
+    "at": "route"
    },
-   "max_alt_m": 1138,
-   "alt_source": "route"
+   "max_alt_m": 1240,
+   "alt_source": "track"
   },
   "209": {
    "from": "places",
    "volcano": {
     "name": "Baru",
-    "dist_mi": 11.72,
+    "dist_mi": 7.34,
     "elevation_m": 3474,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 1138,
+   "max_alt_m": 5,
    "alt_source": "route"
   },
   "210": {
-   "from": "places",
+   "from": "track",
    "volcano": {
     "name": "Baru",
-    "dist_mi": 11.72,
+    "dist_mi": 7.29,
     "elevation_m": 3474,
     "type": "Stratovolcano",
-    "at": "start"
+    "at": "route"
    },
    "water": {
     "name": "the Caribbean Sea",
     "kind": "sea",
-    "dist_mi": 2.4,
-    "at": "end"
+    "dist_mi": 1.83,
+    "at": "route"
    },
-   "max_alt_m": 1138,
-   "alt_source": "route"
+   "max_alt_m": 1186,
+   "alt_source": "track"
   },
   "211": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Caribbean Sea",
     "kind": "sea",
-    "dist_mi": 2.4,
-    "at": "start"
+    "dist_mi": 4.65,
+    "at": "route"
    },
-   "max_alt_m": 117,
-   "alt_source": "route"
+   "max_alt_m": 410,
+   "alt_source": "track"
   },
   "212": {
-   "from": "places",
-   "max_alt_m": 89,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 108,
+   "alt_source": "track"
   },
   "213": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Caribbean Sea",
     "kind": "sea",
-    "dist_mi": 1.24,
-    "at": "end"
+    "dist_mi": 0.91,
+    "at": "route"
    },
-   "max_alt_m": 88,
-   "alt_source": "route"
+   "max_alt_m": 104,
+   "alt_source": "track"
   },
   "214": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Caribbean Sea",
     "kind": "sea",
-    "dist_mi": 1.08,
-    "at": "end"
+    "dist_mi": 0.06,
+    "at": "route"
    },
-   "max_alt_m": 21,
-   "alt_source": "route"
+   "max_alt_m": 457,
+   "alt_source": "track"
   },
   "215": {
    "from": "places",
    "water": {
     "name": "the Caribbean Sea",
     "kind": "sea",
-    "dist_mi": 1.08,
+    "dist_mi": 0.82,
     "at": "start"
-   },
-   "max_alt_m": 13,
-   "alt_source": "route"
+   }
   },
   "216": {
    "from": "places",
    "water": {
     "name": "the Caribbean Sea",
     "kind": "sea",
-    "dist_mi": 1.08,
+    "dist_mi": 0.82,
     "at": "start"
-   },
-   "max_alt_m": 13,
-   "alt_source": "route"
+   }
   },
   "217": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Caribbean Sea",
     "kind": "sea",
-    "dist_mi": 1.08,
-    "at": "start"
+    "dist_mi": 0.66,
+    "at": "route"
    },
-   "max_alt_m": 138,
-   "alt_source": "route"
+   "max_alt_m": 130,
+   "alt_source": "track"
   },
   "218": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Caribbean Sea",
     "kind": "sea",
-    "dist_mi": 0.17,
-    "at": "end"
+    "dist_mi": 0.13,
+    "at": "route"
    },
-   "max_alt_m": 138,
-   "alt_source": "route"
+   "max_alt_m": 143,
+   "alt_source": "track"
   },
   "219": {
    "from": "places",
@@ -1992,24 +1963,7 @@
     "kind": "sea",
     "dist_mi": 0.17,
     "at": "start"
-   },
-   "max_alt_m": 7,
-   "alt_source": "route"
-  },
-  "220": {
-   "from": "places",
-   "max_alt_m": 7,
-   "alt_source": "route"
-  },
-  "221": {
-   "from": "places",
-   "max_alt_m": 7,
-   "alt_source": "route"
-  },
-  "222": {
-   "from": "places",
-   "max_alt_m": 7,
-   "alt_source": "route"
+   }
   },
   "223": {
    "from": "places",
@@ -2018,9 +1972,7 @@
     "kind": "sea",
     "dist_mi": 4.64,
     "at": "end"
-   },
-   "max_alt_m": 7,
-   "alt_source": "route"
+   }
   },
   "224": {
    "from": "track",
@@ -2086,7 +2038,7 @@
   },
   "230": {
    "from": "places",
-   "max_alt_m": 2,
+   "max_alt_m": 0,
    "alt_source": "route"
   },
   "231": {
@@ -2108,7 +2060,7 @@
     "dist_mi": 1.98,
     "at": "start"
    },
-   "max_alt_m": 6,
+   "max_alt_m": 8,
    "alt_source": "route"
   },
   "233": {
@@ -2150,7 +2102,7 @@
   },
   "238": {
    "from": "places",
-   "max_alt_m": 44,
+   "max_alt_m": 26,
    "alt_source": "route"
   },
   "239": {
@@ -2160,22 +2112,22 @@
   },
   "240": {
    "from": "track",
-   "max_alt_m": 988,
+   "max_alt_m": 160,
    "alt_source": "track"
   },
   "241": {
    "from": "track",
-   "max_alt_m": 1958,
+   "max_alt_m": 988,
    "alt_source": "track"
   },
   "242": {
-   "from": "places",
-   "max_alt_m": 34,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 1286,
+   "alt_source": "track"
   },
   "243": {
    "from": "track",
-   "max_alt_m": 1973,
+   "max_alt_m": 1958,
    "alt_source": "track"
   },
   "244": {
@@ -2183,39 +2135,44 @@
    "max_alt_m": 2355,
    "alt_source": "track"
   },
+  "245": {
+   "from": "track",
+   "max_alt_m": 1973,
+   "alt_source": "track"
+  },
   "246": {
    "from": "track",
-   "max_alt_m": 3161,
+   "max_alt_m": 2355,
    "alt_source": "track"
   },
   "247": {
    "from": "places",
-   "max_alt_m": 1785,
+   "max_alt_m": 34,
    "alt_source": "route"
   },
   "248": {
-   "from": "places",
-   "max_alt_m": 1785,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 3161,
+   "alt_source": "track"
   },
   "249": {
    "from": "places",
-   "max_alt_m": 1785,
+   "max_alt_m": 34,
    "alt_source": "route"
   },
   "250": {
    "from": "places",
-   "max_alt_m": 1785,
+   "max_alt_m": 34,
    "alt_source": "route"
   },
   "251": {
    "from": "places",
-   "max_alt_m": 1785,
+   "max_alt_m": 34,
    "alt_source": "route"
   },
   "252": {
    "from": "places",
-   "max_alt_m": 1785,
+   "max_alt_m": 34,
    "alt_source": "route"
   },
   "253": {
@@ -2225,18 +2182,18 @@
   },
   "254": {
    "from": "track",
-   "max_alt_m": 1971,
+   "max_alt_m": 2704,
    "alt_source": "track"
   },
   "255": {
    "from": "track",
-   "max_alt_m": 236,
+   "max_alt_m": 1971,
    "alt_source": "track"
   },
   "256": {
-   "from": "places",
-   "max_alt_m": 2590,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 236,
+   "alt_source": "track"
   },
   "257": {
    "from": "track",
@@ -2245,42 +2202,42 @@
   },
   "258": {
    "from": "track",
-   "max_alt_m": 2179,
+   "max_alt_m": 2240,
    "alt_source": "track"
   },
   "259": {
    "from": "track",
-   "max_alt_m": 2609,
+   "max_alt_m": 2202,
    "alt_source": "track"
   },
   "260": {
-   "from": "places",
-   "max_alt_m": 2558,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 2609,
+   "alt_source": "track"
   },
   "261": {
    "from": "places",
-   "max_alt_m": 2558,
+   "max_alt_m": 1406,
    "alt_source": "route"
   },
   "262": {
    "from": "places",
-   "max_alt_m": 2558,
+   "max_alt_m": 1406,
    "alt_source": "route"
   },
   "263": {
    "from": "places",
-   "max_alt_m": 2558,
+   "max_alt_m": 1406,
    "alt_source": "route"
   },
   "264": {
    "from": "places",
-   "max_alt_m": 2558,
+   "max_alt_m": 1406,
    "alt_source": "route"
   },
   "265": {
    "from": "places",
-   "max_alt_m": 2558,
+   "max_alt_m": 1406,
    "alt_source": "route"
   },
   "266": {
@@ -2319,7 +2276,7 @@
   },
   "270": {
    "from": "places",
-   "max_alt_m": 1185,
+   "max_alt_m": 2558,
    "alt_source": "route"
   },
   "271": {
@@ -2334,12 +2291,12 @@
   },
   "273": {
    "from": "places",
-   "max_alt_m": 618,
+   "max_alt_m": 162,
    "alt_source": "route"
   },
   "274": {
    "from": "places",
-   "max_alt_m": 618,
+   "max_alt_m": 162,
    "alt_source": "route"
   },
   "275": {
@@ -2349,7 +2306,7 @@
   },
   "276": {
    "from": "places",
-   "max_alt_m": 1680,
+   "max_alt_m": 2213,
    "alt_source": "route"
   },
   "277": {
@@ -2378,7 +2335,7 @@
   },
   "279": {
    "from": "places",
-   "max_alt_m": 930,
+   "max_alt_m": 1461,
    "alt_source": "route"
   },
   "280": {
@@ -2393,6 +2350,11 @@
   },
   "282": {
    "from": "track",
+   "max_alt_m": 2553,
+   "alt_source": "track"
+  },
+  "283": {
+   "from": "track",
    "volcano": {
     "name": "Galeras",
     "dist_mi": 6.24,
@@ -2403,7 +2365,7 @@
    "max_alt_m": 3233,
    "alt_source": "track"
   },
-  "283": {
+  "284": {
    "from": "track",
    "volcano": {
     "name": "Galeras",
@@ -2415,7 +2377,7 @@
    "max_alt_m": 3249,
    "alt_source": "track"
   },
-  "284": {
+  "285": {
    "from": "track",
    "volcano": {
     "name": "Soche",
@@ -2427,7 +2389,7 @@
    "max_alt_m": 3341,
    "alt_source": "track"
   },
-  "285": {
+  "286": {
    "from": "track",
    "volcano": {
     "name": "Imbabura",
@@ -2438,18 +2400,6 @@
    },
    "max_alt_m": 3055,
    "alt_source": "track"
-  },
-  "286": {
-   "from": "places",
-   "volcano": {
-    "name": "Imbabura",
-    "dist_mi": 5.66,
-    "elevation_m": 4609,
-    "type": "Compound",
-    "at": "start"
-   },
-   "max_alt_m": 893,
-   "alt_source": "route"
   },
   "287": {
    "from": "track",
@@ -2466,8 +2416,20 @@
   "288": {
    "from": "track",
    "volcano": {
+    "name": "Imbabura",
+    "dist_mi": 5.21,
+    "elevation_m": 4609,
+    "type": "Compound",
+    "at": "route"
+   },
+   "max_alt_m": 3689,
+   "alt_source": "track"
+  },
+  "289": {
+   "from": "track",
+   "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "route"
@@ -2475,160 +2437,148 @@
    "max_alt_m": 2825,
    "alt_source": "track"
   },
-  "289": {
-   "from": "places",
-   "volcano": {
-    "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
-    "elevation_m": 4784,
-    "type": "Stratovolcano",
-    "at": "start"
-   },
-   "max_alt_m": 2539,
-   "alt_source": "route"
-  },
   "290": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "291": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "292": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "293": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "294": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "295": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "296": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "297": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "298": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "299": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "300": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "301": {
    "from": "places",
    "volcano": {
     "name": "Guagua Pichincha",
-    "dist_mi": 6.96,
+    "dist_mi": 6.83,
     "elevation_m": 4784,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 2539,
+   "max_alt_m": 3088,
    "alt_source": "route"
   },
   "302": {
@@ -2646,6 +2596,18 @@
   "303": {
    "from": "track",
    "volcano": {
+    "name": "Atacazo",
+    "dist_mi": 4.66,
+    "elevation_m": 4463,
+    "type": "Stratovolcano",
+    "at": "route"
+   },
+   "max_alt_m": 3063,
+   "alt_source": "track"
+  },
+  "304": {
+   "from": "track",
+   "volcano": {
     "name": "Iliniza",
     "dist_mi": 8.37,
     "elevation_m": 5162,
@@ -2655,7 +2617,7 @@
    "max_alt_m": 3500,
    "alt_source": "track"
   },
-  "304": {
+  "305": {
    "from": "track",
    "volcano": {
     "name": "Quilotoa",
@@ -2667,7 +2629,7 @@
    "max_alt_m": 3929,
    "alt_source": "track"
   },
-  "305": {
+  "306": {
    "from": "track",
    "volcano": {
     "name": "Quilotoa",
@@ -2679,7 +2641,7 @@
    "max_alt_m": 3929,
    "alt_source": "track"
   },
-  "306": {
+  "307": {
    "from": "track",
    "volcano": {
     "name": "Tungurahua",
@@ -2690,18 +2652,6 @@
    },
    "max_alt_m": 2736,
    "alt_source": "track"
-  },
-  "307": {
-   "from": "places",
-   "volcano": {
-    "name": "Tungurahua",
-    "dist_mi": 5.15,
-    "elevation_m": 5023,
-    "type": "Stratovolcano",
-    "at": "start"
-   },
-   "max_alt_m": 2811,
-   "alt_source": "route"
   },
   "308": {
    "from": "track",
@@ -2716,18 +2666,25 @@
    "alt_source": "track"
   },
   "309": {
-   "from": "places",
-   "max_alt_m": 2933,
-   "alt_source": "route"
+   "from": "track",
+   "volcano": {
+    "name": "Tungurahua",
+    "dist_mi": 5.15,
+    "elevation_m": 5023,
+    "type": "Stratovolcano",
+    "at": "route"
+   },
+   "max_alt_m": 1797,
+   "alt_source": "track"
   },
   "310": {
    "from": "places",
-   "max_alt_m": 2933,
+   "max_alt_m": 2581,
    "alt_source": "route"
   },
   "311": {
    "from": "places",
-   "max_alt_m": 2933,
+   "max_alt_m": 2581,
    "alt_source": "route"
   },
   "312": {
@@ -2746,6 +2703,18 @@
    "from": "track",
    "volcano": {
     "name": "Tungurahua",
+    "dist_mi": 5.15,
+    "elevation_m": 5023,
+    "type": "Stratovolcano",
+    "at": "route"
+   },
+   "max_alt_m": 1797,
+   "alt_source": "track"
+  },
+  "314": {
+   "from": "track",
+   "volcano": {
+    "name": "Tungurahua",
     "dist_mi": 4.12,
     "elevation_m": 5023,
     "type": "Stratovolcano",
@@ -2754,7 +2723,7 @@
    "max_alt_m": 2763,
    "alt_source": "track"
   },
-  "314": {
+  "315": {
    "from": "track",
    "volcano": {
     "name": "Licto",
@@ -2766,1186 +2735,1462 @@
    "max_alt_m": 3532,
    "alt_source": "track"
   },
-  "315": {
-   "from": "places",
-   "max_alt_m": 2747,
-   "alt_source": "route"
-  },
   "316": {
-   "from": "places",
-   "max_alt_m": 1984,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 3123,
+   "alt_source": "track"
   },
   "317": {
-   "from": "places",
-   "max_alt_m": 1797,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 3717,
+   "alt_source": "track"
   },
   "318": {
    "from": "places",
-   "max_alt_m": 3193,
+   "max_alt_m": 3155,
    "alt_source": "route"
   },
   "319": {
-   "from": "places",
-   "max_alt_m": 3881,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 3445,
+   "alt_source": "track"
   },
   "320": {
-   "from": "places",
-   "max_alt_m": 2538,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 3055,
+   "alt_source": "track"
   },
   "321": {
-   "from": "places",
-   "max_alt_m": 2538,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 2584,
+   "alt_source": "track"
   },
   "322": {
-   "from": "places",
-   "max_alt_m": 3175,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 1875,
+   "alt_source": "track"
   },
   "323": {
-   "from": "places",
-   "max_alt_m": 2500,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 582,
+   "alt_source": "track"
   },
   "324": {
-   "from": "places",
-   "max_alt_m": 2280,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 241,
+   "alt_source": "track"
   },
   "325": {
-   "from": "places",
-   "max_alt_m": 2779,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 332,
+   "alt_source": "track"
   },
   "326": {
-   "from": "places",
-   "max_alt_m": 1481,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 2140,
+   "alt_source": "track"
   },
   "327": {
+   "from": "track",
+   "max_alt_m": 901,
+   "alt_source": "track"
+  },
+  "328": {
+   "from": "track",
+   "max_alt_m": 2081,
+   "alt_source": "track"
+  },
+  "329": {
    "from": "places",
    "max_alt_m": 742,
    "alt_source": "route"
   },
-  "328": {
+  "330": {
+   "from": "track",
+   "max_alt_m": 2508,
+   "alt_source": "track"
+  },
+  "331": {
    "from": "places",
    "max_alt_m": 466,
    "alt_source": "route"
   },
-  "329": {
-   "from": "places",
-   "max_alt_m": 1632,
-   "alt_source": "route"
-  },
-  "330": {
-   "from": "places",
-   "max_alt_m": 2656,
-   "alt_source": "route"
-  },
-  "331": {
-   "from": "places",
-   "max_alt_m": 2656,
-   "alt_source": "route"
-  },
   "332": {
-   "from": "places",
-   "max_alt_m": 2656,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 2286,
+   "alt_source": "track"
   },
   "333": {
-   "from": "places",
-   "max_alt_m": 2635,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 3579,
+   "alt_source": "track"
   },
   "334": {
-   "from": "places",
-   "max_alt_m": 2645,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 3107,
+   "alt_source": "track"
   },
   "335": {
+   "from": "track",
+   "max_alt_m": 3748,
+   "alt_source": "track"
+  },
+  "336": {
    "from": "places",
    "max_alt_m": 3701,
    "alt_source": "route"
   },
-  "336": {
-   "from": "places",
-   "max_alt_m": 2291,
-   "alt_source": "route"
-  },
   "337": {
-   "from": "places",
-   "max_alt_m": 3155,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 2977,
+   "alt_source": "track"
   },
   "338": {
-   "from": "places",
-   "max_alt_m": 3155,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 3184,
+   "alt_source": "track"
   },
   "339": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
-    "dist_mi": 3.13,
-    "at": "end"
+    "dist_mi": 3.17,
+    "at": "route"
    },
-   "max_alt_m": 2660,
-   "alt_source": "route"
+   "max_alt_m": 4183,
+   "alt_source": "track"
   },
   "340": {
    "from": "places",
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
-    "dist_mi": 3.13,
+    "dist_mi": 3.19,
     "at": "start"
    }
   },
   "341": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
-    "dist_mi": 0.2,
-    "at": "end"
+    "dist_mi": 0.01,
+    "at": "route"
    },
-   "max_alt_m": 4098,
-   "alt_source": "route"
+   "max_alt_m": 36,
+   "alt_source": "track"
   },
   "342": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
-    "dist_mi": 0.2,
-    "at": "start"
+    "dist_mi": 0.24,
+    "at": "route"
    },
-   "max_alt_m": 4014,
-   "alt_source": "route"
+   "max_alt_m": 180,
+   "alt_source": "track"
   },
   "343": {
-   "from": "places",
-   "max_alt_m": 3040,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 1244,
+   "alt_source": "track"
   },
   "344": {
-   "from": "places",
-   "max_alt_m": 55,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 4220,
+   "alt_source": "track"
   },
   "345": {
    "from": "places",
-   "max_alt_m": 34,
+   "max_alt_m": 3625,
    "alt_source": "route"
   },
   "346": {
    "from": "places",
-   "max_alt_m": 34,
+   "max_alt_m": 3625,
    "alt_source": "route"
   },
   "347": {
    "from": "places",
-   "max_alt_m": 34,
+   "max_alt_m": 3625,
    "alt_source": "route"
   },
   "348": {
-   "from": "places",
-   "max_alt_m": 34,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 4095,
+   "alt_source": "track"
   },
   "349": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
-    "dist_mi": 1.51,
-    "at": "end"
+    "dist_mi": 0.65,
+    "at": "route"
    },
-   "max_alt_m": 95,
-   "alt_source": "route"
+   "max_alt_m": 4093,
+   "alt_source": "track"
   },
   "350": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
-    "dist_mi": 0.85,
-    "at": "end"
+    "dist_mi": 0.39,
+    "at": "route"
    },
-   "max_alt_m": 17,
-   "alt_source": "route"
+   "max_alt_m": 508,
+   "alt_source": "track"
   },
   "351": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
-    "dist_mi": 0.85,
-    "at": "start"
+    "dist_mi": 0.03,
+    "at": "route"
    },
-   "max_alt_m": 111,
-   "alt_source": "route"
+   "max_alt_m": 474,
+   "alt_source": "track"
   },
   "352": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
-    "dist_mi": 3.94,
-    "at": "start"
+    "dist_mi": 0.42,
+    "at": "route"
    },
-   "max_alt_m": 289,
-   "alt_source": "route"
+   "max_alt_m": 220,
+   "alt_source": "track"
   },
   "353": {
    "from": "places",
-   "max_alt_m": 289,
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.35,
+    "at": "start"
+   },
+   "max_alt_m": 11,
    "alt_source": "route"
   },
   "354": {
    "from": "places",
-   "max_alt_m": 289,
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.35,
+    "at": "start"
+   },
+   "max_alt_m": 11,
    "alt_source": "route"
   },
   "355": {
    "from": "places",
-   "max_alt_m": 289,
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.35,
+    "at": "start"
+   },
+   "max_alt_m": 11,
    "alt_source": "route"
   },
   "356": {
    "from": "places",
-   "max_alt_m": 289,
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.35,
+    "at": "start"
+   },
+   "max_alt_m": 11,
    "alt_source": "route"
   },
   "357": {
    "from": "places",
-   "max_alt_m": 289,
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.35,
+    "at": "start"
+   },
+   "max_alt_m": 11,
    "alt_source": "route"
   },
   "358": {
    "from": "places",
-   "max_alt_m": 289,
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 1.35,
+    "at": "start"
+   },
+   "max_alt_m": 11,
    "alt_source": "route"
   },
   "359": {
-   "from": "places",
-   "max_alt_m": 4434,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   },
+   "max_alt_m": 89,
+   "alt_source": "track"
   },
   "360": {
-   "from": "places",
-   "max_alt_m": 4107,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.06,
+    "at": "route"
+   },
+   "max_alt_m": 12,
+   "alt_source": "track"
   },
   "361": {
+   "from": "places",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.21,
+    "at": "start"
+   }
+  },
+  "362": {
+   "from": "track",
+   "water": {
+    "name": "the Pacific Ocean",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   },
+   "max_alt_m": 427,
+   "alt_source": "track"
+  },
+  "363": {
+   "from": "track",
+   "max_alt_m": 585,
+   "alt_source": "track"
+  },
+  "364": {
+   "from": "places",
+   "max_alt_m": 461,
+   "alt_source": "route"
+  },
+  "365": {
+   "from": "track",
+   "max_alt_m": 3973,
+   "alt_source": "track"
+  },
+  "366": {
+   "from": "track",
+   "max_alt_m": 4150,
+   "alt_source": "track"
+  },
+  "367": {
+   "from": "track",
+   "max_alt_m": 4540,
+   "alt_source": "track"
+  },
+  "368": {
+   "from": "track",
+   "max_alt_m": 4386,
+   "alt_source": "track"
+  },
+  "369": {
+   "from": "track",
+   "max_alt_m": 3170,
+   "alt_source": "track"
+  },
+  "370": {
+   "from": "places",
+   "max_alt_m": 2997,
+   "alt_source": "route"
+  },
+  "371": {
+   "from": "track",
+   "max_alt_m": 3988,
+   "alt_source": "track"
+  },
+  "372": {
+   "from": "track",
+   "max_alt_m": 4076,
+   "alt_source": "track"
+  },
+  "373": {
    "from": "places",
    "max_alt_m": 3177,
    "alt_source": "route"
   },
-  "362": {
+  "374": {
    "from": "places",
-   "volcano": {
-    "name": "Quimsachata-Oroscocha",
-    "dist_mi": 10.09,
-    "elevation_m": 3848,
-    "type": "Lava dome",
-    "at": "end"
-   },
-   "max_alt_m": 3775,
+   "max_alt_m": 3177,
    "alt_source": "route"
   },
-  "363": {
-   "from": "places",
+  "375": {
+   "from": "track",
    "volcano": {
     "name": "Quimsachata-Oroscocha",
-    "dist_mi": 10.09,
+    "dist_mi": 9.6,
     "elevation_m": 3848,
     "type": "Lava dome",
+    "at": "route"
+   },
+   "max_alt_m": 3779,
+   "alt_source": "track"
+  },
+  "376": {
+   "from": "track",
+   "volcano": {
+    "name": "Quimsachata-Oroscocha",
+    "dist_mi": 2.43,
+    "elevation_m": 3848,
+    "type": "Lava dome",
+    "at": "route"
+   },
+   "max_alt_m": 4348,
+   "alt_source": "track"
+  },
+  "377": {
+   "from": "track",
+   "max_alt_m": 4342,
+   "alt_source": "track"
+  },
+  "378": {
+   "from": "track",
+   "water": {
+    "name": "Lago Titicaca",
+    "kind": "lake",
+    "dist_mi": 0.12,
+    "at": "route"
+   },
+   "max_alt_m": 4009,
+   "alt_source": "track"
+  },
+  "379": {
+   "from": "places",
+   "water": {
+    "name": "Lago Titicaca",
+    "kind": "lake",
+    "dist_mi": 0.41,
     "at": "start"
    },
-   "max_alt_m": 4345,
+   "max_alt_m": 3817,
    "alt_source": "route"
   },
-  "364": {
-   "from": "places",
-   "max_alt_m": 3912,
-   "alt_source": "route"
-  },
-  "365": {
-   "from": "places",
-   "max_alt_m": 3912,
-   "alt_source": "route"
-  },
-  "366": {
-   "from": "places",
+  "380": {
+   "from": "track",
    "water": {
     "name": "Lago Titicaca",
     "kind": "lake",
-    "dist_mi": 1.99,
-    "at": "end"
+    "dist_mi": 0.02,
+    "at": "route"
    },
-   "max_alt_m": 3826,
-   "alt_source": "route"
+   "max_alt_m": 4008,
+   "alt_source": "track"
   },
-  "367": {
+  "381": {
    "from": "places",
    "water": {
     "name": "Lago Titicaca",
     "kind": "lake",
-    "dist_mi": 0.28,
-    "at": "end"
-   },
-   "max_alt_m": 3973,
-   "alt_source": "route"
-  },
-  "368": {
-   "from": "places",
-   "water": {
-    "name": "Lago Titicaca",
-    "kind": "lake",
-    "dist_mi": 0.28,
+    "dist_mi": 0.75,
     "at": "start"
    },
    "max_alt_m": 3843,
    "alt_source": "route"
   },
-  "369": {
-   "from": "places",
-   "max_alt_m": 4645,
-   "alt_source": "route"
-  },
-  "370": {
-   "from": "places",
-   "max_alt_m": 1669,
-   "alt_source": "route"
-  },
-  "371": {
-   "from": "places",
-   "max_alt_m": 4645,
-   "alt_source": "route"
-  },
-  "372": {
-   "from": "places",
-   "max_alt_m": 3966,
-   "alt_source": "route"
-  },
-  "373": {
-   "from": "places",
-   "max_alt_m": 3786,
-   "alt_source": "route"
-  },
-  "374": {
-   "from": "places",
-   "max_alt_m": 3786,
-   "alt_source": "route"
-  },
-  "375": {
-   "from": "places",
-   "max_alt_m": 3786,
-   "alt_source": "route"
-  },
-  "376": {
-   "from": "places",
-   "max_alt_m": 4322,
-   "alt_source": "route"
-  },
-  "377": {
-   "from": "places",
-   "max_alt_m": 4322,
-   "alt_source": "route"
-  },
-  "378": {
-   "from": "places",
-   "max_alt_m": 3862,
-   "alt_source": "route"
-  },
-  "380": {
-   "from": "places",
-   "max_alt_m": 4021,
-   "alt_source": "route"
-  },
-  "381": {
-   "from": "places",
-   "max_alt_m": 4021,
-   "alt_source": "route"
-  },
   "382": {
-   "from": "places",
-   "max_alt_m": 4277,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "Lago Titicaca",
+    "kind": "lake",
+    "dist_mi": 0.01,
+    "at": "route"
+   },
+   "max_alt_m": 4103,
+   "alt_source": "track"
   },
   "383": {
    "from": "places",
-   "max_alt_m": 3917,
+   "max_alt_m": 4645,
    "alt_source": "route"
   },
   "384": {
    "from": "places",
-   "max_alt_m": 3917,
+   "max_alt_m": 4645,
    "alt_source": "route"
   },
   "385": {
    "from": "places",
-   "max_alt_m": 3917,
+   "max_alt_m": 4645,
    "alt_source": "route"
   },
   "386": {
    "from": "places",
-   "max_alt_m": 3917,
+   "max_alt_m": 4645,
    "alt_source": "route"
   },
   "387": {
-   "from": "places",
-   "max_alt_m": 3917,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 4663,
+   "alt_source": "track",
+   "parks": [
+    "Parque Nacional Cotapata"
+   ]
   },
   "388": {
    "from": "places",
-   "max_alt_m": 3917,
+   "max_alt_m": 3966,
    "alt_source": "route"
   },
   "389": {
-   "from": "places",
-   "max_alt_m": 2800,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 3346,
+   "alt_source": "track"
   },
   "390": {
-   "from": "places",
-   "max_alt_m": 2800,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 4663,
+   "alt_source": "track"
   },
   "391": {
-   "from": "places",
-   "max_alt_m": 2248,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 4069,
+   "alt_source": "track"
   },
   "392": {
-   "from": "places",
-   "max_alt_m": 1956,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "Lago Poopó",
+    "kind": "lake",
+    "dist_mi": 3.9,
+    "at": "route"
+   },
+   "max_alt_m": 3925,
+   "alt_source": "track"
   },
   "393": {
-   "from": "places",
-   "max_alt_m": 1564,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "Lago Poopó",
+    "kind": "lake",
+    "dist_mi": 1.72,
+    "at": "route"
+   },
+   "max_alt_m": 3737,
+   "alt_source": "track"
   },
   "394": {
+   "from": "track",
+   "max_alt_m": 3908,
+   "alt_source": "track"
+  },
+  "396": {
+   "from": "track",
+   "max_alt_m": 4197,
+   "alt_source": "track"
+  },
+  "397": {
+   "from": "track",
+   "max_alt_m": 4205,
+   "alt_source": "track"
+  },
+  "398": {
+   "from": "track",
+   "max_alt_m": 3972,
+   "alt_source": "track"
+  },
+  "399": {
+   "from": "places",
+   "max_alt_m": 2429,
+   "alt_source": "route"
+  },
+  "400": {
+   "from": "track",
+   "max_alt_m": 3364,
+   "alt_source": "track"
+  },
+  "401": {
+   "from": "track",
+   "max_alt_m": 3161,
+   "alt_source": "track"
+  },
+  "402": {
+   "from": "track",
+   "max_alt_m": 2500,
+   "alt_source": "track"
+  },
+  "403": {
+   "from": "track",
+   "max_alt_m": 1839,
+   "alt_source": "track"
+  },
+  "404": {
    "from": "places",
    "max_alt_m": 289,
    "alt_source": "route"
   },
-  "396": {
-   "from": "places",
-   "max_alt_m": 294,
-   "alt_source": "route"
+  "405": {
+   "from": "track",
+   "max_alt_m": 1659,
+   "alt_source": "track"
   },
-  "397": {
+  "406": {
+   "from": "track",
+   "max_alt_m": 417,
+   "alt_source": "track"
+  },
+  "407": {
+   "from": "track",
+   "max_alt_m": 299,
+   "alt_source": "track"
+  },
+  "408": {
    "from": "places",
    "max_alt_m": 623,
    "alt_source": "route"
   },
-  "398": {
-   "from": "places",
-   "max_alt_m": 623,
-   "alt_source": "route"
+  "409": {
+   "from": "track",
+   "max_alt_m": 503,
+   "alt_source": "track"
   },
-  "399": {
-   "from": "places",
-   "max_alt_m": 224,
-   "alt_source": "route"
+  "410": {
+   "from": "track",
+   "max_alt_m": 287,
+   "alt_source": "track"
   },
-  "400": {
-   "from": "places",
-   "max_alt_m": 224,
-   "alt_source": "route"
+  "411": {
+   "from": "track",
+   "max_alt_m": 137,
+   "alt_source": "track"
   },
-  "401": {
-   "from": "places",
-   "max_alt_m": 122,
-   "alt_source": "route"
+  "412": {
+   "from": "track",
+   "max_alt_m": 156,
+   "alt_source": "track"
   },
-  "402": {
+  "413": {
    "from": "places",
    "max_alt_m": 151,
    "alt_source": "route"
   },
-  "403": {
+  "414": {
    "from": "places",
-   "max_alt_m": 91,
+   "max_alt_m": 151,
    "alt_source": "route"
   },
-  "404": {
+  "415": {
    "from": "places",
-   "max_alt_m": 91,
-   "alt_source": "route"
-  },
-  "405": {
-   "from": "places",
-   "max_alt_m": 131,
-   "alt_source": "route"
-  },
-  "406": {
-   "from": "places",
-   "max_alt_m": 525,
-   "alt_source": "route"
-  },
-  "407": {
-   "from": "places",
-   "max_alt_m": 525,
-   "alt_source": "route"
-  },
-  "409": {
-   "from": "places",
-   "max_alt_m": 600,
-   "alt_source": "route"
-  },
-  "410": {
-   "from": "places",
-   "max_alt_m": 468,
-   "alt_source": "route"
-  },
-  "411": {
-   "from": "places",
-   "max_alt_m": 367,
+   "max_alt_m": 151,
    "alt_source": "route"
   },
   "416": {
-   "from": "places",
-   "max_alt_m": 347,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 396,
+   "alt_source": "track"
   },
   "417": {
-   "from": "places",
-   "water": {
-    "name": "Represa Itaipu",
-    "kind": "lake",
-    "dist_mi": 2.96,
-    "at": "end"
-   },
-   "max_alt_m": 428,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 140,
+   "alt_source": "track"
   },
   "418": {
-   "from": "places",
-   "water": {
-    "name": "Represa Itaipu",
-    "kind": "lake",
-    "dist_mi": 2.96,
-    "at": "start"
-   },
-   "max_alt_m": 311,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 538,
+   "alt_source": "track"
   },
   "419": {
    "from": "places",
-   "water": {
-    "name": "Represa Itaipu",
-    "kind": "lake",
-    "dist_mi": 3.53,
-    "at": "start"
-   }
+   "max_alt_m": 525,
+   "alt_source": "route"
   },
   "420": {
    "from": "places",
-   "water": {
-    "name": "Represa Itaipu",
-    "kind": "lake",
-    "dist_mi": 3.53,
-    "at": "start"
-   }
+   "max_alt_m": 525,
+   "alt_source": "route"
   },
   "421": {
-   "from": "places",
+   "from": "track",
+   "max_alt_m": 593,
+   "alt_source": "track"
+  },
+  "422": {
+   "from": "track",
+   "max_alt_m": 452,
+   "alt_source": "track"
+  },
+  "423": {
+   "from": "track",
+   "max_alt_m": 480,
+   "alt_source": "track"
+  },
+  "424": {
+   "from": "track",
    "water": {
     "name": "Represa Itaipu",
     "kind": "lake",
-    "dist_mi": 3.53,
-    "at": "start"
+    "dist_mi": 0.46,
+    "at": "route"
    },
-   "max_alt_m": 774,
-   "alt_source": "route"
-  },
-  "422": {
-   "from": "places",
-   "max_alt_m": 848,
-   "alt_source": "route"
-  },
-  "423": {
-   "from": "places",
-   "max_alt_m": 1107,
-   "alt_source": "route"
-  },
-  "424": {
-   "from": "places",
-   "max_alt_m": 1107,
-   "alt_source": "route"
+   "max_alt_m": 416,
+   "alt_source": "track"
   },
   "425": {
-   "from": "places",
-   "max_alt_m": 957,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "Represa Itaipu",
+    "kind": "lake",
+    "dist_mi": 0.02,
+    "at": "route"
+   },
+   "max_alt_m": 436,
+   "alt_source": "track"
   },
   "426": {
-   "from": "places",
-   "max_alt_m": 917,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "Represa Itaipu",
+    "kind": "lake",
+    "dist_mi": 0.02,
+    "at": "route"
+   },
+   "max_alt_m": 331,
+   "alt_source": "track",
+   "parks": [
+    "Iguaçu National Park"
+   ]
   },
   "427": {
    "from": "places",
-   "max_alt_m": 917,
+   "max_alt_m": 428,
    "alt_source": "route"
   },
   "428": {
    "from": "places",
-   "max_alt_m": 917,
+   "max_alt_m": 428,
    "alt_source": "route"
   },
   "429": {
-   "from": "places",
+   "from": "track",
    "water": {
-    "name": "the Atlantic Ocean",
-    "kind": "sea",
-    "dist_mi": 3.91,
-    "at": "end"
+    "name": "Represa Itaipu",
+    "kind": "lake",
+    "dist_mi": 2.99,
+    "at": "route"
    },
-   "max_alt_m": 917,
-   "alt_source": "route"
+   "max_alt_m": 768,
+   "alt_source": "track"
   },
   "430": {
-   "from": "places",
-   "water": {
-    "name": "the Atlantic Ocean",
-    "kind": "sea",
-    "dist_mi": 1.11,
-    "at": "end"
-   },
-   "max_alt_m": 47,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 981,
+   "alt_source": "track"
   },
   "431": {
-   "from": "places",
-   "water": {
-    "name": "the Atlantic Ocean",
-    "kind": "sea",
-    "dist_mi": 0.04,
-    "at": "end"
-   },
-   "max_alt_m": 23,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 1104,
+   "alt_source": "track"
   },
   "432": {
-   "from": "places",
-   "water": {
-    "name": "the Atlantic Ocean",
-    "kind": "sea",
-    "dist_mi": 0.04,
-    "at": "start"
-   },
-   "max_alt_m": 32,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 1245,
+   "alt_source": "track"
   },
   "433": {
-   "from": "places",
-   "water": {
-    "name": "the Atlantic Ocean",
-    "kind": "sea",
-    "dist_mi": 1.5,
-    "at": "start"
-   },
-   "max_alt_m": 2,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 1074,
+   "alt_source": "track"
   },
   "434": {
    "from": "places",
-   "max_alt_m": 2,
+   "max_alt_m": 957,
    "alt_source": "route"
   },
   "435": {
-   "from": "places",
-   "max_alt_m": 25,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 3.52,
+    "at": "route"
+   },
+   "max_alt_m": 970,
+   "alt_source": "track"
   },
   "436": {
-   "from": "places",
-   "max_alt_m": 32,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.03,
+    "at": "route"
+   },
+   "max_alt_m": 183,
+   "alt_source": "track"
   },
   "437": {
-   "from": "places",
-   "max_alt_m": 34,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.02,
+    "at": "route"
+   },
+   "max_alt_m": 81,
+   "alt_source": "track"
   },
   "438": {
    "from": "places",
-   "max_alt_m": 34,
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.54,
+    "at": "start"
+   },
+   "max_alt_m": 4,
    "alt_source": "route"
   },
   "439": {
    "from": "places",
-   "max_alt_m": 34,
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.54,
+    "at": "start"
+   },
+   "max_alt_m": 4,
    "alt_source": "route"
   },
   "440": {
-   "from": "places",
-   "max_alt_m": 40,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.11,
+    "at": "route"
+   },
+   "max_alt_m": 423,
+   "alt_source": "track"
   },
   "441": {
-   "from": "places",
-   "max_alt_m": 40,
-   "alt_source": "route"
-  },
-  "443": {
-   "from": "places",
-   "max_alt_m": 14,
-   "alt_source": "route"
-  },
-  "444": {
-   "from": "places",
+   "from": "track",
    "water": {
-    "name": "Lagoa Mirim",
-    "kind": "lake",
-    "dist_mi": 4.92,
-    "at": "end"
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.33,
+    "at": "route"
    },
-   "max_alt_m": 14,
-   "alt_source": "route"
+   "max_alt_m": 24,
+   "alt_source": "track"
   },
-  "445": {
-   "from": "places",
-   "water": {
-    "name": "Lagoa Mirim",
-    "kind": "lake",
-    "dist_mi": 4.92,
-    "at": "start"
-   },
-   "max_alt_m": 2,
-   "alt_source": "route"
-  },
-  "446": {
+  "442": {
    "from": "places",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 2.32,
-    "at": "end"
+    "dist_mi": 0.41,
+    "at": "start"
    },
-   "max_alt_m": 22,
+   "max_alt_m": 23,
    "alt_source": "route"
+  },
+  "443": {
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   },
+   "max_alt_m": 156,
+   "alt_source": "track"
+  },
+  "444": {
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.0,
+    "at": "route"
+   },
+   "max_alt_m": 159,
+   "alt_source": "track"
+  },
+  "445": {
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   },
+   "max_alt_m": 40,
+   "alt_source": "track"
+  },
+  "446": {
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.66,
+    "at": "route"
+   },
+   "max_alt_m": 134,
+   "alt_source": "track"
   },
   "447": {
    "from": "places",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 2.32,
+    "dist_mi": 0.81,
     "at": "start"
    },
-   "max_alt_m": 8,
+   "max_alt_m": 25,
    "alt_source": "route"
   },
   "448": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 2.32,
-    "at": "start"
+    "dist_mi": 0.57,
+    "at": "route"
    },
-   "max_alt_m": 35,
-   "alt_source": "route"
+   "max_alt_m": 103,
+   "alt_source": "track"
   },
   "449": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 0.25,
-    "at": "end"
+    "dist_mi": 0.0,
+    "at": "route"
    },
-   "max_alt_m": 22,
-   "alt_source": "route"
+   "max_alt_m": 176,
+   "alt_source": "track"
   },
   "450": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 0.25,
-    "at": "start"
+    "dist_mi": 0.0,
+    "at": "route"
    },
-   "max_alt_m": 12,
-   "alt_source": "route"
+   "max_alt_m": 17,
+   "alt_source": "track"
   },
   "451": {
-   "from": "places",
+   "from": "track",
    "water": {
-    "name": "the Atlantic Ocean",
-    "kind": "sea",
-    "dist_mi": 1.31,
-    "at": "end"
+    "name": "Lagoa Mirim",
+    "kind": "lake",
+    "dist_mi": 0.67,
+    "at": "route"
    },
-   "max_alt_m": 40,
-   "alt_source": "route"
+   "max_alt_m": 23,
+   "alt_source": "track"
   },
   "452": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 1.31,
-    "at": "start"
+    "dist_mi": 0.64,
+    "at": "route"
    },
-   "max_alt_m": 0,
-   "alt_source": "route"
+   "max_alt_m": 60,
+   "alt_source": "track",
+   "parks": [
+    "Parque Nacional de Santa Teresa"
+   ]
   },
   "453": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 2.14,
-    "at": "end"
+    "dist_mi": 0.63,
+    "at": "route"
    },
-   "max_alt_m": 0,
-   "alt_source": "route"
+   "max_alt_m": 43,
+   "alt_source": "track",
+   "parks": [
+    "Parque Nacional Cabo Polonio"
+   ]
   },
   "454": {
    "from": "places",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 2.14,
+    "dist_mi": 2.25,
     "at": "start"
-   }
+   },
+   "max_alt_m": 22,
+   "alt_source": "route"
   },
   "455": {
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.36,
+    "at": "route"
+   },
+   "max_alt_m": 51,
+   "alt_source": "track"
+  },
+  "456": {
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.23,
+    "at": "route"
+   },
+   "max_alt_m": 34,
+   "alt_source": "track"
+  },
+  "457": {
    "from": "places",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 2.14,
+    "dist_mi": 0.47,
     "at": "start"
-   },
-   "max_alt_m": 23,
-   "alt_source": "route"
-  },
-  "456": {
-   "from": "places",
-   "max_alt_m": 14,
-   "alt_source": "route"
-  },
-  "457": {
-   "from": "places",
-   "max_alt_m": 14,
-   "alt_source": "route"
+   }
   },
   "458": {
-   "from": "places",
-   "max_alt_m": 28,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.02,
+    "at": "route"
+   },
+   "max_alt_m": 83,
+   "alt_source": "track"
   },
   "459": {
    "from": "places",
-   "max_alt_m": 28,
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.48,
+    "at": "start"
+   },
+   "max_alt_m": 12,
    "alt_source": "route"
   },
   "460": {
    "from": "places",
-   "max_alt_m": 28,
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.48,
+    "at": "start"
+   },
+   "max_alt_m": 12,
    "alt_source": "route"
   },
   "461": {
    "from": "places",
-   "max_alt_m": 28,
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.48,
+    "at": "start"
+   },
+   "max_alt_m": 12,
    "alt_source": "route"
   },
   "462": {
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.2,
+    "at": "route"
+   },
+   "max_alt_m": 115,
+   "alt_source": "track"
+  },
+  "463": {
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.06,
+    "at": "route"
+   },
+   "max_alt_m": 33,
+   "alt_source": "track"
+  },
+  "464": {
    "from": "places",
-   "max_alt_m": 30,
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.32,
+    "at": "start"
+   },
+   "max_alt_m": 0,
+   "alt_source": "route"
+  },
+  "465": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.32,
+    "at": "start"
+   },
+   "max_alt_m": 0,
+   "alt_source": "route"
+  },
+  "466": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.32,
+    "at": "start"
+   },
+   "max_alt_m": 0,
+   "alt_source": "route"
+  },
+  "467": {
+   "from": "places",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.32,
+    "at": "start"
+   },
+   "max_alt_m": 0,
    "alt_source": "route"
   },
   "468": {
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.33,
+    "at": "route"
+   },
+   "max_alt_m": 49,
+   "alt_source": "track"
+  },
+  "469": {
+   "from": "track",
+   "max_alt_m": 38,
+   "alt_source": "track"
+  },
+  "470": {
+   "from": "track",
+   "max_alt_m": 120,
+   "alt_source": "track"
+  },
+  "471": {
+   "from": "track",
+   "max_alt_m": 203,
+   "alt_source": "track"
+  },
+  "472": {
+   "from": "track",
+   "max_alt_m": 428,
+   "alt_source": "track"
+  },
+  "473": {
    "from": "places",
    "max_alt_m": 114,
    "alt_source": "route"
   },
-  "469": {
-   "from": "places",
-   "max_alt_m": 203,
-   "alt_source": "route"
-  },
-  "470": {
-   "from": "places",
-   "max_alt_m": 286,
-   "alt_source": "route"
-  },
-  "471": {
-   "from": "places",
-   "max_alt_m": 2203,
-   "alt_source": "route"
-  },
-  "472": {
-   "from": "places",
-   "max_alt_m": 2203,
-   "alt_source": "route"
-  },
-  "473": {
-   "from": "places",
-   "max_alt_m": 873,
-   "alt_source": "route"
-  },
   "474": {
-   "from": "places",
-   "max_alt_m": 932,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 2234,
+   "alt_source": "track",
+   "parks": [
+    "Parque Nacional Quebrada del Condorito"
+   ]
   },
   "475": {
+   "from": "track",
+   "max_alt_m": 1041,
+   "alt_source": "track"
+  },
+  "476": {
+   "from": "track",
+   "max_alt_m": 878,
+   "alt_source": "track"
+  },
+  "477": {
+   "from": "track",
+   "max_alt_m": 725,
+   "alt_source": "track"
+  },
+  "478": {
+   "from": "track",
+   "max_alt_m": 761,
+   "alt_source": "track"
+  },
+  "479": {
    "from": "places",
    "max_alt_m": 724,
    "alt_source": "route"
   },
-  "476": {
-   "from": "places",
-   "max_alt_m": 657,
-   "alt_source": "route"
-  },
-  "477": {
-   "from": "places",
-   "max_alt_m": 2341,
-   "alt_source": "route"
-  },
-  "478": {
-   "from": "places",
-   "max_alt_m": 3003,
-   "alt_source": "route"
-  },
-  "479": {
-   "from": "places",
-   "max_alt_m": 3003,
-   "alt_source": "route"
-  },
   "480": {
    "from": "places",
-   "max_alt_m": 3003,
+   "max_alt_m": 724,
    "alt_source": "route"
   },
   "481": {
+   "from": "track",
+   "max_alt_m": 1897,
+   "alt_source": "track"
+  },
+  "482": {
+   "from": "track",
+   "max_alt_m": 3170,
+   "alt_source": "track"
+  },
+  "483": {
+   "from": "track",
+   "max_alt_m": 3828,
+   "alt_source": "track"
+  },
+  "484": {
+   "from": "track",
+   "max_alt_m": 1352,
+   "alt_source": "track"
+  },
+  "485": {
    "from": "places",
    "max_alt_m": 3759,
    "alt_source": "route"
   },
-  "482": {
-   "from": "places",
-   "max_alt_m": 835,
-   "alt_source": "route"
-  },
-  "483": {
-   "from": "places",
-   "max_alt_m": 540,
-   "alt_source": "route"
-  },
-  "484": {
-   "from": "places",
-   "max_alt_m": 504,
-   "alt_source": "route"
-  },
-  "485": {
-   "from": "places",
-   "max_alt_m": 336,
-   "alt_source": "route"
-  },
   "486": {
    "from": "places",
-   "max_alt_m": 336,
+   "max_alt_m": 3759,
    "alt_source": "route"
   },
   "487": {
    "from": "places",
-   "max_alt_m": 336,
+   "max_alt_m": 3759,
    "alt_source": "route"
   },
   "488": {
-   "from": "places",
-   "max_alt_m": 336,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 680,
+   "alt_source": "track"
   },
   "489": {
-   "from": "places",
-   "max_alt_m": 157,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 448,
+   "alt_source": "track"
   },
   "490": {
-   "from": "places",
-   "max_alt_m": 150,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 310,
+   "alt_source": "track"
   },
   "491": {
-   "from": "places",
-   "max_alt_m": 150,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 338,
+   "alt_source": "track"
   },
   "492": {
-   "from": "places",
-   "max_alt_m": 346,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 294,
+   "alt_source": "track"
   },
   "493": {
-   "from": "places",
+   "from": "track",
    "volcano": {
     "name": "Villarrica",
-    "dist_mi": 10.47,
+    "dist_mi": 9.63,
     "elevation_m": 2847,
     "type": "Stratovolcano",
-    "at": "end"
+    "at": "route"
    },
-   "max_alt_m": 230,
-   "alt_source": "route"
+   "max_alt_m": 298,
+   "alt_source": "track"
   },
   "494": {
    "from": "places",
    "volcano": {
     "name": "Villarrica",
-    "dist_mi": 10.47,
+    "dist_mi": 10.46,
     "elevation_m": 2847,
     "type": "Stratovolcano",
     "at": "start"
    },
-   "max_alt_m": 213,
+   "max_alt_m": 108,
    "alt_source": "route"
   },
   "495": {
-   "from": "places",
+   "from": "track",
    "volcano": {
     "name": "Villarrica",
-    "dist_mi": 10.47,
+    "dist_mi": 9.64,
     "elevation_m": 2847,
     "type": "Stratovolcano",
-    "at": "start"
+    "at": "route"
    },
-   "max_alt_m": 230,
-   "alt_source": "route"
+   "max_alt_m": 547,
+   "alt_source": "track"
   },
   "496": {
-   "from": "places",
-   "max_alt_m": 237,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 336,
+   "alt_source": "track"
   },
   "497": {
-   "from": "places",
+   "from": "track",
+   "water": {
+    "name": "Lago Rupanco",
+    "kind": "lake",
+    "dist_mi": 0.1,
+    "at": "route"
+   },
    "volcano": {
     "name": "Antillanca Volcanic Complex",
-    "dist_mi": 13.48,
+    "dist_mi": 8.85,
     "elevation_m": 1979,
     "type": "Stratovolcano(es)",
-    "at": "end"
+    "at": "route"
    },
-   "max_alt_m": 185,
-   "alt_source": "route"
+   "max_alt_m": 498,
+   "alt_source": "track",
+   "parks": [
+    "Puyehue National Park"
+   ]
   },
   "498": {
-   "from": "places",
+   "from": "track",
    "volcano": {
-    "name": "Antillanca Volcanic Complex",
-    "dist_mi": 13.48,
-    "elevation_m": 1979,
-    "type": "Stratovolcano(es)",
-    "at": "start"
+    "name": "Puyehue-Cordon Caulle",
+    "dist_mi": 4.66,
+    "elevation_m": 2236,
+    "type": "Stratovolcano",
+    "at": "route"
    },
-   "max_alt_m": 1329,
-   "alt_source": "route"
-  },
-  "499": {
-   "from": "places",
    "water": {
     "name": "Lago Nahuel Huapí",
     "kind": "lake",
-    "dist_mi": 0.73,
-    "at": "end"
+    "dist_mi": 0.87,
+    "at": "route"
    },
-   "max_alt_m": 1329,
-   "alt_source": "route"
+   "max_alt_m": 1299,
+   "alt_source": "track",
+   "parks": [
+    "Nahuel Huapi National Park"
+   ]
+  },
+  "499": {
+   "from": "track",
+   "water": {
+    "name": "Lago Nahuel Huapí",
+    "kind": "lake",
+    "dist_mi": 0.02,
+    "at": "route"
+   },
+   "max_alt_m": 932,
+   "alt_source": "track"
   },
   "500": {
    "from": "places",
    "water": {
     "name": "Lago Nahuel Huapí",
     "kind": "lake",
-    "dist_mi": 0.73,
+    "dist_mi": 0.67,
     "at": "start"
    },
-   "max_alt_m": 768,
+   "max_alt_m": 811,
    "alt_source": "route"
   },
   "501": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "Lago Nahuel Huapí",
     "kind": "lake",
-    "dist_mi": 0.73,
-    "at": "start"
+    "dist_mi": 0.67,
+    "at": "route"
    },
-   "max_alt_m": 1832,
-   "alt_source": "route"
+   "max_alt_m": 1068,
+   "alt_source": "track"
   },
   "502": {
-   "from": "places",
-   "max_alt_m": 1222,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 739,
+   "alt_source": "track"
   },
   "503": {
-   "from": "places",
-   "max_alt_m": 1138,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 721,
+   "alt_source": "track",
+   "parks": [
+    "Los Alerces National Park"
+   ]
   },
   "504": {
-   "from": "places",
-   "max_alt_m": 1241,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 393,
+   "alt_source": "track"
   },
   "505": {
-   "from": "places",
-   "max_alt_m": 1241,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 435,
+   "alt_source": "track"
   },
   "506": {
    "from": "places",
-   "max_alt_m": 244,
+   "max_alt_m": 958,
    "alt_source": "route"
   },
   "507": {
-   "from": "places",
-   "max_alt_m": 1125,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 232,
+   "alt_source": "track"
   },
   "508": {
-   "from": "places",
+   "from": "track",
    "volcano": {
     "name": "Puyuhuapi",
-    "dist_mi": 2.24,
+    "dist_mi": 0.77,
     "elevation_m": 524,
     "type": "Pyroclastic cone(s)",
-    "at": "end"
+    "at": "route"
    },
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 1.94,
-    "at": "end"
+    "dist_mi": 1.8,
+    "at": "route"
    },
-   "max_alt_m": 826,
-   "alt_source": "route"
+   "max_alt_m": 167,
+   "alt_source": "track",
+   "parks": [
+    "Parque Nacional Queulat"
+   ]
   },
   "509": {
    "from": "places",
    "volcano": {
     "name": "Puyuhuapi",
-    "dist_mi": 2.24,
+    "dist_mi": 2.53,
     "elevation_m": 524,
     "type": "Pyroclastic cone(s)",
     "at": "start"
@@ -3953,275 +4198,335 @@
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 1.94,
+    "dist_mi": 1.8,
     "at": "start"
    },
-   "max_alt_m": 826,
+   "max_alt_m": 1125,
    "alt_source": "route"
   },
   "510": {
-   "from": "places",
+   "from": "track",
    "volcano": {
     "name": "Puyuhuapi",
-    "dist_mi": 2.24,
+    "dist_mi": 2.53,
     "elevation_m": 524,
     "type": "Pyroclastic cone(s)",
-    "at": "start"
+    "at": "route"
    },
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 1.94,
-    "at": "start"
+    "dist_mi": 1.04,
+    "at": "route"
    },
-   "max_alt_m": 1092,
-   "alt_source": "route"
+   "max_alt_m": 594,
+   "alt_source": "track"
   },
   "511": {
-   "from": "places",
-   "max_alt_m": 1001,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 382,
+   "alt_source": "track"
   },
   "512": {
-   "from": "places",
-   "max_alt_m": 1061,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 418,
+   "alt_source": "track"
   },
   "513": {
-   "from": "places",
-   "max_alt_m": 1668,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 1463,
+   "alt_source": "track",
+   "parks": [
+    "Parque Nacional Cerro Castillo"
+   ]
   },
   "514": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "Lago Buenos Aires",
     "kind": "lake",
-    "dist_mi": 0.29,
-    "at": "end"
+    "dist_mi": 0.16,
+    "at": "route"
    },
-   "max_alt_m": 1668,
-   "alt_source": "route"
+   "max_alt_m": 1410,
+   "alt_source": "track"
   },
   "515": {
    "from": "places",
    "water": {
     "name": "Lago Buenos Aires",
     "kind": "lake",
-    "dist_mi": 0.29,
+    "dist_mi": 0.61,
     "at": "start"
    },
-   "max_alt_m": 338,
+   "max_alt_m": 206,
    "alt_source": "route"
   },
   "516": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "Lago Buenos Aires",
     "kind": "lake",
-    "dist_mi": 0.29,
-    "at": "start"
+    "dist_mi": 0.0,
+    "at": "route"
    },
-   "max_alt_m": 620,
-   "alt_source": "route"
+   "max_alt_m": 453,
+   "alt_source": "track"
   },
   "517": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "Lago Buenos Aires",
     "kind": "lake",
-    "dist_mi": 1.14,
-    "at": "start"
+    "dist_mi": 1.02,
+    "at": "route"
    },
-   "max_alt_m": 1253,
-   "alt_source": "route"
+   "max_alt_m": 353,
+   "alt_source": "track",
+   "parks": [
+    "Patagonia National Park"
+   ]
   },
   "518": {
-   "from": "places",
-   "max_alt_m": 1253,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 422,
+   "alt_source": "track"
   },
   "519": {
-   "from": "places",
-   "max_alt_m": 667,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 1.39,
+    "at": "route"
+   },
+   "max_alt_m": 410,
+   "alt_source": "track"
   },
   "520": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "Lago San Martín",
     "kind": "lake",
-    "dist_mi": 2.1,
-    "at": "end"
+    "dist_mi": 0.04,
+    "at": "route"
    },
-   "max_alt_m": 272,
-   "alt_source": "route"
+   "max_alt_m": 415,
+   "alt_source": "track"
   },
   "521": {
    "from": "places",
    "water": {
     "name": "Lago San Martín",
     "kind": "lake",
-    "dist_mi": 2.1,
+    "dist_mi": 2.02,
     "at": "start"
-   }
+   },
+   "max_alt_m": 272,
+   "alt_source": "route"
   },
   "522": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "Lago San Martín",
     "kind": "lake",
-    "dist_mi": 2.1,
+    "dist_mi": 0.01,
+    "at": "route"
+   },
+   "max_alt_m": 708,
+   "alt_source": "track"
+  },
+  "523": {
+   "from": "track",
+   "water": {
+    "name": "Lago Viedma",
+    "kind": "lake",
+    "dist_mi": 4.67,
+    "at": "route"
+   },
+   "max_alt_m": 516,
+   "alt_source": "track"
+  },
+  "524": {
+   "from": "places",
+   "water": {
+    "name": "Lago Viedma",
+    "kind": "lake",
+    "dist_mi": 4.67,
     "at": "start"
    },
    "max_alt_m": 723,
    "alt_source": "route"
   },
-  "523": {
-   "from": "places",
-   "max_alt_m": 785,
-   "alt_source": "route"
-  },
-  "524": {
-   "from": "places",
-   "max_alt_m": 785,
-   "alt_source": "route"
-  },
   "525": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "Lago Viedma",
     "kind": "lake",
-    "dist_mi": 3.44,
-    "at": "end"
+    "dist_mi": 0.39,
+    "at": "route"
    },
-   "max_alt_m": 785,
-   "alt_source": "route"
+   "max_alt_m": 417,
+   "alt_source": "track"
   },
   "526": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "Lago Argentino",
     "kind": "lake",
-    "dist_mi": 2.49,
-    "at": "end"
+    "dist_mi": 0.42,
+    "at": "route"
    },
-   "max_alt_m": 509,
-   "alt_source": "route"
+   "max_alt_m": 359,
+   "alt_source": "track"
   },
   "527": {
    "from": "places",
    "water": {
     "name": "Lago Argentino",
     "kind": "lake",
-    "dist_mi": 2.49,
+    "dist_mi": 1.65,
     "at": "start"
    },
-   "max_alt_m": 195,
+   "max_alt_m": 509,
    "alt_source": "route"
   },
   "528": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "Lago Argentino",
     "kind": "lake",
-    "dist_mi": 2.49,
-    "at": "start"
+    "dist_mi": 1.51,
+    "at": "route"
    },
-   "max_alt_m": 1170,
-   "alt_source": "route"
+   "max_alt_m": 817,
+   "alt_source": "track"
   },
   "529": {
-   "from": "places",
-   "max_alt_m": 219,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 449,
+   "alt_source": "track"
   },
   "530": {
-   "from": "places",
-   "max_alt_m": 183,
-   "alt_source": "route"
+   "from": "track",
+   "max_alt_m": 267,
+   "alt_source": "track",
+   "parks": [
+    "Torres del Paine National Park"
+   ]
   },
-  "536": {
+  "531": {
    "from": "places",
-   "water": {
-    "name": "the Atlantic Ocean",
-    "kind": "sea",
-    "dist_mi": 0.21,
-    "at": "end"
-   },
    "max_alt_m": 485,
    "alt_source": "route"
   },
-  "537": {
+  "532": {
    "from": "places",
+   "max_alt_m": 485,
+   "alt_source": "route"
+  },
+  "533": {
+   "from": "places",
+   "max_alt_m": 485,
+   "alt_source": "route"
+  },
+  "534": {
+   "from": "places",
+   "max_alt_m": 485,
+   "alt_source": "route"
+  },
+  "535": {
+   "from": "places",
+   "max_alt_m": 485,
+   "alt_source": "route"
+  },
+  "536": {
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 0.21,
-    "at": "start"
+    "dist_mi": 0.07,
+    "at": "route"
    },
-   "max_alt_m": 465,
-   "alt_source": "route"
+   "max_alt_m": 255,
+   "alt_source": "track"
+  },
+  "537": {
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.01,
+    "at": "route"
+   },
+   "max_alt_m": 296,
+   "alt_source": "track"
   },
   "538": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 0.76,
-    "at": "end"
+    "dist_mi": 0.04,
+    "at": "route"
    },
-   "max_alt_m": 270,
-   "alt_source": "route"
+   "max_alt_m": 208,
+   "alt_source": "track"
   },
   "539": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 0.76,
-    "at": "start"
+    "dist_mi": 0.03,
+    "at": "route"
    },
-   "max_alt_m": 45,
-   "alt_source": "route"
+   "max_alt_m": 55,
+   "alt_source": "track"
   },
   "540": {
-   "from": "places",
-   "max_alt_m": 54,
-   "alt_source": "route"
+   "from": "track",
+   "water": {
+    "name": "the Atlantic Ocean",
+    "kind": "sea",
+    "dist_mi": 0.18,
+    "at": "route"
+   },
+   "max_alt_m": 197,
+   "alt_source": "track"
   },
   "541": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 2.7,
-    "at": "end"
+    "dist_mi": 0.01,
+    "at": "route"
    },
-   "max_alt_m": 10,
-   "alt_source": "route"
+   "max_alt_m": 110,
+   "alt_source": "track"
   },
   "542": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 2.7,
-    "at": "start"
+    "dist_mi": 0.04,
+    "at": "route"
    },
-   "max_alt_m": 118,
-   "alt_source": "route"
+   "max_alt_m": 200,
+   "alt_source": "track"
   },
   "543": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Atlantic Ocean",
     "kind": "sea",
-    "dist_mi": 0.41,
-    "at": "end"
+    "dist_mi": 0.02,
+    "at": "route"
    },
-   "max_alt_m": 431,
-   "alt_source": "route"
+   "max_alt_m": 477,
+   "alt_source": "track"
   }
  },
  "has_parks": true

@@ -106,38 +106,14 @@
     if (nav.children.length) { nav.hidden = false; }
   }
 
-  // The 18 country outlines, drawn in the line's own stretched drawing space (as on the home banner),
-  // fading in one after another north to south, holding, fading out, resting, and going again.
-  // Timings come from config comingSoon.countriesFade; reduced motion shows them still and faint.
-  function cycleCountries(outlines, route, cs) {
+  // The 18 country outlines over the line, fading in and out on a loop (shared with the home banner;
+  // timings from config countriesFade). js/route-line.js does the drawing and the timing.
+  function cycleCountries(outlines, route, config) {
     var svg = document.getElementById("route-countries"), line = document.getElementById("route-line");
-    var o = cs.countriesFade || {};
-    if (!svg || !line || !outlines || !outlines.countries || o.on === false || !window.RouteLine) { return; }
+    if (!svg || !line || !outlines || !outlines.countries || !window.RouteLine) { return; }
     svg.setAttribute("viewBox", line.getAttribute("viewBox"));
-    var map = window.RouteLine.projector(route.points), NS = "http://www.w3.org/2000/svg";
-    var paths = outlines.countries.slice().sort(function (a, b) { return a.first_day - b.first_day; }).map(function (c) {
-      var d = c.rings.map(function (ring) { return "M" + ring.map(function (ll) { var q = map([ll[1], ll[0]]); return q[0].toFixed(1) + " " + q[1].toFixed(1); }).join("L") + "Z"; }).join("");
-      var path = document.createElementNS(NS, "path");
-      path.setAttribute("d", d);
-      svg.appendChild(path);
-      return path;
-    });
-    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) { svg.classList.add("still"); paths.forEach(function (p) { p.classList.add("in"); }); return; }
-    var tIn = Number(o.secondsIn) || 4, stagger = Number(o.secondsBetween) || 0.6, hold = Number(o.secondsHold) || 10, tOut = Number(o.secondsOut) || 4, rest = Number(o.secondsOff) || 8;
-    svg.style.setProperty("--fade-in", tIn + "s");
-    svg.style.setProperty("--fade-out", tOut + "s");
-    var timers = [];
-    function run() {
-      timers.forEach(clearTimeout); timers = [];
-      paths.forEach(function (p, i) { timers.push(setTimeout(function () { p.classList.add("in"); }, i * stagger * 1000)); });
-      var allIn = (paths.length - 1) * stagger + tIn;
-      timers.push(setTimeout(function () {
-        paths.forEach(function (p) { p.classList.remove("in"); });
-        timers.push(setTimeout(run, (tOut + rest) * 1000));
-      }, (allIn + hold) * 1000));
-    }
-    timers.push(setTimeout(run, (o.secondsStart !== undefined ? Number(o.secondsStart) : 3) * 1000));   // after the line has drawn itself
+    var paths = window.RouteLine.outlines(svg, route.points, outlines.countries);
+    window.RouteLine.fadeCycle(svg, paths, config.countriesFade || (config.comingSoon || {}).countriesFade || {});
   }
 
   var configPromise = getJSON("config/site.config.json").catch(function () { return null; });
@@ -173,7 +149,7 @@
         strokePx: cs.routeStrokePx,
         animate: cs.drawOnLoad !== false && !reduced
       });
-      cycleCountries(outlines, route, cs);
+      cycleCountries(outlines, route, config);
     }
   });
 })();

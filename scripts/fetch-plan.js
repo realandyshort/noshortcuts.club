@@ -22,8 +22,8 @@ function seedDays() {
     const o = {}; head.forEach((h, i) => o[h] = (r[i] || "").trim());
     return {
       section: Number(o.section), day: Number(o.day), date: o.date, kind: o.kind || "ride",
-      from: o.from, to: o.to, plan_miles: num(o.est_miles), plan_climb_ft: 0,
-      terrain: o.terrain || "", notes: Trip.scrubDates(o.notes || ""), route_url: "", stay: ""
+      from: o.from, to: o.to, plan_miles: num(o.est_miles), plan_climb_ft: num(o.est_climb_ft),
+      terrain: o.terrain || "", notes: Trip.scrubDates(o.notes || ""), route_url: /^https?:/.test(o.route_url || "") ? o.route_url : "", stay: ""
     };
   }).filter(d => d.day > 0);
 }

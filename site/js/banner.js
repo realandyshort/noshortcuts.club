@@ -100,28 +100,27 @@
     show(box);
   }
 
+  // COUNTRIES: the passport. One stamp per country, inked from the day the ride crosses in; tap a
+  // stamp to travel to that day. (The outlines over the line are the always-on layer below.)
   function showCountries() {
-    var ctx = state.ctx, svg = document.getElementById("flip-countries"), line = document.getElementById("banner-line");
-    // Same drawing space as the big line, stretched the same way, so the outlines sit exactly where
-    // the route crosses them. They run past the top and bottom of the banner, which is fine.
+    var ctx = state.ctx, box = document.getElementById("flip-stamps"), copy = ctx.config.copy;
+    if (!box || !window.Stamps) return;
+    var entered = window.Stamps.render(box, ctx, ctx.day, { onClick: function (n) { travelTo(n); }, shake: stage() });
+    setHint(copy.flips.countries + " · " + entered + " OF " + (ctx.countries || []).length + (copy.stamps && copy.stamps.hint ? " · " + copy.stamps.hint.toUpperCase() : ""));
+    show(box);
+  }
+
+  // The country outlines over the line, fading in and out on a slow loop (same as the landing page;
+  // timings from config countriesFade). Drawn once per route; the loop stops while a flip is open.
+  function ambientCountries(ctx) {
+    var svg = document.getElementById("banner-countries"), line = document.getElementById("banner-line");
+    if (!svg || !line || !ctx.outlines || !ctx.route) return;
+    if (state.ambientRoute === ctx.route) return;
+    state.ambientRoute = ctx.route;
     svg.setAttribute("viewBox", line.getAttribute("viewBox"));
-    svg.setAttribute("preserveAspectRatio", "none");
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    var data = ctx.outlines;
-    if (data && ctx.route) {
-      var map = RouteLine.projector(ctx.route.points);
-      var entered = data.countries.filter(function (c) { return c.first_day <= ctx.day; }).sort(function (a, b) { return a.first_day - b.first_day; });
-      entered.forEach(function (c, i) {
-        var d = c.rings.map(function (ring) { return "M" + ring.map(function (ll) { var q = map([ll[1], ll[0]]); return q[0].toFixed(1) + " " + q[1].toFixed(1); }).join("L") + "Z"; }).join("");
-        var path = document.createElementNS(NS, "path");
-        path.setAttribute("d", d);
-        var t = document.createElementNS(NS, "title"); t.textContent = c.country + " · day " + c.first_day; path.appendChild(t);
-        svg.appendChild(path);
-        setTimeout(function () { path.classList.add("in"); }, reduced ? 0 : 90 * i);
-      });
-      setHint(ctx.config.copy.flips.countries + " · " + entered.length + " OF " + data.countries.length);
-    }
-    show(svg);
+    var paths = RouteLine.outlines(svg, ctx.route.points, ctx.outlines.countries);
+    if (state.ambientStop) state.ambientStop();
+    state.ambientStop = RouteLine.fadeCycle(svg, paths, ctx.config.countriesFade || {});
   }
 
   // Elevation profile: the two line paths morph between route shape and profile shape
@@ -338,7 +337,7 @@
       var el = info.counters[key]; if (!el) return;
       odometer(el.querySelector(".num"), key, info.numbers[key]);
       var flip = { days: "days", countries: "countries", climb: "climb" }[key];
-      if (flip && (flip !== "climb" || ctx.elevation) && (flip !== "countries" || ctx.outlines)) {
+      if (flip && (flip !== "climb" || ctx.elevation) && (flip !== "countries" || (ctx.countries && ctx.countries.length))) {
         el.classList.add("clickable"); el.setAttribute("role", "button"); el.tabIndex = 0;
         el.addEventListener("click", function () { openFlip(flip, el); });
         el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openFlip(flip, el); } });
@@ -361,6 +360,7 @@
     if (state.flip === "days") showDays(); else if (state.flip === "countries") showCountries(); else if (state.flip === "stats") showStats(); else if (state.flip === "climb") { state.morph = null; morphTo(1); }
     wireScrub();
     wireMapScrub(document.getElementById("map"));
+    ambientCountries(ctx);
   }
 
   window.Banner = { wire: wire, closeFlip: closeFlip, openFlip: openFlip, travelTo: travelTo };

@@ -19,10 +19,21 @@
   // The photo for a day: a live Instagram post from that day, else the archived one, else null.
   function photoFor(ctx, n, archive) {
     var live = ctx.postsForDay(n)[0];
-    if (live && live.media_url) return { url: live.media_url, link: live.permalink, caption: live.caption || "" };
+    if (live && live.media_url) return { url: live.media_url, link: live.permalink, caption: live.caption || "", timestamp: live.timestamp };
     var a = archive && archive.instagram && archive.instagram[0];
-    if (a && a.media_url) return { url: a.media_url, link: a.permalink, caption: a.caption || "" };
+    if (a && a.media_url) return { url: a.media_url, link: a.permalink, caption: a.caption || "", timestamp: a.timestamp };
     return null;
+  }
+
+  // "POSTED 3 DAYS AGO" (or the full date once showDates is on). Never a trip date before then.
+  function postedLine(c, ts) {
+    var L = c.copy.latest || {}, t = ts ? Date.parse(ts) : NaN;
+    if (isNaN(t)) return L.kicker || "LATEST";
+    if (c.showDates) return (L.posted || "POSTED") + " " + new Date(t).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }).toUpperCase();
+    var days = Math.floor((Date.now() - t) / 86400000);
+    if (days <= 0) return (L.posted || "POSTED") + " " + (L.today || "TODAY");
+    if (days === 1) return (L.posted || "POSTED") + " " + (L.yesterday || "YESTERDAY");
+    return (L.posted || "POSTED") + " " + days + " " + (L.ago || "DAYS AGO");
   }
 
   function render(ctx) {
@@ -117,7 +128,7 @@
     var useNewest = live || (ctx.testDay && !travelling);
     var tagDay = (live && newest && newestDay >= 1 && newestDay <= total) ? newestDay : day;
     var td = Trip.day(plan, tagDay);
-    var shot = useNewest ? (newest && newest.media_url ? { url: newest.media_url, link: newest.permalink, caption: newest.caption || "" } : null) : photoFor(ctx, day, archive);
+    var shot = useNewest ? (newest && newest.media_url ? { url: newest.media_url, link: newest.permalink, caption: newest.caption || "", timestamp: newest.timestamp } : null) : photoFor(ctx, day, archive);
     var photo = document.getElementById("latest-photo");
     photo.textContent = "";
     if (shot) {
@@ -139,12 +150,17 @@
         } else photo.appendChild(ctx.photoPlaceholder(Trip.dayTag(td)));
       });
     } else photo.appendChild(ctx.photoPlaceholder(Trip.dayTag(td)));
-    document.getElementById("latest-kicker").textContent = (live ? (c.copy.latest.kicker || "LATEST") : "DAY") + " · DAY " + tagDay;
-    if (!live) document.getElementById("latest-kicker").textContent = (travelling ? (c.copy.travel.label || "TIME TRAVEL · DAY") : "DAY") + " " + tagDay;
-    var h2 = document.getElementById("latest-title"); h2.textContent = ""; h2.appendChild(titleNode(Trip.dayTitle(td)));
-    var cap = document.getElementById("latest-caption"), capNote = document.getElementById("latest-caption-note");
-    if (shot && shot.caption) { cap.textContent = scrub(shot.caption); capNote.hidden = true; }
-    else { cap.textContent = scrub(td.notes) || ""; capNote.textContent = (travelling && !archive) ? (c.copy.travel.plainDay || "") : (c.copy.latest.captionFallbackNote || ""); capNote.hidden = !cap.textContent && !travelling; }
+    // Under the picture: when it was posted, then the caption as written (the day tag is on the picture)
+    var kick = document.getElementById("latest-kicker"), cap = document.getElementById("latest-caption"), capNote = document.getElementById("latest-caption-note");
+    if (shot) {
+      kick.textContent = postedLine(c, shot.timestamp);
+      cap.textContent = scrub(shot.caption || ""); cap.hidden = !cap.textContent; capNote.hidden = true;
+    } else {
+      kick.textContent = ((travelling ? (c.copy.travel.label || "TIME TRAVEL · DAY") : "DAY") + " " + tagDay).toUpperCase();
+      cap.hidden = false; cap.textContent = scrub(td.notes) || "";
+      capNote.textContent = (travelling && !archive) ? (c.copy.travel.plainDay || "") : (c.copy.latest.captionFallbackNote || "");
+      capNote.hidden = !cap.textContent && !travelling;
+    }
     var chips = document.getElementById("latest-chips"); chips.textContent = "";
     var ride = rides ? Trip.rideForDay(plan, rides, tagDay) : (archive && archive.ride) || null;
     if (td.plan_miles > 0) chips.appendChild(el("span", { class: "chip", text: (c.copy.latest.plan || "PLAN") + " " + Math.round(td.plan_miles) + " MI" }));
@@ -215,9 +231,6 @@
       if (!(p0 && p0.link)) (function (dayN) { card.addEventListener("click", function (e) { e.preventDefault(); ctx.setDay(dayN); window.scrollTo({ top: 0, behavior: "smooth" }); }); })(n);
       cards.appendChild(card);
     }
-
-    /* ---- Passport stamps ---- */
-    renderStamps(ctx, day, scrub);
 
     /* ---- Videos (off by default) ---- */
     var vcfg = c.sections && c.sections.videos, v = ctx.data.videos;
@@ -349,30 +362,29 @@
     t.innerHTML = '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="stamp-rough" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/></filter></svg>';
     document.body.appendChild(t.content.firstChild);
   }
-  function renderStamps(ctx, day, scrub) {
-    var c = ctx.config, el = ctx.el, grid = document.getElementById("stamps"), view = document.getElementById("stamp-view"), copy = c.copy.stamps || {};
-    if (!grid) return;
+  // Renders the 18 stamps into `grid`. Returns how many are inked. opts.onClick(day) on a tap,
+  // opts.shake: the element that shudders when a stamp lands.
+  function renderStamps(grid, ctx, day, opts) {
+    var c = ctx.config, el = ctx.el, copy = c.copy.stamps || {};
+    opts = opts || {};
     roughFilter();
     grid.textContent = "";
     var list = (ctx.countries || []).slice().sort(function (a, b) { return a.first_day - b.first_day; });
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var seen = ctx.live ? seenStamps() : null, firstVisit = seen && seen.length === 0;
-    var toStamp = [];
+    var toStamp = [], inked = 0;
     list.forEach(function (country) {
-      var inked = country.first_day <= day;
-      var frame = stampFrame();
-      // The rough ink edge goes on as an SVG attribute, not a CSS filter: Safari (iPhone and Mac)
-      // dropped the whole frame when the filter came from the stylesheet, so the stamps never showed.
-      if (inked) frame.querySelector("g").setAttribute("filter", "url(#stamp-rough)");
-      var b = el("button", { class: "stamp" + (inked ? " inked" : ""), type: "button", "aria-pressed": "false",
-        "aria-label": inked ? country.country + ", " + (copy.day || "DAY") + " " + country.first_day : country.country + " (not yet)" }, [
-        frame, ctx.mark(), el("span", { class: "name", text: country.country }),
+      var on = country.first_day <= day;
+      if (on) inked++;
+      var b = el("button", { class: "stamp" + (on ? " inked" : ""), type: "button",
+        "aria-label": on ? country.country + ", " + (copy.day || "DAY") + " " + country.first_day : country.country + " (not yet)" }, [
+        stampFrame(), ctx.mark(), el("span", { class: "name", text: country.country }),
         el("span", { class: "when", text: (copy.day || "DAY") + " " + country.first_day })
       ]);
-      b.style.setProperty("--tilt", inked ? tiltFor(country.country) : "0deg");
-      b.addEventListener("click", function () { openStamp(ctx, country, list[list.indexOf(country) + 1], b, scrub); });
+      b.style.setProperty("--tilt", on ? tiltFor(country.country) : "0deg");
+      if (opts.onClick) b.addEventListener("click", function (e) { e.stopPropagation(); opts.onClick(country.first_day); });
       grid.appendChild(b);
-      if (!inked) return;
+      if (!on) return;
       // newly earned? Live: not seen on an earlier visit. Time travel / test: entry day just passed.
       var fresh = stampState.prevDay !== null ? (country.first_day > stampState.prevDay)
         : (seen ? (!firstVisit && seen.indexOf(country.country) < 0) : false);
@@ -380,21 +392,20 @@
     });
     if (seen) rememberStamps(list.filter(function (k) { return k.first_day <= day; }).map(function (k) { return k.country; }));
     stampState.prevDay = day;
-    view.hidden = true;
-    if (reduce || !toStamp.length) return;
-    // play when the stamps are actually on screen
+    if (reduce || !toStamp.length) return inked;
     toStamp.forEach(function (b) { b.style.opacity = "0"; });
-    stampState.pending = toStamp;
-    if (!("IntersectionObserver" in window)) { playStamps(); return; }
+    stampState.pending = toStamp; stampState.shake = opts.shake || null;
+    if (!("IntersectionObserver" in window)) { playStamps(); return inked; }
     if (stampState.observer) stampState.observer.disconnect();
     stampState.observer = new IntersectionObserver(function (entries) {
       if (entries.some(function (e) { return e.isIntersecting; })) { stampState.observer.disconnect(); stampState.observer = null; playStamps(); }
     }, { threshold: 0.35 });
     stampState.observer.observe(grid);
+    return inked;
   }
   function playStamps() {
     var list = stampState.pending; stampState.pending = [];
-    var wrap = document.querySelector(".stamps .wrap");
+    var wrap = stampState.shake;
     list.forEach(function (b, i) {
       setTimeout(function () {
         if (!b.isConnected) return;
@@ -408,29 +419,7 @@
       }, i * 260);
     });
   }
-  function openStamp(ctx, country, next, btn, scrub) {
-    var c = ctx.config, el = ctx.el, view = document.getElementById("stamp-view"), copy = c.copy.stamps || {};
-    document.querySelectorAll(".stamp.active").forEach(function (s) { s.classList.remove("active"); s.setAttribute("aria-pressed", "false"); });
-    btn.classList.add("active"); btn.setAttribute("aria-pressed", "true");
-    var last = next ? next.first_day - 1 : ctx.plan.days.length;
-    var days = []; for (var n = country.first_day; n <= Math.min(last, country.first_day + 14); n++) days.push(n);
-    view.hidden = false; view.textContent = "";
-    view.appendChild(el("div", { class: "body" }, [el("p", { class: "kicker", text: country.country.toUpperCase() + " · DAY " + country.first_day }), el("p", { text: "…" })]));
-    Promise.all(days.map(function (n) { return ctx.archive(n); })).then(function (arch) {
-      var found = null, foundDay = null;
-      for (var i = 0; i < days.length && !found; i++) { var p = photoFor(ctx, days[i], arch[i]); if (p) { found = p; foundDay = days[i]; } }
-      view.textContent = "";
-      var d = Trip.day(ctx.plan, foundDay || country.first_day);
-      var photo = el("div", { class: "photo" });
-      if (found) { photo.appendChild(el("a", { href: found.link || c.links.instagram, target: "_blank", rel: "noopener" }, [ctx.fittedPhoto(photo, found.url, scrub(found.caption).slice(0, 100) || country.country)])); photo.appendChild(el("span", { class: "tag", text: Trip.dayTag(d) })); }
-      else photo.appendChild(ctx.photoPlaceholder(Trip.dayTag(d)));
-      var h3 = el("h3"); h3.appendChild(titleNode(Trip.dayTitle(d)));
-      var body = el("div", { class: "body" }, [el("p", { class: "kicker", text: country.country.toUpperCase() + " · " + (copy.entered || "ENTERED DAY") + " " + country.first_day }), h3,
-        el("p", { text: found ? scrub(found.caption) : (country.first_day <= ctx.day ? (copy.noPhoto || "") : scrub(d.notes)) })]);
-      view.appendChild(photo); view.appendChild(body);
-      view.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    });
-  }
+  window.Stamps = { render: renderStamps };
 
   window.Site.ready.then(function (ctx) {
     if (!ctx.config) return;

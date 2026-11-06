@@ -70,6 +70,8 @@ em { font-style: italic; color: var(--persimmon); }
 
 /* Sections */
 .section { padding: clamp(1.6rem, 3.5vw, 3rem) 0; }
+.section[data-section="latest"] { padding-bottom: 0.4rem; }
+.section[data-section="dispatch"] { padding-top: 0.9rem; }
 .card { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .photo { position: relative; background: var(--peach); height: var(--photo-height); display: grid; place-items: center; overflow: hidden; }
 .photo a { display: block; position: absolute; inset: 0; }   /* pinned to the frame, so object-fit can do its job */
@@ -98,15 +100,20 @@ em { font-style: italic; color: var(--persimmon); }
 
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
 /* Map and photo on top at the same height; under them, same columns, next-up and the photo's words */
-.latest-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: var(--map-height) auto; grid-template-areas: "map photo" "now caption"; gap: 1.5rem; margin-bottom: 1.5rem; }
-.latest-grid.single { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "photo" "caption" "now"; }   /* no map: the photo, its words, then next up */
+.latest-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: var(--map-height) auto; grid-template-areas: "map photo" "now photo"; gap: 1.5rem; margin-bottom: 1.5rem; align-items: start; }
+.latest-grid.single { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "photo" "now"; }   /* no map: the photo (with its words), then next up */
 .map-card { grid-area: map; }
 .photo-card { grid-area: photo; }
 .now-card { grid-area: now; }
 .latest-body-card { grid-area: caption; }
-.latest-grid > .map-card, .latest-grid > .photo-card { height: var(--map-height); }
-.latest-grid.single > .photo-card { height: var(--photo-height); }
-.photo-card .photo { height: 100%; }
+.latest-grid > .map-card { height: var(--map-height); }
+.latest-grid > .photo-card { height: auto; }               /* the picture at the map's height, its words under it */
+.latest-grid.single .photo-card .photo { height: var(--photo-height); }
+.photo-card .photo { height: var(--map-height); }
+.photo-words { padding: 1rem 1.2rem 1.2rem; }
+.photo-words .kicker { margin-bottom: 0.45rem; }
+.map-open { position: absolute; top: 0.8rem; right: 0.8rem; z-index: 2; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--ink); color: var(--cream); padding: 0.45em 0.8em; border-radius: 999px; text-decoration: none; }
+.map-open:hover { background: var(--persimmon); color: var(--ink); }
 .map-card { position: relative; height: var(--map-height); display: flex; flex-direction: column; padding: 0.8rem 0.8rem 0; }
 .map-card svg { width: 100%; flex: 1 1 auto; min-height: 0; display: block; }
 .map-card .land { fill: var(--peach); stroke: none; }
@@ -188,6 +195,7 @@ em { font-style: italic; color: var(--persimmon); }
 .signup-strip .signup-field input { border-color: var(--ink); background: var(--cream); }
 .signup-strip .signup-field input:focus { outline-color: var(--ink); }
 .signup-strip .btn-ink:hover { background: var(--cream); color: var(--ink); }
+.signup-strip .signup-prompt { display: none; }
 
 /* About */
 .about-hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; padding-block: clamp(1.5rem, 4vw, 3.5rem); }
@@ -238,14 +246,13 @@ body.has-strip { padding-bottom: 2.2rem; }
 /* Phones and small tablets */
 @media (max-width: 900px) {
   .two-col, .about-hero .wrap, .latest-grid, .dispatch-wide, .signup-strip .wrap, .site-footer .wrap { grid-template-columns: 1fr; }
-  .stamp-view { grid-template-columns: 1fr; }
-  .counters { grid-template-columns: repeat(3, 1fr); }
+    .counters { grid-template-columns: repeat(3, 1fr); }
   /* One column: map, the photo, its words right under it, then the next-up box */
-  .latest-grid, .latest-grid.single { grid-template-rows: auto; grid-template-areas: "map" "photo" "caption" "now"; }
-  .latest-grid.single { grid-template-areas: "photo" "caption" "now"; }
+  .latest-grid, .latest-grid.single { grid-template-rows: auto; grid-template-areas: "map" "photo" "now"; }
+  .latest-grid.single { grid-template-areas: "photo" "now"; }
   .latest-grid > .map-card { height: auto; min-height: min(var(--map-height), 70vw); }
   /* The photo takes the picture's own shape (css --ar from js), edge to edge, no side bars */
-  .latest-grid > .photo-card, .latest-grid.single > .photo-card { height: auto; }
+  .latest-grid.single .photo-card .photo { height: auto; }
   .photo-card .photo { height: auto; aspect-ratio: var(--ar, 4 / 5); max-height: 150vw; }
   .photo-card .photo.contain img { object-fit: cover; }
   .photo-card .photo.contain::before { display: none; }
@@ -278,15 +285,24 @@ body.has-strip { padding-bottom: 2.2rem; }
 .banner-route.flipped { cursor: default; touch-action: auto; }   /* with the stats (or another flip) open there is nothing to scrub: the page scrolls as usual */
 .banner-route #banner-line { transition: opacity 0.45s ease; }
 .banner-route.flipped #banner-line { opacity: 0.12; }
-.banner-route.flipped.mode-climb #banner-line, .banner-route.flipped.mode-countries #banner-line { opacity: 1; }   /* the profile is the line; outlines sit over the line */
+.banner-route.flipped.mode-climb #banner-line { opacity: 1; }   /* the profile is the line */
 .banner-route.flipped.mode-stats #banner-line { opacity: 0; }   /* nothing behind the secret stats */
 .banner-route.flipped .marker { opacity: 0; transition: opacity 0.3s; }
-.banner-route.flipped.mode-countries .marker { opacity: 1; }
 .banner-route .flip { position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
 .banner-route .flip.on { opacity: 1; pointer-events: auto; }
-.flip-countries { width: 100%; height: 100%; overflow: visible; clip-path: inset(0); }   /* outlines stop at the banner's edges, not over the title */
-.flip-countries path { fill: none; stroke: var(--cream); stroke-opacity: 0.75; stroke-width: 1.2px; vector-effect: non-scaling-stroke; opacity: 0; transition: opacity 0.7s ease; }
-.flip-countries path.in { opacity: 1; }
+/* The country outlines over the line, fading in and out on a loop (js/banner.js, timings in config countriesFade) */
+.banner-countries { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; clip-path: inset(0); pointer-events: none; transition: opacity 0.4s; }
+.banner-route.flipped .banner-countries { opacity: 0; }
+.banner-countries path { fill: none; stroke: var(--cream); stroke-opacity: 0.6; stroke-width: 1.1px; vector-effect: non-scaling-stroke; opacity: 0; transition: opacity var(--fade-out, 4s) ease-in-out; }
+.banner-countries path.in { opacity: 1; transition-duration: var(--fade-in, 4s); }
+.banner-countries.still path { opacity: 0.6; transition: none; }
+/* The passport in the banner: 18 stamps on the ink */
+.flip-stamps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.6rem 0.9rem; align-content: center; padding: 0.6rem var(--gutter); }
+.banner-route.mode-countries { height: auto; min-height: var(--banner-height); }
+.banner-route.mode-countries #banner-line, .banner-route.mode-countries .marker, .banner-route.mode-countries .banner-countries { position: absolute; inset: 0; height: 100%; }
+.banner-route.mode-countries .flip-stamps.on { position: relative; inset: auto; padding-top: 0.8rem; padding-bottom: 0.8rem; }
+.flip-stamps .stamp:not(.inked) { color: var(--peach); opacity: 0.3; }
+.flip-stamps .stamp.active::after { border-color: var(--cream); }
 .flip-days { display: grid; gap: 3px; align-content: center; justify-content: center; padding: 0.4rem 0; }
 .flip-days span { display: block; width: var(--sq, 10px); height: var(--sq, 10px); background: rgba(251, 233, 215, 0.14); border-radius: 1.5px; cursor: pointer; }
 .flip-days span.done { background: var(--persimmon); }
@@ -364,9 +380,7 @@ body.has-strip { padding-bottom: 2.2rem; }
 .edit-link:hover { opacity: 1; background: var(--persimmon); color: var(--ink); }
 
 /* Passport stamps: a rough-edged ink stamp per country. Future countries show only a faint outline.
-   A newly earned stamp "stamps down" (js/home.js adds .stamping); the section gets .thud as it lands. */
-.stamps-intro { max-width: 46em; margin: 0 0 1.2rem; }
-.stamp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; padding: 0.4rem 0; }
+   A newly earned stamp "stamps down" (js/home.js adds .stamping); the banner stage gets .thud as it lands. */
 .stamp { position: relative; aspect-ratio: 160 / 124; border: 0; padding: 0.8rem 0.7rem; background: transparent; color: var(--persimmon); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.3rem; cursor: pointer; transform: rotate(var(--tilt, 0deg)); transition: transform 0.2s, filter 0.2s; -webkit-tap-highlight-color: transparent; }
 .stamp .frame { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .stamp .frame rect { fill: none; stroke: currentColor; }
@@ -384,10 +398,6 @@ body.has-strip { padding-bottom: 2.2rem; }
 .stamp:not(.inked) .frame .inner { stroke-width: 0; }
 .stamp:hover, .stamp:focus-visible { outline: none; opacity: 1; transform: rotate(var(--tilt, 0deg)) scale(1.04); }
 .stamp.active::after { content: ""; position: absolute; inset: -6px; border-radius: 14px; border: 2px solid var(--ink); }
-.stamp-view { margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; }
-.stamp-view .photo { height: clamp(220px, 32vw, 420px); }
-.stamp-view .body { padding: 1.2rem 1.3rem; }
-.stamp-view .body h3 { font-family: var(--font-headline); font-size: 1.5rem; margin: 0 0 0.4rem; }
 /* stamp-down: drops in a little large from above, thuds (squash), settles at its tilt */
 .stamp.stamping { animation: stamp-down 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.2) both; }
 @keyframes stamp-down {
@@ -397,6 +407,36 @@ body.has-strip { padding-bottom: 2.2rem; }
   82%  { transform: translateY(0) scale(0.98, 1.02) rotate(var(--tilt, 0deg)); }
   100% { opacity: 1; transform: translateY(0) scale(1) rotate(var(--tilt, 0deg)); }
 }
-.stamps .wrap.thud { animation: thud 0.32s ease-out; }
+.thud { animation: thud 0.32s ease-out; }
 @keyframes thud { 0% { transform: translate(0, 0); } 25% { transform: translate(-2px, 2px); } 50% { transform: translate(2px, -1px); } 75% { transform: translate(-1px, 1px); } 100% { transform: translate(0, 0); } }
-@media (max-width: 640px) { .stamp-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; } .stamp { padding: 0.5rem 0.4rem; gap: 0.2rem; } .stamp .name { font-size: 0.56rem; letter-spacing: 0.05em; } .stamp .when { font-size: 0.5rem; } .stamp .mark { width: 11px; height: 11px; } }
+@media (max-width: 900px) { .flip-stamps { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 640px) { .flip-stamps { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; padding-inline: 0.6rem; } .stamp { padding: 0.5rem 0.4rem; gap: 0.2rem; } .stamp .name { font-size: 0.56rem; letter-spacing: 0.05em; } .stamp .when { font-size: 0.5rem; } .stamp .mark { width: 11px; height: 11px; } }
+
+/* ---------- The full map page ---------- */
+.bigmap-intro { padding: clamp(1.2rem, 3vw, 2rem) 0 0.8rem; display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; }
+.bigmap-intro h1 { font-family: var(--font-headline); font-weight: 600; font-size: clamp(2rem, 4.5vw, 3.4rem); margin: 0 0 0.3rem; letter-spacing: -0.015em; }
+.bigmap-intro p { margin: 0; max-width: 40em; color: var(--ink); }
+.bigmap-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.bigmap { position: relative; height: calc(var(--map-screens, 10) * 100vh); }
+.bigmap-view { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.bigmap-view svg { width: 100%; height: 100%; display: block; }
+.bigmap .land { fill: var(--peach); stroke: none; }
+.bigmap .border { fill: none; stroke: var(--ink); stroke-opacity: 0.5; stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.bigmap .route-rest { fill: none; stroke: var(--gray); stroke-linecap: round; }
+.bigmap .route-done { fill: none; stroke: var(--persimmon); stroke-width: 2.6px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.bigmap .day-dot { fill: var(--ink); opacity: 0.55; }
+.bigmap .rest-dot { fill: var(--cream); stroke: var(--ink); stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+.bigmap .seg-dot { fill: var(--ink); }
+.bigmap .mile-dot { fill: var(--cream); stroke: var(--persimmon); stroke-width: 2px; vector-effect: non-scaling-stroke; }
+.bigmap .pos-dot { fill: var(--persimmon); stroke: var(--cream); stroke-width: 2px; vector-effect: non-scaling-stroke; }
+.bigmap text { font-family: var(--font-mono); font-size: calc(10.5px * var(--u, 1)); letter-spacing: 0.06em; fill: var(--ink); paint-order: stroke; stroke: var(--cream); stroke-width: calc(3px * var(--u, 1)); stroke-linejoin: round; text-transform: uppercase; }
+.bigmap text.seg-label { font-weight: 600; font-size: calc(12px * var(--u, 1)); }
+.bigmap text.country-name { font-family: var(--font-headline); font-style: italic; font-weight: 600; font-size: calc(22px * var(--u, 1)); fill: var(--ink); opacity: 0.35; letter-spacing: 0; text-transform: none; stroke: none; }
+.bigmap text.pos-label { fill: var(--persimmon); font-weight: 600; }
+.bigmap-bar { position: absolute; left: var(--gutter); bottom: 1.2rem; max-width: calc(100% - 2 * var(--gutter)); background: var(--ink); color: var(--cream); border-radius: 10px; padding: 0.7rem 0.9rem; font-size: 0.92rem; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.25); }
+.bigmap-bar .mono { color: var(--peach); display: block; margin-bottom: 0.25rem; }
+.bigmap-bar b { font-family: var(--font-headline); font-weight: 600; font-size: 1.15rem; }
+.bigmap-bar .trail { position: absolute; right: 0.9rem; top: 0.7rem; width: 60px; height: 4px; background: var(--line-on-ink); border-radius: 2px; overflow: hidden; }
+.bigmap-bar .trail i { display: block; height: 100%; background: var(--persimmon); width: var(--p, 0%); }
+.bigmap-hint { text-align: right; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--gray); margin: 0.6rem 0 0; text-transform: uppercase; }
+@media (max-width: 640px) { .bigmap-bar { left: var(--gutter); right: var(--gutter); bottom: 0.8rem; font-size: 0.85rem; } .bigmap-bar .trail { display: none; } }
