@@ -38,21 +38,6 @@
       </form>
     </div>
   </section>
-  <!-- Header: the wordmark ("No Shortcuts with Andy Short", the route drawn under it) and a row of pill
-       buttons. On the home page the wordmark and Subscribe are hidden: the row sits on top of the big
-       banner, which carries the name itself. Labels and links are filled from config by js/site.js. -->
-  <header class="site-header">
-    <div class="wrap">
-      <a class="wordmark" href="home.html" data-href="home"><span class="wm-text">No <em>Short</em>cuts<svg class="mark wm-mark" viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M20.5 4.2 C20.1 11 19.8 27 19.6 35.6"/><path d="M6.8 11.6 C13 15.4 26 23.5 33.4 28.1"/><path d="M33.9 11 C27.5 15.8 13.4 24.6 6.2 28.9"/></g></svg> <span class="wm-with" data-config="menu.wordmarkWith">with Andy Short</span></span><svg class="wm-route" preserveAspectRatio="none" aria-hidden="true"></svg></a>
-      <ul class="menu" id="menu">
-        <li><a href="home.html" data-href="home" data-config="menu.home">Home</a></li>
-        <li><a href="map.html" data-href="map" data-config="menu.map">Map</a></li>
-        <li><a href="#" data-href="routePlan" data-config="menu.routePlan">Route plan</a></li>
-        <li><a href="about.html" data-href="about" data-config="menu.about">About</a></li>
-      </ul>
-      <a class="btn btn-persimmon header-subscribe" href="https://noshortcutsclub.substack.com" data-href="substack" data-config="menu.subscribe">Subscribe</a>
-    </div>
-  </header>
 
   <!-- Home sections. js/home.js fills them from the data files and puts them in the order set in
        config (home.sectionOrder). A section whose source is broken is hidden entirely. -->
@@ -64,9 +49,16 @@
         <div class="banner-top">
           <div class="title-block">
           <h1 class="title">No <em>Short</em>cuts<svg class="mark" id="mark-button" viewBox="0 0 40 40" role="button" tabindex="0" aria-label="Secret stats" focusable="true"><g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M20.5 4.2 C20.1 11 19.8 27 19.6 35.6"/><path d="M6.8 11.6 C13 15.4 26 23.5 33.4 28.1"/><path d="M33.9 11 C27.5 15.8 13.4 24.6 6.2 28.9"/></g></svg></h1>
-          <p class="title-sub" data-config="menu.wordmarkWith">with Andy Short</p>
+          <p class="title-sub"><span data-config="menu.wordmarkWith">with Andy</span> <em data-config="menu.wordmarkWithEm">Short</em></p>
           </div>
           <div class="banner-right">
+            <!-- the menu sits here, level with the title; labels and links are filled from config by js/site.js -->
+            <ul class="menu" id="menu">
+              <li><a href="home.html" data-href="home" data-config="menu.home">Home</a></li>
+              <li><a href="map.html" data-href="map" data-config="menu.map">Map</a></li>
+              <li><a href="#" data-href="routePlan" data-config="menu.routePlan">Route plan</a></li>
+              <li><a href="about.html" data-href="about" data-config="menu.about">About</a></li>
+            </ul>
             <p class="banner-info" id="banner-info">ALASKA TO ARGENTINA</p>
             <button class="btn btn-persimmon travel-back" id="travel-back" type="button" hidden>Back to today</button>
           </div>
@@ -76,16 +68,9 @@
         <div class="banner-route" id="banner-route">
           <svg id="banner-line" preserveAspectRatio="none" aria-label="The route from Deadhorse to Ushuaia; the part ridden so far is highlighted"></svg>
           <svg id="banner-countries" class="banner-countries" preserveAspectRatio="none" aria-hidden="true"></svg>
-          <div id="flip-days" class="flip flip-days" role="img" aria-label="One square per day of the plan" hidden></div>
+          <div id="flip-days" class="flip flip-days" aria-label="One tile per day of the plan; double-click a tile to open that day" hidden></div>
           <div id="flip-stamps" class="flip flip-stamps" aria-label="Passport: one stamp per country, inked the day the ride crosses in" hidden></div>
           <div id="flip-stats" class="flip flip-stats" hidden></div>
-          <!-- The last few days, as cards (THE DAYS button) -->
-          <div id="flip-cards" class="flip flip-cards" hidden>
-            <div class="days-head">
-              <h2 data-config="copy.days.title">The days</h2>
-            </div>
-            <div class="day-cards" id="day-cards"></div>
-          </div>
           <div class="marker" id="banner-marker" hidden><div class="dot"></div><span class="place" id="banner-place"></span></div>
         </div>
         <div class="counters" id="counters"></div>

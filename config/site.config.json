@@ -35,7 +35,8 @@
     "about": "About"
   },
   "menu": {
-    "wordmarkWith": "with Andy Short",
+    "wordmarkWith": "with Andy",
+    "wordmarkWithEm": "Short",
     "home": "Home",
     "map": "Map",
     "routePlan": "Route plan",
@@ -72,8 +73,7 @@
       "climb": "FT CLIMBED",
       "climbPlan": "FT CLIMBED · PLAN",
       "everests": "EVERESTS",
-      "vsPlan": "DAYS VS. THE PLAN",
-      "log": "DAY LOG · THE LAST FEW"
+      "vsPlan": "DAYS VS. THE PLAN"
     },
     "odometer": true,
     "timeTravel": true,
@@ -85,6 +85,8 @@
       "zoomNear": 8.6,
       "zoomNearPhone": 8.1,
       "zoomOutMax": 1.8,
+      "geocoder": "https://nominatim.openstreetmap.org/search?format=json&limit=1&q={q}",
+      "_geocoder": "Looks up a place that is not on the plan (free OpenStreetMap service, no key, used only when someone asks). Blank switches it off: those searches then just say 'not on the route'.",
       "screens": 12
     }
   },
@@ -141,7 +143,7 @@
       "segment": "SEGMENT",
       "restDay": "DAY OFF",
       "highest": "HIGHEST POINT",
-      "jumpToday": "Where I should be today",
+      "jumpToday": "Where I am today",
       "top": "Back to the start",
       "opens": "Open the full map",
       "soFar": "SO FAR",
@@ -179,6 +181,8 @@
       "askFromNow": "{n} days from now",
       "askPast": "{n} days ago",
       "askNone": "Not on the route. Try a country, or a town on the way.",
+      "askNear": "{place} is not on the route. The closest the ride comes is day {first}, about {miles} miles away, near {near}",
+      "askLooking": "Looking that up…",
       "tiles": "Map tiles © Esri · HERE · Garmin · FAO · NOAA · USGS. Route from Komoot."
     },
     "placeholders": {
@@ -220,7 +224,11 @@
       "countries": "COUNTRIES SO FAR",
       "climb": "THE ROAD, SIDE ON · HIGHEST POINT",
       "close": "TAP HERE TO GO BACK TO THE ROUTE",
-      "cards": "THE LAST FEW DAYS · TAP A CARD TO TRAVEL THERE"
+      "openHover": "DOUBLE-CLICK A TILE TO OPEN THAT DAY",
+      "openTap": "TAP A TILE, THEN TAP OPEN",
+      "openButton": "OPEN DAY {n}",
+      "travel": "Travel to this day",
+      "closeDay": "Close"
     },
     "stats": {
       "kicker": "SECRET STATS",

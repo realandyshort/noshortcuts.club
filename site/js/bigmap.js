@@ -11,7 +11,8 @@
    the middle is highlighted (a persimmon halo, a dot at each end) and the map zooms out enough to show
    the whole of it. The controls work a segment at a time: segment pills, a day back or on, a slider
    across the segment, a day to type, and a place to ask about ("when will Andy be in ..."), which
-   scrolls to the first day there. A scroll cue shows while the map is zoomed all the way out. The
+   scrolls to the first day there (a place that is not on the plan is looked up, config home.map.geocoder,
+   and answered with the closest the ride comes to it). A scroll cue shows while the map is zoomed all the way out. The
    browser's own scroll memory is switched off so the page always opens on the whole road. Honours
    ?day=N. No dates. */
 (function () {
@@ -164,6 +165,7 @@
     var pos = ctx.data.position;
     if (ctx.live && ctx.ok("position") && pos && pos.available && pos.lat != null) {
       var qp = proj(pos.lat, pos.lon);
+      svg.appendChild(mk("circle", { "class": "pos-ring", cx: qp[0], cy: qp[1], r: 3.6 * u }));   // live: pulses
       svg.appendChild(mk("circle", { "class": "pos-dot", cx: qp[0], cy: qp[1], r: 3.6 * u }));
       svg.appendChild(text(qp[0] + 6 * u, qp[1] + 9 * u, (M.actual || "LAST SEEN") + " · " + (pos.place || ""), "pos-label"));
     }
@@ -407,7 +409,7 @@
     function answer() {
       var hit = findPlace(input.value);
       out.hidden = false; out.classList.toggle("none", !hit);
-      if (!hit) { out.textContent = M.askNone || "Not on the route. Try a country, or a town on the way."; return; }
+      if (!hit) { lookup(input.value); return; }
       var n = hit.last - hit.first + 1, v = { place: hit.name, first: hit.first, last: hit.last, n: n };
       var txt = n > 1 ? fill(M.askAnswer || "{place}: day {first} to day {last} · {n} days", v) : fill(M.askAnswerOne || "{place}: day {first}", v);
       if (ctx.live) {                                   // how far off it is, in days (never a date)
@@ -417,7 +419,25 @@
         else txt += " · " + fill(M.askPast || "{n} days ago", { n: -away });
       }
       out.textContent = txt;
-      scrollToDay(hit.first, true);
+      scrollToDay(hit.first, false); input.blur();
+    }
+    // a place that is not on the plan: look it up (config home.map.geocoder, blank = off) and answer
+    // with the closest the ride comes to it, in miles, and on which day
+    function lookup(q) {
+      var tpl = (ctx.config.home.map || {}).geocoder || "";
+      if (!tpl || !window.fetch) { out.textContent = M.askNone || "Not on the route."; return; }
+      out.textContent = M.askLooking || "Looking that up…"; out.classList.add("none");
+      fetch(tpl.replace("{q}", encodeURIComponent(q)), { headers: { "Accept": "application/json" } }).then(function (r) { return r.ok ? r.json() : null; }).then(function (res) {
+        var hit = res && res[0] && res[0].lat != null ? res[0] : null;
+        if (!hit) { out.textContent = M.askNone || "Not on the route."; return; }
+        var lat = Number(hit.lat), lon = Number(hit.lon), c = state.cam, best = Infinity, bi = 0;
+        for (var i = 0; i < c.line.length; i += 2) { var dm = Trip.haversineMi([lat, lon], c.line[i]); if (dm < best) { best = dm; bi = i; } }
+        var n = dayAtG(c.cum[bi] / c.total), d = Trip.day(ctx.plan, n), name = (hit.display_name || q).split(",")[0];
+        var txt = fill(M.askNear || "{place} is not on the route. The closest the ride comes is day {first}, about {miles} miles away, near {near}", { place: name, first: n, miles: Trip.fmtInt(Math.round(best)), near: d.to || d.from || "" });
+        if (ctx.live) { var away = n - ctx.day; txt += " · " + (away > 0 ? fill(M.askFromNow || "{n} days from now", { n: away }) : away === 0 ? (M.askNow || "today") : fill(M.askPast || "{n} days ago", { n: -away })); }
+        out.classList.remove("none"); out.textContent = txt;
+        scrollToDay(n, false); input.blur();
+      }).catch(function () { out.textContent = M.askNone || "Not on the route."; });
     }
     form.addEventListener("submit", function (e) { e.preventDefault(); answer(); });
     input.addEventListener("change", function () { if (findPlace(input.value) && norm(input.value) in P.idx) answer(); });   // picking a name from the list
@@ -448,7 +468,7 @@
     document.getElementById("bigmap-next").addEventListener("click", function () { scrollToDay(state.day + 1, true); });
     slider.addEventListener("input", function () { scrollToDay(Number(slider.value), false); });
     var dayInput = document.getElementById("bigmap-day"); dayInput.max = ctx.plan.days.length;
-    document.getElementById("bigmap-goto").addEventListener("submit", function (e) { e.preventDefault(); var n = Number(dayInput.value); if (n >= 1) scrollToDay(n, true); });
+    document.getElementById("bigmap-goto").addEventListener("submit", function (e) { e.preventDefault(); var n = Number(dayInput.value); if (n >= 1) { scrollToDay(n, false); dayInput.blur(); } });
     document.getElementById("bigmap-today").addEventListener("click", function () { scrollToDay(ctx.day, true); });
     document.getElementById("bigmap-top").addEventListener("click", function () { scrollToFraction(0, true); });
     var cue = document.getElementById("bigmap-cue"); if (cue) cue.addEventListener("click", function () { scrollToDay(1, true); });

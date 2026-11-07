@@ -49,6 +49,7 @@
     label(end, o.copy.end || "USHUAIA", -1.6, 3.2, "end");
     if (o.position) {
       var qp = proj(o.position[0], o.position[1]);
+      if (o.live) svg.appendChild(mk("circle", { "class": "map-pos-ring", cx: qp[0], cy: qp[1], r: unit * 1.4, "stroke-width": unit * 0.5 }));   // live: a ring pulses out of the dot
       svg.appendChild(mk("circle", { "class": "map-pos", cx: qp[0], cy: qp[1], r: unit * 1.4, "stroke-width": unit * 0.6 }));
       if (o.positionLabel) label(o.position, String(o.positionLabel).toUpperCase(), -2.4, 0.8, "end");
     }

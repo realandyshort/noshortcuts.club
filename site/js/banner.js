@@ -62,6 +62,8 @@
     if (state.flip === "climb") morphTo(0);
     setHint(state.ctx.config.copy.flips.hint);
     document.querySelectorAll(".back-hint").forEach(function (b) { b.remove(); });
+    var pk = document.getElementById("tile-peek"); if (pk) { pk.hidden = true; pk.classList.remove("pinned"); }
+    state.openDay = null; state.picked = null;
     state.flip = null;
   }
   // The way back: a line under whatever opened the flip ("tap again to go back to the route")
@@ -84,23 +86,17 @@
     else if (name === "countries") showCountries();
     else if (name === "climb") morphTo(1);
     else if (name === "stats") showStats();
-    else if (name === "cards") showCards();
     backHint(trigger);
-  }
-  // THE DAYS: the last few days as cards (home.js fills them on every render)
-  function showCards() {
-    var box = document.getElementById("flip-cards");
-    if (!box) return;
-    setHint(state.ctx.config.copy.flips.cards || "");
-    show(box);
   }
   // (attribute form on purpose: SVG elements have no .hidden property)
   function show(el) { el.removeAttribute("hidden"); requestAnimationFrame(function () { el.classList.add("on"); }); }
   function setHint(text) { var h = document.getElementById("banner-hint"); if (h) h.textContent = text || ""; }
 
   // DAYS ON THE ROAD: one tile per day. A day with an Instagram photo shows a thumbnail (the robot
-  // makes them, data/photo_index.json); a ridden day without one shows a little sketch; days still to
-  // come are faint squares. Hover for a bigger look, click to travel there.
+  // makes them, data/photo_index.json); a ridden day without one shows a little sketch (the path is
+  // drawn inline in every tile: no symbol references, which Safari can drop after a re-render); days
+  // still to come are faint squares. Hover for a bigger look; double-click (or tap, then tap OPEN) to
+  // open that day's card under the tiles, with a Travel button.
   var SKETCHES = ["mountain", "tent", "wheel", "wave", "sun", "pine", "road", "cactus"];
   var SKETCH_PATHS = {
     mountain: "M2 19L8 8l4 6 2-3 6 8zM16 5a2 2 0 1 0 0.01 0",
@@ -125,43 +121,70 @@
   function showDays() {
     var ctx = state.ctx, plan = ctx.plan, box = document.getElementById("flip-days"), copy = ctx.config.copy.flips;
     var index = (ctx.data.photoIndex && ctx.data.photoIndex.days) || {};
-    sketchDefs();
+    var hover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
     box.textContent = "";
+    var tiles = document.createElement("div"); tiles.className = "tiles"; box.appendChild(tiles);
+    var open = document.createElement("div"); open.className = "day-open"; open.hidden = true; box.appendChild(open);
     var total = plan.days.length, r = stage().getBoundingClientRect(), w = r.width - 32;
     var cols = Math.max(12, Math.floor(w / 30));                     // tiles at least 26px, so a sketch reads
     var sq = Math.max(22, Math.floor(w / cols) - 4);
-    box.style.setProperty("--sq", sq + "px");
-    box.style.gridTemplateColumns = "repeat(" + cols + ", " + sq + "px)";
+    tiles.style.setProperty("--sq", sq + "px");
+    tiles.style.gridTemplateColumns = "repeat(" + cols + ", " + sq + "px)";
     var frag = document.createDocumentFragment(), withPhoto = 0;
     plan.days.forEach(function (d) {
       var sp = document.createElement("span"), ph = index[String(d.day)];
       var done = d.day < ctx.day, now = d.day === ctx.day;
       sp.className = "tile" + (done ? " done" : "") + (now ? " now" : "") + (ph ? " photo" : (done || now ? " sketch" : ""));
       if (ph && ph.thumb) { sp.style.backgroundImage = "url(" + ph.thumb + ")"; withPhoto++; }
-      else if (done || now) { var u = document.createElementNS(NS, "svg"); var use = document.createElementNS(NS, "use"); use.setAttribute("href", "#sk-" + sketchFor(d.day)); u.appendChild(use); sp.appendChild(u); }
+      else if (done || now) { var u = document.createElementNS(NS, "svg"); u.setAttribute("viewBox", "0 0 24 24"); var p = document.createElementNS(NS, "path"); p.setAttribute("d", SKETCH_PATHS[sketchFor(d.day)]); u.appendChild(p); sp.appendChild(u); }
       sp.title = "Day " + d.day + " · " + d.from + (d.from === d.to ? "" : " to " + d.to);
       sp.setAttribute("data-day", d.day);
-      sp.addEventListener("click", function (e) { e.stopPropagation(); travelTo(d.day); });
+      sp.addEventListener("click", function (e) { e.stopPropagation(); pick(sp, d.day); });
+      sp.addEventListener("dblclick", function (e) { e.stopPropagation(); e.preventDefault(); openDay(d.day); });
       frag.appendChild(sp);
     });
-    box.appendChild(frag);
-    // a bigger look on hover (or touch): the photo and the day, following the pointer
+    tiles.appendChild(frag);
+    // the peek: a bigger look at a tile (photo, day, place) with an OPEN button. Follows the pointer on
+    // hover; a click (or a tap) pins it on that tile so the button can be tapped.
     var peek = document.getElementById("tile-peek");
     if (!peek) { peek = document.createElement("div"); peek.id = "tile-peek"; peek.className = "tile-peek"; peek.hidden = true; stage().appendChild(peek); }
-    box.onmousemove = function (e) {
-      var t = e.target.closest ? e.target.closest(".tile") : null;
-      if (!t) { peek.hidden = true; return; }
-      var n = Number(t.getAttribute("data-day")), d = plan.days[n - 1], ph = index[String(n)];
+    function fillPeek(n) {
+      var d = plan.days[n - 1], ph = index[String(n)];
       peek.innerHTML = "";
       if (ph && ph.thumb) { var im = document.createElement("img"); im.src = ph.thumb; im.alt = ""; peek.appendChild(im); }
       var cap = document.createElement("span"); cap.className = "mono"; cap.textContent = "DAY " + n + " · " + (d.to || d.from || "").toUpperCase(); peek.appendChild(cap);
-      var sr = stage().getBoundingClientRect();
-      peek.style.left = Math.min(sr.width - 180, e.clientX - sr.left + 14) + "px";
-      peek.style.top = Math.max(0, e.clientY - sr.top - 90) + "px";
-      peek.hidden = false;
-    };
-    box.onmouseleave = function () { peek.hidden = true; };
-    setHint((copy.days || "ONE TILE PER DAY") + " · " + ctx.day + " OF " + total + (withPhoto ? " · " + withPhoto + " WITH A PHOTO" : ""));
+      var ob = document.createElement("button"); ob.type = "button"; ob.className = "open-btn"; ob.textContent = (copy.openButton || "OPEN DAY {n}").replace("{n}", n);
+      ob.addEventListener("click", function (e) { e.stopPropagation(); openDay(n); });
+      peek.appendChild(ob);
+      if (hover) { var hint = document.createElement("span"); hint.className = "mono hint"; hint.textContent = copy.openHover || "DOUBLE-CLICK TO OPEN"; peek.appendChild(hint); }
+    }
+    function placePeek(x, y) { var sr = stage().getBoundingClientRect(); peek.style.left = Math.max(0, Math.min(sr.width - 180, x - sr.left - 84)) + "px"; peek.style.top = Math.max(0, y - sr.top - (peek.offsetHeight || 120) - 10) + "px"; }
+    function pick(tile, n) {
+      tiles.querySelectorAll(".tile.picked").forEach(function (t) { t.classList.remove("picked"); });
+      tile.classList.add("picked"); state.picked = n;
+      fillPeek(n); peek.hidden = false; peek.classList.add("pinned");
+      var tr = tile.getBoundingClientRect(); placePeek(tr.left + tr.width / 2, tr.top);
+    }
+    function openDay(n) {
+      peek.hidden = true; peek.classList.remove("pinned"); state.openDay = n;
+      open.textContent = "";
+      if (!window.Home) return;
+      open.appendChild(window.Home.dayCard(ctx, n, { onTravel: function (m) { travelTo(m); }, onClose: function () { open.hidden = true; state.openDay = null; } }));
+      open.hidden = false;
+      if (open.scrollIntoView) open.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
+    if (hover) {
+      tiles.onmousemove = function (e) {
+        if (peek.classList.contains("pinned")) return;
+        var t = e.target.closest ? e.target.closest(".tile") : null;
+        if (!t) { peek.hidden = true; return; }
+        fillPeek(Number(t.getAttribute("data-day"))); peek.hidden = false; placePeek(e.clientX, e.clientY);
+      };
+      tiles.onmouseleave = function () { if (!peek.classList.contains("pinned")) peek.hidden = true; };
+    }
+    box.onclick = function () { peek.hidden = true; peek.classList.remove("pinned"); tiles.querySelectorAll(".tile.picked").forEach(function (t) { t.classList.remove("picked"); }); };   // a tap beside the tiles puts the peek away
+    if (state.openDay) openDay(state.openDay);                       // reopened after a re-render (time travel from the card)
+    setHint((copy.days || "ONE TILE PER DAY") + " · " + ctx.day + " OF " + total + (withPhoto ? " · " + withPhoto + " WITH A PHOTO" : "") + " · " + (hover ? (copy.openHover || "") : (copy.openTap || "")));
     show(box);
   }
 
@@ -401,7 +424,7 @@
     Object.keys(info.counters).forEach(function (key) {
       var el = info.counters[key]; if (!el) return;
       odometer(el.querySelector(".num"), key, info.numbers[key]);
-      var flip = { days: "days", countries: "countries", climb: "climb", log: "cards" }[key];
+      var flip = { days: "days", countries: "countries", climb: "climb" }[key];
       if (flip && (flip !== "climb" || ctx.elevation) && (flip !== "countries" || (ctx.countries && ctx.countries.length))) {
         el.classList.add("clickable"); el.setAttribute("role", "button"); el.tabIndex = 0;
         el.addEventListener("click", function () { openFlip(flip, el); });

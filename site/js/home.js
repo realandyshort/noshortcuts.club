@@ -36,6 +36,45 @@
     return (L.posted || "POSTED") + " " + days + " " + (L.ago || "DAYS AGO");
   }
 
+  // One day as a card: photo (live post, else the archive), DAY n, title, plan/ridden stats, the caption
+  // or the plan's notes, and a Travel button. Used by the days mosaic (banner.js) when a tile is opened.
+  // The archive for that day is fetched on the spot; the card fills in when it arrives.
+  function dayCard(ctx, n, opts) {
+    opts = opts || {};
+    var c = ctx.config, plan = ctx.plan, el = ctx.el, scrub = c.showDates ? function (t) { return t || ""; } : Trip.scrubDates;
+    var dd = plan.days[n - 1], F = c.copy.flips || {}, L = c.copy.latest || {};
+    var ph = el("div", { class: "photo" }), words = el("div", { class: "words" });
+    var card = el("div", { class: "card day-card open" }, [ph, words]);
+    function fill(archive) {
+      ph.textContent = ""; words.textContent = "";
+      var p0 = photoFor(ctx, n, archive);
+      if (p0) ph.appendChild(el("a", { href: p0.link || "#", target: "_blank", rel: "noopener" }, [el("img", { src: p0.url, alt: scrub(p0.caption).slice(0, 80) || ("Day " + n) })]));
+      else ph.appendChild(ctx.photoPlaceholder("", true));
+      var rides = ctx.connected("rides") && ctx.ok("rides") && ctx.data.rides && ctx.data.rides.days ? ctx.data.rides.days : null;
+      var r = rides ? Trip.rideForDay(plan, rides, n) : (archive && archive.ride) || null;
+      var stats = el("div", { class: "stats" });
+      if (dd.plan_miles > 0) stats.appendChild(el("span", { text: (L.plan || "PLAN") + " " + Math.round(dd.plan_miles) + " MI" }));
+      if (r) stats.appendChild(el("span", { text: (L.rode || "RODE") + " " + Math.round(r.miles) + " MI" }));
+      var cl = r ? r.climb_ft : dd.plan_climb_ft;
+      if (cl > 0) stats.appendChild(el("span", { text: (L.climb || "CLIMB") + " " + Trip.fmtInt(cl) + " FT" }));
+      var h3 = el("h3"); h3.appendChild(titleNode(Trip.dayTitle(dd)));
+      words.appendChild(el("span", { class: "mono", text: "DAY " + n + (dd.section ? " · SEGMENT " + dd.section : "") }));
+      words.appendChild(h3); words.appendChild(stats);
+      var text = p0 && p0.caption ? scrub(p0.caption) : scrub(dd.notes || "");
+      if (text) words.appendChild(el("p", { class: "blurb", text: text.length > 320 ? text.slice(0, 317) + "…" : text }));
+      var disp = archive && archive.dispatches && archive.dispatches[0];
+      if (disp && disp.title) words.appendChild(el("span", { class: "mono", text: (c.copy.dispatch.kicker || "DISPATCH") + " · " + scrub(disp.title).toUpperCase() }));
+      var row = el("div", { class: "row" });
+      if (opts.onTravel && n !== ctx.day) { var tb = el("button", { type: "button", class: "btn btn-small btn-persimmon", text: F.travel || "Travel to this day" }); tb.addEventListener("click", function () { opts.onTravel(n); }); row.appendChild(tb); }
+      if (opts.onClose) { var cb = el("button", { type: "button", class: "btn btn-small btn-outline-cream", text: F.closeDay || "Close" }); cb.addEventListener("click", function () { opts.onClose(); }); row.appendChild(cb); }
+      words.appendChild(row);
+    }
+    fill(null);
+    if (!(ctx.live && n === ctx.todayClamped)) ctx.archive(n).then(function (a) { if (a && card.isConnected) fill(a); }).catch(function () {});
+    return card;
+  }
+  window.Home = { dayCard: dayCard };
+
   function render(ctx) {
     var seq = ++renderSeq;
     var c = ctx.config, plan = ctx.plan;
@@ -88,6 +127,7 @@
       var px = (m[0] - vb.x) / vb.width * r.width, py = (m[1] - vb.y) / vb.height * r.height;
       markerBox.style.left = px + "px"; markerBox.style.top = py + "px";
       markerBox.classList.toggle("flip", px > r.width * 0.72);
+      markerBox.classList.toggle("live", !!posOK);   // the tracker's own position: a pulsing ring says "live"
       markerBox.hidden = false;
     }
     placeEl.textContent = posOK ? [pos.place, pos.country].filter(Boolean).join(", ").toUpperCase() : (d.to || "").toUpperCase();
@@ -118,9 +158,6 @@
     counter("climb", Trip.fmtInt(climb), "", (ridden ? (L.climb || "FT CLIMBED") : (L.climbPlan || "FT CLIMBED · PLAN")) + " · " + everests + " " + (L.everests || "EVERESTS"));
     if (posOK && pos.plan_day_at_position) counter("vsPlan", Trip.fmtSigned(pos.plan_day_at_position - day), "", L.vsPlan || "DAYS VS. THE PLAN");
     else if (!live) counter("vsPlan", "±0", "", L.vsPlan || "DAYS VS. THE PLAN");
-    // The day log: the last few days as cards, opened from a counter like the others (banner.js flips it)
-    var cardCount = Math.min(day, Math.max(1, Math.min(12, Number(c.home.dayCards) || 5)));
-    counter("log", String(cardCount), "", L.log || "DAY LOG · THE LAST FEW");
     document.getElementById("banner-note").textContent = showMarker && !travelling ? (c.home.positionNote || "") : "";
 
     /* ---- Latest photo (today: newest post; another day: that day's photo) ---- */
@@ -210,7 +247,7 @@
     if (mapOK) window.SiteMap.draw(document.getElementById("map"), {
       americas: ctx.americas, route: ctx.route.points, fraction: fraction,
       position: posOK ? [pos.lat, pos.lon] : (!live ? ((archive && archive.position) ? [archive.position.lat, archive.position.lon] : Trip.pointAtFraction(ctx.route.points, fraction)) : null),
-      positionLabel: posOK ? (pos.place || "") : (!live ? ((archive && archive.position && archive.position.place) || d.to) : ""), copy: c.copy.map || {}, legend: document.getElementById("map-legend"), note: showMarker && !travelling ? c.home.positionNote : ""
+      positionLabel: posOK ? (pos.place || "") : (!live ? ((archive && archive.position && archive.position.place) || d.to) : ""), live: !!posOK, copy: c.copy.map || {}, legend: document.getElementById("map-legend"), note: showMarker && !travelling ? c.home.positionNote : ""
     });
     if (dispOK || archDisp) renderDispatch(ctx, dispatch, scrub, archDisp, day);
 
@@ -243,27 +280,6 @@
       sub.textContent = S.placeholder || ""; sub.hidden = !sub.textContent;
       ex.textContent = ""; ex.hidden = true;
       readBtn.textContent = S.follow || "Follow on Substack";
-    }
-
-    /* ---- The days ---- */
-    var cards = document.getElementById("day-cards"); cards.textContent = "";
-    var count = Math.max(1, Math.min(12, Number(c.home.dayCards) || 5));
-    var first = Math.max(1, day - count + 1);
-    for (var n = first; n <= day; n++) {
-      var dd = plan.days[n - 1], p0 = photoFor(ctx, n, archives[n]);
-      var ph = el("div", { class: "photo" });
-      if (p0) ph.appendChild(el("img", { src: p0.url, alt: scrub(p0.caption).slice(0, 80) || ("Day " + n) }));
-      else ph.appendChild(ctx.photoPlaceholder("", true));
-      var r = rides ? Trip.rideForDay(plan, rides, n) : (archives[n] && archives[n].ride) || null;
-      var stats = el("div", { class: "stats" });
-      if (dd.plan_miles > 0) stats.appendChild(el("span", { text: (c.copy.latest.plan || "PLAN") + " " + Math.round(dd.plan_miles) + " MI" }));
-      if (r) stats.appendChild(el("span", { text: (c.copy.latest.rode || "RODE") + " " + Math.round(r.miles) + " MI" }));
-      var cl = r ? r.climb_ft : dd.plan_climb_ft;
-      if (cl > 0) stats.appendChild(el("span", { text: (c.copy.latest.climb || "CLIMB") + " " + Trip.fmtInt(cl) + " FT" }));
-      var h3 = el("h3"); h3.appendChild(titleNode(Trip.dayTitle(dd)));
-      var card = el("a", { class: "card day-card", href: p0 && p0.link ? p0.link : "#", target: p0 && p0.link ? "_blank" : null, rel: "noopener" }, [ph, el("span", { class: "mono", text: "DAY " + n }), h3, stats]);
-      if (!(p0 && p0.link)) (function (dayN) { card.addEventListener("click", function (e) { e.preventDefault(); ctx.setDay(dayN); window.scrollTo({ top: 0, behavior: "smooth" }); }); })(n);
-      cards.appendChild(card);
     }
 
     /* ---- Videos (off by default) ---- */
