@@ -178,21 +178,25 @@
     show(box);
   }
 
-  // MILES: the road so far. A bar of the six segments (widths by planned miles) filled to the miles
-  // ridden, the same distance in other units, and what it amounts to (config home.milesCompare).
+  // MILES: the road so far. Left: the numbers, a bar of the six segments (widths by planned miles)
+  // filled to the miles ridden, and a legend. Right: one big globe, sized to the stage so the black
+  // section keeps its usual height. Tap the bar or anywhere round the globe to travel to that point.
   function showMiles() {
     var ctx = state.ctx, plan = ctx.plan, c = ctx.config, box = document.getElementById("flip-miles"), L = c.copy.miles || {}, el = ctx.el;
     if (!box) return;
     var miles = Number(state.info && state.info.miles) || 0, ridden = !!(state.info && state.info.milesRidden);
     var total = plan.totals && plan.totals.miles ? plan.totals.miles : Trip.totalMiles(plan), frac = total ? Math.min(1, miles / total) : 0;
     box.textContent = "";
+    var left = el("div", { class: "miles-left" });
     var head = el("div", { class: "miles-head" }, [
       el("div", { class: "big" }, [el("span", { class: "num", text: Trip.fmtInt(Math.round(miles)) }), el("span", { class: "lbl", text: ridden ? (L.ridden || "MILES RIDDEN") : (L.plan || "MILES · PLAN") })]),
       el("div", { class: "big" }, [el("span", { class: "num", text: Trip.fmtInt(Math.round(miles * 1.609344)) }), el("span", { class: "lbl", text: L.km || "KILOMETRES" })]),
       el("div", { class: "big" }, [el("span", { class: "num", text: (frac * 100).toFixed(1) + "%" }), el("span", { class: "lbl", text: L.ofRoad || "OF THE ROAD" })]),
       el("div", { class: "big" }, [el("span", { class: "num", text: Trip.fmtInt(Math.round(Math.max(0, total - miles))) }), el("span", { class: "lbl", text: (L.left || "TO GO") + " · " + Trip.fmtInt(Math.round(total)) + " MI" })])
     ]);
-    box.appendChild(head);
+    left.appendChild(head);
+    // the day whose planned miles first reach a point of the road
+    function dayAtMiles(target) { var n = 1; for (var d = 1; d <= plan.days.length; d++) { n = d; if (Trip.plannedMilesThrough(plan, d) >= target) break; } return n; }
     // the bar: one block per segment, as wide as its share of the road, filled left to right
     var secs = []; plan.days.forEach(function (d) { var s = secs[secs.length - 1]; if (!s || s.n !== d.section) secs.push({ n: d.section, miles: 0 }); secs[secs.length - 1].miles += Number(d.plan_miles) || 0; });
     var bar = el("div", { class: "miles-bar" }), run = 0;
@@ -204,14 +208,15 @@
     });
     bar.title = L.barHint || "Tap the bar to travel to that point of the road";
     bar.addEventListener("click", function (e) {
-      var r = bar.getBoundingClientRect(), target = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * total, n = 1;
-      for (var d = 1; d <= plan.days.length; d++) { n = d; if (Trip.plannedMilesThrough(plan, d) >= target) break; }
-      travelTo(n);                                       // the re-render brings this view back with the new numbers
+      var r = bar.getBoundingClientRect();
+      travelTo(dayAtMiles(Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * total));   // the re-render brings this view back with the new numbers
     });
-    box.appendChild(bar);
-    // which is: one big globe. The same sweep (how far round the equator the miles reach, this lap) is
-    // drawn three ways: a solid arc round the globe, a ring of runners (marathons) and, outside that, a
-    // ring of people holding hands. The rest of each ring is faint. The legend beside it has the numbers.
+    left.appendChild(bar);
+    box.appendChild(left);
+    // which is: one big globe. The same sweep (how far round the equator the miles reach) is drawn three
+    // ways: a solid arc round the globe, a ring of runners (marathons) and, outside that, a ring of people
+    // holding hands. The rest of each ring is faint. Past one full lap the arc and the figures peel away
+    // from their ring and carry on round as a spiral, so more than one lap reads as more than one lap.
     var ICONS = {
       globe: "M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0-18 0M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18M5 7.5h14M5 16.5h14",
       runner: "M14 4a1.5 1.5 0 1 0 0.01 0M7 21l3-6 3 2 2 4M10 15l-1-4 4-3 3 2 3-1M13 8l-2 5",
@@ -220,34 +225,59 @@
     var cmp = (c.home.milesCompare || []).map(function (x) { return { label: x.label, icon: x.icon || "person", miles: Number(x.miles) > 0 ? Number(x.miles) : Number(x.feet) > 0 ? Number(x.feet) / 5280 : 0 }; }).filter(function (x) { return x.miles > 0; });
     var eq = cmp.filter(function (x) { return x.icon === "globe"; })[0], rings = cmp.filter(function (x) { return x.icon !== "globe"; });
     if (eq) {
-      var laps = miles / eq.miles, sweep = laps - Math.floor(laps), S = 560, CX = S / 2, CY = S / 2;
+      var laps = miles / eq.miles, extra = Math.max(0, laps - 1), sweep = Math.min(laps, 1);
+      // how far a ring stands out from its circle at l laps: nothing through the first lap, then a quick
+      // peel (JUMP over the first 8% of the next lap, so a few days past a lap already show) plus a steady
+      // PITCH per lap, one ring-set out, so a second lap never lands on another ring's first
+      var JUMP = 16, PITCH = 150;
+      function grow(l) { var x = Math.max(0, l - 1), s = Math.min(1, x / 0.08); return JUMP * s * s * (3 - 2 * s) + PITCH * x; }
+      var R0 = [140, 190, 240], S = Math.ceil(2 * (R0[2] + grow(laps) + 22)), CX = S / 2, CY = S / 2;
       var svg = document.createElementNS(NS, "svg"); svg.setAttribute("viewBox", "0 0 " + S + " " + S); svg.setAttribute("class", "big-globe");
       function sv(name, attrs) { var e = document.createElementNS(NS, name); Object.keys(attrs).forEach(function (k) { e.setAttribute(k, attrs[k]); }); return e; }
+      function at(l, a, R) { var r = R + grow(l), rad = (a - 90) * Math.PI / 180; return [CX + r * Math.cos(rad), CY + r * Math.sin(rad)]; }
       // the globe itself
       var gl = sv("g", { transform: "translate(" + (CX - 96) + " " + (CY - 96) + ") scale(8)", "class": "globe-lines" }); gl.appendChild(sv("path", { d: ICONS.globe })); svg.appendChild(gl);
-      // ring 1: the equator, a solid arc
-      var R1 = 140, C1 = 2 * Math.PI * R1;
-      svg.appendChild(sv("circle", { cx: CX, cy: CY, r: R1, "class": "ring-bg" }));
-      svg.appendChild(sv("circle", { cx: CX, cy: CY, r: R1, "class": "ring-arc", "stroke-dasharray": (C1 * sweep).toFixed(2) + " " + C1.toFixed(2), transform: "rotate(-90 " + CX + " " + CY + ")" }));
-      // rings 2 and 3: figures along the circle, bright inside the sweep, faint beyond it
-      var radii = [190, 240], steps = [8, 6.5], scales = [1.05, 1.0];
+      // ring 1: the equator. A faint full circle, and the solid arc: round the circle for the first lap, spiralling out after it
+      svg.appendChild(sv("circle", { cx: CX, cy: CY, r: R0[0], "class": "ring-bg" }));
+      if (laps > 0) {
+        var n = Math.max(2, Math.ceil(laps * 180)), pts = [];
+        for (var i = 0; i <= n; i++) { var l = laps * i / n, p = at(l, l * 360, R0[0]); pts.push(p[0].toFixed(1) + " " + p[1].toFixed(1)); }
+        svg.appendChild(sv("path", { d: "M" + pts.join(" L"), "class": "ring-arc" }));
+      }
+      // rings 2 and 3: figures round the circle, bright inside the sweep and faint beyond it; past one lap the bright figures carry on round the spiral
+      var steps = [8, 6.5], scales = [1.05, 1.0];
       rings.slice(0, 2).forEach(function (x, ri) {
-        var R = radii[ri], step = steps[ri], g = sv("g", { "class": "ring-icons r" + (ri + 1) });
-        for (var a = 0; a < 360; a += step) {
-          var on = a < sweep * 360 - 0.01, rad = (a - 90) * Math.PI / 180, px = CX + R * Math.cos(rad), py = CY + R * Math.sin(rad);
-          var rot = x.icon === "person" ? a : a + 90;        // people stand on the ring, hands along it; runners run along it
-          var ic = sv("g", { transform: "translate(" + px.toFixed(1) + " " + py.toFixed(1) + ") rotate(" + rot + ") scale(" + scales[ri] + ") translate(-12 -12)", "class": on ? "on" : "off" });
+        var R = R0[ri + 1], step = steps[ri], g = sv("g", { "class": "ring-icons r" + (ri + 1) });
+        function figure(l, a, on) {
+          var p = at(l, a, R), rot = x.icon === "person" ? a : a + 90;   // people stand on the ring, hands along it; runners run along it
+          var ic = sv("g", { transform: "translate(" + p[0].toFixed(1) + " " + p[1].toFixed(1) + ") rotate(" + rot + ") scale(" + scales[ri] + ") translate(-12 -12)", "class": on ? "on" : "off" });
           ic.appendChild(sv("path", { d: ICONS[x.icon] || ICONS.person })); g.appendChild(ic);
         }
+        for (var a = 0; a < 360; a += step) figure(a / 360, a, a < sweep * 360 - 0.01);
+        for (var b = 0; b < extra * 360 - 0.01; b += step) figure(1 + b / 360, b, true);
         svg.appendChild(g);
+      });
+      // tap round the globe: the angle picks a point of the lap; of the laps that point falls in, the one nearest to where the ride is
+      var t = document.createElementNS(NS, "title"); t.textContent = L.globeHint || L.barHint || "Tap round the globe to travel to that point of the road"; svg.appendChild(t);
+      svg.setAttribute("role", "button"); svg.setAttribute("tabindex", "0"); svg.setAttribute("aria-label", t.textContent);
+      svg.addEventListener("click", function (e) {
+        var r = svg.getBoundingClientRect(), x = e.clientX - (r.left + r.width / 2), y = e.clientY - (r.top + r.height / 2);
+        if (!r.width || (x * x + y * y) < 1) return;
+        var f = ((Math.atan2(y, x) * 180 / Math.PI + 90 + 360) % 360) / 360, best = null;
+        for (var k = 0; (k + f) * eq.miles <= total; k++) { var m = (k + f) * eq.miles; if (best === null || Math.abs(m - miles) < Math.abs(best - miles)) best = m; }
+        if (best !== null) travelTo(dayAtMiles(best));
       });
       // the legend: the numbers, one per ring, in the ring's colour
       var legend = el("div", { class: "globe-legend" });
       function row(cls, num, label, note) { legend.appendChild(el("div", { class: "lg " + cls }, [el("i"), el("div", {}, [el("b", { text: num }), el("span", { class: "lbl", text: label }), note ? el("span", { class: "mono note", text: note }) : null])])); }
-      row("eq", laps >= 10 ? laps.toFixed(1) : laps.toFixed(2), eq.label, Math.round(sweep * 100) + "% " + (L.lap || "OF THE WAY ROUND") + (laps >= 1 ? " · " + Math.floor(laps) + (Math.floor(laps) === 1 ? " LAP DONE" : " LAPS DONE") : ""));
+      var done = Math.floor(laps), lapNote = done >= 1
+        ? done + " " + (done === 1 ? (L.lapDone || "LAP DONE") : (L.lapsDone || "LAPS DONE")) + " · " + Math.round(extra * 100) + "% " + (L.lapNext || "INTO LAP {n}").replace("{n}", done + 1)
+        : Math.round(sweep * 100) + "% " + (L.lap || "OF THE WAY ROUND");
+      row("eq", laps >= 10 ? laps.toFixed(1) : laps.toFixed(2), eq.label, lapNote);
       rings.slice(0, 2).forEach(function (x, ri) { var n = miles / x.miles; row("r" + (ri + 1), n >= 100 ? Trip.fmtInt(Math.round(n)) : n >= 10 ? n.toFixed(1) : n.toFixed(2), x.label, null); });
-      box.appendChild(el("p", { class: "kicker", text: L.compare || "WHICH IS" }));
-      box.appendChild(el("div", { class: "globe-info" }, [legend, svg]));
+      left.appendChild(el("p", { class: "kicker", text: L.compare || "WHICH IS" }));
+      left.appendChild(legend);
+      box.appendChild(svg);
     }
     setHint((c.copy.flips.miles || "THE ROAD SO FAR") + " · DAY " + ctx.day);
     show(box);

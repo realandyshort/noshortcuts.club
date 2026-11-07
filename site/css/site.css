@@ -293,12 +293,12 @@ body.has-strip { padding-bottom: 2.2rem; }
   .dispatch-cover { min-height: 0; aspect-ratio: 16 / 9; }
   .dispatch-cover video { max-height: none; }
   /* (written with .flip-miles in front: the globe rules sit later in the file) */
-  .flip-miles .globe-info { grid-template-columns: 1fr; gap: 0.8rem; }
+  .banner-route .flip-miles { grid-template-columns: 1fr; }
   .flip-miles .globe-legend { flex-direction: row; flex-wrap: wrap; gap: 0.8rem 1.4rem; }
   .flip-miles .globe-legend .lg { flex: 1 1 40%; }
   .flip-miles .globe-legend b { font-size: 1.3rem; }
-  .flip-miles .big-globe { width: 100%; }
-  .miles-head { gap: 1rem 1.6rem; }
+  .flip-miles .big-globe { width: min(100%, 440px); height: auto; margin: 0.4rem auto 0; }
+  .miles-head { gap: 0.6rem 1.6rem; }
   .substack-cover { min-height: 0; aspect-ratio: 16 / 9; }
     .counters { grid-template-columns: repeat(3, 1fr); }
   /* One column: map, the photo, its words right under it, then the next-up box */
@@ -408,15 +408,18 @@ body.has-strip { padding-bottom: 2.2rem; }
 .banner-route.mode-days #banner-line, .banner-route.mode-days .marker, .banner-route.mode-days .banner-countries { position: absolute; inset: 0; height: 100%; }
 .banner-route.mode-days .flip-days.on { position: relative; inset: auto; }
 .banner-route.mode-days #banner-line { opacity: 0; }
-/* The miles flip: three big numbers, the segment bar, units and comparisons */
-.flip-miles { display: flex; flex-direction: column; justify-content: center; gap: 1rem; padding: 0.6rem var(--gutter); }
+/* The miles flip. Two columns: the numbers, the segment bar and the legend on the left; one big globe on
+   the right, as tall as the stage normally is, so this view never makes the black section taller (phones
+   stack the two and the stage grows, as the mosaic does) */
+.flip-miles { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.8rem 2rem; padding: 0.6rem var(--gutter); }
+.miles-left { display: flex; flex-direction: column; gap: 0.7rem; min-width: 0; }
 .banner-route.mode-miles { height: auto; min-height: var(--banner-height); }
 .banner-route.mode-miles #banner-line, .banner-route.mode-miles .marker, .banner-route.mode-miles .banner-countries { position: absolute; inset: 0; height: 100%; }
 .banner-route.mode-miles .flip-miles.on { position: relative; inset: auto; }
 .banner-route.flipped.mode-miles #banner-line { opacity: 0; }
-.miles-head { display: flex; gap: 2rem 3rem; flex-wrap: wrap; }
+.miles-head { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1.5rem; }
 .miles-head .big { display: flex; flex-direction: column; }
-.miles-head .num { font-family: var(--font-mono); font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 500; color: var(--persimmon); line-height: 1.05; }
+.miles-head .num { font-family: var(--font-mono); font-size: clamp(1.3rem, 2.2vw, 1.9rem); font-weight: 500; color: var(--persimmon); line-height: 1.05; }
 .miles-head .big:nth-child(n+2) .num { color: var(--cream); }
 .miles-head .lbl { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--peach); margin-top: 0.25rem; }
 .miles-bar { display: flex; gap: 3px; width: 100%; }
@@ -425,9 +428,9 @@ body.has-strip { padding-bottom: 2.2rem; }
 .miles-bar .seg .mono { position: absolute; left: 0.5em; top: 50%; transform: translateY(-50%); font-size: 0.56rem; color: var(--cream); white-space: nowrap; }
 .miles-bar .seg.done .mono { color: var(--ink); }
 .flip-miles .kicker { color: var(--peach); margin: 0.2rem 0 -0.4rem; }
-/* which is: one big globe with three rings, the numbers beside it (never under it: the legend column is fixed) */
-.globe-info { display: grid; grid-template-columns: minmax(200px, 300px) minmax(0, 1fr); gap: 1rem 2.5rem; align-items: center; }
-.big-globe { width: min(100%, 560px); height: auto; display: block; margin: 0 auto; overflow: visible; }
+/* which is: one big globe with three rings, sized by height to the stage; tap round it to travel */
+.big-globe { height: calc(var(--banner-height) - 1.2rem); width: auto; max-width: 100%; display: block; overflow: visible; cursor: pointer; outline: none; }
+.big-globe:focus-visible .ring-bg { stroke: rgba(251, 233, 215, 0.3); }
 .big-globe .globe-lines path { fill: none; stroke: var(--cream); stroke-width: 0.9; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; }
 .big-globe .ring-bg { fill: none; stroke: rgba(251, 233, 215, 0.14); stroke-width: 12; }
 .big-globe .ring-arc { fill: none; stroke: var(--persimmon); stroke-width: 12; stroke-linecap: round; }
@@ -435,16 +438,16 @@ body.has-strip { padding-bottom: 2.2rem; }
 .big-globe .ring-icons.r1 .on path { stroke: var(--cream); }
 .big-globe .ring-icons.r2 .on path { stroke: var(--peach); }
 .big-globe .ring-icons .off path { stroke: var(--cream); opacity: 0.14; }
-.globe-legend { display: flex; flex-direction: column; gap: 1.1rem; min-width: 0; }
+.globe-legend { display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; }
 .globe-legend .lg { display: grid; grid-template-columns: 14px 1fr; gap: 0.7rem; align-items: start; min-width: 0; }
 .globe-legend .lg i { width: 14px; height: 14px; border-radius: 50%; margin-top: 0.55rem; }
 .globe-legend .eq i { background: var(--persimmon); }
 .globe-legend .r1 i { background: var(--cream); }
 .globe-legend .r2 i { background: var(--peach); }
-.globe-legend b { display: block; font-family: var(--font-mono); font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1.05; color: var(--cream); overflow-wrap: anywhere; }
+.globe-legend b { display: block; font-family: var(--font-mono); font-weight: 500; font-size: clamp(1.2rem, 2vw, 1.7rem); line-height: 1.05; color: var(--cream); overflow-wrap: anywhere; }
 .globe-legend .eq b { color: var(--persimmon); }
 .globe-legend .r2 b { color: var(--peach); }
-.globe-legend .lbl { display: block; font-size: 0.92rem; color: var(--cream); opacity: 0.9; margin-top: 0.15rem; }
+.globe-legend .lbl { display: block; font-size: 0.88rem; color: var(--cream); opacity: 0.9; margin-top: 0.15rem; }
 .globe-legend .note { display: block; color: var(--gray); font-size: 0.6rem; margin-top: 0.3rem; }
 .miles-bar { cursor: pointer; }
 .miles-bar .seg:hover { border-color: var(--cream); }

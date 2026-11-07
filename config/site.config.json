@@ -247,7 +247,11 @@
       "compare": "WHICH IS",
       "each": "EACH FIGURE",
       "lap": "OF THE WAY ROUND",
-      "barHint": "TAP THE BAR TO TRAVEL TO THAT POINT OF THE ROAD"
+      "lapDone": "LAP DONE",
+      "lapsDone": "LAPS DONE",
+      "lapNext": "INTO LAP {n}",
+      "barHint": "TAP THE BAR TO TRAVEL TO THAT POINT OF THE ROAD",
+      "globeHint": "TAP ROUND THE GLOBE TO TRAVEL TO THAT POINT OF THE ROAD"
     },
     "stats": {
       "kicker": "SECRET STATS",
