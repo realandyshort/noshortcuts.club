@@ -178,7 +178,7 @@
     var names = ["plan", "dispatches", "substack", "instagram", "videos", "rides", "position", "weather"];
     var strip = el("div", { class: "status-strip", role: "status" }, [el("b", { text: "TEST MODE · DAY " + ctx.day })]);
     names.forEach(function (n) { var s = ctx.state(n); strip.appendChild(el("span", { class: "s " + s, text: n + " " + s.replace("_", " ") })); });
-    strip.appendChild(el("span", { class: "s", text: "page morph " + (document.documentElement.getAttribute("data-morph") || ("CSSViewTransitionRule" in window ? "unknown" : "by hand")) }));
+    strip.appendChild(el("span", { class: "s", text: "page morph " + (document.documentElement.getAttribute("data-morph") || ("CSSViewTransitionRule" in window ? "unknown" : "by hand")) + (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches ? " · reduce motion is on" : "") }));
     strip.appendChild(el("a", { href: "test/", text: "test page" }));
     if (/\/test\/?$/.test(location.pathname)) strip.lastChild.remove();
     document.body.appendChild(strip);
