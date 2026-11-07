@@ -111,8 +111,8 @@
       var v = pick(c, node.getAttribute("data-config"));
       if (typeof v === "string") node.textContent = v;
     });
-    // Away from the home page the wordmark reads "No Shortcuts with Andy Short"
-    document.querySelectorAll(".wm-away").forEach(function (w) { w.hidden = (pageName === "home") || !(m.wordmarkAway || "").trim(); });
+    // The route, drawn small under the wordmark (every page but home, where the banner carries the name)
+    if (window.RouteLine && ctx.route && ctx.route.points) document.querySelectorAll(".wm-route").forEach(function (svg) { window.RouteLine.draw(svg, ctx.route.points, { strokePx: 1.4 }); });
     document.querySelectorAll("[data-href]").forEach(function (a) {
       var key = a.getAttribute("data-href"), href;
       if (key === "listen") href = ctx.listenHref();
@@ -206,7 +206,7 @@
     loads.push(quiet("data/plan.json"), quiet("data/meta.json"), quiet("data/status.json"), quiet("data/countries.json"), quiet("data/route_line.json"),
       quiet("data/dispatches.json"), quiet("data/instagram.json"), quiet("data/rides.json"), quiet("data/position.json"), quiet("data/weather.json"), quiet("data/videos.json"), quiet("data/substack.json"), quiet("data/photo_index.json"));
     if (document.body.hasAttribute("data-needs-map")) loads.push(quiet("data/americas.json"), quiet("data/calories.json"), quiet("data/countries_outlines.json"), quiet("data/route_elevation.json"), quiet("data/day_geo.json"), quiet("data/geo_live.json"), quiet("data/day_weather.json"), quiet("data/day_points.json"));
-  }
+  } else loads.push(quiet("data/route_line.json"));   // light pages still draw the route under the wordmark
 
   window.Site = ctx;
   ctx.ready = Promise.all(loads).then(function (r) {
@@ -224,7 +224,7 @@
       ctx.data.dayWeather = r[20] || null;
       ctx.dayPoints = r[21] || null;
       if (ctx.plan) decideDay();
-    }
+    } else ctx.route = r[1] || null;
     applyChrome();
     if (!light) statusStrip();
     return ctx;

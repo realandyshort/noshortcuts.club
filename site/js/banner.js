@@ -69,9 +69,10 @@
     document.querySelectorAll(".back-hint").forEach(function (b) { b.remove(); });
     if (!trigger) return;
     var text = state.ctx.config.copy.flips.close || "TAP AGAIN TO GO BACK TO THE ROUTE";
-    var hint = document.createElement("div"); hint.className = "back-hint"; hint.textContent = text;
+    var hint = document.createElement("button"); hint.type = "button"; hint.className = "back-hint"; hint.textContent = text;
+    hint.addEventListener("click", function (e) { e.stopPropagation(); closeFlip(); });   // stopPropagation: a counter's own click would reopen it
     if (trigger.classList.contains("counter")) trigger.appendChild(hint);
-    else { var right = document.querySelector(".banner-right"); if (right) right.appendChild(hint); }   // the mark: under the right-hand block
+    else { var sub = document.querySelector(".title-sub") || document.querySelector(".title"); if (sub) sub.insertAdjacentElement("afterend", hint); }   // the mark: under the title
   }
   function openFlip(name, trigger) {
     if (state.flip === name) { closeFlip(); return; }

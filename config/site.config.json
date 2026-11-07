@@ -35,9 +35,7 @@
     "about": "About"
   },
   "menu": {
-    "wordmark": "Andy",
-    "wordmarkEm": "Short",
-    "wordmarkAway": "No Shortcuts with",
+    "wordmarkWith": "with Andy Short",
     "home": "Home",
     "map": "Map",
     "routePlan": "Route plan",
@@ -221,7 +219,7 @@
       "days": "ONE TILE PER DAY · PHOTOS FILL IN AS THEY ARE POSTED",
       "countries": "COUNTRIES SO FAR",
       "climb": "THE ROAD, SIDE ON · HIGHEST POINT",
-      "close": "TAP AGAIN TO GO BACK TO THE ROUTE",
+      "close": "TAP HERE TO GO BACK TO THE ROUTE",
       "cards": "THE LAST FEW DAYS · TAP A CARD TO TRAVEL THERE"
     },
     "stats": {

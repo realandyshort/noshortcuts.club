@@ -53,7 +53,7 @@ Open `config/site.config.json` in any text editor. Keep the quotes and commas as
   following the route) and `zoomOutMax` (how many levels it may zoom out so a long day fits). `copy.map.ask*`
   is the "When will Andy be in ..." box and its answers (`{place}`, `{first}`, `{last}`, `{n}` fill in).
 - `home.counters.log` the label of the DAY LOG counter in the banner, which opens the last few days as cards.
-- `menu.*` the words in the header (Map, Route plan, About, and the Subscribe button). Map opens the full map page; Route plan opens the sheet at the tab of the segment being ridden (`plan.tabGids`, the number after `#gid=` in each tab's address).
+- `menu.*` the words in the header (Home, Map, Route plan, About, the Subscribe button, and `wordmarkWith`, the "with Andy Short" after the name, also the subtitle under the big title on the home page). Map opens the full map page; Route plan opens the sheet at the tab of the segment being ridden (`plan.tabGids`, the number after `#gid=` in each tab's address).
 - `countriesFade` timings of the country outlines fading in and out over the route, on the landing page and the home banner.
 - `signup.mode` how the email fields hand people to Substack: `subscribe` opens Substack's subscribe page with the address filled in; `direct` posts it straight to Substack's free-signup endpoint. `copy.signup.*` is the wording of the strip and the footer field.
 - `labels.*` the words on the coming-soon buttons (Listen, See, Consider, About).
