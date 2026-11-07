@@ -59,11 +59,11 @@
       "videos"
     ],
     "dayCards": 5,
-    "_milesCompare": "The MILES view's infographics: each is a label, the length of one (miles, or feet for small things), an icon (globe, runner or person) and 'each', how many one drawn icon stands for (the globe draws one big globe with the lap as an arc instead). people holding hands: 5.6 ft each, about the average adult arm span, fingertip to fingertip.",
+    "_milesCompare": "The MILES view's infographics: each is a label, the length of one (miles, or feet for small things), an icon (globe, runner or person) and 'each', how many one drawn icon stands for (the globe draws one big globe with the lap as an arc instead). people holding hands: 5.2 ft each, the average adult arm span (about 5.6 ft fingertip to fingertip) less the overlap where two hands clasp.",
     "milesCompare": [
       { "label": "laps of the equator", "miles": 24901, "icon": "globe" },
       { "label": "marathons", "miles": 26.2, "icon": "runner", "each": 10 },
-      { "label": "people holding hands, fingertip to fingertip", "feet": 5.6, "icon": "person", "each": 100000 }
+      { "label": "people holding hands in a line", "feet": 5.2, "icon": "person", "each": 100000 }
     ],
     "bannerHeight": "min(44vw, 420px)",
     "titleSize": "clamp(2.2rem, 5vw, 4.5rem)",
