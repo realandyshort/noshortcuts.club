@@ -545,7 +545,9 @@ body.has-strip { padding-bottom: 2.2rem; }
 .bigmap-intro p { margin: 0; max-width: 40em; color: var(--ink); }
 .bigmap-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .bigmap { position: relative; height: calc(var(--map-screens, 12) * 100vh); }
-.bigmap-view { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.bigmap-view { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+.bigmap-view.dragging { cursor: grabbing; }
+.bigmap-view .bigmap-controls, .bigmap-view .bigmap-totals, .bigmap-view .bigmap-bar { cursor: auto; user-select: text; -webkit-user-select: text; touch-action: auto; }
 .bigmap-view svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .bigmap-base .land { fill: var(--peach); stroke: none; }
 .bigmap-base .border { fill: none; stroke: var(--ink); stroke-opacity: 0.45; stroke-width: 1px; vector-effect: non-scaling-stroke; }
@@ -605,27 +607,33 @@ body.has-strip { padding-bottom: 2.2rem; }
 .bigmap-controls { position: absolute; right: var(--gutter); bottom: 1.2rem; display: flex; flex-direction: column; align-items: stretch; gap: 0; max-width: calc(100% - 2 * var(--gutter)); background: var(--cream); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.18); overflow: hidden; }
 .bigmap-controls > * + * { border-top: 1px solid var(--line); }
 .bigmap-ask { display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem 0.5rem; padding: 0.5rem 0.7rem; }
+.bigmap-controls .mono { font-size: 0.8rem; color: var(--ink); }
 .bigmap-ask .mono { color: var(--ink); }
-.bigmap-ask input { width: 11em; font: 500 0.85rem var(--font-body); padding: 0.35em 0.7em; border: 1px solid var(--ink); border-radius: 999px; background: #FFF8F0; min-width: 0; }
+.bigmap-ask input { width: 12em; font: 500 0.95rem var(--font-body); padding: 0.35em 0.7em; border: 1px solid var(--ink); border-radius: 999px; background: #FFF8F0; min-width: 0; }
 .bigmap-ask input:focus { outline: 2px solid var(--persimmon); outline-offset: 1px; }
-.bigmap-ask .btn { font-size: 0.78rem; padding: 0.4em 0.9em; }
-.bigmap-answer { flex: 1 1 100%; margin: 0.1rem 0 0.1rem; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--persimmon); max-width: 30em; }
-.bigmap-answer.none { color: var(--gray); }
+.bigmap-ask .btn { font-size: 0.85rem; padding: 0.45em 1em; }
+.bigmap-answer { flex: 1 1 100%; margin: 0.15rem 0 0.1rem; font: 500 0.95rem var(--font-body); color: var(--ink); max-width: 34em; line-height: 1.35; }
+.bigmap-answer.none { color: #5C5650; }
 .bigmap-segments { display: flex; align-items: center; gap: 0.3rem; padding: 0.45rem 0.7rem; }
 .bigmap-segments .mono { color: var(--ink); padding: 0 0.5rem 0 0; }
-.bigmap-segments .seg { font: 500 0.78rem var(--font-mono); width: 2em; height: 2em; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.bigmap-segrow { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; flex-wrap: wrap; padding-right: 0.7rem; }
+.bigmap-zoom { display: flex; align-items: center; gap: 0.35rem; }
+.bigmap-zoom .zoom { width: 2.1em; height: 2.1em; border-radius: 50%; border: 1px solid var(--ink); background: transparent; color: var(--ink); font: 600 1.05rem var(--font-body); line-height: 1; cursor: pointer; }
+.bigmap-zoom .zoom:hover { background: var(--ink); color: var(--cream); }
+.bigmap-zoom .btn { font-size: 0.8rem; padding: 0.4em 0.9em; margin-right: 0.4rem; }
+.bigmap-segments .seg { font: 500 0.85rem var(--font-mono); width: 2.1em; height: 2.1em; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
 .bigmap-segments .seg:hover { border-color: var(--persimmon); color: var(--persimmon); }
 .bigmap-segments .seg.active { background: var(--persimmon); border-color: var(--persimmon); color: var(--ink); }
 .bigmap-row { display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.6rem; flex-wrap: wrap; }
 .bigmap-row .btn { padding: 0.3em 0.75em; font-size: 1rem; line-height: 1; }
 .bigmap-slider { display: flex; align-items: center; gap: 0.5rem; }
-.bigmap-slider .mono { color: var(--ink); min-width: 9.5em; text-align: right; }
+.bigmap-slider .mono { color: var(--ink); min-width: 10.5em; text-align: right; }
 .bigmap-slider input { width: min(200px, 26vw); accent-color: var(--persimmon); }
 .bigmap-slider { flex: 1 1 auto; }
 .bigmap-slider input { flex: 1 1 auto; }
 .bigmap-goto { display: flex; align-items: center; gap: 0.4rem; margin-left: 0.3rem; padding-left: 0.6rem; border-left: 1px solid var(--line); }
 .bigmap-goto .mono { color: var(--ink); }
-.bigmap-goto input { width: 4.2em; font: 500 0.85rem var(--font-mono); padding: 0.3em 0.5em; border: 1px solid var(--ink); border-radius: 8px; background: #FFF8F0; }
+.bigmap-goto input { width: 4.2em; font: 500 0.95rem var(--font-mono); padding: 0.3em 0.5em; border: 1px solid var(--ink); border-radius: 8px; background: #FFF8F0; }
 .bigmap-goto .btn { font-size: 0.78rem; padding: 0.35em 0.8em; }
 .bigmap-hint { text-align: right; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--gray); margin: 0.6rem 0 0; text-transform: uppercase; }
 @media (max-width: 900px) {
@@ -643,6 +651,11 @@ body.has-strip { padding-bottom: 2.2rem; }
   .bigmap-controls { left: var(--gutter); right: var(--gutter); bottom: 0.6rem; max-width: none; border-radius: 14px; }
   .bigmap-ask { flex-wrap: nowrap; padding: 0.35rem 0.4rem 0.35rem 0.6rem; }
   .bigmap-segments { padding: 0.35rem 0.6rem; }
+  .bigmap-segrow { padding-right: 0.5rem; }
+  .bigmap-segments .seg { width: 1.9em; height: 1.9em; font-size: 0.78rem; }
+  .bigmap-zoom .mono { display: none; }
+  .bigmap-controls .mono { font-size: 0.7rem; }
+  .bigmap-answer { font-size: 0.85rem; }
   .bigmap-row { padding: 0.35rem 0.4rem; }
   .bigmap-ask .mono { display: none; }
   .bigmap-ask input { flex: 1 1 auto; width: auto; }

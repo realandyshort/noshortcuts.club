@@ -159,7 +159,9 @@
       "next": "Next day",
       "slider": "Day",
       "whole": "THE WHOLE ROAD · DEADHORSE TO USHUAIA",
-      "scrollHint": "SCROLL, OR USE THE BUTTONS AND THE SLIDER",
+      "scrollHint": "SCROLL TO FOLLOW THE ROUTE · DRAG TO LOOK AROUND · PINCH OR CTRL+SCROLL TO ZOOM",
+      "look": "Look around",
+      "backRoute": "Back to the route",
       "events": {
         "borders": "CROSSED INTO",
         "boats": "BOAT CROSSING",

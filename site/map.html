@@ -69,7 +69,14 @@
             <button class="btn btn-small btn-ink" type="submit" data-config="copy.map.askButton">Find</button>
             <p class="bigmap-answer" id="bigmap-answer" hidden></p>
           </form>
-          <div class="bigmap-segments" id="bigmap-segments"><span class="mono" id="bigmap-seg-label" data-config="copy.map.segmentsLabel">Segment</span></div>
+          <div class="bigmap-segrow"><div class="bigmap-segments" id="bigmap-segments"><span class="mono" id="bigmap-seg-label" data-config="copy.map.segmentsLabel">Segment</span></div>
+          <!-- look around: zoom out / in, and back to the route once the map has been dragged or zoomed -->
+          <div class="bigmap-zoom" id="bigmap-zoom">
+            <button class="btn btn-small btn-ink" type="button" id="bigmap-back-route" data-config="copy.map.backRoute" hidden>Back to the route</button>
+            <span class="mono" data-config="copy.map.look">Look around</span>
+            <button class="zoom" type="button" id="bigmap-zoom-out" aria-label="Zoom out">&minus;</button>
+            <button class="zoom" type="button" id="bigmap-zoom-in" aria-label="Zoom in">+</button>
+          </div></div>
           <div class="bigmap-row">
             <button class="btn btn-small btn-ink" type="button" id="bigmap-prev" aria-label="Previous day">&#8249;</button>
             <label class="bigmap-slider"><span class="mono" id="bigmap-slider-label">DAY 1</span><input type="range" id="bigmap-slider" min="1" max="543" value="1" step="1" aria-label="Day"></label>

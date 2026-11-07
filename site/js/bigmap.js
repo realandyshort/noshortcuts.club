@@ -13,8 +13,10 @@
    across the segment, a day to type, and a place to ask about ("when will Andy be in ..."), which
    scrolls to the first day there (a place that is not on the plan is looked up, config home.map.geocoder,
    and answered with the closest the ride comes to it). A scroll cue shows while the map is zoomed all the way out. The
-   browser's own scroll memory is switched off so the page always opens on the whole road. Honours
-   ?day=N. No dates. */
+   browser's own scroll memory is switched off so the page always opens on the whole road. Dragging
+   the map, pinching, ctrl+scroll or the − / + buttons look around freely (an offset and a zoom change
+   on top of the scroll camera); scrolling again, or "Back to the route", drops them. Honours ?day=N.
+   No dates. */
 (function () {
   "use strict";
   var Trip = window.Trip, NS = "http://www.w3.org/2000/svg";
@@ -30,7 +32,7 @@
   function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 
   var INTRO = 0.1;    // the first stretch of the scroll zooms in from the whole route
-  var state = { ctx: null, zoom: 8.8, f: 0, u: 1, shapes: null, tracks: null, detail: null, cam: null, far: true, day: 1, statCache: {}, tiles: {}, tileZ: -1, lastCam: null, anchors: null, builtZoom: null, hiDay: 0, dayPaths: {} };
+  var state = { ctx: null, zoom: 8.8, f: 0, u: 1, shapes: null, tracks: null, detail: null, cam: null, far: true, day: 1, statCache: {}, tiles: {}, tileZ: -1, lastCam: null, anchors: null, builtZoom: null, hiDay: 0, dayPaths: {}, free: null, lastF: -1 };
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";   // a reload or a return opens on the whole road, not wherever the scroll was
 
   // ---- the route as one line: the day tracks in order, straight lines where a day has none ----
@@ -299,6 +301,8 @@
       var g = (f - INTRO) / (1 - INTRO), pt = pointAt(g), q = proj(pt[0], pt[1]);
       cx = q[0]; cy = q[1]; zoom = zoomAt(g, Wpx, Hpx);
     }
+    if (state.free) { zoom = Math.max(2, Math.min(17, zoom + state.free.dz)); cx += state.free.dx; cy += state.free.dy; far = zoom < zN - 1.2; }   // looking around
+    state.view = { cx: cx, cy: cy, zoom: zoom, Wpx: Wpx, Hpx: Hpx };
     var s = Math.pow(2, zoom), W = Wpx / s, H = Hpx / s, u = 1 / s;
     // the marks and labels were drawn for one zoom; redraw them once the zoom has drifted (not while zoomed out, where they are hidden)
     if (!far && state.builtZoom != null && Math.abs(zoom - state.builtZoom) > 0.3) { state.u = u; state.builtZoom = zoom; build(ctx); }
@@ -350,6 +354,68 @@
     document.querySelectorAll("#bigmap-segments button").forEach(function (b) { b.classList.toggle("active", Number(b.getAttribute("data-section")) === sec); });
     var controls = document.getElementById("bigmap-controls"), h = controls ? controls.offsetHeight + "px" : "";
     if (controls && h !== state.controlsH) { state.controlsH = h; controls.parentNode.style.setProperty("--controls-h", h); }   // phones: the day box sits above the controls
+  }
+
+  // ---- looking around: drag to pan, pinch / ctrl+scroll / buttons to zoom; a scroll puts the route camera back ----
+  function setFree(dx, dy, dz) {
+    state.free = { dx: dx, dy: dy, dz: dz };
+    var bb = document.getElementById("bigmap-back-route"); if (bb) bb.hidden = false;
+    camera(state.f);
+  }
+  function clearFree() {
+    if (!state.free) return;
+    state.free = null;
+    var bb = document.getElementById("bigmap-back-route"); if (bb) bb.hidden = true;
+    camera(state.f);
+  }
+  function zoomBy(dz, px, py) {                         // zoom around a screen point (defaults to the middle)
+    var v = state.view; if (!v) return;
+    var f = state.free || { dx: 0, dy: 0, dz: 0 }, s0 = Math.pow(2, v.zoom), z1 = Math.max(2, Math.min(17, v.zoom + dz)), s1 = Math.pow(2, z1);
+    var ox = (px == null ? 0 : px - v.Wpx / 2), oy = (py == null ? 0 : py - v.Hpx / 2);
+    var wx = v.cx + ox / s0, wy = v.cy + oy / s0;        // the world point under the cursor stays put
+    var ncx = wx - ox / s1, ncy = wy - oy / s1;
+    setFree(f.dx + (ncx - v.cx), f.dy + (ncy - v.cy), f.dz + (z1 - v.zoom));
+  }
+  function wireLook() {
+    var view = document.querySelector(".bigmap-view"); if (!view) return;
+    function onUI(e) { return e.target.closest && e.target.closest(".bigmap-controls, .bigmap-totals, .bigmap-bar, .bigmap-cue"); }
+    view.addEventListener("wheel", function (e) {
+      if (!(e.ctrlKey || e.metaKey) || onUI(e)) return;   // a plain scroll follows the route; ctrl+scroll (a trackpad pinch) zooms
+      e.preventDefault();
+      var r = view.getBoundingClientRect();
+      zoomBy(-e.deltaY * 0.01, e.clientX - r.left, e.clientY - r.top);
+    }, { passive: false });
+    var pts = {}, pinch = null, dragged = false;
+    view.addEventListener("pointerdown", function (e) {
+      if (onUI(e) || (e.pointerType === "mouse" && e.button !== 0)) return;
+      pts[e.pointerId] = { x: e.clientX, y: e.clientY }; dragged = false;
+      var ids = Object.keys(pts);
+      if (ids.length === 2) { var a = pts[ids[0]], b = pts[ids[1]]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), zoom: state.view ? state.view.zoom : 0 }; }
+      view.setPointerCapture && view.setPointerCapture(e.pointerId);
+      view.classList.add("dragging");
+    });
+    view.addEventListener("pointermove", function (e) {
+      var p = pts[e.pointerId]; if (!p || !state.view) return;
+      var ids = Object.keys(pts), s = Math.pow(2, state.view.zoom), f = state.free || { dx: 0, dy: 0, dz: 0 };
+      if (ids.length >= 2 && pinch) {
+        p.x = e.clientX; p.y = e.clientY;
+        var a = pts[ids[0]], b = pts[ids[1]], d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d > 0 && pinch.d > 0) { var r = view.getBoundingClientRect(); zoomBy(Math.log(d / pinch.d) / Math.LN2 - (state.view.zoom - pinch.zoom), (a.x + b.x) / 2 - r.left, (a.y + b.y) / 2 - r.top); }
+        return;
+      }
+      var mx = e.clientX - p.x, my = e.clientY - p.y;
+      p.x = e.clientX; p.y = e.clientY;
+      if (e.pointerType === "touch" && !state.free && Math.abs(my) > Math.abs(mx)) return;   // a finger moving up or down scrolls the page (touch-action pan-y)
+      if (Math.abs(mx) + Math.abs(my) < 0.5) return;
+      dragged = true;
+      setFree(f.dx - mx / s, f.dy - my / s, f.dz);
+    });
+    function up(e) { delete pts[e.pointerId]; if (Object.keys(pts).length < 2) pinch = null; if (!Object.keys(pts).length) view.classList.remove("dragging"); }
+    view.addEventListener("pointerup", up); view.addEventListener("pointercancel", up);
+    var zi = document.getElementById("bigmap-zoom-in"), zo = document.getElementById("bigmap-zoom-out"), bb = document.getElementById("bigmap-back-route");
+    if (zi) zi.addEventListener("click", function () { zoomBy(0.7); });
+    if (zo) zo.addEventListener("click", function () { zoomBy(-0.7); });
+    if (bb) bb.addEventListener("click", clearFree);
   }
 
   function scrollFraction() {
@@ -476,7 +542,8 @@
     document.getElementById("bigmap-hint").textContent = (M.scrollHint || "SCROLL, OR USE THE BUTTONS AND THE SLIDER") + (tilesOn() && M.tiles ? " · " + M.tiles : "");
     resize();
     var ticking = false;
-    window.addEventListener("scroll", function () { if (ticking) return; ticking = true; requestAnimationFrame(function () { ticking = false; camera(scrollFraction()); }); }, { passive: true });
+    window.addEventListener("scroll", function () { if (ticking) return; ticking = true; requestAnimationFrame(function () { ticking = false; var f = scrollFraction(); if (state.free && Math.abs(f - state.lastF) > 0.0005) clearFree(); state.lastF = f; camera(f); }); }, { passive: true });
+    wireLook();
     var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(resize, 120); });
     if (ctx.params.has("day")) setTimeout(function () { scrollToDay(ctx.day, false); }, 300);
     else if (scrollFraction() > 0) scrollToFraction(0, false);   // whatever the browser remembered: open zoomed all the way out
