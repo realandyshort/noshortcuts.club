@@ -202,37 +202,48 @@
       seg.style.flexBasis = (w * 100).toFixed(3) + "%"; seg.title = "Segment " + s.n + " · " + Trip.fmtInt(Math.round(s.miles)) + " mi";
       bar.appendChild(seg); run += s.miles;
     });
+    bar.title = L.barHint || "Tap the bar to travel to that point of the road";
+    bar.addEventListener("click", function (e) {
+      var r = bar.getBoundingClientRect(), target = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * total, n = 1;
+      for (var d = 1; d <= plan.days.length; d++) { n = d; if (Trip.plannedMilesThrough(plan, d) >= target) break; }
+      travelTo(n);                                       // the re-render brings this view back with the new numbers
+    });
     box.appendChild(bar);
-    // which is: infographics. Each comparison is a pictogram strip, one icon per unit (1, 10, 100 ... so
-    // the strip stays under about forty icons), the last one cut to the fraction, with the big number.
+    // which is: infographics, one row each. The globe is one big globe with the lap drawn as an arc
+    // round it; the others are a chain of big figures, each standing for a fixed number (config "each",
+    // so the chain visibly grows day by day), the last figure cut to the fraction.
     var ICONS = {
-      globe: "M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0-18 0M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18",
+      globe: "M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0-18 0M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18M5 7.5h14M5 16.5h14",
       runner: "M14 4a1.5 1.5 0 1 0 0.01 0M7 21l3-6 3 2 2 4M10 15l-1-4 4-3 3 2 3-1M13 8l-2 5",
       person: "M12 5a2 2 0 1 0 0.01 0M12 9v6M2 11h20M12 15l-3 6M12 15l3 6"
     };
     function icon(name, cls) { var sv = document.createElementNS(NS, "svg"); sv.setAttribute("viewBox", "0 0 24 24"); sv.setAttribute("class", cls || ""); var p = document.createElementNS(NS, "path"); p.setAttribute("d", ICONS[name] || ICONS.person); sv.appendChild(p); return sv; }
-    var cmp = (c.home.milesCompare || []).map(function (x) { return { label: x.label, icon: x.icon || "person", miles: Number(x.miles) > 0 ? Number(x.miles) : Number(x.feet) > 0 ? Number(x.feet) / 5280 : 0 }; }).filter(function (x) { return x.miles > 0; });
+    var cmp = (c.home.milesCompare || []).map(function (x) { return { label: x.label, icon: x.icon || "person", each: Number(x.each) > 0 ? Number(x.each) : 1, miles: Number(x.miles) > 0 ? Number(x.miles) : Number(x.feet) > 0 ? Number(x.feet) / 5280 : 0 }; }).filter(function (x) { return x.miles > 0; });
     if (cmp.length) {
-      var grid = el("div", { class: "miles-info" });
-      cmp.forEach(function (x) {
-        var count = miles / x.miles, step = 1;
-        while (count / step > 40) step *= 10;
-        var full = Math.floor(count / step), part = count / step - full;
-        var shown = count >= 100 ? Trip.fmtInt(Math.round(count)) : count >= 10 ? count.toFixed(1) : count.toFixed(2);
-        var strip = el("div", { class: "picto" });
-        for (var i = 0; i < full; i++) strip.appendChild(icon(x.icon, "i"));
-        if (part > 0.02) { var pw = el("span", { class: "i part", style: "--p:" + (part * 100).toFixed(1) + "%" }); pw.appendChild(icon(x.icon)); strip.appendChild(pw); }
-        if (!full && part <= 0.02) strip.appendChild(el("span", { class: "i ghost" }, [icon(x.icon)]));
-        var card = el("div", { class: "info" }, [
-          el("div", { class: "top" }, [icon(x.icon, "big"), el("b", { text: shown })]),
-          el("span", { class: "lbl", text: x.label }),
-          strip,
-          el("span", { class: "mono key", text: (L.each || "EACH") + " = " + (step === 1 ? "1" : Trip.fmtInt(step)) })
-        ]);
-        grid.appendChild(card);
-      });
       box.appendChild(el("p", { class: "kicker", text: L.compare || "WHICH IS" }));
-      box.appendChild(grid);
+      cmp.forEach(function (x) {
+        var count = miles / x.miles;
+        var shown = count >= 100 ? Trip.fmtInt(Math.round(count)) : count >= 10 ? count.toFixed(1) : count.toFixed(2);
+        var head = el("div", { class: "lead" }, [el("b", { text: shown }), el("span", { class: "lbl", text: x.label })]);
+        var viz;
+        if (x.icon === "globe") {
+          // one big globe; the fraction of the current lap as an arc round it (full laps as a count)
+          var frac2 = count - Math.floor(count), R = 46, C = 2 * Math.PI * R, g = document.createElementNS(NS, "svg");
+          g.setAttribute("viewBox", "0 0 110 110"); g.setAttribute("class", "globe");
+          var ring = document.createElementNS(NS, "circle"); ring.setAttribute("cx", 55); ring.setAttribute("cy", 55); ring.setAttribute("r", R); ring.setAttribute("class", "ring"); g.appendChild(ring);
+          var arc = document.createElementNS(NS, "circle"); arc.setAttribute("cx", 55); arc.setAttribute("cy", 55); arc.setAttribute("r", R); arc.setAttribute("class", "arc");
+          arc.setAttribute("stroke-dasharray", (C * frac2).toFixed(2) + " " + C.toFixed(2)); arc.setAttribute("transform", "rotate(-90 55 55)"); g.appendChild(arc);
+          var gi = document.createElementNS(NS, "g"); gi.setAttribute("transform", "translate(29 29) scale(2.17)"); var gp = document.createElementNS(NS, "path"); gp.setAttribute("d", ICONS.globe); gi.appendChild(gp); g.appendChild(gi);
+          viz = el("div", { class: "viz globe-viz" }, [g, el("span", { class: "mono key", text: Math.round(frac2 * 100) + "% " + (L.lap || "OF THE WAY ROUND") + (count >= 1 ? " · " + Math.floor(count) + " " + (Math.floor(count) === 1 ? "LAP" : "LAPS") + " DONE" : "") })]);
+        } else {
+          var full = Math.floor(count / x.each), part = count / x.each - full, strip = el("div", { class: "chain" });
+          for (var i = 0; i < full; i++) strip.appendChild(icon(x.icon, "i"));
+          if (part > 0.03) { var pw = el("span", { class: "i part", style: "--p:" + (part * 100).toFixed(1) + "%" }); pw.appendChild(icon(x.icon)); strip.appendChild(pw); }
+          if (!full && part <= 0.03) strip.appendChild(el("span", { class: "i ghost" }, [icon(x.icon)]));
+          viz = el("div", { class: "viz" }, [strip, el("span", { class: "mono key", text: (L.each || "EACH FIGURE") + " = " + (x.each === 1 ? "1" : Trip.fmtInt(x.each)) })]);
+        }
+        box.appendChild(el("div", { class: "info" }, [head, viz]));
+      });
     }
     setHint((c.copy.flips.miles || "THE ROAD SO FAR") + " · DAY " + ctx.day);
     show(box);
