@@ -30,6 +30,14 @@ img { max-width: 100%; display: block; }
 em { font-style: italic; color: var(--persimmon); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
+/* Page to page: the home banner shrinks into the small black bar, the big title into the wordmark
+   (cross-document view transitions, where the browser has them; elsewhere a plain page change) */
+@view-transition { navigation: auto; }
+.banner, .site-header { view-transition-name: chrome; }
+.title, .wordmark { view-transition-name: name; }
+::view-transition-group(*) { animation-duration: 0.45s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+::view-transition-old(name), ::view-transition-new(name) { height: 100%; object-fit: contain; }
+
 /* Header */
 .site-header { background: var(--ink); color: var(--cream); }
 .site-header .wrap { display: flex; align-items: center; gap: 1.5rem; min-height: 72px; }
@@ -90,8 +98,8 @@ em { font-style: italic; color: var(--persimmon); }
 .section[data-section="substack"] { padding-top: 0.6rem; }
 .substack-card { display: grid; grid-template-columns: minmax(200px, 2fr) 3fr; text-decoration: none; color: var(--ink); }
 .substack-card:hover .btn-ink { background: var(--persimmon); color: var(--ink); }
-.substack-cover { background: var(--peach); min-height: 220px; display: grid; place-items: center; }
-.substack-cover img { width: 100%; height: 100%; object-fit: cover; }
+.substack-cover { position: relative; background: var(--peach); min-height: 220px; display: grid; place-items: center; overflow: hidden; }
+.substack-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .substack-cover .mark { width: 48px; height: 48px; color: var(--persimmon); }
 .substack-body { padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 .substack-body h2 { font-family: var(--font-headline); font-weight: 600; font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1.1; margin: 0; letter-spacing: -0.01em; }
@@ -152,10 +160,17 @@ em { font-style: italic; color: var(--persimmon); }
 .map-legend i { display: inline-block; width: 14px; border-top: 2px solid var(--persimmon); vertical-align: middle; margin-right: 0.3em; }
 .map-legend i.dotted { border-top-style: dotted; border-color: var(--gray); }
 
-.dispatch { background: var(--ink); color: var(--cream); border-radius: var(--radius); padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; }
-.dispatch-wide { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1.5rem 3rem; align-items: start; }
-.dispatch-wide .earlier { margin-top: 0; }
-.dispatch-wide .dispatch-side .kicker { margin-top: 0.2rem; }
+.dispatch { background: var(--ink); color: var(--cream); border-color: var(--ink); display: grid; grid-template-columns: minmax(200px, 2fr) 3fr; }   /* the same shape as the Substack card below it */
+.dispatch-cover { position: relative; background: var(--ink-soft); min-height: 220px; display: grid; place-items: center; overflow: hidden; }
+.dispatch-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }   /* pinned: the picture never sets the card's height */
+.dispatch-cover svg.mark { width: 48px; height: 48px; color: var(--persimmon); }
+.dispatch-cover.video { background: #000; }
+.dispatch-cover video { width: 100%; height: 100%; max-height: 420px; object-fit: contain; display: block; background: #000; }
+.dispatch-body { padding: 1.2rem 1.4rem 1.3rem; display: flex; flex-direction: column; min-width: 0; }
+.dispatch h2 { font-size: clamp(1.3rem, 2.3vw, 1.8rem); margin: 0 0 0.3rem; }
+.get-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.2rem 0 0; }
+.dispatch-side { margin-top: 0.9rem; }
+.dispatch-side .kicker { margin-bottom: 0.2rem; }
 .dispatch .kicker { color: var(--peach); }
 .dispatch h2 { color: var(--cream); }
 .player { display: flex; align-items: center; gap: 0.9rem; margin: 0.4rem 0 0.6rem; }
@@ -168,18 +183,11 @@ em { font-style: italic; color: var(--persimmon); }
 .bars span.on { background: var(--cream); }
 .dispatch .meta { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--peach); margin: 0 0 0.8rem; }
 .dispatch .blurb { margin: 0 0 0.8rem; font-size: 0.95rem; }
-.dispatch .applink { font-weight: 600; font-size: 0.9rem; }
-.earlier { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1px solid var(--line-on-ink); }
-.earlier li { display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line-on-ink); }
+.earlier { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; }
+.earlier li { display: flex; align-items: center; gap: 0.5rem; padding: 0.2rem 0; }
 .earlier .mono { color: var(--peach); font-size: 0.6rem; display: block; }
 .earlier .t { font-weight: 600; font-size: 0.92rem; }
 
-/* The way back from a flip: a small line under whatever opened it */
-.back-hint { display: block; font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--persimmon); margin-top: 0.4rem; line-height: 1.3; background: transparent; border: 1px solid var(--persimmon); border-radius: 999px; padding: 0.4em 0.8em; cursor: pointer; text-align: left; }
-.back-hint::before { content: "↩ "; }
-.back-hint:hover, .back-hint:focus-visible { background: var(--persimmon); color: var(--ink); outline: none; }
-.counter .back-hint { margin-bottom: 0.3rem; }
-.title-block .back-hint { display: inline-block; margin-top: 0.6rem; }
 /* The Substack card before the first written post: a quiet placeholder */
 .placeholder-card { opacity: 0.92; }
 .placeholder-card .substack-cover { background: var(--peach); }
@@ -281,7 +289,12 @@ body.has-strip { padding-bottom: 2.2rem; }
   .menu { gap: 0.35rem; }
   .menu a { font-size: 0.8rem; padding: 0.4em 0.8em; }
   .header-subscribe { font-size: 0.8rem; padding: 0.4em 0.9em; }
-  .two-col, .about-hero .wrap, .latest-grid, .dispatch-wide, .signup-strip .wrap, .site-footer .wrap, .substack-card { grid-template-columns: 1fr; }
+  .two-col, .about-hero .wrap, .latest-grid, .dispatch, .signup-strip .wrap, .site-footer .wrap, .substack-card { grid-template-columns: 1fr; }
+  .dispatch-cover { min-height: 0; aspect-ratio: 16 / 9; }
+  .dispatch-cover video { max-height: none; }
+  .miles-cols { grid-template-columns: 1fr; }
+  .miles-compare .cmp { grid-template-columns: 1fr; gap: 0.2rem; margin: 0.5rem 0; }
+  .miles-head { gap: 1rem 1.6rem; }
   .substack-cover { min-height: 0; aspect-ratio: 16 / 9; }
     .counters { grid-template-columns: repeat(3, 1fr); }
   /* One column: map, the photo, its words right under it, then the next-up box */
@@ -375,9 +388,10 @@ body.has-strip { padding-bottom: 2.2rem; }
 .btn-outline-cream:hover { background: var(--cream); color: var(--ink); }
 .flip-days .tile { display: grid; place-items: center; width: var(--sq, 22px); height: var(--sq, 22px); border-radius: 3px; cursor: pointer; background: rgba(251, 233, 215, 0.08); border: 1px solid rgba(251, 233, 215, 0.12); transition: transform 0.15s; background-size: cover; background-position: center; }
 .flip-days .tile.sketch { background-color: var(--ink-soft); border-color: rgba(232, 89, 61, 0.35); }
-.flip-days .tile.sketch svg { width: 70%; height: 70%; fill: none; stroke: var(--peach); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
+.flip-days .tile { position: relative; }
+.flip-days .tile.sketch svg { position: absolute; left: 15%; top: 15%; width: 70%; height: 70%; display: block; fill: none; stroke: var(--peach); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
 .flip-days .tile.photo { border-color: var(--persimmon); }
-.flip-days .tile.now { box-shadow: 0 0 0 2px var(--persimmon); }
+.flip-days .tile.today { box-shadow: 0 0 0 2px var(--persimmon); }
 .flip-days .tile:hover { transform: scale(1.25); z-index: 2; border-color: var(--cream); }
 .tile-peek { position: absolute; z-index: 6; width: 168px; background: var(--ink); color: var(--cream); border: 1px solid var(--line-on-ink); border-radius: 8px; padding: 6px; pointer-events: none; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45); }
 .tile-peek img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; display: block; margin-bottom: 4px; }
@@ -390,6 +404,31 @@ body.has-strip { padding-bottom: 2.2rem; }
 .banner-route.mode-days #banner-line, .banner-route.mode-days .marker, .banner-route.mode-days .banner-countries { position: absolute; inset: 0; height: 100%; }
 .banner-route.mode-days .flip-days.on { position: relative; inset: auto; }
 .banner-route.mode-days #banner-line { opacity: 0; }
+/* The miles flip: three big numbers, the segment bar, units and comparisons */
+.flip-miles { display: flex; flex-direction: column; justify-content: center; gap: 1rem; padding: 0.6rem var(--gutter); }
+.banner-route.mode-miles { height: auto; min-height: var(--banner-height); }
+.banner-route.mode-miles #banner-line, .banner-route.mode-miles .marker, .banner-route.mode-miles .banner-countries { position: absolute; inset: 0; height: 100%; }
+.banner-route.mode-miles .flip-miles.on { position: relative; inset: auto; }
+.banner-route.flipped.mode-miles #banner-line { opacity: 0; }
+.miles-head { display: flex; gap: 2rem 3rem; flex-wrap: wrap; }
+.miles-head .big { display: flex; flex-direction: column; }
+.miles-head .num { font-family: var(--font-mono); font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 500; color: var(--persimmon); line-height: 1.05; }
+.miles-head .big:nth-child(n+2) .num { color: var(--cream); }
+.miles-head .lbl { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--peach); margin-top: 0.25rem; }
+.miles-bar { display: flex; gap: 3px; width: 100%; }
+.miles-bar .seg { position: relative; height: 26px; background: rgba(251, 233, 215, 0.08); border: 1px solid var(--line-on-ink); border-radius: 6px; overflow: hidden; min-width: 1.4em; }
+.miles-bar .seg i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--persimmon); display: block; }
+.miles-bar .seg .mono { position: absolute; left: 0.5em; top: 50%; transform: translateY(-50%); font-size: 0.56rem; color: var(--cream); white-space: nowrap; }
+.miles-bar .seg.done .mono { color: var(--ink); }
+.miles-cols { display: grid; grid-template-columns: minmax(180px, 1fr) 2fr; gap: 1rem 3rem; }
+.miles-units .u { display: flex; justify-content: space-between; gap: 1rem; padding: 0.25rem 0; border-bottom: 1px solid var(--line-on-ink); }
+.miles-units .mono { color: var(--peach); }
+.miles-units b { font-family: var(--font-mono); font-weight: 500; color: var(--cream); font-size: 0.85rem; }
+.flip-miles .kicker { color: var(--peach); margin-bottom: 0.4rem; }
+.miles-compare .cmp { display: grid; grid-template-columns: minmax(80px, 160px) 1fr; align-items: center; gap: 0.8rem; margin: 0.35rem 0; }
+.miles-compare .track { height: 8px; border-radius: 4px; background: rgba(251, 233, 215, 0.1); overflow: hidden; }
+.miles-compare .track i { display: block; height: 100%; background: var(--persimmon); }
+.miles-compare .mono { color: var(--cream); font-size: 0.62rem; text-transform: none; letter-spacing: 0.04em; }
 .flip-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem 1.2rem; align-content: center; padding: 0.4rem var(--gutter); }
 .stat { display: flex; gap: 0.8rem; align-items: center; min-width: 0; }
 .stat svg { width: 30px; height: 30px; flex: 0 0 auto; fill: none; stroke: var(--persimmon); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }

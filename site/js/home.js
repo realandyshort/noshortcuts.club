@@ -299,7 +299,7 @@
       var mi = rd ? rd.miles : Trip.plannedMilesThrough(plan, n), cl = rd ? rd.climb_ft : Trip.plannedClimbThrough(plan, n);
       return { days: String(n), countries: String(Trip.countriesEntered(ctx.countries, n)), miles: Trip.fmtInt(mi), climb: Trip.fmtInt(cl) };
     }
-    if (window.Banner) window.Banner.wire(ctx, { fraction: fraction, counters: counterEls, numbers: numbers }, {
+    if (window.Banner) window.Banner.wire(ctx, { fraction: fraction, counters: counterEls, numbers: numbers, miles: miles, milesRidden: !!ridden }, {
       onDay: function (n) { ctx.setDay(n); },
       onPreview: function (n) {                      // while hovering or dragging: numbers and the day line only
         var p = previewNumbers(n);
@@ -327,8 +327,12 @@
     }
     if (!audio) { audio = document.createElement("audio"); audio.preload = "none"; document.body.appendChild(audio); }
     var outer = box; outer.textContent = "";
-    box = el("div", { class: "dispatch-main" }); outer.appendChild(box);
-    var side = el("div", { class: "dispatch-side" }); outer.appendChild(side);
+    var isVideo = /^video\//i.test(latest.audio_type || "") || /\.(mp4|m4v|mov|webm)(\?|$)/i.test(latest.audio || "");
+    var cover = el("div", { class: "dispatch-cover" + (isVideo ? " video" : "") }); outer.appendChild(cover);
+    box = el("div", { class: "dispatch-body" }); outer.appendChild(box);
+    if (isVideo) cover.appendChild(el("video", { controls: "", playsinline: "", preload: "metadata", poster: latest.image || null, src: latest.audio }));
+    else if (latest.image) cover.appendChild(el("img", { src: latest.image, alt: "" }));
+    else cover.appendChild(ctx.mark());
     var t = titleFor(latest);
     box.appendChild(el("p", { class: "kicker", text: archDisp ? "DISPATCH FROM DAY " + day : (copy.kicker || "LATEST DISPATCH") }));
     var h2 = el("h2"); h2.appendChild(titleNode(t)); box.appendChild(h2);
@@ -336,12 +340,17 @@
     var playBtn = el("button", { class: "play", type: "button", "aria-label": "Play", html: '<svg viewBox="0 0 20 20"><path d="M5 3l12 7-12 7z"/></svg>' });
     var bars = el("div", { class: "bars", role: "progressbar", "aria-valuemin": 0, "aria-valuemax": 100, "aria-valuenow": 0 });
     for (var i = 0; i < 40; i++) { var b = el("span"); b.style.height = (20 + Math.abs(Math.sin(i * 1.7)) * 70) + "%"; bars.appendChild(b); }
-    box.appendChild(el("div", { class: "player" }, [playBtn, bars]));
-    var meta = el("p", { class: "meta", text: "[" + fmtTime(latest.duration_sec) + "] · " + (copy.recorded || "RECORDED ON THE ROAD") });
+    if (!isVideo) box.appendChild(el("div", { class: "player" }, [playBtn, bars]));
+    var meta = el("p", { class: "meta", text: "[" + fmtTime(latest.duration_sec) + "] · " + (isVideo ? (copy.video || "WATCH · RECORDED ON THE ROAD") : (copy.recorded || "RECORDED ON THE ROAD")) });
     box.appendChild(meta);
     box.appendChild(el("p", { class: "blurb", text: scrub(latest.description) || copy.blurb || "" }));
-    if (latest.link) box.appendChild(el("p", {}, [el("a", { class: "latest-link", href: latest.link, target: "_blank", rel: "noopener", text: "Open the original" })]));
-    box.appendChild(el("a", { class: "applink", href: ctx.listenHref(), target: "_blank", rel: "noopener", text: copy.appLink || "Listen in your podcast app" }));
+    // the two "get it" buttons, the same as the footer's (Spotify opens the episode page when the feed gives one)
+    var F = c.copy.footer || {}, spot = /spotify/i.test(latest.link || "") ? latest.link : c.links.spotify, apple = (c.podLink || "").trim();
+    var btns = el("div", { class: "get-buttons" });
+    if (spot) btns.appendChild(el("a", { class: "btn btn-small btn-outline-cream", href: spot, target: "_blank", rel: "noopener", text: F.spotify || "Get it on Spotify" }));
+    if (apple) btns.appendChild(el("a", { class: "btn btn-small btn-outline-cream", href: apple, target: "_blank", rel: "noopener", text: F.apple || "Get it on Apple Podcasts" }));
+    box.appendChild(btns);
+    var side = el("div", { class: "dispatch-side" }); box.appendChild(side);
 
     function setPlayIcon(btn, on) { btn.innerHTML = on ? '<svg viewBox="0 0 20 20"><path d="M4 3h4v14H4zM12 3h4v14h-4z"/></svg>' : '<svg viewBox="0 0 20 20"><path d="M5 3l12 7-12 7z"/></svg>'; btn.setAttribute("aria-label", on ? "Pause" : "Play"); }
     function toggle(item, btn) {
@@ -367,7 +376,7 @@
       var r = bars.getBoundingClientRect(); audio.currentTime = (e.clientX - r.left) / r.width * audio.duration;
     });
 
-    var earlier = items.slice(1, 6);
+    var earlier = items.slice(1, 4);
     if (earlier.length) {
       side.appendChild(el("p", { class: "kicker", text: copy.earlier || "EARLIER ENTRIES" }));
       var ul = el("ul", { class: "earlier" });

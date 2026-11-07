@@ -59,6 +59,12 @@
       "videos"
     ],
     "dayCards": 5,
+    "milesCompare": [
+      { "label": "laps of the equator", "miles": 24901 },
+      { "label": "rides across the USA, coast to coast", "miles": 3095 },
+      { "label": "lengths of the Grand Canyon", "miles": 277 },
+      { "label": "marathons", "miles": 26.2 }
+    ],
     "bannerHeight": "min(44vw, 420px)",
     "titleSize": "clamp(2.2rem, 5vw, 4.5rem)",
     "photoHeight": "clamp(260px, 42vw, 620px)",
@@ -115,7 +121,7 @@
       "kicker": "LATEST DISPATCH",
       "recorded": "RECORDED ON THE ROAD",
       "earlier": "EARLIER ENTRIES",
-      "appLink": "Listen in your podcast app",
+      "video": "WATCH · RECORDED ON THE ROAD",
       "blurb": "A few minutes from the road, recorded on the phone and posted automatically."
     },
     "substack": {
@@ -200,8 +206,8 @@
       "title": "Add your email to join the journey.",
       "titleEm": "",
       "blurb": "Updates from the road.",
-      "spotify": "Listen on Spotify",
-      "apple": "Listen on Apple Podcasts",
+      "spotify": "Get it on Spotify",
+      "apple": "Get it on Apple Podcasts",
       "youtube": "YouTube",
       "sayHi": "Say hi:"
     },
@@ -223,12 +229,21 @@
       "days": "ONE TILE PER DAY · PHOTOS FILL IN AS THEY ARE POSTED",
       "countries": "COUNTRIES SO FAR",
       "climb": "THE ROAD, SIDE ON · HIGHEST POINT",
-      "close": "TAP HERE TO GO BACK TO THE ROUTE",
+      "miles": "THE ROAD SO FAR · SEGMENT BY SEGMENT",
       "openHover": "DOUBLE-CLICK A TILE TO OPEN THAT DAY",
       "openTap": "TAP A TILE, THEN TAP OPEN",
       "openButton": "OPEN DAY {n}",
       "travel": "Travel to this day",
       "closeDay": "Close"
+    },
+    "miles": {
+      "ridden": "MILES RIDDEN",
+      "plan": "MILES · PLAN",
+      "ofRoad": "OF THE ROAD",
+      "left": "TO GO",
+      "units": "THE SAME DISTANCE IN",
+      "compare": "WHICH IS",
+      "segment": "SEG"
     },
     "stats": {
       "kicker": "SECRET STATS",

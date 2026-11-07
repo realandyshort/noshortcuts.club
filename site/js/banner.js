@@ -61,20 +61,9 @@
     var mark = document.getElementById("mark-button"); if (mark) mark.classList.remove("active");
     if (state.flip === "climb") morphTo(0);
     setHint(state.ctx.config.copy.flips.hint);
-    document.querySelectorAll(".back-hint").forEach(function (b) { b.remove(); });
     var pk = document.getElementById("tile-peek"); if (pk) { pk.hidden = true; pk.classList.remove("pinned"); }
     state.openDay = null; state.picked = null;
     state.flip = null;
-  }
-  // The way back: a line under whatever opened the flip ("tap again to go back to the route")
-  function backHint(trigger) {
-    document.querySelectorAll(".back-hint").forEach(function (b) { b.remove(); });
-    if (!trigger) return;
-    var text = state.ctx.config.copy.flips.close || "TAP AGAIN TO GO BACK TO THE ROUTE";
-    var hint = document.createElement("button"); hint.type = "button"; hint.className = "back-hint"; hint.textContent = text;
-    hint.addEventListener("click", function (e) { e.stopPropagation(); closeFlip(); });   // stopPropagation: a counter's own click would reopen it
-    if (trigger.classList.contains("counter")) trigger.appendChild(hint);
-    else { var sub = document.querySelector(".title-sub") || document.querySelector(".title"); if (sub) sub.insertAdjacentElement("afterend", hint); }   // the mark: under the title
   }
   function openFlip(name, trigger) {
     if (state.flip === name) { closeFlip(); return; }
@@ -86,7 +75,7 @@
     else if (name === "countries") showCountries();
     else if (name === "climb") morphTo(1);
     else if (name === "stats") showStats();
-    backHint(trigger);
+    else if (name === "miles") showMiles();
   }
   // (attribute form on purpose: SVG elements have no .hidden property)
   function show(el) { el.removeAttribute("hidden"); requestAnimationFrame(function () { el.classList.add("on"); }); }
@@ -134,12 +123,12 @@
     plan.days.forEach(function (d) {
       var sp = document.createElement("span"), ph = index[String(d.day)];
       var done = d.day < ctx.day, now = d.day === ctx.day;
-      sp.className = "tile" + (done ? " done" : "") + (now ? " now" : "") + (ph ? " photo" : (done || now ? " sketch" : ""));
+      sp.className = "tile" + (done ? " done" : "") + (now ? " today" : "") + (ph ? " photo" : (done || now ? " sketch" : ""));   // "today", not "now": .now is the next-up card's style
       if (ph && ph.thumb) { sp.style.backgroundImage = "url(" + ph.thumb + ")"; withPhoto++; }
-      else if (done || now) { var u = document.createElementNS(NS, "svg"); u.setAttribute("viewBox", "0 0 24 24"); var p = document.createElementNS(NS, "path"); p.setAttribute("d", SKETCH_PATHS[sketchFor(d.day)]); u.appendChild(p); sp.appendChild(u); }
+      else if (done || now) { var u = document.createElementNS(NS, "svg"); u.setAttribute("viewBox", "0 0 24 24"); u.setAttribute("width", Math.round(sq * 0.7)); u.setAttribute("height", Math.round(sq * 0.7)); var p = document.createElementNS(NS, "path"); p.setAttribute("d", SKETCH_PATHS[sketchFor(d.day)]); u.appendChild(p); sp.appendChild(u); }
       sp.title = "Day " + d.day + " · " + d.from + (d.from === d.to ? "" : " to " + d.to);
       sp.setAttribute("data-day", d.day);
-      sp.addEventListener("click", function (e) { e.stopPropagation(); pick(sp, d.day); });
+      sp.addEventListener("click", function (e) { e.stopPropagation(); pick(sp, d.day); if (d.day !== ctx.day) travelTo(d.day); });   // a tap travels there (the sketches fill in up to it) and pins the peek
       sp.addEventListener("dblclick", function (e) { e.stopPropagation(); e.preventDefault(); openDay(d.day); });
       frag.appendChild(sp);
     });
@@ -184,7 +173,54 @@
     }
     box.onclick = function () { peek.hidden = true; peek.classList.remove("pinned"); tiles.querySelectorAll(".tile.picked").forEach(function (t) { t.classList.remove("picked"); }); };   // a tap beside the tiles puts the peek away
     if (state.openDay) openDay(state.openDay);                       // reopened after a re-render (time travel from the card)
+    else if (state.picked) { var pt = tiles.querySelector('.tile[data-day="' + state.picked + '"]'); if (pt) pick(pt, state.picked); }   // the tapped tile keeps its peek after the travel re-render
     setHint((copy.days || "ONE TILE PER DAY") + " · " + ctx.day + " OF " + total + (withPhoto ? " · " + withPhoto + " WITH A PHOTO" : "") + " · " + (hover ? (copy.openHover || "") : (copy.openTap || "")));
+    show(box);
+  }
+
+  // MILES: the road so far. A bar of the six segments (widths by planned miles) filled to the miles
+  // ridden, the same distance in other units, and what it amounts to (config home.milesCompare).
+  function showMiles() {
+    var ctx = state.ctx, plan = ctx.plan, c = ctx.config, box = document.getElementById("flip-miles"), L = c.copy.miles || {}, el = ctx.el;
+    if (!box) return;
+    var miles = Number(state.info && state.info.miles) || 0, ridden = !!(state.info && state.info.milesRidden);
+    var total = plan.totals && plan.totals.miles ? plan.totals.miles : Trip.totalMiles(plan), frac = total ? Math.min(1, miles / total) : 0;
+    box.textContent = "";
+    var head = el("div", { class: "miles-head" }, [
+      el("div", { class: "big" }, [el("span", { class: "num", text: Trip.fmtInt(Math.round(miles)) }), el("span", { class: "lbl", text: ridden ? (L.ridden || "MILES RIDDEN") : (L.plan || "MILES · PLAN") })]),
+      el("div", { class: "big" }, [el("span", { class: "num", text: (frac * 100).toFixed(1) + "%" }), el("span", { class: "lbl", text: L.ofRoad || "OF THE ROAD" })]),
+      el("div", { class: "big" }, [el("span", { class: "num", text: Trip.fmtInt(Math.round(Math.max(0, total - miles))) }), el("span", { class: "lbl", text: (L.left || "TO GO") + " · " + Trip.fmtInt(Math.round(total)) + " MI" })])
+    ]);
+    box.appendChild(head);
+    // the bar: one block per segment, as wide as its share of the road, filled left to right
+    var secs = []; plan.days.forEach(function (d) { var s = secs[secs.length - 1]; if (!s || s.n !== d.section) secs.push({ n: d.section, miles: 0 }); secs[secs.length - 1].miles += Number(d.plan_miles) || 0; });
+    var bar = el("div", { class: "miles-bar" }), run = 0;
+    secs.forEach(function (s) {
+      var w = total ? s.miles / total : 0, fill = Math.max(0, Math.min(1, (miles - run) / (s.miles || 1)));
+      var seg = el("div", { class: "seg" + (fill >= 1 ? " done" : fill > 0 ? " now" : "") }, [el("i", { style: "width:" + (fill * 100).toFixed(2) + "%" }), el("span", { class: "mono", text: String(s.n) })]);
+      seg.style.flexBasis = (w * 100).toFixed(3) + "%"; seg.title = "Segment " + s.n + " · " + Trip.fmtInt(Math.round(s.miles)) + " mi";
+      bar.appendChild(seg); run += s.miles;
+    });
+    box.appendChild(bar);
+    var cols = el("div", { class: "miles-cols" });
+    // the same distance in other units
+    var km = miles * 1.609344, m = km * 1000;
+    var units = [["KM", km], ["M", m], ["FT", miles * 5280], ["IN", miles * 63360], ["CM", m * 100], ["MM", m * 1000]];
+    var ul = el("div", { class: "miles-units" }, [el("p", { class: "kicker", text: L.units || "THE SAME DISTANCE IN" })]);
+    units.forEach(function (u) { ul.appendChild(el("div", { class: "u" }, [el("span", { class: "mono", text: u[0] }), el("b", { text: Trip.fmtInt(Math.round(u[1])) })])); });
+    cols.appendChild(ul);
+    // what it amounts to: mini bars (full = one of the thing)
+    var cmp = (c.home.milesCompare || []).filter(function (x) { return Number(x.miles) > 0; });
+    if (cmp.length) {
+      var cl = el("div", { class: "miles-compare" }, [el("p", { class: "kicker", text: L.compare || "WHICH IS" })]);
+      cmp.forEach(function (x) {
+        var r = miles / Number(x.miles), shown = r >= 10 ? Trip.fmtInt(Math.round(r)) : r >= 1 ? r.toFixed(1) : r.toFixed(2);
+        cl.appendChild(el("div", { class: "cmp" }, [el("div", { class: "track" }, [el("i", { style: "width:" + (Math.min(1, r) * 100).toFixed(2) + "%" })]), el("span", { class: "mono", text: shown + " × " + x.label })]));
+      });
+      cols.appendChild(cl);
+    }
+    box.appendChild(cols);
+    setHint((c.copy.flips.miles || "THE ROAD SO FAR") + " · DAY " + ctx.day);
     show(box);
   }
 
@@ -424,7 +460,7 @@
     Object.keys(info.counters).forEach(function (key) {
       var el = info.counters[key]; if (!el) return;
       odometer(el.querySelector(".num"), key, info.numbers[key]);
-      var flip = { days: "days", countries: "countries", climb: "climb" }[key];
+      var flip = { days: "days", countries: "countries", climb: "climb", miles: "miles" }[key];
       if (flip && (flip !== "climb" || ctx.elevation) && (flip !== "countries" || (ctx.countries && ctx.countries.length))) {
         el.classList.add("clickable"); el.setAttribute("role", "button"); el.tabIndex = 0;
         el.addEventListener("click", function () { openFlip(flip, el); });
@@ -445,8 +481,8 @@
     }
     if (!state.flip) setHint(ctx.config.copy.flips.hint);
     // A render while a flip is open (time travel from inside the days grid): refresh that view
-    if (state.flip === "days") showDays(); else if (state.flip === "countries") showCountries(); else if (state.flip === "stats") showStats(); else if (state.flip === "climb") { state.morph = null; morphTo(1); }
-    if (state.flip) backHint(document.querySelector(".counter.active") || document.getElementById("mark-button"));
+    if (state.flip === "days") showDays(); else if (state.flip === "countries") showCountries(); else if (state.flip === "stats") showStats(); else if (state.flip === "miles") showMiles(); else if (state.flip === "climb") { state.morph = null; morphTo(1); }
+    if (!window._bannerResize) { window._bannerResize = true; var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { if (state.flip === "days") showDays(); else if (state.flip === "miles") showMiles(); }, 150); }); }
     wireScrub();
     wireMapScrub(document.getElementById("map"));
     ambientCountries(ctx);
