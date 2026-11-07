@@ -61,9 +61,19 @@
     var mark = document.getElementById("mark-button"); if (mark) mark.classList.remove("active");
     if (state.flip === "climb") morphTo(0);
     setHint(state.ctx.config.copy.flips.hint);
-    var x = document.getElementById("flip-close"); if (x) x.hidden = true;
     var db = document.getElementById("days-button"); if (db) db.classList.remove("active");
+    document.querySelectorAll(".back-hint").forEach(function (b) { b.remove(); });
     state.flip = null;
+  }
+  // The way back: a line under whatever opened the flip ("tap again to go back to the route")
+  function backHint(trigger) {
+    document.querySelectorAll(".back-hint").forEach(function (b) { b.remove(); });
+    if (!trigger) return;
+    var text = state.ctx.config.copy.flips.close || "TAP AGAIN TO GO BACK TO THE ROUTE";
+    var hint = document.createElement("div"); hint.className = "back-hint"; hint.textContent = text;
+    if (trigger.classList.contains("counter")) trigger.appendChild(hint);
+    else if (trigger.id === "days-button") trigger.parentNode.insertAdjacentElement("afterend", hint);
+    else { var right = document.querySelector(".banner-right"); if (right) right.appendChild(hint); }   // the mark: under the right-hand block
   }
   function openFlip(name, trigger) {
     if (state.flip === name) { closeFlip(); return; }
@@ -76,7 +86,7 @@
     else if (name === "climb") morphTo(1);
     else if (name === "stats") showStats();
     else if (name === "cards") showCards();
-    var x = document.getElementById("flip-close"); if (x) x.hidden = false;   // the way back, on every flip
+    backHint(trigger);
   }
   // THE DAYS: the last few days as cards (home.js fills them on every render)
   function showCards() {
@@ -406,8 +416,6 @@
       db.addEventListener("click", function () { openFlip("cards", db); });
     }
     if (db) db.classList.toggle("active", state.flip === "cards");
-    var x = document.getElementById("flip-close");
-    if (x && !x._wired) { x._wired = true; x.addEventListener("click", function (e) { e.stopPropagation(); closeFlip(); }); }
     var mark = document.getElementById("mark-button");
     if (mark && !mark._wired) {
       mark._wired = true;
@@ -422,7 +430,7 @@
     if (!state.flip) setHint(ctx.config.copy.flips.hint);
     // A render while a flip is open (time travel from inside the days grid): refresh that view
     if (state.flip === "days") showDays(); else if (state.flip === "countries") showCountries(); else if (state.flip === "stats") showStats(); else if (state.flip === "climb") { state.morph = null; morphTo(1); }
-    if (x) x.hidden = !state.flip;
+    if (state.flip) backHint(document.querySelector(".counter.active") || (state.flip === "cards" ? db : document.getElementById("mark-button")));
     wireScrub();
     wireMapScrub(document.getElementById("map"));
     ambientCountries(ctx);
