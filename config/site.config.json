@@ -74,17 +74,19 @@
       "climb": "FT CLIMBED",
       "climbPlan": "FT CLIMBED · PLAN",
       "everests": "EVERESTS",
-      "vsPlan": "DAYS VS. THE PLAN"
+      "vsPlan": "DAYS VS. THE PLAN",
+      "log": "DAY LOG · THE LAST FEW"
     },
     "odometer": true,
     "timeTravel": true,
     "map": {
-      "_note": "The full map page. tiles: the map behind the route, any standard {z}/{x}/{y} tile address (blank = no tiles, the plain drawing instead). tint keeps the tiles in the site's colours. zoomNear is how close the map sits when following the route (7 = a whole region, 10 = a town).",
+      "_note": "The full map page. tiles: the map behind the route, any standard {z}/{x}/{y} tile address (blank = no tiles, the plain drawing instead). tint keeps the tiles in the site's colours. zoomNear is the closest the map comes when following the route (7 = a whole region, 10 = a town); long days zoom out from there, up to zoomOutMax levels, so the whole day fits.",
       "tiles": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
       "tilesMaxZoom": 16,
       "tint": true,
-      "zoomNear": 8.8,
-      "zoomNearPhone": 8.2,
+      "zoomNear": 8.6,
+      "zoomNearPhone": 8.1,
+      "zoomOutMax": 1.8,
       "screens": 12
     }
   },
@@ -126,10 +128,8 @@
     },
     "days": {
       "title": "The days",
-      "all": "All 543 days",
       "allTitle": "All the days",
-      "allIntro": "Every day of the plan, section by section. Numbers are from the route plan until the day is ridden.",
-      "button": "The days"
+      "allIntro": "Every day of the plan, section by section. Numbers are from the route plan until the day is ridden."
     },
     "map": {
       "legendRidden": "RIDDEN",
@@ -170,6 +170,17 @@
       "dayTitle": "THIS DAY",
       "goTo": "Go to day",
       "go": "Go",
+      "segmentsLabel": "Segment",
+      "scrollCue": "Scroll down to ride the route",
+      "ask": "When will Andy be in",
+      "askPlaceholder": "a town or a country",
+      "askButton": "Find",
+      "askAnswer": "{place}: day {first} to day {last} · {n} days",
+      "askAnswerOne": "{place}: day {first}",
+      "askNow": "there now",
+      "askFromNow": "{n} days from now",
+      "askPast": "{n} days ago",
+      "askNone": "Not on the route. Try a country, or a town on the way.",
       "tiles": "Map tiles © Esri · HERE · Garmin · FAO · NOAA · USGS. Route from Komoot."
     },
     "placeholders": {
@@ -187,8 +198,8 @@
       "title": "Add your email to join the journey.",
       "titleEm": "",
       "blurb": "Updates from the road.",
-      "listen": "Podcast app",
-      "instagram": "Instagram",
+      "spotify": "Listen on Spotify",
+      "apple": "Listen on Apple Podcasts",
       "youtube": "YouTube",
       "sayHi": "Say hi:"
     },

@@ -46,8 +46,13 @@ Open `config/site.config.json` in any text editor. Keep the quotes and commas as
 
 - `site.*` name, tagline, description, email.
 - `links.*` Spotify, Instagram, Substack, the route plan, YouTube.
-- `podLink` the show on Apple Podcasts. Every "Podcast app" / Listen button opens it (the Podcasts app
-  opens when it is installed). If it is ever blank, those buttons fall back to Spotify.
+- `podLink` the show on Apple Podcasts. The footer's "Listen on Apple Podcasts" button opens it (the
+  Podcasts app opens when it is installed); "Listen on Spotify" opens `links.spotify`. The wording is
+  `copy.footer.spotify` / `copy.footer.apple`.
+- `home.map.*` the full map page: the tiles behind the route, `zoomNear` (the closest the map comes while
+  following the route) and `zoomOutMax` (how many levels it may zoom out so a long day fits). `copy.map.ask*`
+  is the "When will Andy be in ..." box and its answers (`{place}`, `{first}`, `{last}`, `{n}` fill in).
+- `home.counters.log` the label of the DAY LOG counter in the banner, which opens the last few days as cards.
 - `menu.*` the words in the header (Map, Route plan, About, and the Subscribe button). Map opens the full map page; Route plan opens the sheet at the tab of the segment being ridden (`plan.tabGids`, the number after `#gid=` in each tab's address).
 - `countriesFade` timings of the country outlines fading in and out over the route, on the landing page and the home banner.
 - `signup.mode` how the email fields hand people to Substack: `subscribe` opens Substack's subscribe page with the address filled in; `direct` posts it straight to Substack's free-signup endpoint. `copy.signup.*` is the wording of the strip and the footer field.

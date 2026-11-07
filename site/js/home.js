@@ -118,6 +118,9 @@
     counter("climb", Trip.fmtInt(climb), "", (ridden ? (L.climb || "FT CLIMBED") : (L.climbPlan || "FT CLIMBED · PLAN")) + " · " + everests + " " + (L.everests || "EVERESTS"));
     if (posOK && pos.plan_day_at_position) counter("vsPlan", Trip.fmtSigned(pos.plan_day_at_position - day), "", L.vsPlan || "DAYS VS. THE PLAN");
     else if (!live) counter("vsPlan", "±0", "", L.vsPlan || "DAYS VS. THE PLAN");
+    // The day log: the last few days as cards, opened from a counter like the others (banner.js flips it)
+    var cardCount = Math.min(day, Math.max(1, Math.min(12, Number(c.home.dayCards) || 5)));
+    counter("log", String(cardCount), "", L.log || "DAY LOG · THE LAST FEW");
     document.getElementById("banner-note").textContent = showMarker && !travelling ? (c.home.positionNote || "") : "";
 
     /* ---- Latest photo (today: newest post; another day: that day's photo) ---- */

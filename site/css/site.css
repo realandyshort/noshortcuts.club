@@ -62,7 +62,7 @@ em { font-style: italic; color: var(--persimmon); }
 .marker .dot { width: 18px; height: 18px; border-radius: 50%; border: 3px solid var(--persimmon); background: var(--ink); box-shadow: 0 0 0 4px rgba(232, 89, 61, 0.25); }
 .marker .place { position: absolute; left: 20px; top: -0.35em; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--ink); color: var(--cream); padding: 0.25em 0.55em; border-radius: 4px; white-space: nowrap; }
 .marker.flip .place { left: auto; right: 20px; }
-.counters { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem 1.5rem; margin-top: 1rem; padding-top: 0.9rem; }
+.counters { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem 1.5rem; margin-top: 1rem; padding-top: 0.9rem; }
 .counter { border-top: 1px solid var(--line-on-ink); padding-top: 0.6rem; }
 .counter .num { font-family: var(--font-mono); font-size: clamp(1.3rem, 2.4vw, 1.8rem); font-weight: 500; color: var(--cream); }
 .counter .num small { font-size: 0.6em; color: var(--peach); }
@@ -164,6 +164,28 @@ em { font-style: italic; color: var(--persimmon); }
 .days-head h2 { margin: 0; font-family: var(--font-headline); font-weight: 600; font-size: clamp(1.6rem, 3vw, 2.2rem); }
 .days-head a { font-weight: 600; font-size: 0.9rem; }
 .day-cards { display: grid; grid-template-columns: repeat(var(--day-cards, 5), 1fr); gap: 1rem; }
+/* The day log in the banner: the last few days as cards on the ink (opened from the DAY LOG counter) */
+.flip-cards { padding: 0.6rem var(--gutter) 0.4rem; }
+.flip-cards .days-head { margin-bottom: 0.7rem; }
+.flip-cards .days-head h2 { color: var(--cream); font-size: clamp(1.3rem, 2.4vw, 1.8rem); }
+.flip-cards .day-card { background: var(--ink-soft); border-color: var(--line-on-ink); color: var(--cream); }
+.flip-cards .day-card .mono { color: var(--peach); }
+.flip-cards .day-card .stats { color: var(--cream); opacity: 0.85; }
+.flip-cards .day-card .photo { background: #3a3430; }
+.flip-cards .day-card .placeholder { color: var(--cream); }
+.flip-cards .day-card .placeholder .mark { color: var(--persimmon); }
+.flip-cards .day-card:hover { border-color: var(--persimmon); }
+.banner-route.mode-cards { height: auto; min-height: var(--banner-height); }
+.banner-route.mode-cards #banner-line, .banner-route.mode-cards .marker, .banner-route.mode-cards .banner-countries { position: absolute; inset: 0; height: 100%; }
+.banner-route.mode-cards .flip-cards.on { position: relative; inset: auto; }
+.banner-route.flipped.mode-cards #banner-line { opacity: 0; }
+/* The way back from a flip: a small line under whatever opened it */
+.back-hint { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--persimmon); margin-top: 0.35rem; line-height: 1.3; }
+.counter .back-hint { padding-bottom: 0.3rem; }
+.banner-right .back-hint { text-align: right; }
+/* The Substack card before the first written post: a quiet placeholder */
+.placeholder-card { opacity: 0.92; }
+.placeholder-card .substack-cover { background: var(--peach); }
 .day-card { padding: 0.75rem; display: flex; flex-direction: column; gap: 0.45rem; text-decoration: none; }
 .day-card .photo { height: auto; aspect-ratio: 1 / 0.85; border-radius: 8px; }
 .day-card .photo .placeholder .mark { width: 34px; }
@@ -184,11 +206,10 @@ em { font-style: italic; color: var(--persimmon); }
 .footer-blurb { margin: 0 0 1rem; max-width: 34em; }
 .footer-secondary { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; }
 .follow-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.follow-buttons .btn { white-space: nowrap; }
 .btn-small { font-size: 0.8rem; padding: 0.45em 1em; }
 .btn-outline-ink { border-color: var(--ink); color: var(--ink); background: transparent; }
 .btn-outline-ink:hover { background: var(--ink); color: var(--cream); }
-.say-hi { margin: 0; font-size: 0.92rem; }
-.say-hi a { font-weight: 600; }
 
 /* The email field (signup strip and footer) */
 .signup-form { display: flex; flex-direction: column; gap: 0.45rem; }
@@ -286,6 +307,7 @@ body.has-strip { padding-bottom: 2.2rem; }
   .menu a { font-size: 0.74rem; padding: 0.42em 0.7em; white-space: nowrap; }
   .counters { grid-template-columns: repeat(2, 1fr); gap: 0.8rem 1rem; }
   .counter .num { font-size: 1.25rem; }
+  .counters > .counter:last-child:nth-child(odd) { grid-column: 1 / -1; }   /* an odd last counter takes the whole row */
   .banner-route { height: max(var(--banner-height), 150px); }
   .marker .place { font-size: 0.6rem; }
   .day-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0.5rem; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
@@ -468,6 +490,13 @@ body.has-strip { padding-bottom: 2.2rem; }
 #bigmap .route-rest { fill: none; stroke: var(--ink); stroke-opacity: 0.75; stroke-linecap: round; }
 #bigmap .route-done { fill: none; stroke: var(--persimmon); stroke-width: 3px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 #bigmap.far .route-done { stroke-width: 3.5px; }
+/* the day under the middle of the screen: a wide soft halo, the track on top, a dot at each end */
+#bigmap .route-day-halo { fill: none; stroke: var(--persimmon); stroke-opacity: 0.22; stroke-width: 16px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+#bigmap .route-day { fill: none; stroke: var(--persimmon); stroke-width: 4.5px; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+#bigmap .day-end { fill: var(--cream); stroke: var(--persimmon); stroke-width: 2.5px; vector-effect: non-scaling-stroke; r: calc(4px * var(--u, 1)); }
+#bigmap .day-end.end { fill: var(--persimmon); stroke: var(--cream); }
+#bigmap .route-day-halo, #bigmap .route-day, #bigmap .day-ends { transition: opacity 0.4s; }
+#bigmap.far .route-day-halo, #bigmap.far .route-day, #bigmap.far .day-ends { opacity: 0; }
 #bigmap .day-dot { fill: var(--ink); opacity: 0.6; }
 #bigmap .rest-dot { fill: var(--cream); stroke: var(--ink); stroke-width: 1.6px; vector-effect: non-scaling-stroke; }
 #bigmap .seg-dot { fill: var(--ink); stroke: var(--cream); stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
@@ -487,9 +516,22 @@ body.has-strip { padding-bottom: 2.2rem; }
 .bigmap-totals b, .bigmap-bar b { font-family: var(--font-headline); font-weight: 600; font-size: 1.15rem; display: block; }
 .bigmap-bar .events { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
 .bigmap-bar .events span { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--persimmon); color: var(--persimmon); border-radius: 999px; padding: 0.25em 0.6em; }
+/* the scroll cue, while the map is zoomed all the way out */
+.bigmap-cue { position: absolute; left: 50%; top: 58%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.5rem; background: var(--ink); color: var(--cream); border: 0; border-radius: 999px; padding: 0.55em 1.1em 0.55em 1.3em; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.3); white-space: nowrap; }
+.bigmap-cue svg { width: 18px; height: 18px; animation: cue-bob 1.4s ease-in-out infinite; }
+.bigmap-cue:hover { background: var(--persimmon); color: var(--ink); }
+@keyframes cue-bob { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
 /* the controls, bottom right */
-.bigmap-controls { position: absolute; right: var(--gutter); bottom: 1.2rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem; }
-.bigmap-segments { display: flex; gap: 0.3rem; background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.18); }
+.bigmap-controls { position: absolute; right: var(--gutter); bottom: 1.2rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem; max-width: calc(100% - 2 * var(--gutter)); }
+.bigmap-ask { display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem 0.5rem; background: var(--cream); border: 1px solid var(--line); border-radius: 22px; padding: 0.35rem 0.5rem 0.35rem 0.8rem; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.18); }
+.bigmap-ask .mono { color: var(--ink); }
+.bigmap-ask input { width: 11em; font: 500 0.85rem var(--font-body); padding: 0.35em 0.7em; border: 1px solid var(--ink); border-radius: 999px; background: #FFF8F0; min-width: 0; }
+.bigmap-ask input:focus { outline: 2px solid var(--persimmon); outline-offset: 1px; }
+.bigmap-ask .btn { font-size: 0.78rem; padding: 0.4em 0.9em; }
+.bigmap-answer { flex: 1 1 100%; margin: 0.1rem 0 0.1rem; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--persimmon); max-width: 30em; }
+.bigmap-answer.none { color: var(--gray); }
+.bigmap-segments { display: flex; align-items: center; gap: 0.3rem; background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem; box-shadow: 0 10px 30px rgba(22, 20, 18, 0.18); }
+.bigmap-segments .mono { color: var(--ink); padding: 0 0.5rem 0 0.6rem; }
 .bigmap-segments .seg { font: 500 0.78rem var(--font-mono); width: 2em; height: 2em; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
 .bigmap-segments .seg:hover { border-color: var(--persimmon); color: var(--persimmon); }
 .bigmap-segments .seg.active { background: var(--persimmon); border-color: var(--persimmon); color: var(--ink); }
@@ -505,16 +547,28 @@ body.has-strip { padding-bottom: 2.2rem; }
 .bigmap-hint { text-align: right; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--gray); margin: 0.6rem 0 0; text-transform: uppercase; }
 @media (max-width: 900px) {
   .bigmap-totals { max-width: min(260px, calc(100% - 2 * var(--gutter))); font-size: 0.82rem; }
+  .bigmap-bar { max-width: min(260px, calc(100% - 2 * var(--gutter))); font-size: 0.82rem; }
+  .bigmap-goto { display: none; }                 /* the place box finds days instead; the slider and arrows stay */
+  .bigmap-slider input { width: 150px; }
+  .bigmap-slider .mono { min-width: 8em; }
 }
 @media (max-width: 640px) {
   .bigmap-totals { top: 0.6rem; left: var(--gutter); right: var(--gutter); max-width: none; padding: 0.5rem 0.7rem; font-size: 0.78rem; }
   .bigmap-totals b, .bigmap-bar b { font-size: 1rem; }
-  .bigmap-bar { left: var(--gutter); right: var(--gutter); max-width: none; bottom: 6.6rem; font-size: 0.82rem; }
-  .bigmap-controls { left: var(--gutter); right: var(--gutter); bottom: 0.6rem; align-items: stretch; }
+  .bigmap-bar { left: var(--gutter); right: var(--gutter); max-width: none; bottom: calc(var(--controls-h, 8.4rem) + 1.25rem); font-size: 0.78rem; padding: 0.5rem 0.7rem; }
+  .bigmap-bar .events { margin-top: 0.3rem; }
+  .bigmap-controls { left: var(--gutter); right: var(--gutter); bottom: 0.6rem; align-items: stretch; gap: 0.3rem; max-width: none; }
+  .bigmap-ask { flex-wrap: nowrap; padding: 0.3rem 0.3rem 0.3rem 0.7rem; }
+  .bigmap-ask .mono { display: none; }
+  .bigmap-ask input { flex: 1 1 auto; width: auto; }
+  .bigmap-answer { flex-basis: 100%; }
+  .bigmap-ask:has(.bigmap-answer:not([hidden])) { flex-wrap: wrap; }
   .bigmap-segments { justify-content: center; }
+  .bigmap-segments .mono { padding-left: 0.3rem; }
+  .bigmap-cue { top: 50%; font-size: 0.6rem; }
   .bigmap-row { justify-content: space-between; }
   .bigmap-slider { flex: 1; }
   .bigmap-slider input { width: 100%; }
-  .bigmap-slider .mono { min-width: 0; font-size: 0.6rem; }
+  .bigmap-slider .mono { min-width: 0; font-size: 0.6rem; white-space: nowrap; }
   .bigmap-goto { display: none; }
 }

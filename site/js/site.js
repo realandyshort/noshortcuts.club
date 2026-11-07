@@ -116,6 +116,7 @@
     document.querySelectorAll("[data-href]").forEach(function (a) {
       var key = a.getAttribute("data-href"), href;
       if (key === "listen") href = ctx.listenHref();
+      else if (key === "apple") href = (c.podLink || "").trim();
       else if (key === "email") href = "mailto:" + c.site.email;
       else if (key === "home") href = ctx.withDay("home.html");      // always the home page, never the coming-soon front door
       else if (key === "days") href = ctx.withDay("days.html");

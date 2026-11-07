@@ -61,7 +61,6 @@
     var mark = document.getElementById("mark-button"); if (mark) mark.classList.remove("active");
     if (state.flip === "climb") morphTo(0);
     setHint(state.ctx.config.copy.flips.hint);
-    var db = document.getElementById("days-button"); if (db) db.classList.remove("active");
     document.querySelectorAll(".back-hint").forEach(function (b) { b.remove(); });
     state.flip = null;
   }
@@ -72,7 +71,6 @@
     var text = state.ctx.config.copy.flips.close || "TAP AGAIN TO GO BACK TO THE ROUTE";
     var hint = document.createElement("div"); hint.className = "back-hint"; hint.textContent = text;
     if (trigger.classList.contains("counter")) trigger.appendChild(hint);
-    else if (trigger.id === "days-button") trigger.parentNode.insertAdjacentElement("afterend", hint);
     else { var right = document.querySelector(".banner-right"); if (right) right.appendChild(hint); }   // the mark: under the right-hand block
   }
   function openFlip(name, trigger) {
@@ -402,7 +400,7 @@
     Object.keys(info.counters).forEach(function (key) {
       var el = info.counters[key]; if (!el) return;
       odometer(el.querySelector(".num"), key, info.numbers[key]);
-      var flip = { days: "days", countries: "countries", climb: "climb" }[key];
+      var flip = { days: "days", countries: "countries", climb: "climb", log: "cards" }[key];
       if (flip && (flip !== "climb" || ctx.elevation) && (flip !== "countries" || (ctx.countries && ctx.countries.length))) {
         el.classList.add("clickable"); el.setAttribute("role", "button"); el.tabIndex = 0;
         el.addEventListener("click", function () { openFlip(flip, el); });
@@ -410,12 +408,6 @@
         if (state.flip === flip) el.classList.add("active");
       }
     });
-    var db = document.getElementById("days-button");
-    if (db && !db._wired) {
-      db._wired = true;
-      db.addEventListener("click", function () { openFlip("cards", db); });
-    }
-    if (db) db.classList.toggle("active", state.flip === "cards");
     var mark = document.getElementById("mark-button");
     if (mark && !mark._wired) {
       mark._wired = true;
@@ -430,7 +422,7 @@
     if (!state.flip) setHint(ctx.config.copy.flips.hint);
     // A render while a flip is open (time travel from inside the days grid): refresh that view
     if (state.flip === "days") showDays(); else if (state.flip === "countries") showCountries(); else if (state.flip === "stats") showStats(); else if (state.flip === "climb") { state.morph = null; morphTo(1); }
-    if (state.flip) backHint(document.querySelector(".counter.active") || (state.flip === "cards" ? db : document.getElementById("mark-button")));
+    if (state.flip) backHint(document.querySelector(".counter.active") || document.getElementById("mark-button"));
     wireScrub();
     wireMapScrub(document.getElementById("map"));
     ambientCountries(ctx);

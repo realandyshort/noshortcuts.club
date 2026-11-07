@@ -7,9 +7,13 @@
    provider set in config home.map.tiles; blank = no tiles), and the route with its labels on top:
    every day's end, days off, segment starts, the highest point so far, where the ride is expected to
    be, and the tracker's last position when it is on. Two boxes: totals so far (top left) and the day
-   under the middle of the screen (bottom left) with any secret stats earned that day. The controls
-   work a segment at a time: segment pills, a day back or on, a slider across the segment, and a day
-   to type. Honours ?day=N. No dates. */
+   under the middle of the screen (bottom left) with any secret stats earned that day. The day under
+   the middle is highlighted (a persimmon halo, a dot at each end) and the map zooms out enough to show
+   the whole of it. The controls work a segment at a time: segment pills, a day back or on, a slider
+   across the segment, a day to type, and a place to ask about ("when will Andy be in ..."), which
+   scrolls to the first day there. A scroll cue shows while the map is zoomed all the way out. The
+   browser's own scroll memory is switched off so the page always opens on the whole road. Honours
+   ?day=N. No dates. */
 (function () {
   "use strict";
   var Trip = window.Trip, NS = "http://www.w3.org/2000/svg";
@@ -25,7 +29,8 @@
   function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 
   var INTRO = 0.1;    // the first stretch of the scroll zooms in from the whole route
-  var state = { ctx: null, zoom: 8.8, f: 0, u: 1, shapes: null, tracks: null, detail: null, cam: null, far: true, day: 1, statCache: {}, tiles: {}, tileZ: -1, lastCam: null };
+  var state = { ctx: null, zoom: 8.8, f: 0, u: 1, shapes: null, tracks: null, detail: null, cam: null, far: true, day: 1, statCache: {}, tiles: {}, tileZ: -1, lastCam: null, anchors: null, builtZoom: null, hiDay: 0, dayPaths: {} };
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";   // a reload or a return opens on the whole road, not wherever the scroll was
 
   // ---- the route as one line: the day tracks in order, straight lines where a day has none ----
   function buildCamPath(ctx) {
@@ -49,7 +54,8 @@
       if (e >= s && s < line.length) { fStart[d.day] = cum[s] / total; fEnd[d.day] = cum[e] / total; last = fEnd[d.day]; }
       else { fStart[d.day] = last; fEnd[d.day] = last; }
     });
-    state.cam = { line: line, cum: cum, total: total, fStart: fStart, fEnd: fEnd };
+    state.cam = { line: line, cum: cum, total: total, fStart: fStart, fEnd: fEnd, dayStart: dayStart, dayEnd: dayEnd };
+    state.anchors = null; state.dayPaths = {}; state.hiDay = 0;
   }
   function pointAt(g) {
     var c = state.cam, target = Math.max(0, Math.min(1, g)) * c.total, lo = 0, hi = c.cum.length - 1;
@@ -120,6 +126,11 @@
     svg.appendChild(mk("path", { "class": "route-casing", d: done + rest }));
     state.rest = mk("path", { "class": "route-rest", d: rest }); svg.appendChild(state.rest);
     svg.appendChild(mk("path", { "class": "route-done", d: done }));
+    // the day under the middle of the screen: a halo behind its track, a dot at each end (camera() moves them)
+    state.hiHalo = mk("path", { "class": "route-day-halo" }); svg.appendChild(state.hiHalo);
+    state.hiPath = mk("path", { "class": "route-day" }); svg.appendChild(state.hiPath);
+    state.hiDots = mk("g", { "class": "day-ends" }); svg.appendChild(state.hiDots);
+    state.hiDay = 0;
 
     var marks = mk("g", { "class": "marks" }), labels = mk("g", { "class": "labels" });
     var lastRestPlace = "", lastSection = 0;
@@ -215,7 +226,56 @@
   }
 
   // ---- the camera: scroll fraction f -> centre and zoom ----
-  function nearZoom() { var m = state.ctx.config.home.map || {}; return window.innerWidth < 640 ? (Number(m.zoomNearPhone) || 8.2) : (Number(m.zoomNear) || 8.8); }
+  function nearZoom() { var m = state.ctx.config.home.map || {}; return window.innerWidth < 640 ? (Number(m.zoomNearPhone) || 8.1) : (Number(m.zoomNear) || 8.6); }
+  // how far out the map sits over a day: close enough to see the road, far enough to see the whole day.
+  // Each ride day gets a zoom that fits its track (capped at zoomNear, floored a little under it); the
+  // zoom runs smoothly from one day's to the next across the day boundaries.
+  function dayFitZoom(n, Wpx, Hpx) {
+    var c = state.cam, s = c.dayStart[n], e = c.dayEnd[n];
+    if (!(e > s)) return null;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    for (var i = s; i <= e; i++) { var q = proj(c.line[i][0], c.line[i][1]); if (q[0] < minX) minX = q[0]; if (q[0] > maxX) maxX = q[0]; if (q[1] < minY) minY = q[1]; if (q[1] > maxY) maxY = q[1]; }
+    var pad = window.innerWidth < 640 ? 2.6 : 1.8;      // the boxes and controls cover part of a phone screen
+    var w = Math.max(maxX - minX, 1e-6), h = Math.max(maxY - minY, 1e-6);
+    return Math.log(Math.min(Wpx / (w * pad), Hpx / (h * pad))) / Math.LN2;
+  }
+  function buildAnchors(Wpx, Hpx) {
+    var zN = nearZoom(), lo = zN - (Number((state.ctx.config.home.map || {}).zoomOutMax) || 1.8), c = state.cam, days = [];
+    state.ctx.plan.days.forEach(function (d) {
+      var z = dayFitZoom(d.day, Wpx, Hpx);
+      if (z == null) return;
+      days.push({ s: c.fStart[d.day], e: c.fEnd[d.day], z: Math.max(lo, Math.min(zN, z)) });
+    });
+    var a = [];
+    days.forEach(function (d, i) {
+      var prev = days[i - 1], next = days[i + 1];
+      a.push({ g: d.s, z: prev ? (prev.z + d.z) / 2 : d.z });     // at the boundary: halfway between the two days
+      a.push({ g: (d.s + d.e) / 2, z: d.z });                      // mid-day: the day's own zoom
+      a.push({ g: d.e, z: next ? (next.z + d.z) / 2 : d.z });
+    });
+    state.anchors = a.length ? a : [{ g: 0, z: zN }, { g: 1, z: zN }];
+  }
+  function zoomAt(g, Wpx, Hpx) {
+    if (!state.anchors) buildAnchors(Wpx, Hpx);
+    var a = state.anchors, lo = 0, hi = a.length - 1;
+    if (g <= a[0].g) return a[0].z;
+    if (g >= a[hi].g) return a[hi].z;
+    while (hi - lo > 1) { var mid = (lo + hi) >> 1; if (a[mid].g <= g) lo = mid; else hi = mid; }
+    var span = a[hi].g - a[lo].g || 1, t = (g - a[lo].g) / span;
+    return a[lo].z + (a[hi].z - a[lo].z) * t;
+  }
+  function dayPath(n) {
+    if (state.dayPaths[n] === undefined) { var c = state.cam, s = c.dayStart[n], e = c.dayEnd[n]; state.dayPaths[n] = e > s ? pathOf(c.line.slice(s, e + 1)) : ""; }
+    return state.dayPaths[n];
+  }
+  function highlightDay(n) {
+    if (n === state.hiDay || !state.hiPath) return;
+    state.hiDay = n;
+    var d = dayPath(n), c = state.cam, s = c.dayStart[n], e = c.dayEnd[n];
+    state.hiHalo.setAttribute("d", d); state.hiPath.setAttribute("d", d);
+    while (state.hiDots.firstChild) state.hiDots.removeChild(state.hiDots.firstChild);
+    if (e > s) [c.line[s], c.line[e]].forEach(function (p, i) { var q = proj(p[0], p[1]); state.hiDots.appendChild(mk("circle", { "class": "day-end " + (i ? "end" : "start"), cx: q[0], cy: q[1], r: 4 * state.u })); });
+  }
   function routeBounds() {
     var c = state.cam, minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
     for (var i = 0; i < c.line.length; i += 3) { var q = proj(c.line[i][0], c.line[i][1]); if (q[0] < minX) minX = q[0]; if (q[0] > maxX) maxX = q[0]; if (q[1] < minY) minY = q[1]; if (q[1] > maxY) maxY = q[1]; }
@@ -235,9 +295,11 @@
       far = zoom < zN - 1.2;
     } else {
       var g = (f - INTRO) / (1 - INTRO), pt = pointAt(g), q = proj(pt[0], pt[1]);
-      cx = q[0]; cy = q[1]; zoom = zN;
+      cx = q[0]; cy = q[1]; zoom = zoomAt(g, Wpx, Hpx);
     }
     var s = Math.pow(2, zoom), W = Wpx / s, H = Hpx / s, u = 1 / s;
+    // the marks and labels were drawn for one zoom; redraw them once the zoom has drifted (not while zoomed out, where they are hidden)
+    if (!far && state.builtZoom != null && Math.abs(zoom - state.builtZoom) > 0.3) { state.u = u; state.builtZoom = zoom; build(ctx); }
     var vb = (cx - W / 2).toFixed(5) + " " + (cy - H / 2).toFixed(5) + " " + W.toFixed(5) + " " + H.toFixed(5);
     svg.setAttribute("viewBox", vb); base.setAttribute("viewBox", vb);
     svg.style.setProperty("--u", u); base.style.setProperty("--u", u);
@@ -245,6 +307,8 @@
     if (state.rest) { state.rest.setAttribute("stroke-width", (2.8 * u).toFixed(5)); state.rest.setAttribute("stroke-dasharray", "0 " + (7 * u).toFixed(5)); }
     drawTiles(cx, cy, s, Wpx, Hpx, zoom);
     updateBoxes(f);
+    highlightDay(state.day);
+    var cue = document.getElementById("bigmap-cue"); if (cue) cue.hidden = !(f < INTRO * 0.6);
   }
 
   // ---- the two boxes and the controls ----
@@ -282,23 +346,81 @@
     if (s) { s.min = range.first; s.max = range.last; if (document.activeElement !== s) s.value = n; }
     if (l) l.textContent = (M.segment || "SEGMENT") + " " + sec + " · " + (M.slider || "DAY") + " " + n;
     document.querySelectorAll("#bigmap-segments button").forEach(function (b) { b.classList.toggle("active", Number(b.getAttribute("data-section")) === sec); });
+    var controls = document.getElementById("bigmap-controls"), h = controls ? controls.offsetHeight + "px" : "";
+    if (controls && h !== state.controlsH) { state.controlsH = h; controls.parentNode.style.setProperty("--controls-h", h); }   // phones: the day box sits above the controls
   }
 
   function scrollFraction() {
-    var box = document.getElementById("bigmap-scroll"), top = box.offsetTop, span = box.offsetHeight - window.innerHeight;
-    return Math.max(0, Math.min(1, span > 0 ? (window.scrollY - top) / span : 0));
+    var box = document.getElementById("bigmap-scroll"), view = box.firstElementChild, span = box.offsetHeight - view.offsetHeight;
+    return Math.max(0, Math.min(1, span > 0 ? -box.getBoundingClientRect().top / span : 0));
   }
   function scrollToFraction(f, smooth) {
-    var box = document.getElementById("bigmap-scroll"), span = box.offsetHeight - window.innerHeight;
-    window.scrollTo({ top: box.offsetTop + f * span, behavior: smooth ? "smooth" : "auto" });
+    var box = document.getElementById("bigmap-scroll"), view = box.firstElementChild, span = box.offsetHeight - view.offsetHeight;
+    var top = box.getBoundingClientRect().top + window.pageYOffset;
+    window.scrollTo({ top: top + f * span, behavior: smooth ? "smooth" : "instant" });
   }
   function scrollToDay(n, smooth) { n = Trip.clampDay(state.ctx.plan, n); scrollToFraction(INTRO + (1 - INTRO) * gOfDay(n), smooth); }
 
   function resize() {
-    var svg = document.getElementById("bigmap"), r = svg.getBoundingClientRect();
-    state.u = 1 / Math.pow(2, nearZoom());
+    state.anchors = null;
+    state.u = 1 / Math.pow(2, nearZoom()); state.builtZoom = nearZoom();
     buildBase(state.ctx); build(state.ctx);
     camera(scrollFraction());
+  }
+
+  // ---- "When will Andy be in ...": every country and every place on the plan, with its first and last day ----
+  function norm(s) { return String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s*\(.*?\)\s*/g, " ").replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim(); }
+  function cleanName(s) { return String(s || "").replace(/\s*\(.*?\)\s*/g, " ").replace(/\s+/g, " ").trim(); }
+  function placeIndex() {
+    if (state.places) return state.places;
+    var ctx = state.ctx, plan = ctx.plan, pts = ctx.dayPoints && ctx.dayPoints.days, idx = {}, order = [];
+    function add(name, first, last, kind) {
+      var k = norm(name); if (!k) return;
+      if (!idx[k]) { idx[k] = { name: cleanName(name), first: first, last: last, kind: kind }; order.push(k); }
+      else { if (first < idx[k].first) idx[k].first = first; if (last > idx[k].last) idx[k].last = last; }
+    }
+    var cs = (ctx.countries || []).slice().sort(function (a, b) { return a.first_day - b.first_day; });
+    cs.forEach(function (c, i) { add(c.country, c.first_day, cs[i + 1] ? cs[i + 1].first_day - 1 : plan.days.length, "country"); });
+    plan.days.forEach(function (d) {
+      var p = pts && pts[String(d.day)];
+      [d.from, d.to, p && p.start && p.start.place, p && p.end && p.end.place].forEach(function (nm) { if (nm) add(nm, d.day, d.day, "place"); });
+    });
+    state.places = { idx: idx, order: order };
+    return state.places;
+  }
+  function findPlace(q) {
+    var P = placeIndex(), k = norm(q); if (!k) return null;
+    if (P.idx[k]) return P.idx[k];
+    var starts = P.order.filter(function (o) { return o.indexOf(k) === 0; }), within = P.order.filter(function (o) { return o.indexOf(k) > 0 || o.indexOf(" " + k) >= 0; });
+    var pool = starts.length ? starts : within;
+    if (!pool.length) return null;
+    pool.sort(function (a, b) { return (P.idx[a].kind === "country" ? 0 : 1) - (P.idx[b].kind === "country" ? 0 : 1) || a.length - b.length; });
+    return P.idx[pool[0]];
+  }
+  function fill(tpl, vals) { return String(tpl || "").replace(/\{(\w+)\}/g, function (m, k) { return vals[k] != null ? vals[k] : m; }); }
+  function wireAsk(ctx, M) {
+    var form = document.getElementById("bigmap-ask"), input = document.getElementById("bigmap-place"), list = document.getElementById("bigmap-places"), out = document.getElementById("bigmap-answer");
+    if (!form || !input) return;
+    var P = placeIndex();
+    P.order.forEach(function (k) { list.appendChild(ctx.el("option", { value: P.idx[k].name })); });
+    if (window.innerWidth < 640 && (M.ask || "").trim()) input.placeholder = M.ask.trim() + " …";   // phones: the question is the placeholder (the label is hidden)
+    function answer() {
+      var hit = findPlace(input.value);
+      out.hidden = false; out.classList.toggle("none", !hit);
+      if (!hit) { out.textContent = M.askNone || "Not on the route. Try a country, or a town on the way."; return; }
+      var n = hit.last - hit.first + 1, v = { place: hit.name, first: hit.first, last: hit.last, n: n };
+      var txt = n > 1 ? fill(M.askAnswer || "{place}: day {first} to day {last} · {n} days", v) : fill(M.askAnswerOne || "{place}: day {first}", v);
+      if (ctx.live) {                                   // how far off it is, in days (never a date)
+        var away = hit.first - ctx.day;
+        if (ctx.day >= hit.first && ctx.day <= hit.last) txt += " · " + (M.askNow || "there now");
+        else if (away > 0) txt += " · " + fill(M.askFromNow || "{n} days from now", { n: away });
+        else txt += " · " + fill(M.askPast || "{n} days ago", { n: -away });
+      }
+      out.textContent = txt;
+      scrollToDay(hit.first, true);
+    }
+    form.addEventListener("submit", function (e) { e.preventDefault(); answer(); });
+    input.addEventListener("change", function () { if (findPlace(input.value) && norm(input.value) in P.idx) answer(); });   // picking a name from the list
   }
 
   function quiet(url) { return fetch(url, { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); }
@@ -313,12 +435,15 @@
     // controls
     var controls = document.getElementById("bigmap-controls"), slider = document.getElementById("bigmap-slider"), segs = document.getElementById("bigmap-segments");
     var sections = []; ctx.plan.days.forEach(function (d) { if (sections.indexOf(d.section) < 0) sections.push(d.section); });
+    var segLabel = document.getElementById("bigmap-seg-label"); if (segLabel && !(M.segmentsLabel || "").trim()) segLabel.hidden = true;
     sections.forEach(function (sec) {
-      var b = ctx.el("button", { type: "button", class: "seg", "data-section": sec, text: String(sec), title: (M.segment || "SEGMENT") + " " + sec });
+      var b = ctx.el("button", { type: "button", class: "seg", "data-section": sec, text: String(sec), title: (M.segment || "SEGMENT") + " " + sec, "aria-label": (M.segment || "SEGMENT") + " " + sec });
       b.addEventListener("click", function () { scrollToDay(segmentRange(sec).first, true); });
       segs.appendChild(b);
     });
     controls.hidden = false;
+    // phones: the day box sits just above the controls, however tall they are (the answer line grows them)
+    if (window.ResizeObserver) new ResizeObserver(function () { controls.parentNode.style.setProperty("--controls-h", controls.offsetHeight + "px"); }).observe(controls);
     document.getElementById("bigmap-prev").addEventListener("click", function () { scrollToDay(state.day - 1, true); });
     document.getElementById("bigmap-next").addEventListener("click", function () { scrollToDay(state.day + 1, true); });
     slider.addEventListener("input", function () { scrollToDay(Number(slider.value), false); });
@@ -326,12 +451,16 @@
     document.getElementById("bigmap-goto").addEventListener("submit", function (e) { e.preventDefault(); var n = Number(dayInput.value); if (n >= 1) scrollToDay(n, true); });
     document.getElementById("bigmap-today").addEventListener("click", function () { scrollToDay(ctx.day, true); });
     document.getElementById("bigmap-top").addEventListener("click", function () { scrollToFraction(0, true); });
+    var cue = document.getElementById("bigmap-cue"); if (cue) cue.addEventListener("click", function () { scrollToDay(1, true); });
+    wireAsk(ctx, M);
     document.getElementById("bigmap-hint").textContent = (M.scrollHint || "SCROLL, OR USE THE BUTTONS AND THE SLIDER") + (tilesOn() && M.tiles ? " · " + M.tiles : "");
     resize();
     var ticking = false;
     window.addEventListener("scroll", function () { if (ticking) return; ticking = true; requestAnimationFrame(function () { ticking = false; camera(scrollFraction()); }); }, { passive: true });
     var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(resize, 120); });
     if (ctx.params.has("day")) setTimeout(function () { scrollToDay(ctx.day, false); }, 300);
+    else if (scrollFraction() > 0) scrollToFraction(0, false);   // whatever the browser remembered: open zoomed all the way out
+    ctx.onChange(function () { state.places = null; });
     ctx.onChange(function () { state.statCache = {}; resize(); });
     if (!tilesOn()) quiet("data/bigmap_detail.json").then(function (d) { if (d && d.roads) { state.detail = d; resize(); } });
   });
