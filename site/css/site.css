@@ -35,7 +35,7 @@ em { font-style: italic; color: var(--persimmon); }
 @view-transition { navigation: auto; }
 .banner, .site-header { view-transition-name: chrome; }
 .title, .wordmark { view-transition-name: name; }
-::view-transition-group(*) { animation-duration: 0.45s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+::view-transition-group(*) { animation-duration: 0.5s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 ::view-transition-old(name), ::view-transition-new(name) { height: 100%; object-fit: contain; }
 
 /* Header */

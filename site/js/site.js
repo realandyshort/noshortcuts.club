@@ -178,6 +178,7 @@
     var names = ["plan", "dispatches", "substack", "instagram", "videos", "rides", "position", "weather"];
     var strip = el("div", { class: "status-strip", role: "status" }, [el("b", { text: "TEST MODE · DAY " + ctx.day })]);
     names.forEach(function (n) { var s = ctx.state(n); strip.appendChild(el("span", { class: "s " + s, text: n + " " + s.replace("_", " ") })); });
+    strip.appendChild(el("span", { class: "s", text: "page morph " + (document.documentElement.getAttribute("data-morph") || ("CSSViewTransitionRule" in window ? "unknown" : "by hand")) }));
     strip.appendChild(el("a", { href: "test/", text: "test page" }));
     if (/\/test\/?$/.test(location.pathname)) strip.lastChild.remove();
     document.body.appendChild(strip);
@@ -233,4 +234,38 @@
   // Tinker panel calls this after changing config in memory
   ctx.onChange = function (fn) { ctx.listeners.push(fn); };
   ctx.changed = function () { applyChrome(); ctx.listeners.forEach(function (fn) { try { fn(); } catch (e) { console.error(e); } }); };
+  // Page to page: the home banner folds into the top bar. On a click on a link to another page of the
+  // site, the banner first folds down to the bar's height (every browser can do that), then the page
+  // changes; browsers with cross-document view transitions (css/site.css) then morph the folded banner
+  // into the bar and the big title into the wordmark, and grow the bar back into the banner on the way
+  // home; the rest grow the banner out by hand on arriving home. The console notes what ran, and each
+  // page's head marks <html data-morph>.
+  window.addEventListener("pageswap", function (e) { console.debug("[site] leaving: page morph " + (e.viewTransition ? "started" : "not started")); });
+  (function morphByHand() {
+    var hasVT = "CSSViewTransitionRule" in window, T = 380, EASE = "cubic-bezier(0.4, 0, 0.2, 1)";
+    var banner = document.querySelector(".banner"), isBar = !!document.querySelector(".site-header"), arriving = false;
+    function barHeight() { return window.innerWidth <= 900 ? 66 : 72; }
+    try { arriving = sessionStorage.getItem("morph") === "1"; sessionStorage.removeItem("morph"); } catch (e) {}
+    if (arriving && banner && !hasVT) {                     // home, by hand: grow the banner out from the bar
+      var full = banner.offsetHeight;
+      banner.style.cssText = "height:" + barHeight() + "px;box-sizing:border-box;overflow:hidden";
+      void banner.offsetHeight;
+      banner.style.transition = "height " + T + "ms " + EASE; banner.style.height = full + "px";
+      setTimeout(function () { banner.style.cssText = ""; }, T + 60);
+    }
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (!a || a.target === "_blank" || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button || e.defaultPrevented) return;
+      var url; try { url = new URL(a.href, location.href); } catch (x) { return; }
+      if (url.origin !== location.origin || !/(\.html|\/)$/.test(url.pathname) || url.pathname === location.pathname) return;
+      try { sessionStorage.setItem("morph", "1"); } catch (x) {}
+      if (isBar || !banner) return;                        // a bar stays a bar: the page just changes
+      e.preventDefault();
+      banner.style.cssText = "height:" + banner.offsetHeight + "px;box-sizing:border-box;overflow:hidden";
+      void banner.offsetHeight;
+      banner.style.transition = "height " + T + "ms " + EASE; banner.style.height = barHeight() + "px";
+      setTimeout(function () { location.href = url.href; }, T);
+    });
+  })();
+
 })();
