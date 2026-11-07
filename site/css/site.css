@@ -292,9 +292,12 @@ body.has-strip { padding-bottom: 2.2rem; }
   .two-col, .about-hero .wrap, .latest-grid, .dispatch, .signup-strip .wrap, .site-footer .wrap, .substack-card { grid-template-columns: 1fr; }
   .dispatch-cover { min-height: 0; aspect-ratio: 16 / 9; }
   .dispatch-cover video { max-height: none; }
-  .flip-miles .info { grid-template-columns: 1fr; gap: 0.5rem; }
-  .flip-miles .chain .i, .flip-miles .chain svg { width: 24px; height: 24px; }
-  .flip-miles .chain .part { width: calc(24px * var(--p, 50%) / 100%); }
+  /* (written with .flip-miles in front: the globe rules sit later in the file) */
+  .flip-miles .globe-info { grid-template-columns: 1fr; gap: 0.8rem; }
+  .flip-miles .globe-legend { flex-direction: row; flex-wrap: wrap; gap: 0.8rem 1.4rem; }
+  .flip-miles .globe-legend .lg { flex: 1 1 40%; }
+  .flip-miles .globe-legend b { font-size: 1.3rem; }
+  .flip-miles .big-globe { width: 100%; }
   .miles-head { gap: 1rem 1.6rem; }
   .substack-cover { min-height: 0; aspect-ratio: 16 / 9; }
     .counters { grid-template-columns: repeat(3, 1fr); }
@@ -422,26 +425,27 @@ body.has-strip { padding-bottom: 2.2rem; }
 .miles-bar .seg .mono { position: absolute; left: 0.5em; top: 50%; transform: translateY(-50%); font-size: 0.56rem; color: var(--cream); white-space: nowrap; }
 .miles-bar .seg.done .mono { color: var(--ink); }
 .flip-miles .kicker { color: var(--peach); margin: 0.2rem 0 -0.4rem; }
-/* which is: one infographic per row: the big number and label on the left, the drawing on the right */
-.flip-miles .info { display: grid; grid-template-columns: minmax(170px, 230px) 1fr; gap: 0.6rem 1.5rem; align-items: center; padding: 0.9rem 0; border-top: 1px solid var(--line-on-ink); }
-.flip-miles .lead { display: flex; flex-direction: column; gap: 0.2rem; }
-.flip-miles .lead b { font-family: var(--font-mono); font-weight: 500; font-size: clamp(1.8rem, 3.6vw, 3rem); color: var(--persimmon); line-height: 1; }
-.flip-miles .lead .lbl { font-size: 0.95rem; color: var(--cream); }
-.flip-miles .viz { min-width: 0; }
-.flip-miles .viz svg { fill: none; stroke: var(--cream); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.flip-miles .chain { display: flex; flex-wrap: wrap; gap: 3px; }
-.flip-miles .chain .i { width: 30px; height: 30px; display: inline-block; flex: 0 0 auto; }
-.flip-miles .chain svg { width: 30px; height: 30px; display: block; }
-.flip-miles .chain .part { position: relative; overflow: hidden; width: calc(30px * var(--p, 50%) / 100%); }   /* the last figure, cut to the fraction */
-.flip-miles .chain .part svg { position: absolute; left: 0; top: 0; }
-.flip-miles .chain .ghost svg { opacity: 0.25; }
-.flip-miles .key { display: block; color: var(--gray); font-size: 0.6rem; margin-top: 0.35rem; }
-.globe-viz { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
-.globe-viz .globe { width: clamp(120px, 16vw, 170px); height: auto; flex: 0 0 auto; }
-.globe-viz .globe .ring { stroke: rgba(251, 233, 215, 0.18); stroke-width: 7; }
-.globe-viz .globe .arc { stroke: var(--persimmon); stroke-width: 7; }
-.globe-viz .globe path { stroke: var(--cream); stroke-width: 1.1; }
-.globe-viz .key { margin: 0; font-size: 0.7rem; color: var(--cream); }
+/* which is: one big globe with three rings, the numbers beside it (never under it: the legend column is fixed) */
+.globe-info { display: grid; grid-template-columns: minmax(200px, 300px) minmax(0, 1fr); gap: 1rem 2.5rem; align-items: center; }
+.big-globe { width: min(100%, 560px); height: auto; display: block; margin: 0 auto; overflow: visible; }
+.big-globe .globe-lines path { fill: none; stroke: var(--cream); stroke-width: 0.9; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; }
+.big-globe .ring-bg { fill: none; stroke: rgba(251, 233, 215, 0.14); stroke-width: 12; }
+.big-globe .ring-arc { fill: none; stroke: var(--persimmon); stroke-width: 12; stroke-linecap: round; }
+.big-globe .ring-icons path { fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.big-globe .ring-icons.r1 .on path { stroke: var(--cream); }
+.big-globe .ring-icons.r2 .on path { stroke: var(--peach); }
+.big-globe .ring-icons .off path { stroke: var(--cream); opacity: 0.14; }
+.globe-legend { display: flex; flex-direction: column; gap: 1.1rem; min-width: 0; }
+.globe-legend .lg { display: grid; grid-template-columns: 14px 1fr; gap: 0.7rem; align-items: start; min-width: 0; }
+.globe-legend .lg i { width: 14px; height: 14px; border-radius: 50%; margin-top: 0.55rem; }
+.globe-legend .eq i { background: var(--persimmon); }
+.globe-legend .r1 i { background: var(--cream); }
+.globe-legend .r2 i { background: var(--peach); }
+.globe-legend b { display: block; font-family: var(--font-mono); font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1.05; color: var(--cream); overflow-wrap: anywhere; }
+.globe-legend .eq b { color: var(--persimmon); }
+.globe-legend .r2 b { color: var(--peach); }
+.globe-legend .lbl { display: block; font-size: 0.92rem; color: var(--cream); opacity: 0.9; margin-top: 0.15rem; }
+.globe-legend .note { display: block; color: var(--gray); font-size: 0.6rem; margin-top: 0.3rem; }
 .miles-bar { cursor: pointer; }
 .miles-bar .seg:hover { border-color: var(--cream); }
 .flip-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem 1.2rem; align-content: center; padding: 0.4rem var(--gutter); }
