@@ -188,6 +188,7 @@
     box.textContent = "";
     var head = el("div", { class: "miles-head" }, [
       el("div", { class: "big" }, [el("span", { class: "num", text: Trip.fmtInt(Math.round(miles)) }), el("span", { class: "lbl", text: ridden ? (L.ridden || "MILES RIDDEN") : (L.plan || "MILES · PLAN") })]),
+      el("div", { class: "big" }, [el("span", { class: "num", text: Trip.fmtInt(Math.round(miles * 1.609344)) }), el("span", { class: "lbl", text: L.km || "KILOMETRES" })]),
       el("div", { class: "big" }, [el("span", { class: "num", text: (frac * 100).toFixed(1) + "%" }), el("span", { class: "lbl", text: L.ofRoad || "OF THE ROAD" })]),
       el("div", { class: "big" }, [el("span", { class: "num", text: Trip.fmtInt(Math.round(Math.max(0, total - miles))) }), el("span", { class: "lbl", text: (L.left || "TO GO") + " · " + Trip.fmtInt(Math.round(total)) + " MI" })])
     ]);
@@ -202,24 +203,37 @@
       bar.appendChild(seg); run += s.miles;
     });
     box.appendChild(bar);
-    var cols = el("div", { class: "miles-cols" });
-    // the same distance in other units
-    var km = miles * 1.609344, m = km * 1000;
-    var units = [["KM", km], ["M", m], ["FT", miles * 5280], ["IN", miles * 63360], ["CM", m * 100], ["MM", m * 1000]];
-    var ul = el("div", { class: "miles-units" }, [el("p", { class: "kicker", text: L.units || "THE SAME DISTANCE IN" })]);
-    units.forEach(function (u) { ul.appendChild(el("div", { class: "u" }, [el("span", { class: "mono", text: u[0] }), el("b", { text: Trip.fmtInt(Math.round(u[1])) })])); });
-    cols.appendChild(ul);
-    // what it amounts to: mini bars (full = one of the thing)
-    var cmp = (c.home.milesCompare || []).filter(function (x) { return Number(x.miles) > 0; });
+    // which is: infographics. Each comparison is a pictogram strip, one icon per unit (1, 10, 100 ... so
+    // the strip stays under about forty icons), the last one cut to the fraction, with the big number.
+    var ICONS = {
+      globe: "M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0-18 0M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18",
+      runner: "M14 4a1.5 1.5 0 1 0 0.01 0M7 21l3-6 3 2 2 4M10 15l-1-4 4-3 3 2 3-1M13 8l-2 5",
+      person: "M12 5a2 2 0 1 0 0.01 0M12 9v6M2 11h20M12 15l-3 6M12 15l3 6"
+    };
+    function icon(name, cls) { var sv = document.createElementNS(NS, "svg"); sv.setAttribute("viewBox", "0 0 24 24"); sv.setAttribute("class", cls || ""); var p = document.createElementNS(NS, "path"); p.setAttribute("d", ICONS[name] || ICONS.person); sv.appendChild(p); return sv; }
+    var cmp = (c.home.milesCompare || []).map(function (x) { return { label: x.label, icon: x.icon || "person", miles: Number(x.miles) > 0 ? Number(x.miles) : Number(x.feet) > 0 ? Number(x.feet) / 5280 : 0 }; }).filter(function (x) { return x.miles > 0; });
     if (cmp.length) {
-      var cl = el("div", { class: "miles-compare" }, [el("p", { class: "kicker", text: L.compare || "WHICH IS" })]);
+      var grid = el("div", { class: "miles-info" });
       cmp.forEach(function (x) {
-        var r = miles / Number(x.miles), shown = r >= 10 ? Trip.fmtInt(Math.round(r)) : r >= 1 ? r.toFixed(1) : r.toFixed(2);
-        cl.appendChild(el("div", { class: "cmp" }, [el("div", { class: "track" }, [el("i", { style: "width:" + (Math.min(1, r) * 100).toFixed(2) + "%" })]), el("span", { class: "mono", text: shown + " × " + x.label })]));
+        var count = miles / x.miles, step = 1;
+        while (count / step > 40) step *= 10;
+        var full = Math.floor(count / step), part = count / step - full;
+        var shown = count >= 100 ? Trip.fmtInt(Math.round(count)) : count >= 10 ? count.toFixed(1) : count.toFixed(2);
+        var strip = el("div", { class: "picto" });
+        for (var i = 0; i < full; i++) strip.appendChild(icon(x.icon, "i"));
+        if (part > 0.02) { var pw = el("span", { class: "i part", style: "--p:" + (part * 100).toFixed(1) + "%" }); pw.appendChild(icon(x.icon)); strip.appendChild(pw); }
+        if (!full && part <= 0.02) strip.appendChild(el("span", { class: "i ghost" }, [icon(x.icon)]));
+        var card = el("div", { class: "info" }, [
+          el("div", { class: "top" }, [icon(x.icon, "big"), el("b", { text: shown })]),
+          el("span", { class: "lbl", text: x.label }),
+          strip,
+          el("span", { class: "mono key", text: (L.each || "EACH") + " = " + (step === 1 ? "1" : Trip.fmtInt(step)) })
+        ]);
+        grid.appendChild(card);
       });
-      cols.appendChild(cl);
+      box.appendChild(el("p", { class: "kicker", text: L.compare || "WHICH IS" }));
+      box.appendChild(grid);
     }
-    box.appendChild(cols);
     setHint((c.copy.flips.miles || "THE ROAD SO FAR") + " · DAY " + ctx.day);
     show(box);
   }

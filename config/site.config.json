@@ -59,11 +59,11 @@
       "videos"
     ],
     "dayCards": 5,
+    "_milesCompare": "The MILES view's infographics: each is a label, the length of one (miles, or feet for small things) and an icon: globe, runner or person. people holding hands: 5.6 ft each, about the average adult arm span, fingertip to fingertip.",
     "milesCompare": [
-      { "label": "laps of the equator", "miles": 24901 },
-      { "label": "rides across the USA, coast to coast", "miles": 3095 },
-      { "label": "lengths of the Grand Canyon", "miles": 277 },
-      { "label": "marathons", "miles": 26.2 }
+      { "label": "laps of the equator", "miles": 24901, "icon": "globe" },
+      { "label": "marathons", "miles": 26.2, "icon": "runner" },
+      { "label": "people holding hands, fingertip to fingertip", "feet": 5.6, "icon": "person" }
     ],
     "bannerHeight": "min(44vw, 420px)",
     "titleSize": "clamp(2.2rem, 5vw, 4.5rem)",
@@ -241,9 +241,9 @@
       "plan": "MILES · PLAN",
       "ofRoad": "OF THE ROAD",
       "left": "TO GO",
-      "units": "THE SAME DISTANCE IN",
+      "km": "KILOMETRES",
       "compare": "WHICH IS",
-      "segment": "SEG"
+      "each": "EACH"
     },
     "stats": {
       "kicker": "SECRET STATS",
