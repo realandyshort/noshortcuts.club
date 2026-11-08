@@ -210,7 +210,7 @@
   } else loads.push(quiet("data/route_line.json"));   // light pages still draw the route under the wordmark
 
   window.Site = ctx;
-  ctx.ready = Promise.all(loads).then(function (r) {
+  ctx.ready = Promise.all(loads.concat([window.pageMorph || null])).then(function (r) {   // the data loads while the page morph plays; drawing waits for both
     ctx.config = r[0];
     if (!ctx.config) { console.warn("config failed to load; leaving the page as written"); return ctx; }
     if (!light) {
@@ -234,19 +234,20 @@
   // Tinker panel calls this after changing config in memory
   ctx.onChange = function (fn) { ctx.listeners.push(fn); };
   ctx.changed = function () { applyChrome(); ctx.listeners.forEach(function (fn) { try { fn(); } catch (e) { console.error(e); } }); };
-  // Page to page: the home banner folds into the top bar. On a click on a link to another page of the
-  // site, the banner first folds down to the bar's height (every browser can do that), then the page
-  // changes; browsers with cross-document view transitions (css/site.css) then morph the folded banner
-  // into the bar and the big title into the wordmark, and grow the bar back into the banner on the way
-  // home; the rest grow the banner out by hand on arriving home. The console notes what ran, and each
+  // Page to page: the home banner morphs into the top bar. Browsers with cross-document view transitions
+  // (Chrome 126+, Safari 18.2+) do it themselves (css/site.css), as one animation: the black box shrinks
+  // into the bar, the title into the wordmark. The rest get the shape of it by hand: a click on a link to
+  // another page of the site first folds the banner down to the bar's height, then the page changes; the
+  // home page, arriving that way, grows its banner out from the bar. The console notes what ran, and each
   // page's head marks <html data-morph>.
   window.addEventListener("pageswap", function (e) { console.debug("[site] leaving: page morph " + (e.viewTransition ? "started" : "not started")); });
   (function morphByHand() {
     var hasVT = "CSSViewTransitionRule" in window, T = 380, EASE = "cubic-bezier(0.4, 0, 0.2, 1)";
+    if (hasVT) return;                                       // the browser does the whole morph itself
     var banner = document.querySelector(".banner"), isBar = !!document.querySelector(".site-header"), arriving = false;
     function barHeight() { return window.innerWidth <= 900 ? 66 : 72; }
     try { arriving = sessionStorage.getItem("morph") === "1"; sessionStorage.removeItem("morph"); } catch (e) {}
-    if (arriving && banner && !hasVT) {                     // home, by hand: grow the banner out from the bar
+    if (arriving && banner) {                     // home, by hand: grow the banner out from the bar
       var full = banner.offsetHeight;
       banner.style.cssText = "height:" + barHeight() + "px;box-sizing:border-box;overflow:hidden";
       void banner.offsetHeight;

@@ -35,8 +35,18 @@ em { font-style: italic; color: var(--persimmon); }
 @view-transition { navigation: auto; }
 .banner, .site-header { view-transition-name: chrome; }
 .title, .wordmark { view-transition-name: name; }
-::view-transition-group(*) { animation-duration: 0.5s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-::view-transition-old(name), ::view-transition-new(name) { height: 100%; object-fit: contain; }
+::view-transition-group(*) { animation-duration: 0.55s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+/* the black box itself shrinks (or grows): its old contents fade out at once rather than being squashed into
+   the bar, cropped from the bottom as the box shrinks, and the bar's contents fade in as the box arrives */
+::view-transition-group(chrome) { background: var(--ink); overflow: clip; }
+::view-transition-old(chrome), ::view-transition-new(chrome) { height: 100%; object-fit: cover; object-position: top left; }
+::view-transition-old(chrome) { animation: vt-out 0.22s ease-out both; }
+::view-transition-new(chrome) { animation: vt-in 0.28s ease-in 0.27s both; }
+::view-transition-old(name), ::view-transition-new(name) { height: 100%; object-fit: contain; object-position: left; }
+::view-transition-old(root) { animation-duration: 0.3s; }
+::view-transition-new(root) { animation-duration: 0.3s; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; } }
 
 /* Header */
 .site-header { background: var(--ink); color: var(--cream); }
