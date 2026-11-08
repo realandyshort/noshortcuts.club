@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T20:10:17.960Z",
+  "generated_at": "2026-11-08T00:28:39.722Z",
   "day1_date": "2027-06-18",
   "total_days": 543,
   "source": {
@@ -11,8 +11,8 @@
     "6": "seed (tab not in sheet yet)"
   },
   "totals": {
-    "miles": 26691.5,
-    "climb_ft": 1455060
+    "miles": 26702.7,
+    "climb_ft": 1455085
   },
   "days": [
     {
@@ -585,7 +585,7 @@
       "plan_miles": 96.6,
       "plan_climb_ft": 4000,
       "terrain": "Flat",
-      "notes": "Hwy 7 on the north side of the Fraser (quieter than Hwy 1) through Agassiz, Mission and Maple Ridge. Rest days Jul 29-30 in Vancouver.",
+      "notes": "Hwy 7 on the north side of the Fraser (quieter than Hwy 1) through Agassiz, Mission and Maple Ridge. Rest day Jul 29 in Vancouver.",
       "route_url": "https://www.komoot.com/tour/3364470961",
       "stay": ""
     },
@@ -607,42 +607,42 @@
       "section": 1,
       "day": 43,
       "date": "2027-07-30",
-      "kind": "rest",
+      "kind": "border",
       "from": "Vancouver",
-      "to": "Vancouver",
-      "plan_miles": 0,
-      "plan_climb_ft": 0,
+      "to": "Bellingham",
+      "plan_miles": 59.3,
+      "plan_climb_ft": 2050,
       "terrain": "",
-      "notes": "Rest day.",
-      "route_url": "",
-      "stay": "Vancouver"
+      "notes": "BORDER DAY. Cross at Peace Arch (Blaine). Rest day next day.",
+      "route_url": "https://www.komoot.com/tour/3385155561",
+      "stay": "Friend's place, Bellingham"
     },
     {
       "section": 1,
       "day": 44,
       "date": "2027-07-31",
-      "kind": "ride",
-      "from": "Vancouver",
-      "to": "Lake McMurray",
-      "plan_miles": 94,
-      "plan_climb_ft": 3425,
+      "kind": "rest",
+      "from": "Bellingham",
+      "to": "Bellingham",
+      "plan_miles": 0,
+      "plan_climb_ft": 0,
       "terrain": "",
-      "notes": "",
-      "route_url": "https://www.komoot.com/tour/2703958087",
-      "stay": "Wild Camp"
+      "notes": "Rest day.",
+      "route_url": "",
+      "stay": "Friend's place, Bellingham"
     },
     {
       "section": 1,
       "day": 45,
       "date": "2027-08-01",
       "kind": "ride",
-      "from": "Lake McMurray",
+      "from": "Bellingham",
       "to": "Seattle",
-      "plan_miles": 55.1,
-      "plan_climb_ft": 2275,
+      "plan_miles": 101,
+      "plan_climb_ft": 3675,
       "terrain": "",
       "notes": "",
-      "route_url": "https://www.komoot.com/tour/2703959272",
+      "route_url": "https://www.komoot.com/tour/3385156486",
       "stay": "Airbnb in Capitol Hill"
     },
     {
