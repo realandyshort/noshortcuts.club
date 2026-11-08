@@ -36,13 +36,16 @@ em { font-style: italic; color: var(--persimmon); }
 .banner, .site-header { view-transition-name: chrome; }
 .title, .wordmark { view-transition-name: name; }
 ::view-transition-group(*) { animation-duration: 0.55s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-/* the black box itself shrinks (or grows): its old contents fade out at once rather than being squashed into
-   the bar, cropped from the bottom as the box shrinks, and the bar's contents fade in as the box arrives */
+/* the black box itself shrinks (or grows). Nothing inside it is scaled: the old contents fade out at once and
+   are cropped from the bottom as the box closes, and the bar's contents, at their final size and place, fade
+   in as the box arrives. The title scales down into the wordmark's spot and only then swaps to the wordmark. */
 ::view-transition-group(chrome) { background: var(--ink); overflow: clip; }
-::view-transition-old(chrome), ::view-transition-new(chrome) { height: 100%; object-fit: cover; object-position: top left; }
-::view-transition-old(chrome) { animation: vt-out 0.22s ease-out both; }
-::view-transition-new(chrome) { animation: vt-in 0.28s ease-in 0.27s both; }
-::view-transition-old(name), ::view-transition-new(name) { height: 100%; object-fit: contain; object-position: left; }
+::view-transition-old(chrome), ::view-transition-new(chrome) { width: 100%; height: 100%; object-fit: none; object-position: top left; }
+::view-transition-old(chrome) { animation: vt-out 0.25s ease-out both; }
+::view-transition-new(chrome) { animation: vt-in 0.2s ease-in 0.35s both; }
+::view-transition-old(name), ::view-transition-new(name) { width: 100%; height: 100%; object-fit: contain; object-position: left center; }
+::view-transition-old(name) { animation: vt-out 0.15s ease-out 0.32s both; }
+::view-transition-new(name) { animation: vt-in 0.15s ease-in 0.4s both; }
 ::view-transition-old(root) { animation-duration: 0.3s; }
 ::view-transition-new(root) { animation-duration: 0.3s; }
 @keyframes vt-out { to { opacity: 0; } }

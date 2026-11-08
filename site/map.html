@@ -15,6 +15,9 @@
        browser ran it (<html data-morph="ran|none"> and a line in the console) and hands the page window.pageMorph,
        which settles when the morph is over: js/site.js draws nothing until then, so the animation has the page to
        itself. Browsers without view transitions get a by-hand version from js/site.js. -->
+  <!-- The other pages are made ready in the background when a link to them is hovered or pressed (Chrome), so the
+       page change, and the morph, start the instant the link is clicked -->
+  <script type="speculationrules">{"prerender":[{"source":"document","where":{"and":[{"href_matches":"/*.html"},{"not":{"selector_matches":"[target=_blank]"}}]},"eagerness":"moderate"}]}</script>
   <link rel="expect" href="#site-footer" blocking="render">
   <script>window.pageMorph = new Promise(function (ok) { var t = setTimeout(ok, 1500); addEventListener("pagereveal", function (e) { var ran = !!e.viewTransition; clearTimeout(t); document.documentElement.setAttribute("data-morph", ran ? "ran" : "none"); console.debug("[site] arriving: page morph " + (ran ? "ran" : "did not run")); if (ran) e.viewTransition.finished.then(ok, ok); else ok(); }); });</script>
   <title>No Shortcuts · The whole road</title>
