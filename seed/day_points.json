@@ -591,37 +591,37 @@
     },
     "43": {
       "start": {
-        "lat": 49.27986,
-        "lon": -123.13022,
-        "place": "Vancouver",
-        "source": "komoot"
-      },
-      "end": {
-        "lat": 49.27986,
-        "lon": -123.13022,
-        "place": "Vancouver",
-        "source": "komoot"
-      }
-    },
-    "44": {
-      "start": {
         "lat": 49.28182,
         "lon": -123.13332,
         "place": "Vancouver",
         "source": "komoot"
       },
       "end": {
-        "lat": 48.31349,
-        "lon": -122.23007,
-        "place": "Lake McMurray",
+        "lat": 48.75038,
+        "lon": -122.47707,
+        "place": "Bellingham",
+        "source": "komoot"
+      }
+    },
+    "44": {
+      "start": {
+        "lat": 48.75038,
+        "lon": -122.47707,
+        "place": "Bellingham",
+        "source": "komoot"
+      },
+      "end": {
+        "lat": 48.75038,
+        "lon": -122.47707,
+        "place": "Bellingham",
         "source": "komoot"
       }
     },
     "45": {
       "start": {
-        "lat": 48.31185,
-        "lon": -122.2299,
-        "place": "Lake McMurray",
+        "lat": 48.75038,
+        "lon": -122.47707,
+        "place": "Bellingham",
         "source": "komoot"
       },
       "end": {

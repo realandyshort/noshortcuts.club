@@ -37749,8 +37749,8 @@
       "raw_points": 2120,
       "max_alt_m": 230
     },
-    "44": {
-      "tour": "2703958087",
+    "43": {
+      "tour": "3385155561",
       "points": [
         [
           49.28182,
@@ -38561,6 +38561,28 @@
           48.75038,
           -122.47707,
           24
+        ]
+      ],
+      "start": [
+        49.28182,
+        -123.13332,
+        44
+      ],
+      "end": [
+        48.75038,
+        -122.47707,
+        24
+      ],
+      "max_alt_m": 136,
+      "derived": "Approximate: split of the old S1D44/S1D45 Komoot tracks at Bellingham city centre (Nov 2026 Bellingham stop). Rerun komoot-routes.js for the exact track."
+    },
+    "45": {
+      "tour": "3385156486",
+      "points": [
+        [
+          48.75038,
+          -122.47707,
+          24
         ],
         [
           48.74707,
@@ -39101,24 +39123,7 @@
           48.31349,
           -122.23007,
           79
-        ]
-      ],
-      "start": [
-        49.28182,
-        -123.13332,
-        44
-      ],
-      "end": [
-        48.31349,
-        -122.23007,
-        79
-      ],
-      "raw_points": 2973,
-      "max_alt_m": 226
-    },
-    "45": {
-      "tour": "2703959272",
-      "points": [
+        ],
         [
           48.31185,
           -122.2299,
@@ -39941,17 +39946,17 @@
         ]
       ],
       "start": [
-        48.31185,
-        -122.2299,
-        90
+        48.75038,
+        -122.47707,
+        24
       ],
       "end": [
         47.62394,
         -122.3184,
         110
       ],
-      "raw_points": 2045,
-      "max_alt_m": 175
+      "max_alt_m": 218,
+      "derived": "Approximate: split of the old S1D44/S1D45 Komoot tracks at Bellingham city centre (Nov 2026 Bellingham stop). Rerun komoot-routes.js for the exact track."
     },
     "48": {
       "tour": "3369131975",

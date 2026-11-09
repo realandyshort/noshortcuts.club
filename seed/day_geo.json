@@ -263,24 +263,18 @@
    }
   },
   "43": {
-   "from": "places",
+   "from": "track",
    "water": {
     "name": "the Pacific Ocean",
     "kind": "sea",
     "dist_mi": 0.58,
     "at": "start"
-   }
+   },
+   "max_alt_m": 136,
+   "alt_source": "track"
   },
   "44": {
-   "from": "track",
-   "water": {
-    "name": "the Pacific Ocean",
-    "kind": "sea",
-    "dist_mi": 0.06,
-    "at": "route"
-   },
-   "max_alt_m": 226,
-   "alt_source": "track"
+   "from": "places"
   },
   "45": {
    "from": "track",
@@ -290,7 +284,7 @@
     "dist_mi": 0.16,
     "at": "route"
    },
-   "max_alt_m": 175,
+   "max_alt_m": 218,
    "alt_source": "track"
   },
   "46": {
