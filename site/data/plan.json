@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T17:24:15.800Z",
+  "generated_at": "2026-11-10T01:27:21.353Z",
   "day1_date": "2027-06-18",
   "total_days": 543,
   "source": {
@@ -607,7 +607,7 @@
       "section": 1,
       "day": 43,
       "date": "2027-07-30",
-      "kind": "border",
+      "kind": "ride",
       "from": "Vancouver",
       "to": "Bellingham",
       "plan_miles": 59.3,
