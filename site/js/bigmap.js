@@ -541,6 +541,7 @@
     wireAsk(ctx, M);
     document.getElementById("bigmap-hint").textContent = (M.scrollHint || "SCROLL, OR USE THE BUTTONS AND THE SLIDER") + (tilesOn() && M.tiles ? " · " + M.tiles : "");
     resize();
+    var viewBox = document.querySelector(".bigmap-view"); if (viewBox) viewBox.classList.add("drawn");   // fades the finished map in
     var ticking = false;
     window.addEventListener("scroll", function () { if (ticking) return; ticking = true; requestAnimationFrame(function () { ticking = false; var f = scrollFraction(); if (state.free && Math.abs(f - state.lastF) > 0.0005) clearFree(); state.lastF = f; camera(f); }); }, { passive: true });
     wireLook();

@@ -30,28 +30,44 @@ img { max-width: 100%; display: block; }
 em { font-style: italic; color: var(--persimmon); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* Page to page: the home banner shrinks into the small black bar, the big title into the wordmark
-   (cross-document view transitions, where the browser has them; elsewhere a plain page change) */
+/* Page to page: the home banner shrinks into the small black bar (cross-document view transitions, where the
+   browser has them; elsewhere js/site.js folds the banner by hand). Four parts move, each as ONE picture, so
+   nothing is ever shown twice or cross-faded with something different:
+   - the orange strip slides up off the top (and back down coming home), in step with the box under it;
+   - the black box shrinks into the bar; what was in it fades out at once, the bar's own bits fade in at the end;
+   - the title scales down to exactly where the wordmark's "No Shortcuts" sits (the big title is the one
+     picture shown, in both directions, so it stays sharp);
+   - the menu buttons glide from the banner to the bar, the same buttons in both. */
 @view-transition { navigation: auto; }
 .banner, .site-header { view-transition-name: chrome; }
-.title, .wordmark { view-transition-name: name; }
-::view-transition-group(*) { animation-duration: 0.55s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-/* the black box itself shrinks (or grows). Nothing inside it is scaled: the old contents fade out at once and
-   are cropped from the bottom as the box closes, and the bar's contents, at their final size and place, fade
-   in as the box arrives. The title scales down into the wordmark's spot and only then swaps to the wordmark. */
+.title, .wm-name { view-transition-name: name; }
+.wm-name { display: inline-block; }
+#menu { view-transition-name: menu; }
+.signup-strip { view-transition-name: strip; }
+::view-transition-group(*) { animation-duration: 0.5s; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 ::view-transition-group(chrome) { background: var(--ink); overflow: clip; }
-::view-transition-old(chrome), ::view-transition-new(chrome) { width: 100%; height: 100%; object-fit: none; object-position: top left; }
-::view-transition-old(chrome) { animation: vt-out 0.25s ease-out both; }
-::view-transition-new(chrome) { animation: vt-in 0.2s ease-in 0.35s both; }
-::view-transition-old(name), ::view-transition-new(name) { width: 100%; height: 100%; object-fit: contain; object-position: left center; }
-::view-transition-old(name) { animation: vt-out 0.15s ease-out 0.32s both; }
-::view-transition-new(name) { animation: vt-in 0.15s ease-in 0.4s both; }
-/* the rest of the page: the old page fades out quickly; the new page stays out of sight until the box has nearly
-   landed, so nothing of it pokes out from under the moving box */
-::view-transition-old(root) { animation-duration: 0.3s; animation-timing-function: ease-out; }
-::view-transition-new(root) { animation-duration: 0.55s; animation-timing-function: cubic-bezier(0.9, 0, 1, 0.4); }
+::view-transition-old(chrome), ::view-transition-new(chrome) { width: 100%; height: 100%; object-fit: none; object-position: top left; mix-blend-mode: normal; }
+::view-transition-old(chrome) { animation: vt-out 0.18s ease-out both; }
+::view-transition-new(chrome) { animation: vt-in 0.16s ease-in 0.34s both; }
+::view-transition-old(name), ::view-transition-new(name) { width: 100%; height: 100%; object-fit: contain; object-position: left center; animation: none; mix-blend-mode: normal; }
+:root:has(.site-header)::view-transition-new(name) { opacity: 0; }   /* arriving at a bar: the old, big title is the picture */
+:root:has(.banner)::view-transition-old(name) { opacity: 0; }        /* arriving home: the new, big title is the picture */
+::view-transition-old(strip):only-child { animation: strip-out 0.5s cubic-bezier(0.4, 0, 0.2, 1) both; }
+::view-transition-new(strip):only-child { animation: strip-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) both; }
+/* the rest of the page: the old page fades out, then the new one fades in (one after the other, never both at once) */
+::view-transition-old(root) { animation: vt-out 0.2s ease-out both; }
+::view-transition-new(root) { animation: vt-in 0.3s ease-in 0.2s both; }
 @keyframes vt-out { to { opacity: 0; } }
 @keyframes vt-in { from { opacity: 0; } }
+@keyframes strip-out { to { transform: translateY(-100%); } }
+@keyframes strip-in { from { transform: translateY(-100%); } }
+/* What the scripts draw (the banner's stage and counters, the home sections, the route under the wordmark, the
+   big map) stays out of sight until it is drawn, then fades in, rather than popping in piece by piece. "pending"
+   is set in each page's head and cleared when the page has drawn, or after 3 s whatever happens. */
+.banner-route, .counters, body[data-page="home"] main > .section > .wrap, .wm-route { transition: opacity 0.4s ease; }
+html.pending .banner-route, html.pending .counters, html.pending body[data-page="home"] main > .section > .wrap { opacity: 0; }
+.wm-route:empty { opacity: 0; }
+.bigmap-view.drawn { animation: vt-in 0.45s ease both; }
 
 /* Header */
 .site-header { background: var(--ink); color: var(--cream); }

@@ -19,7 +19,7 @@
        page change, and the morph, start the instant the link is clicked -->
   <script type="speculationrules">{"prerender":[{"source":"document","where":{"and":[{"href_matches":"/*.html"},{"not":{"selector_matches":"[target=_blank]"}}]},"eagerness":"moderate"}]}</script>
   <link rel="expect" href="#site-footer" blocking="render">
-  <script>window.pageMorph = new Promise(function (ok) { var t = setTimeout(ok, 1500); addEventListener("pagereveal", function (e) { var ran = !!e.viewTransition; clearTimeout(t); document.documentElement.setAttribute("data-morph", ran ? "ran" : "none"); console.debug("[site] arriving: page morph " + (ran ? "ran" : "did not run")); if (ran) e.viewTransition.finished.then(ok, ok); else ok(); }); });</script>
+  <script>document.documentElement.classList.add("pending"); setTimeout(function () { document.documentElement.classList.remove("pending"); }, 3000); window.pageMorph = new Promise(function (ok) { var t = setTimeout(ok, 1500); addEventListener("pagereveal", function (e) { var ran = !!e.viewTransition; clearTimeout(t); document.documentElement.setAttribute("data-morph", ran ? "ran" : "none"); console.debug("[site] arriving: page morph " + (ran ? "ran" : "did not run")); if (ran) e.viewTransition.finished.then(ok, ok); else ok(); }); });</script>
   <title>No Shortcuts · Alaska to Argentina</title>
   <meta name="description" content="A bike trip from Deadhorse, Alaska to Ushuaia, Argentina. 543 days, 18 countries, no shortcuts.">
   <meta property="og:type" content="website">
@@ -36,14 +36,14 @@
   <section class="signup-strip" aria-label="Sign up">
     <div class="wrap">
       <div class="signup-words">
-        <h2 data-config="copy.signup.title">Ride along from your inbox.</h2>
-        <p class="signup-sub" data-config="copy.signup.sub">WRITING · AUDIO · VIDEO, AS IT HAPPENS. FREE.</p>
+        <h2 data-config="copy.signup.title">Add your email to join the journey.</h2>
+        <p class="signup-sub" data-config="copy.signup.sub">Updates from the road.</p>
       </div>
       <form class="signup-form" data-signup action="https://noshortcutsclub.substack.com/subscribe" method="get" target="_blank">
         <label class="signup-prompt" for="strip-email" data-config="copy.signup.prompt">Get your updates delivered.</label>
         <div class="signup-field">
           <input id="strip-email" type="email" name="email" required autocomplete="email" placeholder="your@email.com" data-placeholder="copy.signup.placeholder">
-          <button class="btn btn-ink" type="submit" data-config="copy.signup.button">Sign up</button>
+          <button class="btn btn-ink" type="submit" data-config="copy.signup.button">Subscribe</button>
         </div>
       </form>
     </div>
@@ -64,7 +64,7 @@
           <div class="banner-right">
             <!-- the menu sits here, level with the title; labels and links are filled from config by js/site.js -->
             <ul class="menu" id="menu">
-              <li><a href="home.html" data-href="home" data-config="menu.home">Home</a></li>
+              <li><a href="home.html" data-href="home" data-config="menu.home" aria-current="page">Home</a></li>
               <li><a href="map.html" data-href="map" data-config="menu.map">Map</a></li>
               <li><a href="#" data-href="routePlan" data-config="menu.routePlan">Route plan</a></li>
               <li><a href="about.html" data-href="about" data-config="menu.about">About</a></li>
@@ -153,20 +153,20 @@
   <footer class="site-footer" id="site-footer">
     <div class="wrap">
       <div class="footer-signup">
-        <h2 class="footer-title"><span data-config="copy.footer.title">Don’t miss a</span> <em data-config="copy.footer.titleEm">mile.</em></h2>
-        <p class="footer-blurb" data-config="copy.footer.blurb">Every story, voice note and video from the road, sent to your inbox as it goes up.</p>
+        <h2 class="footer-title"><span data-config="copy.footer.title">Add your email to join the journey.</span> <em data-config="copy.footer.titleEm">mile.</em></h2>
+        <p class="footer-blurb" data-config="copy.footer.blurb">Updates from the road.</p>
         <form class="signup-form" data-signup action="https://noshortcutsclub.substack.com/subscribe" method="get" target="_blank">
           <label class="signup-prompt" for="footer-email" data-config="copy.signup.prompt">Get your updates delivered.</label>
           <div class="signup-field">
             <input id="footer-email" type="email" name="email" required autocomplete="email" placeholder="your@email.com" data-placeholder="copy.signup.placeholder">
-            <button class="btn btn-persimmon" type="submit" data-config="copy.signup.button">Sign up</button>
+            <button class="btn btn-persimmon" type="submit" data-config="copy.signup.button">Subscribe</button>
           </div>
         </form>
       </div>
       <div class="footer-secondary">
         <div class="follow-buttons">
-          <a class="btn btn-outline-ink" href="#" data-href="spotify" data-config="copy.footer.spotify">Listen on Spotify</a>
-          <a class="btn btn-outline-ink" href="#" data-href="apple" data-config="copy.footer.apple">Listen on Apple Podcasts</a>
+          <a class="btn btn-outline-ink" href="#" data-href="spotify" data-config="copy.footer.spotify">Get it on Spotify</a>
+          <a class="btn btn-outline-ink" href="#" data-href="apple" data-config="copy.footer.apple">Get it on Apple Podcasts</a>
           <a class="btn btn-outline-ink" href="#" data-href="youtube" data-when-videos data-config="copy.footer.youtube" hidden>YouTube</a>
         </div>
       </div>

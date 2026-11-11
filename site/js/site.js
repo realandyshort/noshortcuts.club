@@ -230,6 +230,8 @@
     if (!light) statusStrip();
     return ctx;
   });
+  // once the page's own script has drawn (it runs on the same promise, before this timer), let the drawn parts fade in
+  ctx.ready.then(function () { setTimeout(function () { document.documentElement.classList.remove("pending"); }, 0); });
   ctx.applyChrome = applyChrome;
   // Tinker panel calls this after changing config in memory
   ctx.onChange = function (fn) { ctx.listeners.push(fn); };
