@@ -2,7 +2,7 @@
    marker, the home map, the big map), in place of a dot. The legs pedal and the wheels turn (SMIL
    animation, which works inside any SVG and needs no stylesheet); with "reduce motion" on, he sits still.
    A potato rides on the rear rack until the plan reaches the place in config home.rider.potatoUntil
-   (Los Angeles): it is there on every day before the day that ends in that place, and gone from then on.
+   (Los Angeles): it is there up to and including the day that rides into that place, and gone from the day after.
    The drawing is 48 x 40 units; the anchor (the spot that sits on the route) is the ground between the
    wheels, Rider.AX / Rider.AY. Colours come from css/site.css (.rider ...). */
 (function () {
@@ -79,6 +79,6 @@
     svg: function (o) { return fill(mk("svg", { viewBox: "0 0 " + W + " " + H, "class": "rider", "aria-hidden": "true" }), o); },
     // for inside another SVG: a <g> whose anchor sits at 0 0 (move and scale it with a transform)
     group: function (o) { var g = mk("g", { "class": "rider" }); var inner = mk("g", { transform: "translate(" + (-AX) + " " + (-AY) + ")" }); fill(inner, o); g.appendChild(inner); return g; },
-    hasPotato: function (ctx, day) { var p = potatoDay(ctx); return p != null && Number(day) < p; }
+    hasPotato: function (ctx, day) { var p = potatoDay(ctx); return p != null && Number(day) <= p; }
   };
 })();
