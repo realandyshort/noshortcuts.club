@@ -717,3 +717,24 @@ body.has-strip { padding-bottom: 2.2rem; }
   .bigmap-slider .mono { min-width: 0; font-size: 0.6rem; white-space: nowrap; }
   .bigmap-goto { display: none; }
 }
+
+/* ---- The rider: Andy on the bike, wherever a route shows where the ride is (js/rider.js) ---- */
+.rider { --rider-ink: var(--ink); --rider-halo: var(--cream); --rider-accent: var(--persimmon); overflow: visible; }
+.rider path, .rider line, .rider circle { fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: none; stroke-width: 1.5px; }
+.rider .r-ink { stroke: var(--rider-ink); }
+.rider .r-acc { stroke: var(--rider-accent); }
+.rider .r-far { opacity: 0.55; }
+.rider .r-spoke { opacity: 0.7; }
+.rider .r-head { fill: var(--rider-ink); stroke: none; }
+.rider .r-potato { fill: #c9a36b; stroke: #7a5a32; }
+.rider .r-eye { fill: #7a5a32; stroke: none; }
+.rider .r-halo path, .rider .r-halo line, .rider .r-halo circle { stroke: var(--rider-halo); opacity: 1; }
+.rider .r-halo .r-solid { fill: var(--rider-halo); stroke: var(--rider-halo); }
+/* on the banner (dark): cream rider, the marker's ring pulses at his wheels when the position is live */
+.marker .rider { --rider-ink: var(--cream); --rider-halo: var(--ink); }
+.marker .rider-box { position: absolute; left: 0; top: 0; width: 46px; transform: translate(-50%, -93.75%); }
+.marker .rider-box svg { display: block; width: 100%; height: auto; }
+.marker.has-rider .place { left: 30px; top: -2.6em; }
+.marker.has-rider.flip .place { left: auto; right: 30px; }
+.marker.has-rider.live::before { content: ""; position: absolute; left: -8px; top: -8px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; border: 2px solid var(--persimmon); animation: live-ring 1.8s ease-out infinite; }
+@media (max-width: 600px) { .marker .rider-box { width: 38px; } .marker.has-rider .place { left: 25px; } .marker.has-rider.flip .place { right: 25px; } }

@@ -60,6 +60,8 @@
     ],
     "dayCards": 5,
     "_milesCompare": "The MILES view's infographics: each is a label, the length of one (miles, or feet for small things), an icon (globe, runner or person) and 'each', how many one drawn icon stands for (the globe draws one big globe with the lap as an arc instead). people holding hands: 5.2 ft each, the average adult arm span (about 5.6 ft fingertip to fingertip) less the overlap where two hands clasp.",
+    "_rider": "Wherever a route shows where the ride is, a little Andy on the bike is drawn in place of a dot. potatoUntil: the potato rides on the rear rack on every day before the plan day that ends in this place, and is gone from then on. Leave it empty for no potato at all.",
+    "rider": { "potatoUntil": "Los Angeles" },
     "milesCompare": [
       {
         "label": "laps of the equator",

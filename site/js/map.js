@@ -50,8 +50,9 @@
     if (o.position) {
       var qp = proj(o.position[0], o.position[1]);
       if (o.live) svg.appendChild(mk("circle", { "class": "map-pos-ring", cx: qp[0], cy: qp[1], r: unit * 1.4, "stroke-width": unit * 0.5 }));   // live: a ring pulses out of the dot
-      svg.appendChild(mk("circle", { "class": "map-pos", cx: qp[0], cy: qp[1], r: unit * 1.4, "stroke-width": unit * 0.6 }));
-      if (o.positionLabel) label(o.position, String(o.positionLabel).toUpperCase(), -2.4, 0.8, "end");
+      if (window.Rider) { var rider = window.Rider.group({ potato: o.potato }); rider.setAttribute("transform", "translate(" + qp[0].toFixed(1) + " " + qp[1].toFixed(1) + ") scale(" + (unit * 0.2).toFixed(3) + ")"); svg.appendChild(rider); }   // Andy on the bike, wheels on the spot
+      else svg.appendChild(mk("circle", { "class": "map-pos", cx: qp[0], cy: qp[1], r: unit * 1.4, "stroke-width": unit * 0.6 }));
+      if (o.positionLabel) label(o.position, String(o.positionLabel).toUpperCase(), window.Rider ? -5.8 : -2.4, window.Rider ? -2.2 : 0.8, "end");   // clear of the bike
     }
     if (o.legend) {
       o.legend.innerHTML = "";

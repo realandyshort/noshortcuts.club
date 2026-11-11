@@ -128,6 +128,16 @@
       markerBox.style.left = px + "px"; markerBox.style.top = py + "px";
       markerBox.classList.toggle("flip", px > r.width * 0.72);
       markerBox.classList.toggle("live", !!posOK);   // the tracker's own position: a pulsing ring says "live"
+      if (window.Rider) {                               // Andy on the bike rides the line (with the potato until Los Angeles)
+        var potato = window.Rider.hasPotato(ctx, day);
+        if (markerBox._potato !== potato) {
+          markerBox._potato = potato;
+          var old = markerBox.querySelector(".rider-box, .dot"), box = document.createElement("div");
+          box.className = "rider-box"; box.appendChild(window.Rider.svg({ potato: potato }));
+          if (old) old.replaceWith(box); else markerBox.insertBefore(box, markerBox.firstChild);
+          markerBox.classList.add("has-rider");
+        }
+      }
       markerBox.hidden = false;
     }
     placeEl.textContent = posOK ? [pos.place, pos.country].filter(Boolean).join(", ").toUpperCase() : (d.to || "").toUpperCase();
@@ -247,7 +257,7 @@
     if (mapOK) window.SiteMap.draw(document.getElementById("map"), {
       americas: ctx.americas, route: ctx.route.points, fraction: fraction,
       position: posOK ? [pos.lat, pos.lon] : (!live ? ((archive && archive.position) ? [archive.position.lat, archive.position.lon] : Trip.pointAtFraction(ctx.route.points, fraction)) : null),
-      positionLabel: posOK ? (pos.place || "") : (!live ? ((archive && archive.position && archive.position.place) || d.to) : ""), live: !!posOK, copy: c.copy.map || {}, legend: document.getElementById("map-legend"), note: showMarker && !travelling ? c.home.positionNote : ""
+      positionLabel: posOK ? (pos.place || "") : (!live ? ((archive && archive.position && archive.position.place) || d.to) : ""), live: !!posOK, potato: !!(window.Rider && window.Rider.hasPotato(ctx, day)), copy: c.copy.map || {}, legend: document.getElementById("map-legend"), note: showMarker && !travelling ? c.home.positionNote : ""
     });
     if (dispOK || archDisp) renderDispatch(ctx, dispatch, scrub, archDisp, day);
 

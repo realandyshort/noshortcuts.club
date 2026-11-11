@@ -162,14 +162,22 @@
     }
     var dEnd = pts && pts[String(day)], exp = dEnd && dEnd.end ? [dEnd.end.lat, dEnd.end.lon] : pointAt(gOfDay(day));
     var qe = proj(exp[0], exp[1]), dd = Trip.day(plan, day);
-    svg.appendChild(mk("circle", { "class": "pos-dot", cx: qe[0], cy: qe[1], r: 3.6 * u }));
-    svg.appendChild(text(qe[0] + 6 * u, qe[1] - 5 * u, (ctx.live ? (M.expected || "EXPECTED TODAY") : "DAY " + day) + " · " + (dd.to || dd.from || ""), "pos-label"));
+    // where the ride is: Andy on the bike (with the potato until Los Angeles), wheels on the spot; he keeps his size on screen as the map zooms
+    function rider(q) {
+      if (!window.Rider) { svg.appendChild(mk("circle", { "class": "pos-dot", cx: q[0], cy: q[1], r: 3.6 * u })); return; }
+      var g = window.Rider.group({ potato: window.Rider.hasPotato(ctx, day) });
+      g.style.transform = "translate(" + q[0].toFixed(2) + "px, " + q[1].toFixed(2) + "px) scale(calc(var(--u, 1) * 0.95))";
+      svg.appendChild(g);
+    }
+    var livePos = ctx.live && ctx.ok("position") && ctx.data.position && ctx.data.position.available && ctx.data.position.lat != null;
+    if (livePos) svg.appendChild(mk("circle", { "class": "pos-dot", cx: qe[0], cy: qe[1], r: 3.6 * u })); else rider(qe);   // one rider: at the tracker's spot when there is one
+    svg.appendChild(text(qe[0] + (livePos ? 6 : 26) * u, qe[1] - (livePos ? 5 : 14) * u, (ctx.live ? (M.expected || "EXPECTED TODAY") : "DAY " + day) + " · " + (dd.to || dd.from || ""), "pos-label"));
     var pos = ctx.data.position;
     if (ctx.live && ctx.ok("position") && pos && pos.available && pos.lat != null) {
       var qp = proj(pos.lat, pos.lon);
       svg.appendChild(mk("circle", { "class": "pos-ring", cx: qp[0], cy: qp[1], r: 3.6 * u }));   // live: pulses
-      svg.appendChild(mk("circle", { "class": "pos-dot", cx: qp[0], cy: qp[1], r: 3.6 * u }));
-      svg.appendChild(text(qp[0] + 6 * u, qp[1] + 9 * u, (M.actual || "LAST SEEN") + " · " + (pos.place || ""), "pos-label"));
+      rider(qp);
+      svg.appendChild(text(qp[0] + 26 * u, qp[1] - 14 * u, (M.actual || "LAST SEEN") + " · " + (pos.place || ""), "pos-label"));
     }
   }
 
