@@ -119,25 +119,40 @@
     var fraction = Trip.fractionAtDay(plan, day);
     var markerFraction = posOK ? pos.route_fraction : fraction;
     var showMarker = posOK || !live;
-    var drawn = ctx.route ? RouteLine.drawProgress(svg, ctx.route.points, fraction, { strokePx: c.home.routeStrokePx, markerFraction: markerFraction, marker: showMarker }) : null;
+    var showRider = !!ctx.route;   // Andy on the bike is always on the line: at the tracker's spot when there is one, else where the plan puts the day
+    var drawn = ctx.route ? RouteLine.drawProgress(svg, ctx.route.points, fraction, { strokePx: c.home.routeStrokePx, markerFraction: markerFraction, marker: showRider }) : null;
+    function keepIn(px) { var w = svg.getBoundingClientRect().width; return window.Rider ? Math.max(26, Math.min(w - 26, px)) : px; }   // the bike never hangs off the edge of the page
+    // Andy on the bike in place of the dot, with Potato the dog in the basket up to Los Angeles (as of day n)
+    function setRider(n) {
+      if (!window.Rider) return;
+      var potato = window.Rider.hasPotato(ctx, n);
+      if (markerBox._potato === potato) return;
+      markerBox._potato = potato;
+      var old = markerBox.querySelector(".rider-box, .dot"), box = document.createElement("div");
+      box.className = "rider-box"; box.appendChild(window.Rider.svg({ potato: potato }));
+      if (old) old.replaceWith(box); else markerBox.insertBefore(box, markerBox.firstChild);
+      markerBox.classList.add("has-rider");
+    }
+    // hovering the line (js/banner.js): he rides to the hovered day; with no day, he goes back to where he belongs
+    ctx.markerPreview = function (n, px, py) {
+      if (n == null) { placeMarker(); return false; }
+      if (!window.Rider) return false;
+      setRider(n);
+      markerBox.style.left = keepIn(px) + "px"; markerBox.style.top = py + "px";
+      markerBox.classList.add("previewing"); markerBox.classList.remove("live");
+      markerBox.hidden = false;
+      return true;
+    };
     function placeMarker(markerPt) {
       var m = markerPt || (drawn && drawn.marker);
-      if (!m || !showMarker) { markerBox.hidden = true; return; }
+      if (!m || !showRider) { markerBox.hidden = true; return; }
       var vb = svg.viewBox.baseVal, r = svg.getBoundingClientRect();
       var px = (m[0] - vb.x) / vb.width * r.width, py = (m[1] - vb.y) / vb.height * r.height;
-      markerBox.style.left = px + "px"; markerBox.style.top = py + "px";
+      markerBox.style.left = keepIn(px) + "px"; markerBox.style.top = py + "px";
       markerBox.classList.toggle("flip", px > r.width * 0.72);
       markerBox.classList.toggle("live", !!posOK);   // the tracker's own position: a pulsing ring says "live"
-      if (window.Rider) {                               // Andy on the bike rides the line (with the potato until Los Angeles)
-        var potato = window.Rider.hasPotato(ctx, day);
-        if (markerBox._potato !== potato) {
-          markerBox._potato = potato;
-          var old = markerBox.querySelector(".rider-box, .dot"), box = document.createElement("div");
-          box.className = "rider-box"; box.appendChild(window.Rider.svg({ potato: potato }));
-          if (old) old.replaceWith(box); else markerBox.insertBefore(box, markerBox.firstChild);
-          markerBox.classList.add("has-rider");
-        }
-      }
+      markerBox.classList.remove("previewing");
+      setRider(day);
       markerBox.hidden = false;
     }
     placeEl.textContent = posOK ? [pos.place, pos.country].filter(Boolean).join(", ").toUpperCase() : (d.to || "").toUpperCase();
@@ -256,8 +271,8 @@
     if (sections.dispatch) sections.dispatch.hidden = !(dispOK || archDisp);
     if (mapOK) window.SiteMap.draw(document.getElementById("map"), {
       americas: ctx.americas, route: ctx.route.points, fraction: fraction,
-      position: posOK ? [pos.lat, pos.lon] : (!live ? ((archive && archive.position) ? [archive.position.lat, archive.position.lon] : Trip.pointAtFraction(ctx.route.points, fraction)) : null),
-      positionLabel: posOK ? (pos.place || "") : (!live ? ((archive && archive.position && archive.position.place) || d.to) : ""), live: !!posOK, potato: !!(window.Rider && window.Rider.hasPotato(ctx, day)), copy: c.copy.map || {}, legend: document.getElementById("map-legend"), note: showMarker && !travelling ? c.home.positionNote : ""
+      position: posOK ? [pos.lat, pos.lon] : ((!live && archive && archive.position) ? [archive.position.lat, archive.position.lon] : Trip.pointAtFraction(ctx.route.points, fraction)),
+      positionLabel: posOK ? (pos.place || "") : ((!live && archive && archive.position && archive.position.place) || d.to || ""), live: !!posOK, potato: !!(window.Rider && window.Rider.hasPotato(ctx, day)), copy: c.copy.map || {}, legend: document.getElementById("map-legend"), note: showMarker && !travelling ? c.home.positionNote : ""
     });
     if (dispOK || archDisp) renderDispatch(ctx, dispatch, scrub, archDisp, day);
 

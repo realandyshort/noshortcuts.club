@@ -432,6 +432,7 @@
     var line = layer.querySelector(".hl-line"), dot = layer.querySelector(".hl-dot");
     line.setAttribute("x1", cx); line.setAttribute("y1", cy); line.setAttribute("x2", p[0]); line.setAttribute("y2", p[1]);
     dot.setAttribute("cx", p[0]); dot.setAttribute("cy", p[1]);
+    layer.classList.toggle("has-rider", !!(ctx.markerPreview && ctx.markerPreview(day, p[0], p[1])));   // Andy rides to the hovered day, in place of the ring
     layer.classList.add("on");
     var d = ctx.plan.days[day - 1];
     label.textContent = "DAY " + day + " · " + (d.to || "").toUpperCase();
@@ -445,6 +446,7 @@
     var layer = document.getElementById("hover-layer"), label = document.getElementById("hover-label");
     if (layer) layer.classList.remove("on");
     if (label) label.classList.remove("on");
+    if (state.ctx && state.ctx.markerPreview) state.ctx.markerPreview(null);   // and back to the day he belongs on
     if (state.hooks && state.hooks.onPreviewEnd) state.hooks.onPreviewEnd();
   }
   function wireScrub() {
@@ -494,6 +496,8 @@
       var line = g.querySelector("line"), c = g.querySelector("circle"), t = g.querySelector("text");
       line.setAttribute("x1", h.cursor.x); line.setAttribute("y1", h.cursor.y); line.setAttribute("x2", h.point[0]); line.setAttribute("y2", h.point[1]);
       c.setAttribute("cx", h.point[0]); c.setAttribute("cy", h.point[1]); c.setAttribute("r", unit * 1.3); c.setAttribute("stroke-width", unit * 0.5);
+      var rode = window.SiteMap.rider && window.SiteMap.rider(svg, h.point, !!(window.Rider && window.Rider.hasPotato(state.ctx, h.day)));   // Andy rides to the hovered spot, in place of the ring
+      c.style.display = rode ? "none" : "";
       var d = state.ctx.plan.days[h.day - 1];
       t.textContent = "DAY " + h.day + " · " + (d.to || "").toUpperCase();
       t.setAttribute("x", h.cursor.x + unit * 1.5); t.setAttribute("y", h.cursor.y - unit * 1.5); t.setAttribute("font-size", unit * 2.4);
@@ -502,7 +506,7 @@
       g.classList.add("on");
       if (state.hooks && state.hooks.onPreview) state.hooks.onPreview(h.day);
     }
-    function clear() { var g = svg.querySelector(".map-hover"); if (g) g.classList.remove("on"); if (state.hooks && state.hooks.onPreviewEnd) state.hooks.onPreviewEnd(); }
+    function clear() { var g = svg.querySelector(".map-hover"); if (g) g.classList.remove("on"); if (window.SiteMap.rider) window.SiteMap.rider(svg, null); if (state.hooks && state.hooks.onPreviewEnd) state.hooks.onPreviewEnd(); }
     var enabled = function () { return state.ctx.config.home.timeTravel !== false; };
     svg.addEventListener("pointermove", function (e) { if (!enabled()) return; if (e.pointerType === "touch" && !down) return; var h = dayAt(e); if (h) hover(h); });
     svg.addEventListener("pointerleave", function () { if (!down) clear(); });

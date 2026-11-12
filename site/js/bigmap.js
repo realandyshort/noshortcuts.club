@@ -58,7 +58,7 @@
       else { fStart[d.day] = last; fEnd[d.day] = last; }
     });
     state.cam = { line: line, cum: cum, total: total, fStart: fStart, fEnd: fEnd, dayStart: dayStart, dayEnd: dayEnd };
-    state.anchors = null; state.dayPaths = {}; state.hiDay = 0;
+    state.anchors = null; state.dayPaths = {}; state.dayTracks = {}; state.hiDay = 0;
   }
   function pointAt(g) {
     var c = state.cam, target = Math.max(0, Math.min(1, g)) * c.total, lo = 0, hi = c.cum.length - 1;
@@ -162,23 +162,18 @@
     }
     var dEnd = pts && pts[String(day)], exp = dEnd && dEnd.end ? [dEnd.end.lat, dEnd.end.lon] : pointAt(gOfDay(day));
     var qe = proj(exp[0], exp[1]), dd = Trip.day(plan, day);
-    // where the ride is: Andy on the bike (with the potato until Los Angeles), wheels on the spot; he keeps his size on screen as the map zooms
-    function rider(q) {
-      if (!window.Rider) { svg.appendChild(mk("circle", { "class": "pos-dot", cx: q[0], cy: q[1], r: 3.6 * u })); return; }
-      var g = window.Rider.group({ potato: window.Rider.hasPotato(ctx, day) });
-      g.style.transform = "translate(" + q[0].toFixed(2) + "px, " + q[1].toFixed(2) + "px) scale(calc(var(--u, 1) * 0.95))";
-      svg.appendChild(g);
-    }
-    var livePos = ctx.live && ctx.ok("position") && ctx.data.position && ctx.data.position.available && ctx.data.position.lat != null;
-    if (livePos) svg.appendChild(mk("circle", { "class": "pos-dot", cx: qe[0], cy: qe[1], r: 3.6 * u })); else rider(qe);   // one rider: at the tracker's spot when there is one
-    svg.appendChild(text(qe[0] + (livePos ? 6 : 26) * u, qe[1] - (livePos ? 5 : 14) * u, (ctx.live ? (M.expected || "EXPECTED TODAY") : "DAY " + day) + " · " + (dd.to || dd.from || ""), "pos-label"));
-    var pos = ctx.data.position;
+    // where the ride is: a dot and its label. Andy on the bike sits on it in the overview, and rides the selected day's route once a day is in view (placeRider)
+    svg.appendChild(mk("circle", { "class": "pos-dot", cx: qe[0], cy: qe[1], r: 3.6 * u }));
+    svg.appendChild(text(qe[0] + 26 * u, qe[1] - 14 * u, (ctx.live ? (M.expected || "EXPECTED TODAY") : "DAY " + day) + " · " + (dd.to || dd.from || ""), "pos-label"));
+    var pos = ctx.data.position, home = qe;
     if (ctx.live && ctx.ok("position") && pos && pos.available && pos.lat != null) {
-      var qp = proj(pos.lat, pos.lon);
+      var qp = proj(pos.lat, pos.lon); home = qp;
       svg.appendChild(mk("circle", { "class": "pos-ring", cx: qp[0], cy: qp[1], r: 3.6 * u }));   // live: pulses
-      rider(qp);
+      svg.appendChild(mk("circle", { "class": "pos-dot", cx: qp[0], cy: qp[1], r: 3.6 * u }));
       svg.appendChild(text(qp[0] + 26 * u, qp[1] - 14 * u, (M.actual || "LAST SEEN") + " · " + (pos.place || ""), "pos-label"));
     }
+    state.riderHome = home; state.riderEl = null; state.riderPotato = null;
+    if (window.Rider) { state.riderPotato = window.Rider.hasPotato(ctx, day); state.riderEl = window.Rider.group({ potato: state.riderPotato }); svg.appendChild(state.riderEl); placeRider(performance.now()); }
   }
 
   // ---- secret stats as of a day (memoised), and what a given day added ----
@@ -288,6 +283,47 @@
     while (state.hiDots.firstChild) state.hiDots.removeChild(state.hiDots.firstChild);
     if (e > s) [c.line[s], c.line[e]].forEach(function (p, i) { var q = proj(p[0], p[1]); state.hiDots.appendChild(mk("circle", { "class": "day-end " + (i ? "end" : "start"), cx: q[0], cy: q[1], r: 4 * state.u })); });
   }
+  // ---- the rider. In the overview he sits where the ride is. Once a day is in view he rides that day's route,
+  // start to end, slowly (RIDE_MS), waits a moment (REST_MS) and sets off again; on a day off he waits in town.
+  // He faces the way he is going. With "reduce motion" on he simply stands at the day's end. ----
+  var RIDE_MS = 9000, REST_MS = 2200, RIDER_SIZE = 0.95;
+  function dayTrack(n) {
+    if (state.dayTracks[n] !== undefined) return state.dayTracks[n];
+    var c = state.cam, s = c.dayStart[n], e = c.dayEnd[n], out = null;
+    if (e > s) {
+      var q = [], cum = [0];
+      for (var i = s; i <= e; i++) { var p = proj(c.line[i][0], c.line[i][1]); if (q.length) cum.push(cum[cum.length - 1] + Math.hypot(p[0] - q[q.length - 1][0], p[1] - q[q.length - 1][1])); q.push(p); }
+      if (cum[cum.length - 1] > 0) out = { q: q, cum: cum, len: cum[cum.length - 1] };
+    }
+    return (state.dayTracks[n] = out);
+  }
+  function along(tr, d) {
+    d = Math.max(0, Math.min(tr.len, d));
+    var lo = 0, hi = tr.cum.length - 1;
+    while (hi - lo > 1) { var mid = (lo + hi) >> 1; if (tr.cum[mid] <= d) lo = mid; else hi = mid; }
+    var span = tr.cum[hi] - tr.cum[lo], k = span > 0 ? (d - tr.cum[lo]) / span : 0;
+    return [tr.q[lo][0] + (tr.q[hi][0] - tr.q[lo][0]) * k, tr.q[lo][1] + (tr.q[hi][1] - tr.q[lo][1]) * k];
+  }
+  function placeRider(now) {
+    var g = state.riderEl, ctx = state.ctx;
+    if (!g || !ctx || !state.cam || !window.Rider) return;
+    var at = state.riderHome, shown = ctx.day;
+    if (!state.far && state.f >= INTRO) {
+      var n = state.day, tr = dayTrack(n); shown = n;
+      if (tr) {
+        if (state.rideDay !== n) { state.rideDay = n; state.rideT0 = now; state.rideFace = 1; }
+        var t = state.still ? 1 : Math.min(1, ((now - state.rideT0) % (RIDE_MS + REST_MS)) / RIDE_MS), d = ease(t) * tr.len;
+        at = along(tr, d);
+        var dx = along(tr, d + tr.len * 0.04)[0] - along(tr, d - tr.len * 0.04)[0];
+        if (Math.abs(dx) > tr.len * 0.006) state.rideFace = dx < 0 ? -1 : 1;
+      } else { var p0 = state.cam.line[state.cam.dayStart[n]]; if (p0) at = proj(p0[0], p0[1]); state.rideDay = n; state.rideFace = 1; }
+    } else { state.rideDay = null; state.rideFace = 1; }
+    var potato = window.Rider.hasPotato(ctx, shown);
+    if (potato !== state.riderPotato) { var ng = window.Rider.group({ potato: potato }); g.replaceWith(ng); state.riderEl = g = ng; state.riderPotato = potato; }
+    if (!at) return;
+    var size = "calc(var(--u, 1) * " + RIDER_SIZE + ")";
+    g.style.transform = "translate(" + at[0].toFixed(6) + "px, " + at[1].toFixed(6) + "px) scale(calc(var(--u, 1) * " + (RIDER_SIZE * (state.rideFace || 1)) + "), " + size + ")";
+  }
   function routeBounds() {
     var c = state.cam, minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
     for (var i = 0; i < c.line.length; i += 3) { var q = proj(c.line[i][0], c.line[i][1]); if (q[0] < minX) minX = q[0]; if (q[0] > maxX) maxX = q[0]; if (q[1] < minY) minY = q[1]; if (q[1] > maxY) maxY = q[1]; }
@@ -322,6 +358,8 @@
     drawTiles(cx, cy, s, Wpx, Hpx, zoom);
     updateBoxes(f);
     highlightDay(state.day);
+    state.far = far;
+    placeRider(performance.now());
     var cue = document.getElementById("bigmap-cue"); if (cue) cue.hidden = !(f < INTRO * 0.6);
   }
 
@@ -550,6 +588,8 @@
     document.getElementById("bigmap-hint").textContent = (M.scrollHint || "SCROLL, OR USE THE BUTTONS AND THE SLIDER") + (tilesOn() && M.tiles ? " · " + M.tiles : "");
     resize();
     var viewBox = document.querySelector(".bigmap-view"); if (viewBox) viewBox.classList.add("drawn");   // fades the finished map in
+    state.still = !!(window.Rider && window.Rider.still());
+    if (window.Rider && !state.still) (function ride(now) { placeRider(now); requestAnimationFrame(ride); })(performance.now());   // keeps him riding
     var ticking = false;
     window.addEventListener("scroll", function () { if (ticking) return; ticking = true; requestAnimationFrame(function () { ticking = false; var f = scrollFraction(); if (state.free && Math.abs(f - state.lastF) > 0.0005) clearFree(); state.lastF = f; camera(f); }); }, { passive: true });
     wireLook();

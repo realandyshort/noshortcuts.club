@@ -40,6 +40,7 @@
       var q = proj(ll[0], ll[1]);
       var t = mk("text", { "class": "map-label", x: q[0] + dx * unit, y: q[1] + dy * unit, "text-anchor": anchor || "start", "font-size": unit * 2.4 });
       t.textContent = text; svg.appendChild(t);
+      return t;
     }
     var start = o.route[0], end = o.route[o.route.length - 1];
     var qs = proj(start[0], start[1]), qe = proj(end[0], end[1]);
@@ -50,10 +51,13 @@
     if (o.position) {
       var qp = proj(o.position[0], o.position[1]);
       if (o.live) svg.appendChild(mk("circle", { "class": "map-pos-ring", cx: qp[0], cy: qp[1], r: unit * 1.4, "stroke-width": unit * 0.5 }));   // live: a ring pulses out of the dot
-      if (window.Rider) { var rider = window.Rider.group({ potato: o.potato }); rider.setAttribute("transform", "translate(" + qp[0].toFixed(1) + " " + qp[1].toFixed(1) + ") scale(" + (unit * 0.2).toFixed(3) + ")"); svg.appendChild(rider); }   // Andy on the bike, wheels on the spot
-      else svg.appendChild(mk("circle", { "class": "map-pos", cx: qp[0], cy: qp[1], r: unit * 1.4, "stroke-width": unit * 0.6 }));
-      if (o.positionLabel) label(o.position, String(o.positionLabel).toUpperCase(), window.Rider ? -5.8 : -2.4, window.Rider ? -2.2 : 0.8, "end");   // clear of the bike
+      if (!window.Rider) svg.appendChild(mk("circle", { "class": "map-pos", cx: qp[0], cy: qp[1], r: unit * 1.4, "stroke-width": unit * 0.6 }));
+      if (o.positionLabel) label(o.position, String(o.positionLabel).toUpperCase(), window.Rider ? -5.8 : -2.4, window.Rider ? -2.2 : 0.8, "end").setAttribute("class", "map-label map-pos-label");   // clear of the bike
     }
+    // Andy on the bike, wheels on the spot (Potato in the basket up to Los Angeles). Hovering the map sends him to the hovered spot (rider()); he comes back after.
+    svg.classList.remove("riding");
+    svg._rider = { scale: unit * 0.2, home: o.position ? proj(o.position[0], o.position[1]) : null, homePotato: !!o.potato, g: null, potato: null };
+    rider(svg, null);
     if (o.legend) {
       o.legend.innerHTML = "";
       var left = document.createElement("span");
@@ -73,5 +77,20 @@
     apply();
     if (!svg._dotResize) { svg._dotResize = true; window.addEventListener("resize", function () { var r = svg.querySelector(".route-rest"); if (r) { p = r; apply(); } }); }
   }
-  window.SiteMap = { draw: draw, proj: proj };
+  // put the card's rider at a spot (drawing units) as he is on that day, or, with no spot, back where the day is
+  function rider(svg, q, potato) {
+    var info = svg._rider;
+    if (!info || !window.Rider) return false;
+    var at = q || info.home, want = q ? !!potato : info.homePotato;
+    svg.classList.toggle("riding", !!q);
+    if (!at) { if (info.g) { info.g.remove(); info.g = null; info.potato = null; } return true; }
+    if (!info.g || info.potato !== want) {
+      var g = window.Rider.group({ potato: want });
+      if (info.g) info.g.replaceWith(g); else svg.appendChild(g);
+      info.g = g; info.potato = want;
+    }
+    info.g.setAttribute("transform", "translate(" + at[0].toFixed(1) + " " + at[1].toFixed(1) + ") scale(" + info.scale.toFixed(3) + ")");
+    return true;
+  }
+  window.SiteMap = { draw: draw, proj: proj, rider: rider };
 })();
