@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-11-16T09:30:20.672Z",
+  "generated_at": "2026-11-16T20:21:47.048Z",
   "sources": {
     "plan": {
       "state": "ok",
-      "last_success_at": "2026-11-16T09:30:15.213Z",
-      "last_new_item_at": "2026-11-16T09:30:15.171Z",
+      "last_success_at": "2026-11-16T20:21:43.285Z",
+      "last_new_item_at": "2026-11-16T20:21:43.283Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-16T09:30:15.213Z",
+      "last_attempt_at": "2026-11-16T20:21:43.285Z",
       "note": "some sections from the seed"
     },
     "dispatches": {
       "state": "ok",
-      "last_success_at": "2026-11-16T09:30:15.335Z",
+      "last_success_at": "2026-11-16T20:21:43.329Z",
       "last_new_item_at": "2026-10-28T21:35:02.000Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-16T09:30:15.335Z",
+      "last_attempt_at": "2026-11-16T20:21:43.329Z",
       "note": null
     },
     "instagram": {
       "state": "ok",
-      "last_success_at": "2026-11-16T09:30:18.122Z",
+      "last_success_at": "2026-11-16T20:21:44.784Z",
       "last_new_item_at": "2026-10-08T05:40:49+0000",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-16T09:30:18.122Z",
+      "last_attempt_at": "2026-11-16T20:21:44.784Z",
       "note": null,
       "token_fingerprint": "4970b811",
       "token_first_seen_at": "2026-10-29T21:29:49.695Z",
@@ -37,25 +37,25 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-16T09:30:18.122Z",
+      "last_attempt_at": "2026-11-16T20:21:44.785Z",
       "note": "videos are turned off in config"
     },
     "rides": {
       "state": "ok",
-      "last_success_at": "2026-11-16T09:30:18.906Z",
+      "last_success_at": "2026-11-16T20:21:45.328Z",
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-16T09:30:18.906Z",
+      "last_attempt_at": "2026-11-16T20:21:45.328Z",
       "note": null
     },
     "position": {
       "state": "ok",
-      "last_success_at": "2026-11-16T09:30:19.891Z",
+      "last_success_at": "2026-11-16T20:21:46.126Z",
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-16T09:30:19.891Z",
+      "last_attempt_at": "2026-11-16T20:21:46.126Z",
       "note": "no points in the feed yet"
     },
     "weather": {
@@ -64,16 +64,16 @@
       "last_new_item_at": null,
       "consecutive_failures": 0,
       "last_error": null,
-      "last_attempt_at": "2026-11-16T09:30:19.891Z",
+      "last_attempt_at": "2026-11-16T20:21:46.127Z",
       "note": "no position"
     },
     "substack": {
       "state": "broken",
       "last_success_at": "2026-11-14T17:00:03.932Z",
       "last_new_item_at": null,
-      "consecutive_failures": 7,
+      "consecutive_failures": 8,
       "last_error": "HTTP 403 from https://noshortcutsclub.substack.com/feed: <!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta nam",
-      "last_attempt_at": "2026-11-16T09:30:15.383Z",
+      "last_attempt_at": "2026-11-16T20:21:43.425Z",
       "note": "no written post yet"
     }
   },
